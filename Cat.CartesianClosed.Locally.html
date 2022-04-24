@@ -94,7 +94,7 @@
       <div id="return" style="white-space: nowrap;">
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a5a5f0b43b76aaec7284f1bc4e099d94e463d473/src/Cat/CartesianClosed/Locally.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/dd660f8d0fb30dbcbd1a919077b975cf7352dbe4/src/Cat/CartesianClosed/Locally.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -233,7 +233,7 @@ Left (×-functor C (cc .cartesian)) A ⊣ cc .[_,-] A" id="3507" href="Cat.Carte
     <a id="3626" class="Comment">-- together.</a>
     <a id="3643" href="Cat.CartesianClosed.Locally.html#3643" class="Function">tensor</a> <a id="3650" class="Symbol">=</a> <a data-type="(f : Hom C Y X) → Functor (Slice C Y) (Slice C X)" id="3652" href="Cat.Functor.Pullback.html#3562" class="Function">Σf</a> <a data-type="(r : /-Obj c) → Hom C (r .domain) c" id="3655" href="Cat.Instances.Slice.html#2306" class="Field">f.map</a> <a data-type="Functor D E → Functor C D → Functor C E" id="3661" href="Cat.Base.html#9697" class="Function Operator">F∘</a> <a data-type="(r : is-lcc C) → C .Hom a b → Functor (Slice C b) (Slice C a)" id="3664" href="Cat.CartesianClosed.Locally.html#1584" class="Function">base-change</a> <a data-type="(r : /-Obj c) → Hom C (r .domain) c" id="3676" href="Cat.Instances.Slice.html#2306" class="Field">f.map</a>
     <a id="3686" href="Cat.CartesianClosed.Locally.html#3686" class="Function">tensor⊣hom′</a> <a id="3698" class="Symbol">:</a> <a id="3700" href="Cat.CartesianClosed.Locally.html#3643" class="Function">tensor</a> <a data-type="(L : Functor C D) (R₁ : Functor D C) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" id="3707" href="Cat.Functor.Adjoint.html#1896" class="Record Operator">⊣</a> <a id="3709" href="Cat.CartesianClosed.Locally.html#2497" class="Function">hom</a> <a id="3713" href="Cat.CartesianClosed.Locally.html#3518" class="Bound">f</a>
-    <a id="3719" href="Cat.CartesianClosed.Locally.html#3686" class="Function">tensor⊣hom′</a> <a id="3731" class="Symbol">=</a> <a data-type="(F⊣G : F ⊣ G) (L⊣R : L ⊣ R₁) → (L F∘ F) ⊣ (G F∘ R₁)" id="3733" href="Cat.Functor.Adjoint.Compose.html#1230" class="Function">LF⊣GR</a> <a id="3739" class="Symbol">(</a><a data-type="(r : is-lcc C) (f : Hom C a b) →
+    <a id="3719" href="Cat.CartesianClosed.Locally.html#3686" class="Function">tensor⊣hom′</a> <a id="3731" class="Symbol">=</a> <a data-type="(F⊣G : F ⊣ G) (L⊣R : L ⊣ R₁) → L F∘ F ⊣ G F∘ R₁" id="3733" href="Cat.Functor.Adjoint.Compose.html#1230" class="Function">LF⊣GR</a> <a id="3739" class="Symbol">(</a><a data-type="(r : is-lcc C) (f : Hom C a b) →
 Base-change (pullbacks (r .finitely-complete)) f ⊣ r .Πf f" id="3740" href="Cat.CartesianClosed.Locally.html#1765" class="Field">f*⊣Πf</a> <a id="3746" class="Symbol">_)</a> <a id="3749" class="Symbol">(</a><a data-type="(pullbacks : (f : Hom C X Z) (g : Hom C Y Z) → Pullback C f g)
 (f : Hom C Y X) →
 Σf f ⊣ Base-change pullbacks f" id="3750" href="Cat.Functor.Pullback.html#4986" class="Function">Σf⊣f*</a> <a data-type="Finitely-complete C →
