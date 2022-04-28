@@ -111,7 +111,7 @@
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
                     <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/69036f0dd3bd4b7105d14d3251591795452a4a48/src/index.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/23156877e0e274f33fdcc9ff7257cc79abaed97b/src/index.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and uni</div> <br />
               </div>
     </div>
@@ -362,28 +362,29 @@
 <h1 id="topos-theory"><a href="#topos-theory" class="header-link">Topos theory<span class="header-link-emoji">🔗</span></a></h1>
 <p>Grothendieck topos theory developed constructively and predicatively.</p>
 <pre class="Agda"><a id="17713" class="Keyword">open</a> <a id="17718" class="Keyword">import</a> <a id="17725" href="Topoi.Base.html" class="Module">Topoi.Base</a>       <a id="17742" class="Comment">-- Topoi, properties of topoi, geometric morphisms</a>
-<a id="17793" class="Keyword">open</a> <a id="17798" class="Keyword">import</a> <a id="17805" href="Topoi.Classifying.Diaconescu.html" class="Module">Topoi.Classifying.Diaconescu</a>
-<a id="17834" class="Comment">-- ^ Presheaf topoi classify flat functors on their site</a>
+<a id="17793" class="Keyword">open</a> <a id="17798" class="Keyword">import</a> <a id="17805" href="Topoi.Reasoning.html" class="Module">Topoi.Reasoning</a>  <a id="17822" class="Comment">-- Exactness properties of topoi (cont&#39;d), reasoning</a>
+<a id="17875" class="Keyword">open</a> <a id="17880" class="Keyword">import</a> <a id="17887" href="Topoi.Classifying.Diaconescu.html" class="Module">Topoi.Classifying.Diaconescu</a>
+<a id="17916" class="Comment">-- ^ Presheaf topoi classify flat functors on their site</a>
 </pre>
 <h1 id="algebra"><a href="#algebra" class="header-link">Algebra<span class="header-link-emoji">🔗</span></a></h1>
 <p>In the <code>Algebra</code> namespace, the theory of universal algebra is developed from a univalent perspective. Specifically, every definition of an algebraic structure comes with an associated proof that it is univalent — concretely, identification of groups is group isomorphism (for instance).</p>
-<pre class="Agda"><a id="18206" class="Keyword">open</a> <a id="18211" class="Keyword">import</a> <a id="18218" href="Algebra.Magma.html" class="Module">Algebra.Magma</a>                      <a id="18253" class="Comment">-- Binary operations</a>
-<a id="18274" class="Keyword">open</a> <a id="18279" class="Keyword">import</a> <a id="18286" href="Algebra.Magma.Unital.html" class="Module">Algebra.Magma.Unital</a>               <a id="18321" class="Comment">-- Operations with two-sided units</a>
-<a id="18356" class="Keyword">open</a> <a id="18361" class="Keyword">import</a> <a id="18368" href="Algebra.Magma.Unital.EckmannHilton.html" class="Module">Algebra.Magma.Unital.EckmannHilton</a> <a id="18403" class="Comment">-- The Eckmann-Hilton argument</a>
+<pre class="Agda"><a id="18288" class="Keyword">open</a> <a id="18293" class="Keyword">import</a> <a id="18300" href="Algebra.Magma.html" class="Module">Algebra.Magma</a>                      <a id="18335" class="Comment">-- Binary operations</a>
+<a id="18356" class="Keyword">open</a> <a id="18361" class="Keyword">import</a> <a id="18368" href="Algebra.Magma.Unital.html" class="Module">Algebra.Magma.Unital</a>               <a id="18403" class="Comment">-- Operations with two-sided units</a>
+<a id="18438" class="Keyword">open</a> <a id="18443" class="Keyword">import</a> <a id="18450" href="Algebra.Magma.Unital.EckmannHilton.html" class="Module">Algebra.Magma.Unital.EckmannHilton</a> <a id="18485" class="Comment">-- The Eckmann-Hilton argument</a>
 
-<a id="18435" class="Keyword">open</a> <a id="18440" class="Keyword">import</a> <a id="18447" href="Algebra.Semigroup.html" class="Module">Algebra.Semigroup</a>   <a id="18467" class="Comment">-- Semigroups (associative magmas)</a>
-<a id="18502" class="Keyword">open</a> <a id="18507" class="Keyword">import</a> <a id="18514" href="Algebra.Monoid.html" class="Module">Algebra.Monoid</a>      <a id="18534" class="Comment">-- Monoids as unital semigroups</a>
+<a id="18517" class="Keyword">open</a> <a id="18522" class="Keyword">import</a> <a id="18529" href="Algebra.Semigroup.html" class="Module">Algebra.Semigroup</a>   <a id="18549" class="Comment">-- Semigroups (associative magmas)</a>
+<a id="18584" class="Keyword">open</a> <a id="18589" class="Keyword">import</a> <a id="18596" href="Algebra.Monoid.html" class="Module">Algebra.Monoid</a>      <a id="18616" class="Comment">-- Monoids as unital semigroups</a>
 
-<a id="18567" class="Keyword">open</a> <a id="18572" class="Keyword">import</a> <a id="18579" href="Algebra.Group.html" class="Module">Algebra.Group</a>                      <a id="18614" class="Comment">-- Groups as monoids with inverses</a>
-<a id="18649" class="Keyword">open</a> <a id="18654" class="Keyword">import</a> <a id="18661" href="Algebra.Group.Free.html" class="Module">Algebra.Group.Free</a>                 <a id="18696" class="Comment">-- Free groups</a>
-<a id="18711" class="Keyword">open</a> <a id="18716" class="Keyword">import</a> <a id="18723" href="Algebra.Group.Cayley.html" class="Module">Algebra.Group.Cayley</a>               <a id="18758" class="Comment">-- Cayley&#39;s theorem</a>
-<a id="18778" class="Keyword">open</a> <a id="18783" class="Keyword">import</a> <a id="18790" href="Algebra.Group.Cat.Base.html" class="Module">Algebra.Group.Cat.Base</a>             <a id="18825" class="Comment">-- Category of groups</a>
-<a id="18847" class="Keyword">open</a> <a id="18852" class="Keyword">import</a> <a id="18859" href="Algebra.Group.Cat.FinitelyComplete.html" class="Module">Algebra.Group.Cat.FinitelyComplete</a> <a id="18894" class="Comment">-- Finite limits in Groups</a>
-<a id="18921" class="Keyword">open</a> <a id="18926" class="Keyword">import</a> <a id="18933" href="Algebra.Group.Homotopy.html" class="Module">Algebra.Group.Homotopy</a>             <a id="18968" class="Comment">-- Homotopy groups</a>
-<a id="18987" class="Keyword">open</a> <a id="18992" class="Keyword">import</a> <a id="18999" href="Algebra.Group.Subgroup.html" class="Module">Algebra.Group.Subgroup</a>             <a id="19034" class="Comment">-- Subgroups, images and kernels</a>
+<a id="18649" class="Keyword">open</a> <a id="18654" class="Keyword">import</a> <a id="18661" href="Algebra.Group.html" class="Module">Algebra.Group</a>                      <a id="18696" class="Comment">-- Groups as monoids with inverses</a>
+<a id="18731" class="Keyword">open</a> <a id="18736" class="Keyword">import</a> <a id="18743" href="Algebra.Group.Free.html" class="Module">Algebra.Group.Free</a>                 <a id="18778" class="Comment">-- Free groups</a>
+<a id="18793" class="Keyword">open</a> <a id="18798" class="Keyword">import</a> <a id="18805" href="Algebra.Group.Cayley.html" class="Module">Algebra.Group.Cayley</a>               <a id="18840" class="Comment">-- Cayley&#39;s theorem</a>
+<a id="18860" class="Keyword">open</a> <a id="18865" class="Keyword">import</a> <a id="18872" href="Algebra.Group.Cat.Base.html" class="Module">Algebra.Group.Cat.Base</a>             <a id="18907" class="Comment">-- Category of groups</a>
+<a id="18929" class="Keyword">open</a> <a id="18934" class="Keyword">import</a> <a id="18941" href="Algebra.Group.Cat.FinitelyComplete.html" class="Module">Algebra.Group.Cat.FinitelyComplete</a> <a id="18976" class="Comment">-- Finite limits in Groups</a>
+<a id="19003" class="Keyword">open</a> <a id="19008" class="Keyword">import</a> <a id="19015" href="Algebra.Group.Homotopy.html" class="Module">Algebra.Group.Homotopy</a>             <a id="19050" class="Comment">-- Homotopy groups</a>
+<a id="19069" class="Keyword">open</a> <a id="19074" class="Keyword">import</a> <a id="19081" href="Algebra.Group.Subgroup.html" class="Module">Algebra.Group.Subgroup</a>             <a id="19116" class="Comment">-- Subgroups, images and kernels</a>
 
-<a id="19068" class="Keyword">open</a> <a id="19073" class="Keyword">import</a> <a id="19080" href="Algebra.Group.Ab.html" class="Module">Algebra.Group.Ab</a> <a id="19097" class="Comment">-- Abelian groups, and the category Ab</a>
-<a id="19136" class="Keyword">open</a> <a id="19141" class="Keyword">import</a> <a id="19148" href="Algebra.Group.Ab.Free.html" class="Module">Algebra.Group.Ab.Free</a> <a id="19170" class="Comment">-- The free abelian group on a group</a>
+<a id="19150" class="Keyword">open</a> <a id="19155" class="Keyword">import</a> <a id="19162" href="Algebra.Group.Ab.html" class="Module">Algebra.Group.Ab</a> <a id="19179" class="Comment">-- Abelian groups, and the category Ab</a>
+<a id="19218" class="Keyword">open</a> <a id="19223" class="Keyword">import</a> <a id="19230" href="Algebra.Group.Ab.Free.html" class="Module">Algebra.Group.Ab.Free</a> <a id="19252" class="Comment">-- The free abelian group on a group</a>
 </pre>
   </article>
 </div>
