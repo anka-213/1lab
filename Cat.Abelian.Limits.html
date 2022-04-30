@@ -98,7 +98,7 @@
       <div id="return" style="white-space: nowrap;">
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/0a04349e4d7b6a436737e6702574d5f0f28dc6ec/src/Cat/Abelian/Limits.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/875d7ff269841a71c17597b8fff6296eea79612d/src/Cat/Abelian/Limits.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -215,12 +215,12 @@ Hom-grp r A B₁ .object .fst →
 Hom-grp r A B₁ .object .fst → Hom-grp r A B₁ .object .fst" id="2203" href="Cat.Abelian.Base.html#2361" class="Function Operator">-</a> <a id="2205" href="Cat.Abelian.Limits.html#1424" class="Bound">g</a><a id="2206" class="Symbol">)</a>
 </pre>
 <p>By a standard characterisation of finite limits in terms of finite products and binary equalisers, the construction of “difference kernels” above implies that any pre-abelian category is finitely complete.</p>
-<pre class="Agda"><a id="finitely-complete"></a><a data-type="(A : is-pre-abelian C) → Finitely-complete C" id="2428" href="Cat.Abelian.Limits.html#2428" class="Function">finitely-complete</a> <a id="2446" class="Symbol">:</a> <a data-type="(C : Precategory ℓ ℓ&#39;) → Type (ℓ ⊔ ℓ&#39;)" id="2448" href="Cat.Diagram.Limit.Finite.html#1972" class="Record">Finitely-complete</a> <a id="2466" href="Cat.Abelian.Limits.html#167" class="Bound">C</a>
+<pre class="Agda"><a id="finitely-complete"></a><a data-type="(A : is-pre-abelian C) → Finitely-complete C" id="2428" href="Cat.Abelian.Limits.html#2428" class="Function">finitely-complete</a> <a id="2446" class="Symbol">:</a> <a data-type="(C : Precategory ℓ ℓ&#39;) → Type (ℓ ⊔ ℓ&#39;)" id="2448" href="Cat.Diagram.Limit.Finite.html#1984" class="Record">Finitely-complete</a> <a id="2466" href="Cat.Abelian.Limits.html#167" class="Bound">C</a>
 <a data-type="(A : is-pre-abelian C) → Finitely-complete C" id="2468" href="Cat.Abelian.Limits.html#2428" class="Function">finitely-complete</a> <a id="2486" class="Symbol">=</a>
   <a data-type="(C : Precategory ℓ ℓ&#39;) →
 Terminal C →
 ((A B₁ : Ob C) → Product C A B₁) →
-((f g : Hom C A B₁) → Equaliser C f g) → Finitely-complete C" id="2490" href="Cat.Diagram.Limit.Finite.html#5700" class="Function">with-equalisers</a> <a id="2506" href="Cat.Abelian.Limits.html#167" class="Bound">C</a> <a data-type="(r : is-abelian C) → Terminal r" id="2508" href="Cat.Abelian.Base.html#6688" class="Function">has-terminal</a> <a data-type="(r : is-abelian C) (A B₁ : Ob C) → Product r A B₁" id="2521" href="Cat.Abelian.Base.html#6716" class="Function">has-prods</a> <a id="2531" class="Symbol">λ</a> <a id="2533" href="Cat.Abelian.Limits.html#2533" class="Bound">f</a> <a id="2535" href="Cat.Abelian.Limits.html#2535" class="Bound">g</a> <a id="2537" class="Symbol">→</a>
+((f g : Hom C A B₁) → Equaliser C f g) → Finitely-complete C" id="2490" href="Cat.Diagram.Limit.Finite.html#5712" class="Function">with-equalisers</a> <a id="2506" href="Cat.Abelian.Limits.html#167" class="Bound">C</a> <a data-type="(r : is-abelian C) → Terminal r" id="2508" href="Cat.Abelian.Base.html#6688" class="Function">has-terminal</a> <a data-type="(r : is-abelian C) (A B₁ : Ob C) → Product r A B₁" id="2521" href="Cat.Abelian.Base.html#6716" class="Function">has-prods</a> <a id="2531" class="Symbol">λ</a> <a id="2533" href="Cat.Abelian.Limits.html#2533" class="Bound">f</a> <a id="2535" href="Cat.Abelian.Limits.html#2535" class="Bound">g</a> <a id="2537" class="Symbol">→</a>
     <a id="2543" class="Keyword">record</a> <a id="2550" class="Symbol">{</a> <a data-type="(r : Equaliser C f g) → is-equaliser C f g (r .equ)" id="2552" href="Cat.Diagram.Equaliser.html#1890" class="Field">has-is-eq</a> <a id="2562" class="Symbol">=</a> <a data-type="(A : is-pre-abelian C) → is-equaliser A f g (kernel A ((A - f) g))" id="2564" href="Cat.Abelian.Limits.html#1309" class="Function">difference-kernel</a> <a id="2582" class="Symbol">}</a>
 </pre>
 <section class="footnotes" role="doc-endnotes">
