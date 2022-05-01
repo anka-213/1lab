@@ -38,18 +38,43 @@
     const
       width = document.documentElement.clientWidth,
       height = document.documentElement.clientHeight,
-      idm = {};
-    const colors = {};
+      idm = {},
+      colors = {},
+      graphnodes = [],
+      induced = new Set();
+
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+
+    start = params.start;
+    induced.add(start);
+    graphnodes.push({ id: start, label: start });
+
+    for (const l of graphedges) {
+      if (l.from === start) {
+        graphnodes.push({ id: l.to, label: l.to });
+        induced.add(l.to);
+      } else if (l.to === start) {
+        graphnodes.push({ id: l.from, label: l.from });
+        induced.add(l.from);
+      }
+    }
 
     graphnodes.map((x, i) => {
       idm[x.id] = i
       digestMessage(x.id).then(c => colors[x.id] = Math.abs(new Int32Array(c)[0]) % 359);
     });
 
-    const links = graphedges.map(x => ({
-      source: idm[x.from],
-      target: idm[x.to],
-    }));
+    const links = graphedges.filter(x => induced.has(x.from) && induced.has(x.to)).map(x => {
+      if (idm[x.from] === undefined || idm[x.to] === undefined) {
+        throw x;
+      }
+      return {
+        source: idm[x.from],
+        target: idm[x.to],
+      }
+    });
 
     const simulation = d3.forceSimulation(graphnodes)
       .force('charge', d3.forceManyBody().strength(-400))
@@ -76,11 +101,18 @@
       .attr('r', 10)
 
     const labels =
-      svg.selectAll('text')
+      svg.selectAll('g')
         .data(graphnodes)
-        .join('text')
-        .text(d => d.label)
-        .attr('visibility', 'hidden');
+        .join('g');
+
+    labels
+      .append('text')
+      .text(d => d.label)
+      .clone(true).lower()
+      .attr('fill', 'none')
+      .attr('stroke', 'white')
+      .attr('stroke-width', 3);
+
 
     let visible = null;
     const render = () => {
@@ -94,12 +126,11 @@
         .attr("y1", d => d.source.y)
         .attr("x2", d => d.target.x)
         .attr("y2", d => d.target.y)
-        .attr('stroke', d => d.fill || '#eee')
+        .attr('stroke', d => d.fill || '#ccc')
         .attr('visibility', d => visible !== null ? (visible[d.index] ? "" : "hidden") : "");
       labels
-        .attr('x', d => d.x + 10)
-        .attr('y', d => d.y + 10)
-        .attr('visibility', d => visible !== null ? (visible[d.id] ? "" : "hidden") : d.vis ? '' : 'hidden');
+        .attr('transform', d => `translate(${d.x}, ${d.y})`)
+        .attr('visibility', d => visible !== null ? (visible[d.id] ? "" : "hidden") : "");
     };
 
     simulation.on('tick', render);
@@ -134,7 +165,7 @@
           out.push({
             elem: l,
             col: col,
-            defCol: '#eee',
+            defCol: '#ccc',
             hops: ho
           });
 
