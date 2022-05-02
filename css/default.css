@@ -152,31 +152,6 @@ div.columns blockquote, div.columns details.blockquote {
   padding-bottom: 0.2em;
   border: 0; }
 
-code, pre, .sourceCode {
-  font-family: 'Iosevka', 'Fantasque Sans Mono', Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  font-weight: 500; }
-
-div.sourceCode, pre {
-  background-color: #fff;
-  color: #222;
-  flex-grow: 0;
-  padding: 1em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  box-shadow: 2px 2px 6px black;
-  border-radius: 10px;
-  overflow-x: auto;
-  line-height: 1.2; }
-  div.sourceCode code, pre code {
-    display: block; }
-  div.sourceCode > pre, pre > pre {
-    padding: unset;
-    margin-top: unset;
-    margin-bottom: unset;
-    box-shadow: unset;
-    margin: 0;
-    overflow-y: clip; }
-
 p > code {
   white-space: nowrap;
   font-size: var(--code-font-size); }
@@ -418,13 +393,6 @@ code.cv, span.cv {
   color: #d52753; }
 
 /* CommentVar */
-.typeTooltip {
-  position: absolute;
-  z-index: 100;
-  font-size: 0.8em;
-  color: #222;
-  background: #fff; }
-
 div.profile {
   border-top: 2px solid #444;
   padding-top: 0.5em;
