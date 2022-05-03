@@ -100,7 +100,7 @@
       <div id="return" style="white-space: nowrap;">
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/82394aebd120212bf0e21e441f3e2ed6318d1278/src/Cat/Diagram/Equaliser/Kernel.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/e7f3da6c3ef5054c791abb6e26eccf097c6b6a59/src/Cat/Diagram/Equaliser/Kernel.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -196,10 +196,10 @@ Type (ℓ ⊔ ℓ′)" class="Module">is-equaliser</a> <a id="1186" href="Cat.Di
 ((f g : Hom C a b) → Equaliser C f g) →
 (f : Hom C a b) → Kernel C zero₁ f" class="Function">Ker</a> <a id="2219" class="Symbol">(</a><a id="2220" href="Cat.Diagram.Equaliser.Kernel.html#1631" data-type="(C : Precategory o ℓ) (zero₁ : Zero C) →
 ((f g : Hom C a b) → Equaliser C f g) →
-(f : Hom C a b) → Kernel C zero₁ f" class="Function">Ker</a> <a id="2224" href="Cat.Diagram.Equaliser.Kernel.html#2200" class="Bound">f</a> <a id="2226" class="Symbol">.</a><a id="2227" href="Cat.Diagram.Equaliser.Kernel.html#1104" data-type="(r : Kernel C ∅ f) → Hom C (r .ker) a" class="Field">kernel</a><a id="2233" class="Symbol">)</a> <a id="2235" class="Symbol">.</a><a id="2236" href="Cat.Diagram.Equaliser.Kernel.html#1088" data-type="Kernel C ∅ f → Ob C" class="Field">ker</a> <a id="2240" href="Cat.Morphism.html#2208" data-type="(C : Precategory o h) (a b : Ob C) → Type (o ⊔ h)" class="Record Operator">≅</a> <a id="2242" href="Cat.Diagram.Zero.html#574" data-type="Zero C → Ob C" class="Function">∅</a>
+(f : Hom C a b) → Kernel C zero₁ f" class="Function">Ker</a> <a id="2224" href="Cat.Diagram.Equaliser.Kernel.html#2200" class="Bound">f</a> <a id="2226" class="Symbol">.</a><a id="2227" href="Cat.Diagram.Equaliser.Kernel.html#1104" data-type="(r : Kernel C ∅ f) → Hom C (r .ker) a" class="Field">kernel</a><a id="2233" class="Symbol">)</a> <a id="2235" class="Symbol">.</a><a id="2236" href="Cat.Diagram.Equaliser.Kernel.html#1088" data-type="Kernel C ∅ f → Ob C" class="Field">ker</a> <a id="2240" href="Cat.Morphism.html#2202" data-type="(C : Precategory o h) (a b : Ob C) → Type h" class="Record Operator">≅</a> <a id="2242" href="Cat.Diagram.Zero.html#574" data-type="Zero C → Ob C" class="Function">∅</a>
   <a id="2246" href="Cat.Diagram.Equaliser.Kernel.html#2176" data-type="(C : Precategory o ℓ) (zero₁ : Zero C)
 (eqs : (f g : Hom C a b) → Equaliser C f g) (f : Hom C a b) →
-(C ≅ Ker C zero₁ eqs (Ker C zero₁ eqs f .kernel) .ker) (zero₁ .∅)" class="Function">Ker-of-ker≃∅</a> <a id="2259" href="Cat.Diagram.Equaliser.Kernel.html#2259" class="Bound">f</a> <a id="2261" class="Symbol">=</a> <a id="2263" href="Cat.Morphism.html#3719" data-type="(C : Precategory o h) (f : Hom C a b) (g : Hom C b a) →
+(C ≅ Ker C zero₁ eqs (Ker C zero₁ eqs f .kernel) .ker) (zero₁ .∅)" class="Function">Ker-of-ker≃∅</a> <a id="2259" href="Cat.Diagram.Equaliser.Kernel.html#2259" class="Bound">f</a> <a id="2261" class="Symbol">=</a> <a id="2263" href="Cat.Morphism.html#3707" data-type="(C : Precategory o h) (f : Hom C a b) (g : Hom C b a) →
 (C ∘ f) g ≡ id C → (C ∘ g) f ≡ id C → (C ≅ a) b" class="Function">make-iso</a> <a id="2272" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">!</a> <a id="2274" href="Cat.Diagram.Initial.html#600" data-type="(r : Initial C) → Hom C (bot r) x" class="Function">¡</a> <a id="2276" class="Symbol">(</a><a id="2277" href="Cat.Diagram.Terminal.html#723" data-type="(r : Terminal C) (f g : Hom C x (top r)) → f ≡ g" class="Function">!-unique₂</a> <a id="2287" class="Symbol">_</a> <a id="2289" class="Symbol">_)</a> <a id="2292" href="Cat.Diagram.Equaliser.Kernel.html#2697" data-type="(C : Precategory o ℓ) (zero₁ : Zero C)
 (eqs : (f g : Hom C a b) → Equaliser C f g) (f : Hom C a b) →
 (C ∘ ¡ zero₁) (! zero₁) ≡ id C" class="Function">p</a> <a id="2294" class="Keyword">where</a>
