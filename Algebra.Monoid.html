@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Algebra.Monoid - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -90,8 +85,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -100,9 +95,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Algebra/Monoid.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Algebra/Monoid.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao, szumixie and uni</div> <br />
               </div>
     </div>
@@ -116,10 +115,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -272,15 +277,15 @@ Structure ℓ₃ S₁" class="InductiveConstructor">HomT→Str</a> <a id="3468" 
 <p>This is a happy theorem where stating the assumptions takes as many lines as the proof, which is a rather boring calculation. Since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> is an identity for <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋆</mo></mrow><annotation encoding="application/x-tex">\star</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord">⋆</span></span></span></span>,</span> we can freely multiply by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to “sneak in” a <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>:</span></p>
 <pre class="Agda"><a id="5474" href="Algebra.Monoid.html#5105" data-type="is-monoid 1M _⋆₁_ →
 (e x y : A) → (x ⋆₁ e) ≡ 1M → (e ⋆₁ y) ≡ 1M → x ≡ y" class="Function">monoid-inverse-unique</a> <a id="5496" class="Symbol">{</a><a id="5497" class="Argument">1M</a> <a id="5500" class="Symbol">=</a> <a id="5502" href="Algebra.Monoid.html#5502" class="Bound">1M</a><a id="5504" class="Symbol">}</a> <a id="5506" class="Symbol">{</a><a id="5507" href="Algebra.Monoid.html#5507" class="Bound Operator">_⋆_</a><a id="5510" class="Symbol">}</a> <a id="5512" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5514" href="Algebra.Monoid.html#5514" class="Bound">e</a> <a id="5516" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5518" href="Algebra.Monoid.html#5518" class="Bound">y</a> <a id="5520" href="Algebra.Monoid.html#5520" class="Bound">li1</a> <a id="5524" href="Algebra.Monoid.html#5524" class="Bound">ri2</a> <a id="5528" class="Symbol">=</a>
-  <a id="5532" href="Algebra.Monoid.html#5516" class="Bound">x</a>             <span class="reasoning-step"><span class="as-written Function"><a id="5546" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5549" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5553" class="Symbol">(</a><a id="5554" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5556" class="Symbol">.</a><a id="5557" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Field">idr</a><a id="5560" class="Symbol">)</a> <a id="5562" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="5566" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5568" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5570" href="Algebra.Monoid.html#5502" class="Bound">1M</a>        <span class="reasoning-step"><span class="as-written Function"><a id="5580" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5583" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+  <a id="5532" href="Algebra.Monoid.html#5516" class="Bound">x</a>             <a id="5546" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5549" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5553" class="Symbol">(</a><a id="5554" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5556" class="Symbol">.</a><a id="5557" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Field">idr</a><a id="5560" class="Symbol">)</a> <a id="5562" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="5566" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5568" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5570" href="Algebra.Monoid.html#5502" class="Bound">1M</a>        <a id="5580" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5583" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
-PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5587" href="Algebra.Monoid.html#5507" class="Bound Operator">_⋆_</a> <a id="5591" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5596" class="Symbol">(</a><a id="5597" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5601" href="Algebra.Monoid.html#5524" class="Bound">ri2</a><a id="5604" class="Symbol">)</a> <a id="5606" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="5610" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5612" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5614" class="Symbol">(</a><a id="5615" href="Algebra.Monoid.html#5514" class="Bound">e</a> <a id="5617" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5619" href="Algebra.Monoid.html#5518" class="Bound">y</a><a id="5620" class="Symbol">)</a>   <span class="reasoning-step"><span class="as-written Function"><a id="5624" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5627" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5629" class="Symbol">.</a><a id="5630" href="Algebra.Semigroup.html#453" data-type="is-semigroup _⋆₁_ → (x ⋆₁ (y ⋆₁ z)) ≡ ((x ⋆₁ y) ⋆₁ z)" class="Field">associative</a> <a id="5642" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="5646" class="Symbol">(</a><a id="5647" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5649" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5651" href="Algebra.Monoid.html#5514" class="Bound">e</a><a id="5652" class="Symbol">)</a> <a id="5654" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5656" href="Algebra.Monoid.html#5518" class="Bound">y</a>   <span class="reasoning-step"><span class="as-written Function"><a id="5660" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5663" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5587" href="Algebra.Monoid.html#5507" class="Bound Operator">_⋆_</a> <a id="5591" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5596" class="Symbol">(</a><a id="5597" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5601" href="Algebra.Monoid.html#5524" class="Bound">ri2</a><a id="5604" class="Symbol">)</a> <a id="5606" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="5610" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5612" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5614" class="Symbol">(</a><a id="5615" href="Algebra.Monoid.html#5514" class="Bound">e</a> <a id="5617" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5619" href="Algebra.Monoid.html#5518" class="Bound">y</a><a id="5620" class="Symbol">)</a>   <a id="5624" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5627" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5629" class="Symbol">.</a><a id="5630" href="Algebra.Semigroup.html#453" data-type="is-semigroup _⋆₁_ → (x ⋆₁ (y ⋆₁ z)) ≡ ((x ⋆₁ y) ⋆₁ z)" class="Field">associative</a> <a id="5642" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="5646" class="Symbol">(</a><a id="5647" href="Algebra.Monoid.html#5516" class="Bound">x</a> <a id="5649" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5651" href="Algebra.Monoid.html#5514" class="Bound">e</a><a id="5652" class="Symbol">)</a> <a id="5654" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5656" href="Algebra.Monoid.html#5518" class="Bound">y</a>   <a id="5660" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5663" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
-PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5667" href="Algebra.Monoid.html#5507" class="Bound Operator">_⋆_</a> <a id="5671" href="Algebra.Monoid.html#5520" class="Bound">li1</a> <a id="5675" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5680" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="5684" href="Algebra.Monoid.html#5502" class="Bound">1M</a> <a id="5687" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5689" href="Algebra.Monoid.html#5518" class="Bound">y</a>        <span class="reasoning-step"><span class="as-written Function"><a id="5698" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5701" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5703" class="Symbol">.</a><a id="5704" href="Algebra.Monoid.html#1088" data-type="is-monoid id₁ _⋆₁_ → (id₁ ⋆₁ x) ≡ x" class="Field">idl</a> <a id="5708" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5667" href="Algebra.Monoid.html#5507" class="Bound Operator">_⋆_</a> <a id="5671" href="Algebra.Monoid.html#5520" class="Bound">li1</a> <a id="5675" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5680" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="5684" href="Algebra.Monoid.html#5502" class="Bound">1M</a> <a id="5687" href="Algebra.Monoid.html#5507" class="Bound Operator">⋆</a> <a id="5689" href="Algebra.Monoid.html#5518" class="Bound">y</a>        <a id="5698" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5701" href="Algebra.Monoid.html#5512" class="Bound">m</a> <a id="5703" class="Symbol">.</a><a id="5704" href="Algebra.Monoid.html#1088" data-type="is-monoid id₁ _⋆₁_ → (id₁ ⋆₁ x) ≡ x" class="Field">idl</a> <a id="5708" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="5712" href="Algebra.Monoid.html#5518" class="Bound">y</a>             <a id="5726" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
 <section class="footnotes" role="doc-endnotes">
@@ -291,7 +296,6 @@ PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a 
 </section>
   </article>
 </div>
-
 </main>
 </body>
 </html>

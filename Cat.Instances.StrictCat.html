@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Instances.StrictCat - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -91,8 +86,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -101,9 +96,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Instances/StrictCat.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Instances/StrictCat.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -117,10 +116,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -229,7 +234,7 @@ Product (Strict-Cat o h) (C , cob) (D , dob)" class="Function">prod</a> <a id="2
   <a id="2316" href="Cat.Instances.StrictCat.html#2181" data-type="(cob : is-set (Ob C)) (dob : is-set (Ob D)) →
 Product (Strict-Cat o h) (C , cob) (D , dob)" class="Function">prod</a> <a id="2321" class="Symbol">.</a><a id="2322" href="Cat.Diagram.Product.html#2807" data-type="(r : Product C A B₁) → Hom C (r .apex) B₁" class="Field">π₂</a> <a id="2325" class="Symbol">=</a> <a id="2327" href="Cat.Instances.Product.html#2455" data-type="Functor (C ×Cat D) D" class="Function">Snd</a> <a id="2331" class="Symbol">{</a><a id="2332" class="Argument">C</a> <a id="2334" class="Symbol">=</a> <a id="2336" href="Cat.Instances.StrictCat.html#2147" class="Bound">C</a><a id="2337" class="Symbol">}</a> <a id="2339" class="Symbol">{</a><a id="2340" class="Argument">D</a> <a id="2342" class="Symbol">=</a> <a id="2344" href="Cat.Instances.StrictCat.html#2155" class="Bound">D</a><a id="2345" class="Symbol">}</a>
   <a id="2349" href="Cat.Instances.StrictCat.html#2181" data-type="(cob : is-set (Ob C)) (dob : is-set (Ob D)) →
-Product (Strict-Cat o h) (C , cob) (D , dob)" class="Function">prod</a> <a id="2354" class="Symbol">.</a><a id="2355" href="Cat.Diagram.Product.html#2827" data-type="(r : Product C A B₁) → is-product C (r .π₁) (r .π₂)" class="Field">has-is-product</a> <a id="2370" class="Symbol">.</a><a id="2371" href="Cat.Diagram.Product.html#1856" data-type="is-product C π₁ π₂ → Hom C Q A → Hom C Q B₁ → Hom C Q P" class="Field Operator">⟨_,_⟩</a> <a id="2377" href="Cat.Instances.StrictCat.html#2377" class="Bound">p</a> <a id="2379" href="Cat.Instances.StrictCat.html#2379" class="Bound">q</a> <a id="2381" class="Symbol">=</a> <span class="reasoning-step"><span class="as-written Function Operator"><a id="2383" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">Cat⟨</a> <a id="2388" href="Cat.Instances.StrictCat.html#2377" class="Bound">p</a> <a id="2390" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">,</a> <a id="2392" href="Cat.Instances.StrictCat.html#2379" class="Bound">q</a> <a id="2394" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">⟩</a></span><span class="alternate Function Operator">Cat</span></span>
+Product (Strict-Cat o h) (C , cob) (D , dob)" class="Function">prod</a> <a id="2354" class="Symbol">.</a><a id="2355" href="Cat.Diagram.Product.html#2827" data-type="(r : Product C A B₁) → is-product C (r .π₁) (r .π₂)" class="Field">has-is-product</a> <a id="2370" class="Symbol">.</a><a id="2371" href="Cat.Diagram.Product.html#1856" data-type="is-product C π₁ π₂ → Hom C Q A → Hom C Q B₁ → Hom C Q P" class="Field Operator">⟨_,_⟩</a> <a id="2377" href="Cat.Instances.StrictCat.html#2377" class="Bound">p</a> <a id="2379" href="Cat.Instances.StrictCat.html#2379" class="Bound">q</a> <a id="2381" class="Symbol">=</a> <a id="2383" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">Cat⟨</a> <a id="2388" href="Cat.Instances.StrictCat.html#2377" class="Bound">p</a> <a id="2390" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">,</a> <a id="2392" href="Cat.Instances.StrictCat.html#2379" class="Bound">q</a> <a id="2394" href="Cat.Instances.Product.html#2548" data-type="Functor E C → Functor E D → Functor E (C ×Cat D)" class="Function Operator">⟩</a>
   <a id="2398" href="Cat.Instances.StrictCat.html#2181" data-type="(cob : is-set (Ob C)) (dob : is-set (Ob D)) →
 Product (Strict-Cat o h) (C , cob) (D , dob)" class="Function">prod</a> <a id="2403" class="Symbol">.</a><a id="2404" href="Cat.Diagram.Product.html#2827" data-type="(r : Product C A B₁) → is-product C (r .π₁) (r .π₂)" class="Field">has-is-product</a> <a id="2419" class="Symbol">.</a><a id="2420" href="Cat.Diagram.Product.html#1918" data-type="(r : is-product C π₁ π₂) → (C ∘ π₁) (r .⟨_,_⟩ p1 p2) ≡ p1" class="Field">π₁∘factor</a> <a id="2430" class="Symbol">=</a> <a id="2432" href="Cat.Instances.Functor.html#3066" data-type="(p0 : (x : C .Ob) → F₀ F x ≡ F₀ G x) →
 ((f : C .Hom x y) →
@@ -250,7 +255,6 @@ F ≡ G" class="Function">Functor-path</a> <a id="2602" class="Symbol">(λ</a> <
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

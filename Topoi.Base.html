@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topoi.Base - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -96,8 +91,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -106,9 +101,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Topoi/Base.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Topoi/Base.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Naïm Favier</div> <br />
               </div>
     </div>
@@ -122,10 +121,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -545,23 +550,23 @@ f ≡ g" class="Function">Representables-generate</a> <a id="18608" class="Symbo
  Cat[ C ^op , Sets h₁ ] ._∘_ f h ≡
  Cat[ C ^op , Sets h₁ ] ._∘_ g h) →
 f ≡ g" class="Function">Representables-generate-presheaf</a> <a id="18716" href="Topoi.Base.html#3604" data-type="Topos κ 𝓣 → Precategory κ κ" class="Field">ct.site</a> <a id="18724" class="Symbol">λ</a> <a id="18726" href="Topoi.Base.html#18726" class="Bound">h</a> <a id="18728" class="Symbol">→</a>
-        <a id="18738" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18742" href="Topoi.Base.html#18613" class="Bound">f</a> <a id="18744" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18750" href="Topoi.Base.html#18726" class="Bound">h</a>                                    <span class="reasoning-step"><span class="as-written Function"><a id="18787" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="18790" href="Topoi.Base.html#19055" data-type="(ct : Topos ℓ C) →
+        <a id="18738" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18742" href="Topoi.Base.html#18613" class="Bound">f</a> <a id="18744" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18750" href="Topoi.Base.html#18726" class="Bound">h</a>                                    <a id="18787" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="18790" href="Topoi.Base.html#19055" data-type="(ct : Topos ℓ C) →
 ((h : C .Hom (₀ (L ct) (よ₀ (site ct) A)) X) →
  C ._∘_ f h ≡ C ._∘_ g h) →
 PSh ℓ (site ct) ._∘_ (₁ (ι ct) f) h ≡
 PSh ℓ (site ct) ._∘_
 (₁ (ι ct) (C ._∘_ f (C ._∘_ (ε (L⊣ι ct) X) (₁ (L ct) h))))
-(η (L⊣ι ct) Z)" class="Function">mangle</a> <a id="18797" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-        <a id="18807" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18811" class="Symbol">(</a><a id="18812" href="Topoi.Base.html#18613" class="Bound">f</a> <a id="18814" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18818" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="18827" class="Symbol">_</a> <a id="18829" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18833" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">L.₁</a> <a id="18837" href="Topoi.Base.html#18726" class="Bound">h</a><a id="18838" class="Symbol">)</a> <a id="18840" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18846" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="18853" class="Symbol">_</a>  <span class="reasoning-step"><span class="as-written Function"><a id="18856" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="18859" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+(η (L⊣ι ct) Z)" class="Function">mangle</a> <a id="18797" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+        <a id="18807" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18811" class="Symbol">(</a><a id="18812" href="Topoi.Base.html#18613" class="Bound">f</a> <a id="18814" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18818" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="18827" class="Symbol">_</a> <a id="18829" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18833" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">L.₁</a> <a id="18837" href="Topoi.Base.html#18726" class="Bound">h</a><a id="18838" class="Symbol">)</a> <a id="18840" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18846" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="18853" class="Symbol">_</a>  <a id="18856" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="18859" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
 PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="18862" class="Symbol">(</a><a id="18863" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh._∘</a> <a id="18870" class="Symbol">_)</a> <a id="18873" class="Symbol">(</a><a id="18874" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
-PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="18877" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18881" class="Symbol">(</a><a id="18882" href="Topoi.Base.html#18620" class="Bound">sep</a> <a id="18886" class="Symbol">_))</a> <a id="18890" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-        <a id="18900" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18904" class="Symbol">(</a><a id="18905" href="Topoi.Base.html#18617" class="Bound">g</a> <a id="18907" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18911" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="18920" class="Symbol">_</a> <a id="18922" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18926" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">L.₁</a> <a id="18930" href="Topoi.Base.html#18726" class="Bound">h</a><a id="18931" class="Symbol">)</a> <a id="18933" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18939" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="18946" class="Symbol">_</a>  <span class="reasoning-step"><span class="as-written Function Operator"><a id="18949" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="18953" href="Topoi.Base.html#19055" data-type="(ct : Topos ℓ C) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="18877" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18881" class="Symbol">(</a><a id="18882" href="Topoi.Base.html#18620" class="Bound">sep</a> <a id="18886" class="Symbol">_))</a> <a id="18890" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+        <a id="18900" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18904" class="Symbol">(</a><a id="18905" href="Topoi.Base.html#18617" class="Bound">g</a> <a id="18907" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18911" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="18920" class="Symbol">_</a> <a id="18922" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="18926" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">L.₁</a> <a id="18930" href="Topoi.Base.html#18726" class="Bound">h</a><a id="18931" class="Symbol">)</a> <a id="18933" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18939" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="18946" class="Symbol">_</a>  <a id="18949" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="18953" href="Topoi.Base.html#19055" data-type="(ct : Topos ℓ C) →
 ((h : C .Hom (₀ (L ct) (よ₀ (site ct) A)) X) →
  C ._∘_ f h ≡ C ._∘_ g h) →
 PSh ℓ (site ct) ._∘_ (₁ (ι ct) f) h ≡
 PSh ℓ (site ct) ._∘_
 (₁ (ι ct) (C ._∘_ f (C ._∘_ (ε (L⊣ι ct) X) (₁ (L ct) h))))
-(η (L⊣ι ct) Z)" class="Function">mangle</a> <a id="18960" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a></span><span class="alternate Function Operator">≡˘</span></span>
+(η (L⊣ι ct) Z)" class="Function">mangle</a> <a id="18960" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a>
         <a id="18970" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">ι.₁</a> <a id="18974" href="Topoi.Base.html#18617" class="Bound">g</a> <a id="18976" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">PSh.∘</a> <a id="18982" href="Topoi.Base.html#18726" class="Bound">h</a>                                    <a id="19019" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
 <!--
@@ -810,7 +815,6 @@ talk about geometric logic?
 </section>
   </article>
 </div>
-
 </main>
 </body>
 </html>

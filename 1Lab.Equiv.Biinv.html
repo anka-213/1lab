@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="1Lab.Equiv.Biinv - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="&lt;p&gt;While isomorphism is not well-behaved as a notion of equivalence, it turns out that equipping a map with 2 inverses instead of 1 makes &lt;em&gt;is&lt;/em&gt;. We call these biinvertible maps.&lt;/p&gt;" />
   <meta name="description" content="&lt;p&gt;While isomorphism is not well-behaved as a notion of equivalence, it turns out that equipping a map with 2 inverses instead of 1 makes &lt;em&gt;is&lt;/em&gt;. We call these biinvertible maps.&lt;/p&gt;" />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -88,8 +83,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -98,9 +93,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/1Lab/Equiv/Biinv.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/1Lab/Equiv/Biinv.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -114,10 +113,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -219,10 +224,10 @@ g ⊙ f ≡ id → (h : B₁ → A) → f ⊙ h ≡ id → (x : A) → h (f x) �
 g ⊙ f ≡ id → (h : B₁ → A) → f ⊙ h ≡ id → (x : A) → h (f x) ≡ x" class="Function">beta</a> <a id="4838" class="Symbol">:</a> <a id="4840" class="Symbol">(</a><a id="4841" href="1Lab.Equiv.Biinv.html#4841" class="Bound">x</a> <a id="4843" class="Symbol">:</a> <a id="4845" class="Symbol">_)</a> <a id="4848" class="Symbol">→</a> <a id="4850" href="1Lab.Equiv.Biinv.html#4780" class="Bound">h</a> <a id="4852" class="Symbol">(</a><a id="4853" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4855" href="1Lab.Equiv.Biinv.html#4841" class="Bound">x</a><a id="4856" class="Symbol">)</a> <a id="4858" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="4860" href="1Lab.Equiv.Biinv.html#4841" class="Bound">x</a>
     <a id="4866" href="1Lab.Equiv.Biinv.html#4833" data-type="(g : B₁ → A) →
 g ⊙ f ≡ id → (h : B₁ → A) → f ⊙ h ≡ id → (x : A) → h (f x) ≡ x" class="Function">beta</a> <a id="4871" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a> <a id="4873" class="Symbol">=</a>
-      <a id="4881" href="1Lab.Equiv.Biinv.html#4780" class="Bound">h</a> <a id="4883" class="Symbol">(</a><a id="4884" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4886" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4887" class="Symbol">)</a>         <span class="reasoning-step"><span class="as-written Function"><a id="4897" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4900" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="4907" class="Symbol">(</a><a id="4908" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="4912" href="1Lab.Equiv.Biinv.html#4770" class="Bound">g∘f≡id</a><a id="4918" class="Symbol">)</a> <a id="4920" class="Symbol">_</a> <a id="4922" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="4930" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4932" class="Symbol">(</a><a id="4933" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4935" class="Symbol">(</a><a id="4936" href="1Lab.Equiv.Biinv.html#4780" class="Bound">h</a> <a id="4938" class="Symbol">(</a><a id="4939" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4941" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4942" class="Symbol">)))</a> <span class="reasoning-step"><span class="as-written Function"><a id="4946" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4949" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
-PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="4952" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4954" class="Symbol">(</a><a id="4955" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="4962" href="1Lab.Equiv.Biinv.html#4784" class="Bound">h∘f≡id</a> <a id="4969" class="Symbol">_)</a> <a id="4972" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="4980" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4982" class="Symbol">(</a><a id="4983" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4985" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4986" class="Symbol">)</a>         <span class="reasoning-step"><span class="as-written Function"><a id="4996" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4999" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="5006" href="1Lab.Equiv.Biinv.html#4770" class="Bound">g∘f≡id</a> <a id="5013" class="Symbol">_</a> <a id="5015" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="4881" href="1Lab.Equiv.Biinv.html#4780" class="Bound">h</a> <a id="4883" class="Symbol">(</a><a id="4884" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4886" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4887" class="Symbol">)</a>         <a id="4897" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4900" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="4907" class="Symbol">(</a><a id="4908" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="4912" href="1Lab.Equiv.Biinv.html#4770" class="Bound">g∘f≡id</a><a id="4918" class="Symbol">)</a> <a id="4920" class="Symbol">_</a> <a id="4922" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="4930" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4932" class="Symbol">(</a><a id="4933" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4935" class="Symbol">(</a><a id="4936" href="1Lab.Equiv.Biinv.html#4780" class="Bound">h</a> <a id="4938" class="Symbol">(</a><a id="4939" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4941" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4942" class="Symbol">)))</a> <a id="4946" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4949" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="4952" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4954" class="Symbol">(</a><a id="4955" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="4962" href="1Lab.Equiv.Biinv.html#4784" class="Bound">h∘f≡id</a> <a id="4969" class="Symbol">_)</a> <a id="4972" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="4980" href="1Lab.Equiv.Biinv.html#4766" class="Bound">g</a> <a id="4982" class="Symbol">(</a><a id="4983" href="1Lab.Equiv.Biinv.html#4761" class="Bound">f</a> <a id="4985" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a><a id="4986" class="Symbol">)</a>         <a id="4996" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4999" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="5006" href="1Lab.Equiv.Biinv.html#4770" class="Bound">g∘f≡id</a> <a id="5013" class="Symbol">_</a> <a id="5015" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
       <a id="5023" href="1Lab.Equiv.Biinv.html#4871" class="Bound">x</a>               <a id="5039" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
 <p>Finally, we can show that being biinvertible is <a href="1Lab.HLevel.html#2597">a proposition</a>. Since propositions are those types which are <a href="1Lab.HLevel.html#4742">contractible if inhabited</a> suffices to show that <span class="Agda"><a href="1Lab.Equiv.Biinv.html#2207" class="Function">is-biinv</a></span> is contractible when it is inhabited:</p>
@@ -242,7 +247,6 @@ PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="4952" hr
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

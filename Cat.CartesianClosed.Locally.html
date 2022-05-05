@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="….CartesianClosed.Locally - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -91,8 +86,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -101,9 +96,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/CartesianClosed/Locally.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/CartesianClosed/Locally.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -117,10 +116,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -338,11 +343,11 @@ C ._∘_ (y .map)
 C ._∘_ (f .map)
 (p₂ (finitely-complete lcc .pullbacks (x .map) (f .map)))" class="Function">path</a> <a id="4669" class="Symbol">=</a>
             <a id="4683" href="Cat.CartesianClosed.Locally.html#4365" class="Bound">y</a> <a id="4685" class="Symbol">.</a><a id="4686" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="4690" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">∘</a> <a id="4692" href="Cat.CartesianClosed.Locally.html#4368" class="Bound">g</a> <a id="4694" class="Symbol">.</a><a id="4695" href="Cat.Instances.Slice.html#2951" data-type="/-Hom a b → Hom C (a .domain) (domain b)" class="Field">map</a> <a id="4699" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">∘</a> <a id="4701" href="Cat.Diagram.Pullback.html#3041" data-type="(r : Pullback C f g) → Hom C (r .apex) X" class="Field">Pullback.p₁</a> <a id="4713" class="Symbol">(</a><a id="4714" href="Cat.Diagram.Limit.Finite.html#2172" data-type="Finitely-complete C →
-(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4724" class="Symbol">_</a> <a id="4726" class="Symbol">_)</a> <span class="reasoning-step"><span class="as-written Function"><a id="4729" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4732" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
-(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">pulll</a> <a id="4738" class="Symbol">(</a><a id="4739" href="Cat.CartesianClosed.Locally.html#4368" class="Bound">g</a> <a id="4741" class="Symbol">.</a><a id="4742" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="4750" class="Symbol">)</a> <a id="4752" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4724" class="Symbol">_</a> <a id="4726" class="Symbol">_)</a> <a id="4729" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4732" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">pulll</a> <a id="4738" class="Symbol">(</a><a id="4739" href="Cat.CartesianClosed.Locally.html#4368" class="Bound">g</a> <a id="4741" class="Symbol">.</a><a id="4742" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="4750" class="Symbol">)</a> <a id="4752" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
             <a id="4766" href="Cat.CartesianClosed.Locally.html#4361" class="Bound">x</a> <a id="4768" class="Symbol">.</a><a id="4769" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="4773" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">∘</a> <a id="4775" href="Cat.Diagram.Pullback.html#3041" data-type="(r : Pullback C f g) → Hom C (r .apex) X" class="Field">Pullback.p₁</a> <a id="4787" class="Symbol">(</a><a id="4788" href="Cat.Diagram.Limit.Finite.html#2172" data-type="Finitely-complete C →
-(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4798" class="Symbol">_</a> <a id="4800" class="Symbol">_)</a>          <span class="reasoning-step"><span class="as-written Function"><a id="4812" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4815" href="Cat.Diagram.Pullback.html#733" data-type="is-pullback C p₁ f p₂ g → (C ∘ f) p₁ ≡ (C ∘ g) p₂" class="Function">Pullback.square</a> <a id="4831" class="Symbol">(</a><a id="4832" href="Cat.Diagram.Limit.Finite.html#2172" data-type="Finitely-complete C →
-(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4842" class="Symbol">_</a> <a id="4844" class="Symbol">_)</a> <a id="4847" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4798" class="Symbol">_</a> <a id="4800" class="Symbol">_)</a>          <a id="4812" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="4815" href="Cat.Diagram.Pullback.html#733" data-type="is-pullback C p₁ f p₂ g → (C ∘ f) p₁ ≡ (C ∘ g) p₂" class="Function">Pullback.square</a> <a id="4831" class="Symbol">(</a><a id="4832" href="Cat.Diagram.Limit.Finite.html#2172" data-type="Finitely-complete C →
+(f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4842" class="Symbol">_</a> <a id="4844" class="Symbol">_)</a> <a id="4847" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
             <a id="4861" href="Cat.CartesianClosed.Locally.html#3494" class="Bound">f</a> <a id="4863" class="Symbol">.</a><a id="4864" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="4868" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">∘</a> <a id="4870" href="Cat.Diagram.Pullback.html#3061" data-type="(r : Pullback C f g) → Hom C (r .apex) Y" class="Field">Pullback.p₂</a> <a id="4882" class="Symbol">(</a><a id="4883" href="Cat.Diagram.Limit.Finite.html#2172" data-type="Finitely-complete C →
 (f : Hom C A X) (g : Hom C B₁ X) → Pullback C f g" class="Function">pullbacks</a> <a id="4893" class="Symbol">_</a> <a id="4895" class="Symbol">_)</a>          <a id="4907" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 
@@ -354,7 +359,6 @@ Functor (Slice C a) (Slice C a)" class="Function">hom</a> <a id="4956" href="Cat
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Instances.Sets - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -92,8 +87,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -102,9 +97,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Instances/Sets.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Instances/Sets.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -118,10 +117,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -192,13 +197,12 @@ PathP (λ i → (C ≅ p i) (q i)) f g" class="Function">Sets.≅-pathp</a> <a i
 <p>We then use <a href="1Lab.HLevel.Universe.html">univalence for <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-types</span></a> to directly establish that <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>≡</mo><mi>B</mi><mo stretchy="false">)</mo><mo>≃</mo><mo stretchy="false">(</mo><mi>A</mi><mo>≅</mo><mi>B</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(A \equiv B) \simeq (A \cong B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≃</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span>:</span></p>
 <pre class="Agda">  <a id="3229" href="Cat.Instances.Sets.html#3229" data-type="(A ≡ B₁) ≃ (Sets ℓ ≅ A) B₁" class="Function">is-category′-Sets</a> <a id="3247" class="Symbol">:</a> <a id="3249" class="Symbol">∀</a> <a id="3251" class="Symbol">{</a><a id="3252" href="Cat.Instances.Sets.html#3252" class="Bound">A</a> <a id="3254" href="Cat.Instances.Sets.html#3254" class="Bound">B</a> <a id="3256" class="Symbol">:</a> <a id="3258" href="1Lab.HLevel.Universe.html#5374" data-type="(ℓ : Level) → Type (lsuc ℓ)" class="Function">Set</a> <a id="3262" href="Cat.Instances.Sets.html#869" class="Bound">ℓ</a><a id="3263" class="Symbol">}</a> <a id="3265" class="Symbol">→</a> <a id="3267" class="Symbol">(</a><a id="3268" href="Cat.Instances.Sets.html#3252" class="Bound">A</a> <a id="3270" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3272" href="Cat.Instances.Sets.html#3254" class="Bound">B</a><a id="3273" class="Symbol">)</a> <a id="3275" href="1Lab.Equiv.html#2439" data-type="Type ℓ₁ → Type ℓ₂ → Type (ℓ₁ ⊔ ℓ₂)" class="Function Operator">≃</a> <a id="3277" class="Symbol">(</a><a id="3278" href="Cat.Instances.Sets.html#3252" class="Bound">A</a> <a id="3280" href="Cat.Morphism.html#2202" data-type="(C : Precategory o h) (a b : Ob C) → Type h" class="Record Operator">Sets.≅</a> <a id="3287" href="Cat.Instances.Sets.html#3254" class="Bound">B</a><a id="3288" class="Symbol">)</a>
   <a id="3292" href="Cat.Instances.Sets.html#3229" data-type="(A ≡ B₁) ≃ (Sets ℓ ≅ A) B₁" class="Function">is-category′-Sets</a> <a id="3310" class="Symbol">{</a><a id="3311" href="Cat.Instances.Sets.html#3311" class="Bound">A</a><a id="3312" class="Symbol">}</a> <a id="3314" class="Symbol">{</a><a id="3315" href="Cat.Instances.Sets.html#3315" class="Bound">B</a><a id="3316" class="Symbol">}</a> <a id="3318" class="Symbol">=</a>
-    <a id="3324" class="Symbol">(</a><a id="3325" href="Cat.Instances.Sets.html#3311" class="Bound">A</a> <a id="3327" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3329" href="Cat.Instances.Sets.html#3315" class="Bound">B</a><a id="3330" class="Symbol">)</a>         <span class="reasoning-step"><span class="as-written Function Operator"><a id="3340" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">≃⟨</a> <a id="3343" href="1Lab.HLevel.Universe.html#3927" data-type="(∣ X ∣ ≃ ∣ Y ∣) ≃ (X ≡ Y)" class="Function">n-univalence</a> <a id="3356" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a> <a id="3360" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">⟩</a></span><span class="alternate Function Operator">≃</span></span>
-    <a id="3366" class="Symbol">(</a><a id="3367" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3369" href="Cat.Instances.Sets.html#3311" class="Bound">A</a> <a id="3371" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3373" href="1Lab.Equiv.html#2439" data-type="Type ℓ₁ → Type ℓ₂ → Type (ℓ₁ ⊔ ℓ₂)" class="Function Operator">≃</a> <a id="3375" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3377" href="Cat.Instances.Sets.html#3315" class="Bound">B</a> <a id="3379" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a><a id="3380" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function Operator"><a id="3382" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">≃⟨</a> <a id="3385" href="Cat.Instances.Sets.html#2783" data-type="(Sets ℓ ≅ A) B₁ ≃ (∣ A ∣ ≃ ∣ B₁ ∣)" class="Function">equiv≃iso</a> <a id="3395" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a> <a id="3399" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">⟩</a></span><span class="alternate Function Operator">≃</span></span>
+    <a id="3324" class="Symbol">(</a><a id="3325" href="Cat.Instances.Sets.html#3311" class="Bound">A</a> <a id="3327" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3329" href="Cat.Instances.Sets.html#3315" class="Bound">B</a><a id="3330" class="Symbol">)</a>         <a id="3340" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">≃⟨</a> <a id="3343" href="1Lab.HLevel.Universe.html#3927" data-type="(∣ X ∣ ≃ ∣ Y ∣) ≃ (X ≡ Y)" class="Function">n-univalence</a> <a id="3356" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a> <a id="3360" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">⟩</a>
+    <a id="3366" class="Symbol">(</a><a id="3367" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3369" href="Cat.Instances.Sets.html#3311" class="Bound">A</a> <a id="3371" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3373" href="1Lab.Equiv.html#2439" data-type="Type ℓ₁ → Type ℓ₂ → Type (ℓ₁ ⊔ ℓ₂)" class="Function Operator">≃</a> <a id="3375" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a> <a id="3377" href="Cat.Instances.Sets.html#3315" class="Bound">B</a> <a id="3379" href="1Lab.HLevel.Universe.html#3120" data-type="n-Type ℓ n → Type ℓ" class="Field Operator">∣</a><a id="3380" class="Symbol">)</a> <a id="3382" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">≃⟨</a> <a id="3385" href="Cat.Instances.Sets.html#2783" data-type="(Sets ℓ ≅ A) B₁ ≃ (∣ A ∣ ≃ ∣ B₁ ∣)" class="Function">equiv≃iso</a> <a id="3395" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a> <a id="3399" href="1Lab.Equiv.html#22981" data-type="(A : Type ℓ) → A ≃ B₁ → B₁ ≃ C → A ≃ C" class="Function Operator">⟩</a>
     <a id="3405" class="Symbol">(</a><a id="3406" href="Cat.Instances.Sets.html#3311" class="Bound">A</a> <a id="3408" href="Cat.Morphism.html#2202" data-type="(C : Precategory o h) (a b : Ob C) → Type h" class="Record Operator">Sets.≅</a> <a id="3415" href="Cat.Instances.Sets.html#3315" class="Bound">B</a><a id="3416" class="Symbol">)</a>    <a id="3421" href="1Lab.Equiv.html#23172" data-type="(A : Type ℓ) → A ≃ A" class="Function Operator">≃∎</a>
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

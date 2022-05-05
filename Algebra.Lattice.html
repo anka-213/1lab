@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Algebra.Lattice - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -91,8 +86,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -101,9 +96,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Algebra/Lattice.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Algebra/Lattice.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -117,10 +116,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -322,14 +327,14 @@ y ≡ (l L∨ x) y" class="Function">q</a> <a id="5438" class="Symbol">:</a> <a 
  : Semilattice-on→Meet-on (Lattice-on→is-meet-semi l) .underlying
    .Hom x y) →
 y ≡ (l L∨ x) y" class="Function">q</a> <a id="5457" class="Symbol">=</a>
-      <a id="5465" href="Algebra.Lattice.html#5408" class="Bound">y</a>             <span class="reasoning-step"><span class="as-written Function"><a id="5479" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5482" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5486" href="Algebra.Lattice.html#1436" data-type="is-lattice _∧₁_ _∨₁_ → (x ∨₁ (x ∧₁ y)) ≡ x" class="Function">∨-absorbs-∧</a> <a id="5498" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="5506" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5508" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5511" class="Symbol">(</a><a id="5512" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5514" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="5517" href="Algebra.Lattice.html#5404" class="Bound">x</a><a id="5518" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="5520" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5523" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+      <a id="5465" href="Algebra.Lattice.html#5408" class="Bound">y</a>             <a id="5479" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5482" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5486" href="Algebra.Lattice.html#1436" data-type="is-lattice _∧₁_ _∨₁_ → (x ∨₁ (x ∧₁ y)) ≡ x" class="Function">∨-absorbs-∧</a> <a id="5498" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="5506" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5508" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5511" class="Symbol">(</a><a id="5512" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5514" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="5517" href="Algebra.Lattice.html#5404" class="Bound">x</a><a id="5518" class="Symbol">)</a> <a id="5520" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5523" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
-PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5527" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∨_</a> <a id="5532" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5537" href="Algebra.Lattice.html#978" class="Function">∧-commutative</a> <a id="5551" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="5559" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5561" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5564" class="Symbol">(</a><a id="5565" href="Algebra.Lattice.html#5404" class="Bound">x</a> <a id="5567" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="5570" href="Algebra.Lattice.html#5408" class="Bound">y</a><a id="5571" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="5573" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5576" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5527" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∨_</a> <a id="5532" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5537" href="Algebra.Lattice.html#978" class="Function">∧-commutative</a> <a id="5551" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="5559" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5561" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5564" class="Symbol">(</a><a id="5565" href="Algebra.Lattice.html#5404" class="Bound">x</a> <a id="5567" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="5570" href="Algebra.Lattice.html#5408" class="Bound">y</a><a id="5571" class="Symbol">)</a> <a id="5573" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5576" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
-PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5580" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∨_</a> <a id="5585" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5590" class="Symbol">(</a><a id="5591" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5595" href="Algebra.Lattice.html#5411" class="Bound">p</a><a id="5596" class="Symbol">)</a> <a id="5598" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="5606" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5608" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5611" href="Algebra.Lattice.html#5404" class="Bound">x</a>        <span class="reasoning-step"><span class="as-written Function"><a id="5620" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5623" href="Algebra.Lattice.html#1210" class="Function">∨-commutative</a> <a id="5637" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="5580" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∨_</a> <a id="5585" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="5590" class="Symbol">(</a><a id="5591" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5595" href="Algebra.Lattice.html#5411" class="Bound">p</a><a id="5596" class="Symbol">)</a> <a id="5598" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="5606" href="Algebra.Lattice.html#5408" class="Bound">y</a> <a id="5608" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5611" href="Algebra.Lattice.html#5404" class="Bound">x</a>        <a id="5620" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5623" href="Algebra.Lattice.html#1210" class="Function">∨-commutative</a> <a id="5637" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
       <a id="5645" href="Algebra.Lattice.html#5404" class="Bound">x</a> <a id="5647" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5650" href="Algebra.Lattice.html#5408" class="Bound">y</a>        <a id="5659" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
   <a id="5663" href="Algebra.Lattice.html#5240" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
@@ -359,10 +364,10 @@ is-equivalence F" class="Function">ff+split-eso→is-equivalence</a> <a id="6012
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
 (Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">covariant-order-map</a> <a id="6368" href="Algebra.Lattice.html#5978" class="Bound">l</a><a id="6369" class="Symbol">)</a>
     <a id="6375" href="Algebra.Lattice.html#6324" data-type="(l : Lattice-on A) → is-fully-faithful (covariant-order-map l)" class="Function">ff</a> <a id="6378" class="Symbol">{</a><a id="6379" href="Algebra.Lattice.html#6379" class="Bound">x</a><a id="6380" class="Symbol">}</a> <a id="6382" class="Symbol">{</a><a id="6383" href="Algebra.Lattice.html#6383" class="Bound">y</a><a id="6384" class="Symbol">}</a> <a id="6386" class="Symbol">.</a><a id="6387" href="1Lab.Equiv.html#2376" data-type="is-equiv f → (y : B₁) → is-contr (fibre f y)" class="Field">is-eqv</a> <a id="6394" href="Algebra.Lattice.html#6394" class="Bound">p</a> <a id="6396" class="Symbol">.</a><a id="6397" href="1Lab.HLevel.html#1401" data-type="is-contr A → A" class="Field">centre</a> <a id="6404" class="Symbol">.</a><a id="6405" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="6409" class="Symbol">=</a>
-      <a id="6417" href="Algebra.Lattice.html#6379" class="Bound">x</a>             <span class="reasoning-step"><span class="as-written Function"><a id="6431" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6434" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="6438" href="Algebra.Lattice.html#1390" data-type="is-lattice _∧₁_ _∨₁_ → (x ∧₁ (x ∨₁ y)) ≡ x" class="Function">∧-absorbs-∨</a> <a id="6450" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-      <a id="6458" href="Algebra.Lattice.html#6379" class="Bound">x</a> <a id="6460" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="6463" class="Symbol">(</a><a id="6464" href="Algebra.Lattice.html#6379" class="Bound">x</a> <a id="6466" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="6469" href="Algebra.Lattice.html#6383" class="Bound">y</a><a id="6470" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="6472" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6475" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+      <a id="6417" href="Algebra.Lattice.html#6379" class="Bound">x</a>             <a id="6431" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6434" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="6438" href="Algebra.Lattice.html#1390" data-type="is-lattice _∧₁_ _∨₁_ → (x ∧₁ (x ∨₁ y)) ≡ x" class="Function">∧-absorbs-∨</a> <a id="6450" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+      <a id="6458" href="Algebra.Lattice.html#6379" class="Bound">x</a> <a id="6460" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="6463" class="Symbol">(</a><a id="6464" href="Algebra.Lattice.html#6379" class="Bound">x</a> <a id="6466" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="6469" href="Algebra.Lattice.html#6383" class="Bound">y</a><a id="6470" class="Symbol">)</a> <a id="6472" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6475" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
-PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="6479" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∧_</a> <a id="6484" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="6489" class="Symbol">(</a><a id="6490" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="6494" href="Algebra.Lattice.html#6394" class="Bound">p</a><a id="6495" class="Symbol">)</a> <a id="6497" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="6479" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">_L∧_</a> <a id="6484" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a> <a id="6489" class="Symbol">(</a><a id="6490" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="6494" href="Algebra.Lattice.html#6394" class="Bound">p</a><a id="6495" class="Symbol">)</a> <a id="6497" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
       <a id="6505" href="Algebra.Lattice.html#6379" class="Bound">x</a> <a id="6507" href="Algebra.Lattice.html#2094" data-type="Lattice-on A → A → A → A" class="Field Operator">L∧</a> <a id="6510" href="Algebra.Lattice.html#6383" class="Bound">y</a>        <a id="6519" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
     <a id="6525" href="Algebra.Lattice.html#6324" data-type="(l : Lattice-on A) → is-fully-faithful (covariant-order-map l)" class="Function">ff</a> <a id="6528" class="Symbol">.</a><a id="6529" href="1Lab.Equiv.html#2376" data-type="is-equiv f → (y : B₁) → is-contr (fibre f y)" class="Field">is-eqv</a> <a id="6536" href="Algebra.Lattice.html#6536" class="Bound">y</a> <a id="6538" class="Symbol">.</a><a id="6539" href="1Lab.HLevel.html#1401" data-type="is-contr A → A" class="Field">centre</a> <a id="6546" class="Symbol">.</a><a id="6547" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="6551" class="Symbol">=</a> <a id="6553" href="Algebra.Magma.html#1624" data-type="is-magma _⋆₁_ → is-set A" class="Function">has-is-set</a> <a id="6564" class="Symbol">_</a> <a id="6566" class="Symbol">_</a> <a id="6568" class="Symbol">_</a> <a id="6570" class="Symbol">_</a>
     <a id="6576" href="Algebra.Lattice.html#6324" data-type="(l : Lattice-on A) → is-fully-faithful (covariant-order-map l)" class="Function">ff</a> <a id="6579" class="Symbol">.</a><a id="6580" href="1Lab.Equiv.html#2376" data-type="is-equiv f → (y : B₁) → is-contr (fibre f y)" class="Field">is-eqv</a> <a id="6587" href="Algebra.Lattice.html#6587" class="Bound">y</a> <a id="6589" class="Symbol">.</a><a id="6590" href="1Lab.HLevel.html#1416" data-type="(r : is-contr A) (x : A) → r .centre ≡ x" class="Field">paths</a> <a id="6596" href="Algebra.Lattice.html#6596" class="Bound">x</a> <a id="6598" class="Symbol">=</a>
@@ -381,7 +386,6 @@ Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

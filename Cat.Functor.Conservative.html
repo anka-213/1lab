@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Functor.Conservative - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -88,8 +83,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -98,9 +93,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Functor/Conservative.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Functor/Conservative.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -114,10 +113,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -222,10 +227,10 @@ F .F₁ (hom (! L-lim))" class="Function">F-preserves-universal</a>
 (limits : is-limit (F F∘ Dia) (F-map-cone F K)) →
 hom (! (F∘L-lim conservative L-lim preserves K limits)) ≡
 F .F₁ (hom (! L-lim))" class="Function">F-preserves-universal</a> <a id="2468" class="Symbol">=</a>
-        <a id="2478" href="Cat.Diagram.Limit.Base.html#8258" data-type="Cone-hom F x y → C .Hom (apex x) (apex y)" class="Field">hom</a> <a id="2482" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">F∘L-lim.!</a> <span class="reasoning-step"><span class="as-written Function"><a id="2492" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2495" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+        <a id="2478" href="Cat.Diagram.Limit.Base.html#8258" data-type="Cone-hom F x y → C .Hom (apex x) (apex y)" class="Field">hom</a> <a id="2482" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">F∘L-lim.!</a> <a id="2492" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2495" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
 PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="2498" href="Cat.Diagram.Limit.Base.html#8258" data-type="Cone-hom F x y → C .Hom (apex x) (apex y)" class="Field">hom</a> <a id="2502" class="Symbol">(</a><a id="2503" href="Cat.Diagram.Terminal.html#652" data-type="(r : Terminal C) (h : Hom C x (top r)) → ! r ≡ h" class="Function">F∘L-lim.!-unique</a> <a id="2520" class="Symbol">(</a><a id="2521" href="Cat.Diagram.Limit.Base.html#11490" data-type="(F : Functor C D) →
 Cone-hom Dia X Y →
-Cone-hom (F F∘ Dia) (F-map-cone F X) (F-map-cone F Y)" class="Function">F-map-cone-hom</a> <a id="2536" href="Cat.Functor.Conservative.html#1388" class="Bound">F</a> <a id="2538" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">L-lim.!</a><a id="2545" class="Symbol">))</a> <a id="2548" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+Cone-hom (F F∘ Dia) (F-map-cone F X) (F-map-cone F Y)" class="Function">F-map-cone-hom</a> <a id="2536" href="Cat.Functor.Conservative.html#1388" class="Bound">F</a> <a id="2538" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">L-lim.!</a><a id="2545" class="Symbol">))</a> <a id="2548" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
         <a id="2558" href="Cat.Diagram.Limit.Base.html#8258" data-type="Cone-hom F x y → C .Hom (apex x) (apex y)" class="Field">hom</a> <a id="2562" class="Symbol">(</a><a id="2563" href="Cat.Diagram.Limit.Base.html#11490" data-type="(F : Functor C D) →
 Cone-hom Dia X Y →
 Cone-hom (F F∘ Dia) (F-map-cone F X) (F-map-cone F Y)" class="Function">F-map-cone-hom</a> <a id="2578" href="Cat.Functor.Conservative.html#1388" class="Bound">F</a> <a id="2580" class="Symbol">(</a><a id="2581" href="Cat.Diagram.Terminal.html#606" data-type="(r : Terminal C) → Hom C x (top r)" class="Function">Terminal.!</a> <a id="2592" href="Cat.Functor.Conservative.html#1709" class="Bound">L-lim</a><a id="2597" class="Symbol">))</a> <a id="2600" href="1Lab.Path.html#46881" data-type="(x : A) → x ≡ y → x ≡ y" class="Function Operator">≡⟨⟩</a>
@@ -233,7 +238,6 @@ Cone-hom (F F∘ Dia) (F-map-cone F X) (F-map-cone F Y)" class="Function">F-map-
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

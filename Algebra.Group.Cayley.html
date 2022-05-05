@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Algebra.Group.Cayley - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -88,8 +83,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -98,9 +93,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Algebra/Group/Cayley.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Algebra/Group/Cayley.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -114,10 +113,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -138,12 +143,12 @@
   <a id="816" href="Algebra.Group.Cayley.html#800" data-type="(G : Group ℓ) (x : G .fst) → Iso (G .fst) (G .fst)" class="Function">bij</a> <a id="820" class="Symbol">.</a><a id="821" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="825" href="Algebra.Group.Cayley.html#825" class="Bound">y</a> <a id="827" class="Symbol">=</a> <a id="829" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="831" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="833" href="Algebra.Group.Cayley.html#825" class="Bound">y</a>
   <a id="837" href="Algebra.Group.Cayley.html#800" data-type="(G : Group ℓ) (x : G .fst) → Iso (G .fst) (G .fst)" class="Function">bij</a> <a id="841" class="Symbol">.</a><a id="842" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="846" class="Symbol">.</a><a id="847" href="1Lab.Equiv.html#6132" data-type="is-iso f → B₁ → A" class="Field">is-iso.inv</a> <a id="858" href="Algebra.Group.Cayley.html#858" class="Bound">y</a> <a id="860" class="Symbol">=</a> <a id="862" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="864" href="Algebra.Group.html#5825" data-type="(r : Group-on A) → A → A" class="Function Operator">⁻¹</a> <a id="867" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="869" href="Algebra.Group.Cayley.html#858" class="Bound">y</a>
   <a id="873" href="Algebra.Group.Cayley.html#800" data-type="(G : Group ℓ) (x : G .fst) → Iso (G .fst) (G .fst)" class="Function">bij</a> <a id="877" class="Symbol">.</a><a id="878" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="882" class="Symbol">.</a><a id="883" href="1Lab.Equiv.html#6148" data-type="(r : is-iso f) → is-right-inverse (r .inv) f" class="Field">is-iso.rinv</a> <a id="895" href="Algebra.Group.Cayley.html#895" class="Bound">y</a> <a id="897" class="Symbol">=</a>
-    <a id="903" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="905" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="907" class="Symbol">(</a><a id="908" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="910" href="Algebra.Group.html#5825" data-type="(r : Group-on A) → A → A" class="Function Operator">⁻¹</a> <a id="913" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="915" href="Algebra.Group.Cayley.html#895" class="Bound">y</a><a id="916" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="918" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="921" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
-(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="929" href="Algebra.Group.html#1387" data-type="(r : is-group _*₁_) → (x *₁ r .inverse x) ≡ r .unit" class="Function">inverser</a> <a id="938" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+    <a id="903" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="905" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="907" class="Symbol">(</a><a id="908" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="910" href="Algebra.Group.html#5825" data-type="(r : Group-on A) → A → A" class="Function Operator">⁻¹</a> <a id="913" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="915" href="Algebra.Group.Cayley.html#895" class="Bound">y</a><a id="916" class="Symbol">)</a> <a id="918" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="921" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="929" href="Algebra.Group.html#1387" data-type="(r : is-group _*₁_) → (x *₁ r .inverse x) ≡ r .unit" class="Function">inverser</a> <a id="938" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
     <a id="944" href="Algebra.Group.Cayley.html#895" class="Bound">y</a>              <a id="959" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
   <a id="963" href="Algebra.Group.Cayley.html#800" data-type="(G : Group ℓ) (x : G .fst) → Iso (G .fst) (G .fst)" class="Function">bij</a> <a id="967" class="Symbol">.</a><a id="968" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="972" class="Symbol">.</a><a id="973" href="1Lab.Equiv.html#6182" data-type="(r : is-iso f) → is-left-inverse (r .inv) f" class="Field">is-iso.linv</a> <a id="985" href="Algebra.Group.Cayley.html#985" class="Bound">y</a> <a id="987" class="Symbol">=</a>
-    <a id="993" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="995" href="Algebra.Group.html#5825" data-type="(r : Group-on A) → A → A" class="Function Operator">⁻¹</a> <a id="998" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1000" class="Symbol">(</a><a id="1001" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="1003" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1005" href="Algebra.Group.Cayley.html#985" class="Bound">y</a><a id="1006" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="1008" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1011" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
-(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="1019" href="Algebra.Group.html#1341" data-type="(r : is-group _*₁_) → (r .inverse x *₁ x) ≡ r .unit" class="Function">inversel</a> <a id="1028" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+    <a id="993" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="995" href="Algebra.Group.html#5825" data-type="(r : Group-on A) → A → A" class="Function Operator">⁻¹</a> <a id="998" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1000" class="Symbol">(</a><a id="1001" href="Algebra.Group.Cayley.html#774" class="Bound">x</a> <a id="1003" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1005" href="Algebra.Group.Cayley.html#985" class="Bound">y</a><a id="1006" class="Symbol">)</a> <a id="1008" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1011" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="1019" href="Algebra.Group.html#1341" data-type="(r : is-group _*₁_) → (r .inverse x *₁ x) ≡ r .unit" class="Function">inversel</a> <a id="1028" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
     <a id="1034" href="Algebra.Group.Cayley.html#985" class="Bound">y</a>              <a id="1049" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
 <p>We then show that this map is a group homomorphism from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> to <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\id{Sym}(G)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Sym</span></span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span></span></span></span>:</span></p>
@@ -161,17 +166,16 @@ G .snd ._⋆_ (G .snd ._⋆_ x y) e ≡ G .snd ._⋆_ x (G .snd ._⋆_ y e)" cla
 <p>Finally, we show that this map is injective; Thus, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> embeds as a subgroup of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\id{Sym}(G)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Sym</span></span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span></span></span></span> (the image of <span class="Agda"><a href="Algebra.Group.Cayley.html#733" class="Function">Cayley</a></span>).</p>
 <pre class="Agda"><a id="Cayley-injective"></a><a id="1496" href="Algebra.Group.Cayley.html#1496" data-type="(G : Group ℓ) → injective (Cayley G)" class="Function">Cayley-injective</a> <a id="1513" class="Symbol">:</a> <a id="1515" href="1Lab.Equiv.Embedding.html#1154" data-type="(A → B₁) → Type (A.ℓ ⊔ B.ℓ)" class="Function">injective</a> <a id="1525" href="Algebra.Group.Cayley.html#733" data-type="(G : Group ℓ) → G .fst → G .fst ≃ G .fst" class="Function">Cayley</a>
 <a id="1532" href="Algebra.Group.Cayley.html#1496" data-type="(G : Group ℓ) → injective (Cayley G)" class="Function">Cayley-injective</a> <a id="1549" class="Symbol">{</a><a id="1550" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a><a id="1551" class="Symbol">}</a> <a id="1553" class="Symbol">{</a><a id="1554" href="Algebra.Group.Cayley.html#1554" class="Bound">y</a><a id="1555" class="Symbol">}</a> <a id="1557" href="Algebra.Group.Cayley.html#1557" class="Bound">eqvs-equal</a> <a id="1568" class="Symbol">=</a>
-  <a id="1572" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a>                   <span class="reasoning-step"><span class="as-written Function"><a id="1592" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1595" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="1599" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Function">idr</a> <a id="1603" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+  <a id="1572" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a>                   <a id="1592" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1595" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="1599" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Function">idr</a> <a id="1603" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="1607" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a> <a id="1609" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1611" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>            <a id="1627" href="1Lab.Path.html#46881" data-type="(x : A) → x ≡ y → x ≡ y" class="Function Operator">≡⟨⟩</a>
-  <a id="1633" href="Algebra.Group.Cayley.html#733" data-type="(G : Group ℓ) → G .fst → G .fst ≃ G .fst" class="Function">Cayley</a> <a id="1640" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a> <a id="1642" class="Symbol">.</a><a id="1643" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="1647" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>  <span class="reasoning-step"><span class="as-written Function"><a id="1653" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1656" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="1663" class="Symbol">(</a><a id="1664" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
-PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="1667" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="1671" href="Algebra.Group.Cayley.html#1557" class="Bound">eqvs-equal</a><a id="1681" class="Symbol">)</a> <a id="1683" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a> <a id="1688" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+  <a id="1633" href="Algebra.Group.Cayley.html#733" data-type="(G : Group ℓ) → G .fst → G .fst ≃ G .fst" class="Function">Cayley</a> <a id="1640" href="Algebra.Group.Cayley.html#1550" class="Bound">x</a> <a id="1642" class="Symbol">.</a><a id="1643" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="1647" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>  <a id="1653" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1656" href="1Lab.Path.html#58127" data-type="f ≡ g → (x : A) → f x ≡ g x" class="Function">happly</a> <a id="1663" class="Symbol">(</a><a id="1664" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="1667" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="1671" href="Algebra.Group.Cayley.html#1557" class="Bound">eqvs-equal</a><a id="1681" class="Symbol">)</a> <a id="1683" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a> <a id="1688" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="1692" href="Algebra.Group.Cayley.html#733" data-type="(G : Group ℓ) → G .fst → G .fst ≃ G .fst" class="Function">Cayley</a> <a id="1699" href="Algebra.Group.Cayley.html#1554" class="Bound">y</a> <a id="1701" class="Symbol">.</a><a id="1702" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a> <a id="1706" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>  <a id="1712" href="1Lab.Path.html#46881" data-type="(x : A) → x ≡ y → x ≡ y" class="Function Operator">≡⟨⟩</a>
-  <a id="1718" href="Algebra.Group.Cayley.html#1554" class="Bound">y</a> <a id="1720" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1722" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>            <span class="reasoning-step"><span class="as-written Function"><a id="1738" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1741" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Function">idr</a> <a id="1745" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+  <a id="1718" href="Algebra.Group.Cayley.html#1554" class="Bound">y</a> <a id="1720" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Function Operator">⋆</a> <a id="1722" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">unit</a>            <a id="1738" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="1741" href="Algebra.Monoid.html#1119" data-type="is-monoid id₁ _⋆₁_ → (x ⋆₁ id₁) ≡ x" class="Function">idr</a> <a id="1745" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="1749" href="Algebra.Group.Cayley.html#1554" class="Bound">y</a>                   <a id="1769" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="…oup.Cat.FinitelyComplete - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -93,8 +88,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -103,9 +98,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Algebra/Group/Cat/FinitelyComplete.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Algebra/Group/Cat/FinitelyComplete.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -119,10 +118,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -169,7 +174,7 @@ Group-hom Zero-group (fst₁ , G) (λ x → unit G)" class="Function">gh</a> <a 
   <a id="1865" href="Algebra.Group.Cat.FinitelyComplete.html#1829" data-type="(fst₁ : Type ℓ) (G : Group-on fst₁) →
 Group-hom Zero-group (fst₁ , G) (λ x → unit G)" class="Function">gh</a> <a id="1868" class="Symbol">.</a><a id="1869" href="Algebra.Group.html#6284" data-type="Group-hom A B₁ e →
 (x y : A .fst) → e (A .snd ._⋆_ x y) ≡ B₁ .snd ._⋆_ (e x) (e y)" class="Field">pres-⋆</a> <a id="1876" href="Algebra.Group.Cat.FinitelyComplete.html#1876" class="Bound">x</a> <a id="1878" href="Algebra.Group.Cat.FinitelyComplete.html#1878" class="Bound">y</a> <a id="1880" class="Symbol">=</a>
-    <a id="1886" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">G.unit</a>            <span class="reasoning-step"><span class="as-written Function Operator"><a id="1904" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="1908" href="Algebra.Monoid.html#1088" data-type="is-monoid id₁ _⋆₁_ → (id₁ ⋆₁ x) ≡ x" class="Function">G.idl</a> <a id="1914" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a></span><span class="alternate Function Operator">≡˘</span></span>
+    <a id="1886" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">G.unit</a>            <a id="1904" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="1908" href="Algebra.Monoid.html#1088" data-type="is-monoid id₁ _⋆₁_ → (id₁ ⋆₁ x) ≡ x" class="Function">G.idl</a> <a id="1914" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a>
     <a id="1920" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">G.unit</a> <a id="1927" href="Algebra.Group.html#5741" data-type="Group-on A → A → A → A" class="Field Operator">G.⋆</a> <a id="1931" href="Algebra.Group.html#1060" data-type="is-group _*₁_ → A" class="Function">G.unit</a> <a id="1938" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 <a id="1940" href="Algebra.Group.Cat.FinitelyComplete.html#1691" data-type="is-initial (Groups ℓ) Zero-group" class="Function">Zero-group-is-initial</a> <a id="1962" class="Symbol">(_</a> <a id="1965" href="Agda.Builtin.Sigma.html#236" data-type="(fst₁ : A) (snd₁ : B₁ fst₁) → ∑ A B₁" class="InductiveConstructor Operator">,</a> <a id="1967" href="Algebra.Group.Cat.FinitelyComplete.html#1967" class="Bound">G</a><a id="1968" class="Symbol">)</a> <a id="1970" class="Symbol">.</a><a id="1971" href="1Lab.HLevel.html#1416" data-type="(r : is-contr A) (x : A) → r .centre ≡ x" class="Field">paths</a> <a id="1977" href="Algebra.Group.Cat.FinitelyComplete.html#1977" class="Bound">x</a> <a id="1979" class="Symbol">=</a>
   <a id="1983" href="Algebra.Group.Cat.Base.html#1867" data-type="is-faithful Forget" class="Function">Forget-is-faithful</a> <a id="2002" class="Symbol">(</a><a id="2003" href="1Lab.Path.html#58486" data-type="((x : A) → f x ≡ g x) → f ≡ g" class="Function">funext</a> <a id="2010" class="Symbol">λ</a> <a id="2012" href="Algebra.Group.Cat.FinitelyComplete.html#2012" class="Bound">_</a> <a id="2014" class="Symbol">→</a> <a id="2016" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="2020" class="Symbol">(</a><a id="2021" href="Algebra.Group.html#6473" data-type="(r : Group-hom A B₁ e) → e (1A r) ≡ 1B r" class="Function">Group-hom.pres-id</a> <a id="2039" class="Symbol">(</a><a id="2040" href="Algebra.Group.Cat.FinitelyComplete.html#1977" class="Bound">x</a> <a id="2042" class="Symbol">.</a><a id="2043" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a><a id="2046" class="Symbol">)))</a>
@@ -440,7 +445,6 @@ Terminal C →
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

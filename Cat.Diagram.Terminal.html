@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Diagram.Terminal - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -91,8 +86,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -101,9 +96,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Diagram/Terminal.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Diagram/Terminal.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -117,10 +116,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -180,15 +185,14 @@ is-invertible C f → (C ≅ a) b" class="Function">invertible→iso</a> <a id="
 (C ≅ A) B₁ → is-terminal C A → is-terminal C B₁" class="Function">is-terminal-iso</a> <a id="1970" class="Symbol">:</a> <a id="1972" class="Symbol">∀</a> <a id="1974" class="Symbol">{</a><a id="1975" href="Cat.Diagram.Terminal.html#1975" class="Bound">A</a> <a id="1977" href="Cat.Diagram.Terminal.html#1977" class="Bound">B</a><a id="1978" class="Symbol">}</a> <a id="1980" class="Symbol">→</a> <a id="1982" href="Cat.Diagram.Terminal.html#1975" class="Bound">A</a> <a id="1984" href="Cat.Morphism.html#2202" data-type="(C : Precategory o h) (a b : Ob C) → Type h" class="Record Operator">≅</a> <a id="1986" href="Cat.Diagram.Terminal.html#1977" class="Bound">B</a> <a id="1988" class="Symbol">→</a> <a id="1990" href="Cat.Diagram.Terminal.html#329" data-type="(C : Precategory o h) → Ob C → Type (o ⊔ h)" class="Function">is-terminal</a> <a id="2002" href="Cat.Diagram.Terminal.html#1975" class="Bound">A</a> <a id="2004" class="Symbol">→</a> <a id="2006" href="Cat.Diagram.Terminal.html#329" data-type="(C : Precategory o h) → Ob C → Type (o ⊔ h)" class="Function">is-terminal</a> <a id="2018" href="Cat.Diagram.Terminal.html#1977" class="Bound">B</a>
 <a id="2020" href="Cat.Diagram.Terminal.html#1954" data-type="(C : Precategory o h) →
 (C ≅ A) B₁ → is-terminal C A → is-terminal C B₁" class="Function">is-terminal-iso</a> <a id="2036" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2041" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2046" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2048" class="Symbol">=</a> <a id="2050" href="1Lab.HLevel.html#1383" data-type="(centre₁ : A) (paths₁ : (x : A) → centre₁ ≡ x) → is-contr A" class="InductiveConstructor">contr</a> <a id="2056" class="Symbol">(</a><a id="2057" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2062" class="Symbol">.</a><a id="2063" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2066" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2068" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2073" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2075" class="Symbol">.</a><a id="2076" href="1Lab.HLevel.html#1401" data-type="is-contr A → A" class="Field">centre</a><a id="2082" class="Symbol">)</a> <a id="2084" class="Symbol">λ</a> <a id="2086" href="Cat.Diagram.Terminal.html#2086" class="Bound">h</a> <a id="2088" class="Symbol">→</a>
-  <a id="2092" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2097" class="Symbol">.</a><a id="2098" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2101" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2103" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2108" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2110" class="Symbol">.</a><a id="2111" href="1Lab.HLevel.html#1401" data-type="is-contr A → A" class="Field">centre</a> <span class="reasoning-step"><span class="as-written Function"><a id="2118" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2121" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
-PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="2124" class="Symbol">(</a><a id="2125" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2130" class="Symbol">.</a><a id="2131" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2134" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘_</a><a id="2136" class="Symbol">)</a> <a id="2138" class="Symbol">(</a><a id="2139" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2144" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2146" class="Symbol">.</a><a id="2147" href="1Lab.HLevel.html#1416" data-type="(r : is-contr A) (x : A) → r .centre ≡ x" class="Field">paths</a> <a id="2153" class="Symbol">_)</a> <a id="2156" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="2160" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2165" class="Symbol">.</a><a id="2166" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2169" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2171" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2176" class="Symbol">.</a><a id="2177" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">from</a> <a id="2182" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2184" href="Cat.Diagram.Terminal.html#2086" class="Bound">h</a> <span class="reasoning-step"><span class="as-written Function"><a id="2186" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2189" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
-(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="2197" class="Symbol">(</a><a id="2198" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2203" class="Symbol">.</a><a id="2204" href="Cat.Morphism.html#1867" data-type="Inverses C f g → (C ∘ f) g ≡ id C" class="Function">invl</a><a id="2208" class="Symbol">)</a> <a id="2210" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+  <a id="2092" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2097" class="Symbol">.</a><a id="2098" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2101" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2103" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2108" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2110" class="Symbol">.</a><a id="2111" href="1Lab.HLevel.html#1401" data-type="is-contr A → A" class="Field">centre</a> <a id="2118" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2121" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="2124" class="Symbol">(</a><a id="2125" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2130" class="Symbol">.</a><a id="2131" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2134" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘_</a><a id="2136" class="Symbol">)</a> <a id="2138" class="Symbol">(</a><a id="2139" href="Cat.Diagram.Terminal.html#2041" class="Bound">term</a> <a id="2144" href="Cat.Diagram.Terminal.html#2046" class="Bound">x</a> <a id="2146" class="Symbol">.</a><a id="2147" href="1Lab.HLevel.html#1416" data-type="(r : is-contr A) (x : A) → r .centre ≡ x" class="Field">paths</a> <a id="2153" class="Symbol">_)</a> <a id="2156" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="2160" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2165" class="Symbol">.</a><a id="2166" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">to</a> <a id="2169" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2171" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2176" class="Symbol">.</a><a id="2177" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">from</a> <a id="2182" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2184" href="Cat.Diagram.Terminal.html#2086" class="Bound">h</a> <a id="2186" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2189" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">cancell</a> <a id="2197" class="Symbol">(</a><a id="2198" href="Cat.Diagram.Terminal.html#2036" class="Bound">isom</a> <a id="2203" class="Symbol">.</a><a id="2204" href="Cat.Morphism.html#1867" data-type="Inverses C f g → (C ∘ f) g ≡ id C" class="Function">invl</a><a id="2208" class="Symbol">)</a> <a id="2210" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="2214" href="Cat.Diagram.Terminal.html#2086" class="Bound">h</a>                         <a id="2240" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

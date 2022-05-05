@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="…valent.Instances.Algebra - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -88,8 +83,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -98,9 +93,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Univalent/Instances/Algebra.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Univalent/Instances/Algebra.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -114,10 +113,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -256,13 +261,13 @@ PathP
         <a id="5589" href="Cat.Univalent.html#6917" data-type="(C : Precategory o h) (isc : is-category C) →
 (C ∘ q .to) ((C ∘ h) (p .from)) ≡ h&#39; →
 PathP (λ i → Hom C (iso→path C isc p i) (iso→path C isc q i)) h h&#39;" class="Function">Hom-pathp-iso</a> <a id="5603" href="Cat.Univalent.Instances.Algebra.html#171" class="Bound">C</a> <a id="5605" href="Cat.Univalent.Instances.Algebra.html#197" class="Bound">isc</a> <a id="5609" class="Symbol">(</a>
-          <a id="5621" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5625" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a> <a id="5632" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5636" href="Cat.Univalent.Instances.Algebra.html#2355" class="Bound">Am</a> <a id="5639" class="Symbol">.</a><a id="5640" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="5642" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5646" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5655" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5657" class="Symbol">(</a><a id="5658" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5662" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">A≅X.from</a><a id="5670" class="Symbol">)</a>                 <span class="reasoning-step"><span class="as-written Function"><a id="5688" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5691" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
-(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5699" class="Symbol">(</a><a id="5700" href="Cat.Univalent.Instances.Algebra.html#2970" class="Field">sq</a> <a id="5703" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a><a id="5709" class="Symbol">)</a> <a id="5711" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-          <a id="5723" class="Symbol">(</a><a id="5724" href="Cat.Univalent.Instances.Algebra.html#2372" class="Bound">Xm</a> <a id="5727" class="Symbol">.</a><a id="5728" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="5730" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5734" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5743" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5745" class="Symbol">(</a><a id="5746" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a> <a id="5753" class="Symbol">.</a><a id="5754" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a><a id="5757" class="Symbol">))</a> <a id="5760" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5764" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5773" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5775" class="Symbol">(</a><a id="5776" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5780" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">A≅X.from</a><a id="5788" class="Symbol">)</a> <span class="reasoning-step"><span class="as-written Function"><a id="5790" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5793" href="Cat.Reasoning.html#2731" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+          <a id="5621" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5625" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a> <a id="5632" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5636" href="Cat.Univalent.Instances.Algebra.html#2355" class="Bound">Am</a> <a id="5639" class="Symbol">.</a><a id="5640" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="5642" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5646" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5655" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5657" class="Symbol">(</a><a id="5658" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5662" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">A≅X.from</a><a id="5670" class="Symbol">)</a>                 <a id="5688" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5691" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5699" class="Symbol">(</a><a id="5700" href="Cat.Univalent.Instances.Algebra.html#2970" class="Field">sq</a> <a id="5703" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a><a id="5709" class="Symbol">)</a> <a id="5711" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+          <a id="5723" class="Symbol">(</a><a id="5724" href="Cat.Univalent.Instances.Algebra.html#2372" class="Bound">Xm</a> <a id="5727" class="Symbol">.</a><a id="5728" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="5730" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5734" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5743" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5745" class="Symbol">(</a><a id="5746" href="Cat.Morphism.html#2244" data-type="(C ≅ a) b → Hom C a b" class="Field">A≅X.to</a> <a id="5753" class="Symbol">.</a><a id="5754" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a><a id="5757" class="Symbol">))</a> <a id="5760" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5764" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5773" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5775" class="Symbol">(</a><a id="5776" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5780" href="Cat.Morphism.html#2267" data-type="(C ≅ a) b → Hom C b a" class="Field">A≅X.from</a><a id="5788" class="Symbol">)</a> <a id="5790" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5793" href="Cat.Reasoning.html#2731" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
 (C ∘ (C ∘ f) h) i ≡ f" class="Function">C.cancelr</a> <a id="5803" class="Symbol">(</a><a id="5804" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5808" class="Symbol">(</a><a id="5809" href="Cat.Diagram.Monad.html#928" data-type="(r : Monad C) (f : C .Hom y z) (g : C .Hom x y) →
 M r .F₁ (C ._∘_ f g) ≡ (C ∘ M r .F₁ f) (M r .F₁ g)" class="Function">Monad.M-∘</a> <a id="5819" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a> <a id="5821" class="Symbol">_</a> <a id="5823" class="Symbol">_)</a> <a id="5826" href="1Lab.Path.html#38305" data-type="w ≡ x → x ≡ y → y ≡ z → w ≡ z" class="Function Operator">··</a> <a id="5829" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
 PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="5832" class="Symbol">(</a><a id="5833" href="Cat.Diagram.Monad.html#900" data-type="(r : Monad C) → C .Hom x y → Hom C (M r .F₀ x) (M r .F₀ y)" class="Function">Monad.M₁</a> <a id="5842" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a><a id="5843" class="Symbol">)</a> <a id="5845" class="Symbol">(</a><a id="5846" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
-PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="5849" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5853" href="Cat.Morphism.html#1867" data-type="Inverses C f g → (C ∘ f) g ≡ id C" class="Function">A≅X.invl</a><a id="5861" class="Symbol">)</a> <a id="5863" href="1Lab.Path.html#38305" data-type="w ≡ x → x ≡ y → y ≡ z → w ≡ z" class="Function Operator">··</a> <a id="5866" href="Cat.Diagram.Monad.html#912" data-type="(r : Monad C) → M r .F₁ (C .id) ≡ id C" class="Function">Monad.M-id</a> <a id="5877" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a><a id="5878" class="Symbol">)</a> <a id="5880" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="5849" href="Cat.Univalent.Instances.Algebra.html#2952" class="Field">map</a> <a id="5853" href="Cat.Morphism.html#1867" data-type="Inverses C f g → (C ∘ f) g ≡ id C" class="Function">A≅X.invl</a><a id="5861" class="Symbol">)</a> <a id="5863" href="1Lab.Path.html#38305" data-type="w ≡ x → x ≡ y → y ≡ z → w ≡ z" class="Function Operator">··</a> <a id="5866" href="Cat.Diagram.Monad.html#912" data-type="(r : Monad C) → M r .F₁ (C .id) ≡ id C" class="Function">Monad.M-id</a> <a id="5877" href="Cat.Univalent.Instances.Algebra.html#223" class="Bound">M</a><a id="5878" class="Symbol">)</a> <a id="5880" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
           <a id="5892" href="Cat.Univalent.Instances.Algebra.html#2372" class="Bound">Xm</a> <a id="5895" class="Symbol">.</a><a id="5896" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a>                                                              <a id="5959" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
         <a id="5969" class="Symbol">)</a>
 </pre>
@@ -352,7 +357,6 @@ PathP (λ i → Hom C A (iso→path C isc q i)) h h&#39;" class="Function">Hom-p
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

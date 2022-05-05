@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Thin.Instances.Sub - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -91,8 +86,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -101,9 +96,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Thin/Instances/Sub.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Thin/Instances/Sub.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -117,10 +116,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -359,11 +364,11 @@ Cone-hom (F′ C F) (cone C F lim′ g h p i) (lim′ .top)" class="Function">g�
 (i : I) →
 Cone-hom (F′ C F) (cone C F lim′ g h p i) (lim′ .top)" class="Function">g′</a> <a id="5858" class="Symbol">.</a><a id="5859" href="Cat.Diagram.Limit.Base.html#8309" data-type="(r : Cone-hom F x y) (o : J₁ .Ob) → C ._∘_ (ψ y o) (r .hom) ≡ ψ x o" class="Field">commutes</a> <a id="5868" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5870" class="Symbol">=</a> <a id="5872" href="Cat.Instances.Slice.html#3929" data-type="x .map ≡ y .map → x ≡ y" class="Function">/-Hom-path</a> <a id="5883" class="Symbol">(</a>
         <a id="5893" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="5897" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5899" class="Symbol">.</a><a id="5900" href="Cat.Functor.FullSubcategory.html#1081" data-type="(r : Restrict-ob P) → P (r .object)" class="Field">witness</a> <a id="5908" class="Symbol">_</a> <a id="5910" class="Symbol">_</a> <a id="5912" class="Symbol">(</a>
-          <a id="5924" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="5928" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5930" class="Symbol">.</a><a id="5931" href="Cat.Functor.FullSubcategory.html#1063" data-type="Restrict-ob P → Ob C" class="Field">object</a> <a id="5938" class="Symbol">.</a><a id="5939" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="5943" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="5947" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="5955" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5957" class="Symbol">.</a><a id="5958" href="Cat.Instances.Slice.html#2951" data-type="/-Hom a b → Hom C (a .domain) (domain b)" class="Field">map</a> <a id="5962" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="5966" href="Cat.Thin.Instances.Sub.html#5430" class="Bound">g</a> <span class="reasoning-step"><span class="as-written Function"><a id="5968" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5971" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
-(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5979" class="Symbol">(</a><a id="5980" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="5988" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5990" class="Symbol">.</a><a id="5991" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="5999" class="Symbol">)</a> <a id="6001" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-          <a id="6013" href="Cat.Diagram.Limit.Base.html#6249" data-type="Cone F → C .Ob" class="Function">limob.apex</a> <a id="6024" class="Symbol">.</a><a id="6025" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="6029" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6033" href="Cat.Thin.Instances.Sub.html#5430" class="Bound">g</a>                       <span class="reasoning-step"><span class="as-written Function"><a id="6057" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6060" href="Cat.Thin.Instances.Sub.html#5434" class="Bound">p</a> <a id="6062" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-          <a id="6074" href="Cat.Diagram.Limit.Base.html#6249" data-type="Cone F → C .Ob" class="Function">limob.apex</a> <a id="6085" class="Symbol">.</a><a id="6086" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="6090" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6094" href="Cat.Thin.Instances.Sub.html#5432" class="Bound">h</a>                       <span class="reasoning-step"><span class="as-written Function Operator"><a id="6118" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="6122" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
-(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="6130" class="Symbol">(</a><a id="6131" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="6139" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="6141" class="Symbol">.</a><a id="6142" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="6150" class="Symbol">)</a> <a id="6152" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a></span><span class="alternate Function Operator">≡˘</span></span>
+          <a id="5924" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="5928" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5930" class="Symbol">.</a><a id="5931" href="Cat.Functor.FullSubcategory.html#1063" data-type="Restrict-ob P → Ob C" class="Field">object</a> <a id="5938" class="Symbol">.</a><a id="5939" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="5943" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="5947" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="5955" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5957" class="Symbol">.</a><a id="5958" href="Cat.Instances.Slice.html#2951" data-type="/-Hom a b → Hom C (a .domain) (domain b)" class="Field">map</a> <a id="5962" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="5966" href="Cat.Thin.Instances.Sub.html#5430" class="Bound">g</a> <a id="5968" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="5971" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5979" class="Symbol">(</a><a id="5980" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="5988" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="5990" class="Symbol">.</a><a id="5991" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="5999" class="Symbol">)</a> <a id="6001" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+          <a id="6013" href="Cat.Diagram.Limit.Base.html#6249" data-type="Cone F → C .Ob" class="Function">limob.apex</a> <a id="6024" class="Symbol">.</a><a id="6025" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="6029" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6033" href="Cat.Thin.Instances.Sub.html#5430" class="Bound">g</a>                       <a id="6057" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6060" href="Cat.Thin.Instances.Sub.html#5434" class="Bound">p</a> <a id="6062" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+          <a id="6074" href="Cat.Diagram.Limit.Base.html#6249" data-type="Cone F → C .Ob" class="Function">limob.apex</a> <a id="6085" class="Symbol">.</a><a id="6086" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="6090" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6094" href="Cat.Thin.Instances.Sub.html#5432" class="Bound">h</a>                       <a id="6118" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">≡˘⟨</a> <a id="6122" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="6130" class="Symbol">(</a><a id="6131" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="6139" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="6141" class="Symbol">.</a><a id="6142" href="Cat.Instances.Slice.html#2992" data-type="(r : /-Hom a b) → (C ∘ map b) (r .map) ≡ a .map" class="Field">commutes</a><a id="6150" class="Symbol">)</a> <a id="6152" href="1Lab.Path.html#46783" data-type="(x : A) → y ≡ x → y ≡ z → x ≡ z" class="Function Operator">⟩</a>
           <a id="6164" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="6168" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="6170" class="Symbol">.</a><a id="6171" href="Cat.Functor.FullSubcategory.html#1063" data-type="Restrict-ob P → Ob C" class="Field">object</a> <a id="6178" class="Symbol">.</a><a id="6179" href="Cat.Instances.Slice.html#2306" data-type="(r : /-Obj c) → Hom C (r .domain) c" class="Field">map</a> <a id="6183" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6187" href="Cat.Diagram.Limit.Base.html#6271" data-type="(r : Cone F) (x : J₁ .Ob) → C .Hom (r .apex) (₀ F x)" class="Function">limob.ψ</a> <a id="6195" href="Cat.Thin.Instances.Sub.html#5868" class="Bound">o</a> <a id="6197" class="Symbol">.</a><a id="6198" href="Cat.Instances.Slice.html#2951" data-type="/-Hom a b → Hom C (a .domain) (domain b)" class="Field">map</a> <a id="6202" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">C.∘</a> <a id="6206" href="Cat.Thin.Instances.Sub.html#5432" class="Bound">h</a> <a id="6208" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
           <a id="6220" class="Symbol">))</a>
       <a id="6229" href="Cat.Thin.Instances.Sub.html#6229" data-type="(C : Precategory o ℓ) (F : Functor J₁ (Subobj C o))
@@ -478,7 +483,6 @@ Limit (F′ C F) → Limit F" class="Function">slice-lim→subobj-lim</a> <a id=
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

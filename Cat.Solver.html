@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Cat.Solver - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -92,8 +87,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -102,9 +97,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Solver.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Solver.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -118,10 +117,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -188,19 +193,19 @@ eval Cat e (id Cat) ≡ embed Cat e" class="Function">eval-sound</a> <a id="2511
 eval Cat e (id Cat) ≡ embed Cat e" class="Function">eval-sound</a> <a id="2884" class="Symbol">(</a><a id="2885" href="Cat.Solver.html#2885" class="Bound">f</a> <a id="2887" href="Cat.Solver.html#836" data-type="Expr Cat B₁ C → Expr Cat A B₁ → Expr Cat A C" class="InductiveConstructor Operator">`∘</a> <a id="2890" href="Cat.Solver.html#2890" class="Bound">g</a><a id="2891" class="Symbol">)</a> <a id="2893" class="Symbol">=</a>
     <a id="2899" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2904" href="Cat.Solver.html#2885" class="Bound">f</a> <a id="2906" class="Symbol">(</a><a id="2907" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2912" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2914" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="2916" class="Symbol">)</a>    <span class="reasoning-step"><span class="as-written Function"><a id="2921" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2924" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="2928" class="Symbol">(</a><a id="2929" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2912" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2914" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="2916" class="Symbol">)</a>    <a id="2921" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2924" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="2928" class="Symbol">(</a><a id="2929" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ B₁ →
 Expr Cat A B₁ →
 (e : Expr Cat B₁ C) (f : Hom Cat A B₁) →
 (Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="2935" href="Cat.Solver.html#2885" class="Bound">f</a> <a id="2937" class="Symbol">(</a><a id="2938" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2943" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2945" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="2947" class="Symbol">))</a> <a id="2950" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2943" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2945" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="2947" class="Symbol">))</a> <a id="2950" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
     <a id="2956" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2961" href="Cat.Solver.html#2885" class="Bound">f</a> <a id="2963" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="2966" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="2968" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2973" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2975" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <span class="reasoning-step"><span class="as-written Function"><a id="2978" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2981" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="2973" href="Cat.Solver.html#2890" class="Bound">g</a> <a id="2975" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="2978" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2981" href="1Lab.Path.html#21189" data-type="(f : (x : A) (y : B₁ x) → C x y) (p : x ≡ y)
 (q : PathP (λ i → B₁ (p i)) α β) →
 PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a id="2985" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">_∘_</a> <a id="2989" class="Symbol">(</a><a id="2990" href="Cat.Solver.html#2395" data-type="(Cat : Precategory o h) (e : Expr Cat A B₁) →
 eval Cat e (id Cat) ≡ embed Cat e" class="Function">eval-sound</a> <a id="3001" href="Cat.Solver.html#2885" class="Bound">f</a><a id="3002" class="Symbol">)</a> <a id="3004" class="Symbol">(</a><a id="3005" href="Cat.Solver.html#2395" data-type="(Cat : Precategory o h) (e : Expr Cat A B₁) →
-eval Cat e (id Cat) ≡ embed Cat e" class="Function">eval-sound</a> <a id="3016" href="Cat.Solver.html#2890" class="Bound">g</a><a id="3017" class="Symbol">)</a> <a id="3019" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+eval Cat e (id Cat) ≡ embed Cat e" class="Function">eval-sound</a> <a id="3016" href="Cat.Solver.html#2890" class="Bound">g</a><a id="3017" class="Symbol">)</a> <a id="3019" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
     <a id="3025" href="Cat.Solver.html#1422" data-type="(Cat : Precategory o h) → Expr Cat A B₁ → Hom Cat A B₁" class="Function">embed</a> <a id="3031" class="Symbol">(</a><a id="3032" href="Cat.Solver.html#2885" class="Bound">f</a> <a id="3034" href="Cat.Solver.html#836" data-type="Expr Cat B₁ C → Expr Cat A B₁ → Expr Cat A C" class="InductiveConstructor Operator">`∘</a> <a id="3037" href="Cat.Solver.html#2890" class="Bound">g</a><a id="3038" class="Symbol">)</a>        <a id="3047" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
     <a id="3053" class="Keyword">where</a>
 </pre>
@@ -230,34 +235,34 @@ Expr Cat A B₁ →
 (Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="3439" class="Symbol">(</a><a id="3440" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3442" href="Cat.Solver.html#836" data-type="Expr Cat B₁ C → Expr Cat A B₁ → Expr Cat A C" class="InductiveConstructor Operator">`∘</a> <a id="3445" href="Cat.Solver.html#3445" class="Bound">g</a><a id="3446" class="Symbol">)</a> <a id="3448" href="Cat.Solver.html#3448" class="Bound">h</a> <a id="3450" class="Symbol">=</a>
         <a id="3460" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3465" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3467" class="Symbol">(</a><a id="3468" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3473" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3475" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3477" class="Symbol">)</a> <a id="3479" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3481" href="Cat.Solver.html#3448" class="Bound">h</a>      <span class="reasoning-step"><span class="as-written Function"><a id="3488" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3491" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3473" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3475" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3477" class="Symbol">)</a> <a id="3479" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3481" href="Cat.Solver.html#3448" class="Bound">h</a>      <a id="3488" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3491" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
 PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="3494" class="Symbol">(</a><a id="3495" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">_∘</a> <a id="3498" href="Cat.Solver.html#3448" class="Bound">h</a><a id="3499" class="Symbol">)</a> <a id="3501" class="Symbol">(</a><a id="3502" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3506" class="Symbol">(</a><a id="3507" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ B₁ →
 Expr Cat A B₁ →
 (e : Expr Cat B₁ C) (f : Hom Cat A B₁) →
 (Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="3513" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3515" class="Symbol">(</a><a id="3516" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3521" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3523" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3525" class="Symbol">)))</a> <a id="3529" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3521" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3523" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3525" class="Symbol">)))</a> <a id="3529" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
         <a id="3539" class="Symbol">(</a><a id="3540" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3545" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3547" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="3550" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3552" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3557" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3559" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3561" class="Symbol">)</a> <a id="3563" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3565" href="Cat.Solver.html#3448" class="Bound">h</a> <span class="reasoning-step"><span class="as-written Function"><a id="3567" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3570" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3574" class="Symbol">(</a><a id="3575" href="Cat.Base.html#3857" data-type="(r : Precategory o h) (f : r .Hom y z) (g : r .Hom x y)
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3557" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3559" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a><a id="3561" class="Symbol">)</a> <a id="3563" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3565" href="Cat.Solver.html#3448" class="Bound">h</a> <a id="3567" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3570" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3574" class="Symbol">(</a><a id="3575" href="Cat.Base.html#3857" data-type="(r : Precategory o h) (f : r .Hom y z) (g : r .Hom x y)
 (h : r .Hom w x) →
-r ._∘_ f (r ._∘_ g h) ≡ r ._∘_ (r ._∘_ f g) h" class="Field">assoc</a> <a id="3581" class="Symbol">_</a> <a id="3583" class="Symbol">_</a> <a id="3585" class="Symbol">_)</a> <a id="3588" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+r ._∘_ f (r ._∘_ g h) ≡ r ._∘_ (r ._∘_ f g) h" class="Field">assoc</a> <a id="3581" class="Symbol">_</a> <a id="3583" class="Symbol">_</a> <a id="3585" class="Symbol">_)</a> <a id="3588" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
         <a id="3598" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3603" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3605" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="3608" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3610" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3615" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3617" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="3620" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3622" href="Cat.Solver.html#3448" class="Bound">h</a>   <span class="reasoning-step"><span class="as-written Function"><a id="3626" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3629" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3615" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3617" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="3620" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3622" href="Cat.Solver.html#3448" class="Bound">h</a>   <a id="3626" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3629" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
 PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="3632" class="Symbol">(_</a> <a id="3635" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘_</a><a id="3637" class="Symbol">)</a> <a id="3639" class="Symbol">(</a><a id="3640" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ B₁ →
 Expr Cat A B₁ →
 (e : Expr Cat B₁ C) (f : Hom Cat A B₁) →
-(Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="3646" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3648" href="Cat.Solver.html#3448" class="Bound">h</a><a id="3649" class="Symbol">)</a> <a id="3651" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+(Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="3646" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3648" href="Cat.Solver.html#3448" class="Bound">h</a><a id="3649" class="Symbol">)</a> <a id="3651" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
         <a id="3661" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3666" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3668" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">id</a> <a id="3671" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3673" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3678" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3680" href="Cat.Solver.html#3448" class="Bound">h</a>        <span class="reasoning-step"><span class="as-written Function"><a id="3689" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3692" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3678" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3680" href="Cat.Solver.html#3448" class="Bound">h</a>        <a id="3689" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3692" href="Cat.Solver.html#3297" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ B₁ →
 Expr Cat A B₁ →
 (e : Expr Cat B₁ C) (f : Hom Cat A B₁) →
 (Cat ∘ eval Cat e (id Cat)) f ≡ eval Cat e f" class="Function">lemma</a> <a id="3698" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3700" class="Symbol">(</a><a id="3701" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
-Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3706" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3708" href="Cat.Solver.html#3448" class="Bound">h</a><a id="3709" class="Symbol">)</a> <a id="3711" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3706" href="Cat.Solver.html#3445" class="Bound">g</a> <a id="3708" href="Cat.Solver.html#3448" class="Bound">h</a><a id="3709" class="Symbol">)</a> <a id="3711" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
         <a id="3721" href="Cat.Solver.html#1884" data-type="(Cat : Precategory o h) →
 Expr Cat B₁ C → Hom Cat A B₁ → Hom Cat A C" class="Function">eval</a> <a id="3726" class="Symbol">(</a><a id="3727" href="Cat.Solver.html#3440" class="Bound">f</a> <a id="3729" href="Cat.Solver.html#836" data-type="Expr Cat B₁ C → Expr Cat A B₁ → Expr Cat A C" class="InductiveConstructor Operator">`∘</a> <a id="3732" href="Cat.Solver.html#3445" class="Bound">g</a><a id="3733" class="Symbol">)</a> <a id="3735" href="Cat.Solver.html#3448" class="Bound">h</a>             <a id="3749" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
 </pre>
@@ -367,7 +372,6 @@ embed Cat f ≡ embed Cat g" class="Function">associate</a><a id="7542" class="S
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>

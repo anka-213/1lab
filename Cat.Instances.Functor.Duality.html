@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="/css/default.css" />
   <link rel="stylesheet" href="/css/katex.min.css" />
-  <link rel="stylesheet" href="/css/agda-cats.css" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="…nstances.Functor.Duality - 1Lab" />
@@ -24,11 +23,7 @@
   <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
   
-  <script src="/equations.js"></script>
-  <script src="/unfold.js"></script>
-  <script src="/highlight-hover.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="/depgraph.js"></script>
+  <script defer src="/main.js"></script>
 
   <noscript>
     <style>
@@ -48,7 +43,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="text-page">
 <main>
 <div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
 
@@ -88,8 +83,8 @@
         </span>
 
         <!-- Sidebar footnotes control -->
-        <span id="footnote-control" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
-          <input name="sidebar-fns" type="checkbox" id="sidebar-fns">
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
           <label for="sidebar-fns">Inline Footnotes</label>
         </span>
       </div>
@@ -98,9 +93,13 @@
 
       <!-- Navbar navigation (lol) -->
       <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/a7331993f1918cbcf618b0a5a67f7dc95abd4ae5/src/Cat/Instances/Functor/Duality.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/d981a323ffa2d6c0f743e771751e53e2312c26e3/src/Cat/Instances/Functor/Duality.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -114,10 +113,16 @@
         <a href="/">back to index</a>
       </div>
       
-      <!-- Font toggle checkbox -->
+      <!-- Navbar equations control -->
       <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
         <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
         <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
       </span>
     </div>
 
@@ -199,18 +204,18 @@ Precategory (o₁ ⊔ o₂ ⊔ h₁ ⊔ h₂) (o₁ ⊔ h₁ ⊔ h₂)" class="F
 ((f : C .Hom x y) →
  PathP (λ i → D .Hom (p0 x i) (p0 y i)) (F₁ F f) (F₁ G f)) →
 F ≡ G" class="Function">Functor-path</a> <a id="1952" class="Symbol">(λ</a> <a id="1955" href="Cat.Instances.Functor.Duality.html#1955" class="Bound">x</a> <a id="1957" class="Symbol">→</a> <a id="1959" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a><a id="1963" class="Symbol">)</a> <a id="1965" class="Symbol">λ</a> <a id="1967" class="Symbol">{</a><a id="1968" href="Cat.Instances.Functor.Duality.html#1968" class="Bound">X</a><a id="1969" class="Symbol">}</a> <a id="1971" class="Symbol">{</a><a id="1972" href="Cat.Instances.Functor.Duality.html#1972" class="Bound">Y</a><a id="1973" class="Symbol">}</a> <a id="1975" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="1977" class="Symbol">→</a> <a id="1979" href="Cat.Base.html#15597" data-type="((x : C .Ob) → a .η x ≡ b .η x) → a ≡ b" class="Function">Nat-path</a> <a id="1988" class="Symbol">λ</a> <a id="1990" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a> <a id="1992" class="Symbol">→</a>
-  <a id="1996" class="Symbol">(_</a> <a id="1999" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2003" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="2005" class="Symbol">.</a><a id="2006" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Field">η</a> <a id="2008" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a><a id="2009" class="Symbol">)</a> <a id="2011" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2015" class="Symbol">_</a> <span class="reasoning-step"><span class="as-written Function"><a id="2017" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2020" href="Cat.Reasoning.html#1108" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → (C ∘ f) a ≡ f" class="Function">D.elimr</a> <a id="2028" class="Symbol">(</a><a id="2029" href="Cat.Instances.Functor.Duality.html#2198" data-type="coe0→1
+  <a id="1996" class="Symbol">(_</a> <a id="1999" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2003" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="2005" class="Symbol">.</a><a id="2006" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Field">η</a> <a id="2008" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a><a id="2009" class="Symbol">)</a> <a id="2011" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2015" class="Symbol">_</a> <a id="2017" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2020" href="Cat.Reasoning.html#1108" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → (C ∘ f) a ≡ f" class="Function">D.elimr</a> <a id="2028" class="Symbol">(</a><a id="2029" href="Cat.Instances.Functor.Duality.html#2198" data-type="coe0→1
 (λ i →
    Hom D (F₀ Y (transp (λ j → C .Ob) i x))
    (F₀ Y (transp (λ j → C .Ob) i x)))
 (id D)
-≡ id D" class="Function">lemma</a> <a id="2035" class="Symbol">{</a><a id="2036" class="Argument">Y</a> <a id="2038" class="Symbol">=</a> <a id="2040" href="Cat.Instances.Functor.Duality.html#1972" class="Bound">Y</a><a id="2041" class="Symbol">})</a> <a id="2044" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
-  <a id="2048" class="Symbol">_</a> <a id="2050" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2054" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="2056" class="Symbol">.</a><a id="2057" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Field">η</a> <a id="2059" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a>         <span class="reasoning-step"><span class="as-written Function"><a id="2069" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2072" href="Cat.Reasoning.html#1009" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → (C ∘ a) f ≡ f" class="Function">D.eliml</a> <a id="2080" class="Symbol">(</a><a id="2081" href="Cat.Instances.Functor.Duality.html#2198" data-type="coe0→1
+≡ id D" class="Function">lemma</a> <a id="2035" class="Symbol">{</a><a id="2036" class="Argument">Y</a> <a id="2038" class="Symbol">=</a> <a id="2040" href="Cat.Instances.Functor.Duality.html#1972" class="Bound">Y</a><a id="2041" class="Symbol">})</a> <a id="2044" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
+  <a id="2048" class="Symbol">_</a> <a id="2050" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">D.∘</a> <a id="2054" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="2056" class="Symbol">.</a><a id="2057" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Field">η</a> <a id="2059" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a>         <a id="2069" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="2072" href="Cat.Reasoning.html#1009" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → (C ∘ a) f ≡ f" class="Function">D.eliml</a> <a id="2080" class="Symbol">(</a><a id="2081" href="Cat.Instances.Functor.Duality.html#2198" data-type="coe0→1
 (λ i →
    Hom D (F₀ Y (transp (λ j → C .Ob) i x))
    (F₀ Y (transp (λ j → C .Ob) i x)))
 (id D)
-≡ id D" class="Function">lemma</a> <a id="2087" class="Symbol">{</a><a id="2088" class="Argument">Y</a> <a id="2090" class="Symbol">=</a> <a id="2092" href="Cat.Instances.Functor.Duality.html#1968" class="Bound">X</a><a id="2093" class="Symbol">})</a> <a id="2096" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+≡ id D" class="Function">lemma</a> <a id="2087" class="Symbol">{</a><a id="2088" class="Argument">Y</a> <a id="2090" class="Symbol">=</a> <a id="2092" href="Cat.Instances.Functor.Duality.html#1968" class="Bound">X</a><a id="2093" class="Symbol">})</a> <a id="2096" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a>
   <a id="2100" href="Cat.Instances.Functor.Duality.html#1975" class="Bound">f</a> <a id="2102" class="Symbol">.</a><a id="2103" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Field">η</a> <a id="2105" href="Cat.Instances.Functor.Duality.html#1990" class="Bound">x</a>               <a id="2121" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
   <a id="2125" class="Keyword">where</a>
     <a id="2135" class="Keyword">module</a> <a id="2142" href="Cat.Instances.Functor.Duality.html#2142" class="Module">D</a> <a id="2144" class="Symbol">=</a> <a id="2146" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a> <a id="2160" href="Cat.Instances.Functor.Duality.html#1934" class="Bound">D</a>
@@ -261,7 +266,6 @@ PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="3175" cl
 </pre>
   </article>
 </div>
-
 </main>
 </body>
 </html>
