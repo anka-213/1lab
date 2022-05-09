@@ -119,7 +119,7 @@
         </div>
 
                     <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/de8ff879b97ced1c0fe8e004a61a0316c5325086/src/index.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/8fd44001448e283d47326fba58b762ba388e9e07/src/index.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and uni</div> <br />
               </div>
     </div>
@@ -187,7 +187,7 @@
 <div class="warning">
 <p>Most of the modules in the 1Lab assume a baseline knowledge of type theory. For this, <a href="1Lab.intro.html"><strong>read the introduction here</strong></a>.</p>
 </div>
-<p>The first things to be explained are the foundational constructions in (cubical) type theory - things like types themselves, <a href="1Lab.Type.html">universes</a>, <a href="1Lab.Path.html">paths</a>, <a href="1Lab.Equiv.html">equivalences</a>, <a href="1Lab.Univalence.html#3439">glueing</a> and the <a href="1Lab.Univalence.html#16772">univalence</a> “axiom”. These are developed under the <code>1Lab</code> namespace. Start here:</p>
+<p>The first things to be explained are the foundational constructions in (cubical) type theory - things like types themselves, <a href="1Lab.Type.html">universes</a>, <a href="1Lab.Path.html">paths</a>, <a href="1Lab.Equiv.html">equivalences</a>, <a href="1Lab.Univalence.html#3439">glueing</a> and the <a href="1Lab.Univalence.html#16772">univalence</a> “axiom.” These are developed under the <code>1Lab</code> namespace. Start here:</p>
 <pre class="Agda"><a id="7224" class="Comment">-- All of these module names are links you can click!</a>
 
 <a id="7279" class="Keyword">open</a> <a id="7284" class="Keyword">import</a> <a id="7291" href="1Lab.Type.html" class="Module">1Lab.Type</a> <a id="7301" class="Comment">-- Universes</a>
@@ -228,7 +228,7 @@
 <a id="9159" class="Keyword">open</a> <a id="9164" class="Keyword">import</a> <a id="9171" href="1Lab.Counterexamples.Sigma.html" class="Module">1Lab.Counterexamples.Sigma</a>   <a id="9200" class="Comment">-- Counterexample: Sigma is not prop</a>
 </pre>
 <h2 id="data-types"><a href="#data-types" class="header-link">Data types<span class="header-link-emoji">🔗</span></a></h2>
-<p>The <code>Data</code> namespace contains definitions of oft-used data types, which are fundamental to the rest of the development but not “basic type theory”. These modules contain (or re-export) the types themselves, useful operations on them, characterisation of their path spaces, etc.</p>
+<p>The <code>Data</code> namespace contains definitions of oft-used data types, which are fundamental to the rest of the development but not “basic type theory.” These modules contain (or re-export) the types themselves, useful operations on them, characterisation of their path spaces, etc.</p>
 <pre class="Agda"><a id="9544" class="Keyword">open</a> <a id="9549" class="Keyword">import</a> <a id="9556" href="Data.Nat.html" class="Module">Data.Nat</a>  <a id="9566" class="Comment">-- The natural numbers</a>
 <a id="9589" class="Keyword">open</a> <a id="9594" class="Keyword">import</a> <a id="9601" href="Data.Int.html" class="Module">Data.Int</a>  <a id="9611" class="Comment">-- The integers</a>
 <a id="9627" class="Keyword">open</a> <a id="9632" class="Keyword">import</a> <a id="9639" href="Data.Sum.html" class="Module">Data.Sum</a>  <a id="9649" class="Comment">-- Coproduct types</a>
@@ -360,13 +360,13 @@
   <a id="16388" class="Comment">-- ^ Strict category structure is a sort of &quot;spatial&quot; structure on a category</a>
 </pre>
 <h2 id="thin-categories"><a href="#thin-categories" class="header-link">Thin categories<span class="header-link-emoji">🔗</span></a></h2>
-<p>Strict thin categories are a presentation of pre-ordered sets, i.e. sets equipped with a transitive and reflexive relation — so we call them “prosets”. When this relation is antisymmetric, we additionally have a <em>univalent</em> thin strict category — so we call these “posets”.</p>
+<p>Strict thin categories are a presentation of pre-ordered sets, i.e. sets equipped with a transitive and reflexive relation — so we call them “prosets.” When this relation is antisymmetric, we additionally have a <em>univalent</em> thin strict category — so we call these “posets.”</p>
 <pre class="Agda"><a id="16778" class="Keyword">open</a> <a id="16783" class="Keyword">import</a> <a id="16790" href="Cat.Thin.html" class="Module">Cat.Thin</a>            <a id="16810" class="Comment">-- Basics of thin categories</a>
 <a id="16839" class="Keyword">open</a> <a id="16844" class="Keyword">import</a> <a id="16851" href="Cat.Thin.Limits.html" class="Module">Cat.Thin.Limits</a>     <a id="16871" class="Comment">-- Limits in thin categories</a>
 <a id="16900" class="Keyword">open</a> <a id="16905" class="Keyword">import</a> <a id="16912" href="Cat.Thin.Completion.html" class="Module">Cat.Thin.Completion</a> <a id="16932" class="Comment">-- Free poset on a proset</a>
 </pre>
 <h2 id="displayed-categories"><a href="#displayed-categories" class="header-link">Displayed categories<span class="header-link-emoji">🔗</span></a></h2>
-<p>We also have a work-in-progress formalisation of <a href="https://www.jonmsterling.com/math/lectures/categorical-foundations.html">Foundations of Relative Category Theory</a>, in which the core idea is thinking of “categories over categories”.</p>
+<p>We also have a work-in-progress formalisation of <a href="https://www.jonmsterling.com/math/lectures/categorical-foundations.html">Foundations of Relative Category Theory</a>, in which the core idea is thinking of “categories over categories.”</p>
 <pre class="Agda"><a id="17244" class="Keyword">open</a> <a id="17249" class="Keyword">import</a> <a id="17256" href="Cat.Displayed.Base.html" class="Module">Cat.Displayed.Base</a>             <a id="17287" class="Comment">-- Displayed categories</a>
 <a id="17311" class="Keyword">open</a> <a id="17316" class="Keyword">import</a> <a id="17323" href="Cat.Displayed.Total.html" class="Module">Cat.Displayed.Total</a>            <a id="17354" class="Comment">-- Total category of a displayed category</a>
 <a id="17396" class="Keyword">open</a> <a id="17401" class="Keyword">import</a> <a id="17408" href="Cat.Displayed.Cartesian.html" class="Module">Cat.Displayed.Cartesian</a>        <a id="17439" class="Comment">-- Cartesian lifts, cartesian fibrations</a>
