@@ -104,7 +104,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/8fd44001448e283d47326fba58b762ba388e9e07/src/Algebra/Group/Cat/FinitelyComplete.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/1d1896ef1d1b4fa5bf16f58aecd26aead4780e48/src/Algebra/Group/Cat/FinitelyComplete.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -427,8 +427,8 @@ PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="8067" hr
 <p>Putting all of these constructions together, we get the proof that <code>Groups</code> is finitely complete, since we can compute pullbacks as certain equalisers.</p>
 <pre class="Agda"><a id="8241" class="Keyword">open</a> <a id="8246" class="Keyword">import</a> <a id="8253" href="Cat.Diagram.Limit.Finite.html" class="Module">Cat.Diagram.Limit.Finite</a>
 
-<a id="Groups-finitely-complete"></a><a id="8279" href="Algebra.Group.Cat.FinitelyComplete.html#8279" data-type="Finitely-complete (Groups ℓ)" class="Function">Groups-finitely-complete</a> <a id="8304" class="Symbol">:</a> <a id="8306" href="Cat.Diagram.Limit.Finite.html#1984" data-type="(C : Precategory ℓ ℓ&#39;) → Type (ℓ ⊔ ℓ&#39;)" class="Record">Finitely-complete</a> <a id="8324" class="Symbol">(</a><a id="8325" href="Algebra.Group.Cat.Base.html#432" data-type="(ℓ : Level) → Precategory (lsuc ℓ) ℓ" class="Function">Groups</a> <a id="8332" href="Algebra.Group.Cat.FinitelyComplete.html#185" class="Bound">ℓ</a><a id="8333" class="Symbol">)</a>
-<a id="8335" href="Algebra.Group.Cat.FinitelyComplete.html#8279" data-type="Finitely-complete (Groups ℓ)" class="Function">Groups-finitely-complete</a> <a id="8360" class="Symbol">=</a> <a id="8362" href="Cat.Diagram.Limit.Finite.html#5712" data-type="(C : Precategory ℓ ℓ&#39;) →
+<a id="Groups-finitely-complete"></a><a id="8279" href="Algebra.Group.Cat.FinitelyComplete.html#8279" data-type="Finitely-complete (Groups ℓ)" class="Function">Groups-finitely-complete</a> <a id="8304" class="Symbol">:</a> <a id="8306" href="Cat.Diagram.Limit.Finite.html#1971" data-type="(C : Precategory ℓ ℓ&#39;) → Type (ℓ ⊔ ℓ&#39;)" class="Record">Finitely-complete</a> <a id="8324" class="Symbol">(</a><a id="8325" href="Algebra.Group.Cat.Base.html#432" data-type="(ℓ : Level) → Precategory (lsuc ℓ) ℓ" class="Function">Groups</a> <a id="8332" href="Algebra.Group.Cat.FinitelyComplete.html#185" class="Bound">ℓ</a><a id="8333" class="Symbol">)</a>
+<a id="8335" href="Algebra.Group.Cat.FinitelyComplete.html#8279" data-type="Finitely-complete (Groups ℓ)" class="Function">Groups-finitely-complete</a> <a id="8360" class="Symbol">=</a> <a id="8362" href="Cat.Diagram.Limit.Finite.html#5699" data-type="(C : Precategory ℓ ℓ&#39;) →
 Terminal C →
 ((A B₁ : Ob C) → Product C A B₁) →
 ((f g : Hom C A B₁) → Equaliser C f g) → Finitely-complete C" class="Function">with-equalisers</a> <a id="8378" class="Symbol">(</a><a id="8379" href="Algebra.Group.Cat.Base.html#432" data-type="(ℓ : Level) → Precategory (lsuc ℓ) ℓ" class="Function">Groups</a> <a id="8386" href="Algebra.Group.Cat.FinitelyComplete.html#185" class="Bound">ℓ</a><a id="8387" class="Symbol">)</a> <a id="8389" href="Algebra.Group.Cat.FinitelyComplete.html#8428" data-type="Terminal (Groups ℓ)" class="Function">top</a> <a id="8393" href="Algebra.Group.Cat.FinitelyComplete.html#8531" data-type="(A B₁ : Ob (Groups ℓ)) → Product (Groups ℓ) A B₁" class="Function">prod</a> <a id="8398" href="Algebra.Group.Cat.FinitelyComplete.html#7283" data-type="(f g : Hom G H) → Equaliser (Groups ℓ) f g" class="Function">Groups-equalisers</a>
