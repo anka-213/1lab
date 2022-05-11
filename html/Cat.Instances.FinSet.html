@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Agda,categories,topos" />
+
+  <title>Cat.Instances.FinSet - 1Lab</title>
+
+  <link rel="stylesheet" href="/css/default.css" />
+  <link rel="stylesheet" href="/css/katex.min.css" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Cat.Instances.FinSet - 1Lab" />
+  <meta name="twitter:image" content="https://1lab.dev/static/cube-128x.png" />
+
+  <meta name="og:title" content="Cat.Instances.FinSet - 1Lab" />
+  <meta name="og:image" content="https://1lab.dev/static/cube-128x.png" />
+  <meta name="og:site-name" content="1Lab" />
+  <meta name="og:type" content="website" />
+
+    <meta name="og:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  
+  <script defer src="/main.js"></script>
+
+  <noscript>
+    <style>
+      body span.reasoning-step .as-written {
+        display: inline;
+      }
+
+      body span.reasoning-step .alternate {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <!-- Google font embeds -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
+</head>
+
+<body class="text-page">
+<main>
+<div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
+
+  <!-- Table of contents (only if the page has a table of contents) -->
+    <aside id="toc">
+    <div id="toc-container" style="min-width: 10em; font-size: 15pt;">
+      <!-- Title for the page -->
+      <h3 class="Agda" style="margin-top: 0; margin-bottom: 0; white-space: pre;">
+                <a class="Module">Cat.Instances.FinSet</a>
+              </h3>
+
+      <!-- Cube logo -->
+      <a id="logo" href="/">
+        <img alt="1Lab" src="/static/cube-72x.png" style="display: block; margin-bottom: 1em; margin: auto;" width="32px" height="32px" />
+      </a>
+
+      <!-- Actual table of contents (separated from the rest by
+      horizontal rules) -->
+      <hr />
+      <ul>
+      <li><a href="#the-category-of-finite-sets"><a href="#the-category-of-finite-sets" class="header-link">The category of finite sets<span class="header-link-emoji">🔗</span></a></a></li>
+      </ul>
+      <hr />
+
+      <!-- Sidebar controls -->
+      <div style="display: flex; gap: 0.25em; flex-flow: row wrap;">
+        <!-- Sidebar equations control -->
+        <span class="equations" style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-eqns" type="checkbox" class="equations" id="sidebar-eqns">
+          <label for="sidebar-eqns">Equations</label>
+        </span>
+
+        <!-- Sidebar fonts control -->
+        <span style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-font" type="checkbox" id="toggle-fonts">
+          <label for="toggle-fonts">Serif Font</label>
+        </span>
+
+        <!-- Sidebar footnotes control -->
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
+          <label for="sidebar-fns">Inline Footnotes</label>
+        </span>
+      </div>
+
+      <hr />
+
+      <!-- Navbar navigation (lol) -->
+      <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
+              <a href="/">back to index</a> <br />
+              <a href="all-pages.html">view all pages</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/88cfc5c6046a4db6730c322e150410277202564a/src/Cat/Instances/FinSet.lagda.md">link to source</a> <br />
+                <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
+              </div>
+    </div>
+  </aside>
+  
+  <article>
+    <!-- Article navigation (narrow screens only) -->
+    <div class="narrow-only" id="article-nav">
+      <!-- Index return anchor (only if the page is not the index) -->
+            <div id="return">
+        <a href="/">back to index</a>
+      </div>
+      
+      <!-- Navbar equations control -->
+      <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
+        <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
+      </span>
+    </div>
+
+<pre class="Agda"><a id="9" class="Keyword">open</a> <a id="14" class="Keyword">import</a> <a id="21" href="Cat.Diagram.Limit.Finite.html" class="Module">Cat.Diagram.Limit.Finite</a>
+<a id="46" class="Keyword">open</a> <a id="51" class="Keyword">import</a> <a id="58" href="Cat.Diagram.Limit.Base.html" class="Module">Cat.Diagram.Limit.Base</a>
+<a id="81" class="Keyword">open</a> <a id="86" class="Keyword">import</a> <a id="93" href="Cat.Instances.Discrete.html" class="Module">Cat.Instances.Discrete</a>
+<a id="116" class="Keyword">open</a> <a id="121" class="Keyword">import</a> <a id="128" href="Cat.Prelude.html" class="Module">Cat.Prelude</a>
+
+<a id="141" class="Keyword">open</a> <a id="146" class="Keyword">import</a> <a id="153" href="Data.Fin.html" class="Module">Data.Fin</a>
+
+<a id="163" class="Keyword">import</a> <a id="170" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a> <a id="184" class="Symbol">as</a> <a id="187" class="Module">Cat</a>
+
+<a id="192" class="Keyword">module</a> <a id="199" href="Cat.Instances.FinSet.html" class="Module">Cat.Instances.FinSet</a> <a id="220" class="Keyword">where</a>
+</pre>
+<h1 id="the-category-of-finite-sets"><a href="#the-category-of-finite-sets" class="header-link">The category of finite sets<span class="header-link-emoji">🔗</span></a></h1>
+<p>Throughout this page, let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> be a natural number and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">n</span><span class="mclose">]</span></span></span></span> denote the <a href="Data.Fin.html">standard <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-element</span> ordinal</a>. The <strong>category of finite sets</strong>, <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">F</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">n</mi><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">s</mi></mrow><annotation encoding="application/x-tex">\finsets</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathbf">FinSets</span></span></span></span></span>,</span> is the category with set of objects <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">N</mi></mrow><annotation encoding="application/x-tex">\bb{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">N</span></span></span></span> the natural numbers, with set of maps <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>hom</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>j</mi><mo separator="true">,</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hom(j,k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">hom</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> the set of functions <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>→</mo><mo stretchy="false">[</mo><mi>k</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[j] \to [k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span>.</span> This category is not <a href="Cat.Univalent.html">univalent</a>, but it is <a href="Cat.Functor.Equivalence.html#between-categories">weakly equivalent</a> to the full subcategory of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">s</mi></mrow><annotation encoding="application/x-tex">\sets</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord"><span class="mord mathbf">Sets</span></span></span></span></span> on those objects which are <a href="1Lab.HIT.Truncation.html">merely</a> isomorphic to a finite ordinal. The reason for this “skeletal” definition is that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">F</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">n</mi><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">s</mi></mrow><annotation encoding="application/x-tex">\finsets</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathbf">FinSets</span></span></span></span></span> is a small category, so that presheaves on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">F</mi><mi mathvariant="bold">i</mi><mi mathvariant="bold">n</mi><mi mathvariant="bold">S</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">s</mi></mrow><annotation encoding="application/x-tex">\finsets</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathbf">FinSets</span></span></span></span></span> are a <a href="Topoi.Base.html">Grothendieck topos</a>.</p>
+<pre class="Agda"><a id="FinSets"></a><a id="1081" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1089" class="Symbol">:</a> <a id="1091" href="Cat.Base.html#704" data-type="(o h : Level) → Type (lsuc o ⊔ lsuc h)" class="Record">Precategory</a> <a id="1103" href="Agda.Primitive.html#764" data-type="Level" class="Primitive">lzero</a> <a id="1109" href="Agda.Primitive.html#764" data-type="Level" class="Primitive">lzero</a>
+<a id="1115" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1123" class="Symbol">.</a><a id="1124" href="Cat.Base.html#1419" data-type="Precategory o h → Type o" class="Field">Precategory.Ob</a> <a id="1139" class="Symbol">=</a> <a id="1141" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a>
+<a id="1145" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1153" class="Symbol">.</a><a id="1154" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Precategory.Hom</a> <a id="1170" href="Cat.Instances.FinSet.html#1170" class="Bound">j</a> <a id="1172" href="Cat.Instances.FinSet.html#1172" class="Bound">k</a> <a id="1174" class="Symbol">=</a> <a id="1176" href="Data.Fin.Base.html#498" data-type="Nat → Type" class="Datatype">Fin</a> <a id="1180" href="Cat.Instances.FinSet.html#1170" class="Bound">j</a> <a id="1182" class="Symbol">→</a> <a id="1184" href="Data.Fin.Base.html#498" data-type="Nat → Type" class="Datatype">Fin</a> <a id="1188" href="Cat.Instances.FinSet.html#1172" class="Bound">k</a>
+<a id="1190" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1198" class="Symbol">.</a><a id="1199" href="Cat.Base.html#1784" data-type="(r : Precategory o h) (x y : r .Ob) → is-set (r .Hom x y)" class="Field">Precategory.Hom-set</a> <a id="1219" href="Cat.Instances.FinSet.html#1219" class="Bound">x</a> <a id="1221" href="Cat.Instances.FinSet.html#1221" class="Bound">y</a> <a id="1223" class="Symbol">=</a> <a id="1225" href="1Lab.HLevel.Retracts.html#7786" data-type="(n : Nat) ⦃ x : H-Level T n ⦄ → is-hlevel T n" class="Function">hlevel</a> <a id="1232" class="Number">2</a>
+<a id="1234" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1242" class="Symbol">.</a><a id="1243" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Field">Precategory.id</a> <a id="1258" href="Cat.Instances.FinSet.html#1258" class="Bound">x</a> <a id="1260" class="Symbol">=</a> <a id="1262" href="Cat.Instances.FinSet.html#1258" class="Bound">x</a>
+<a id="1264" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1272" class="Symbol">.</a><a id="1273" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">Precategory._∘_</a> <a id="1289" href="Cat.Instances.FinSet.html#1289" class="Bound">f</a> <a id="1291" href="Cat.Instances.FinSet.html#1291" class="Bound">g</a> <a id="1293" href="Cat.Instances.FinSet.html#1293" class="Bound">x</a> <a id="1295" class="Symbol">=</a> <a id="1297" href="Cat.Instances.FinSet.html#1289" class="Bound">f</a> <a id="1299" class="Symbol">(</a><a id="1300" href="Cat.Instances.FinSet.html#1291" class="Bound">g</a> <a id="1302" href="Cat.Instances.FinSet.html#1293" class="Bound">x</a><a id="1303" class="Symbol">)</a>
+<a id="1305" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1313" class="Symbol">.</a><a id="1314" href="Cat.Base.html#3437" data-type="(r : Precategory o h) (f : r .Hom x y) → r ._∘_ f (r .id) ≡ f" class="Field">Precategory.idr</a> <a id="1330" href="Cat.Instances.FinSet.html#1330" class="Bound">f</a> <a id="1332" class="Symbol">=</a> <a id="1334" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a>
+<a id="1339" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1347" class="Symbol">.</a><a id="1348" href="Cat.Base.html#3482" data-type="(r : Precategory o h) (f : r .Hom x y) → r ._∘_ (r .id) f ≡ f" class="Field">Precategory.idl</a> <a id="1364" href="Cat.Instances.FinSet.html#1364" class="Bound">f</a> <a id="1366" class="Symbol">=</a> <a id="1368" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a>
+<a id="1373" href="Cat.Instances.FinSet.html#1081" data-type="Precategory lzero lzero" class="Function">FinSets</a> <a id="1381" class="Symbol">.</a><a id="1382" href="Cat.Base.html#3857" data-type="(r : Precategory o h) (f : r .Hom y z) (g : r .Hom x y)
+(h : r .Hom w x) →
+r ._∘_ f (r ._∘_ g h) ≡ r ._∘_ (r ._∘_ f g) h" class="Field">Precategory.assoc</a> <a id="1400" href="Cat.Instances.FinSet.html#1400" class="Bound">f</a> <a id="1402" href="Cat.Instances.FinSet.html#1402" class="Bound">g</a> <a id="1404" href="Cat.Instances.FinSet.html#1404" class="Bound">h</a> <a id="1406" class="Symbol">=</a> <a id="1408" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a>
+</pre>
+  </article>
+</div>
+</main>
+</body>
+<style>.equations { display: none !important; }</style></html>

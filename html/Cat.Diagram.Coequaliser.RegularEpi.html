@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Agda,categories,topos" />
+
+  <title>…m.Coequaliser.RegularEpi - 1Lab</title>
+
+  <link rel="stylesheet" href="/css/default.css" />
+  <link rel="stylesheet" href="/css/katex.min.css" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="…m.Coequaliser.RegularEpi - 1Lab" />
+  <meta name="twitter:image" content="https://1lab.dev/static/cube-128x.png" />
+
+  <meta name="og:title" content="…m.Coequaliser.RegularEpi - 1Lab" />
+  <meta name="og:image" content="https://1lab.dev/static/cube-128x.png" />
+  <meta name="og:site-name" content="1Lab" />
+  <meta name="og:type" content="website" />
+
+    <meta name="og:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  
+  <script defer src="/main.js"></script>
+
+  <noscript>
+    <style>
+      body span.reasoning-step .as-written {
+        display: inline;
+      }
+
+      body span.reasoning-step .alternate {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <!-- Google font embeds -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
+</head>
+
+<body class="text-page">
+<main>
+<div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
+
+  <!-- Table of contents (only if the page has a table of contents) -->
+    <aside id="toc">
+    <div id="toc-container" style="min-width: 10em; font-size: 15pt;">
+      <!-- Title for the page -->
+      <h3 class="Agda" style="margin-top: 0; margin-bottom: 0; white-space: pre;">
+                <a class="Module">…m.Coequaliser.RegularEpi</a>
+              </h3>
+
+      <!-- Cube logo -->
+      <a id="logo" href="/">
+        <img alt="1Lab" src="/static/cube-72x.png" style="display: block; margin-bottom: 1em; margin: auto;" width="32px" height="32px" />
+      </a>
+
+      <!-- Actual table of contents (separated from the rest by
+      horizontal rules) -->
+      <hr />
+      <ul>
+      <li><a href="#regular-epimorphisms"><a href="#regular-epimorphisms" class="header-link">Regular epimorphisms<span class="header-link-emoji">🔗</span></a></a>
+      <ul>
+      <li><a href="#effective-epis"><a href="#effective-epis" class="header-link">Effective epis<span class="header-link-emoji">🔗</span></a></a></li>
+      </ul></li>
+      </ul>
+      <hr />
+
+      <!-- Sidebar controls -->
+      <div style="display: flex; gap: 0.25em; flex-flow: row wrap;">
+        <!-- Sidebar equations control -->
+        <span class="equations" style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-eqns" type="checkbox" class="equations" id="sidebar-eqns">
+          <label for="sidebar-eqns">Equations</label>
+        </span>
+
+        <!-- Sidebar fonts control -->
+        <span style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-font" type="checkbox" id="toggle-fonts">
+          <label for="toggle-fonts">Serif Font</label>
+        </span>
+
+        <!-- Sidebar footnotes control -->
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
+          <label for="sidebar-fns">Inline Footnotes</label>
+        </span>
+      </div>
+
+      <hr />
+
+      <!-- Navbar navigation (lol) -->
+      <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
+              <a href="/">back to index</a> <br />
+              <a href="all-pages.html">view all pages</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/88cfc5c6046a4db6730c322e150410277202564a/src/Cat/Diagram/Coequaliser/RegularEpi.lagda.md">link to source</a> <br />
+                <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
+              </div>
+    </div>
+  </aside>
+  
+  <article>
+    <!-- Article navigation (narrow screens only) -->
+    <div class="narrow-only" id="article-nav">
+      <!-- Index return anchor (only if the page is not the index) -->
+            <div id="return">
+        <a href="/">back to index</a>
+      </div>
+      
+      <!-- Navbar equations control -->
+      <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
+        <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
+      </span>
+    </div>
+
+<pre class="Agda"><a id="9" class="Keyword">open</a> <a id="14" class="Keyword">import</a> <a id="21" href="Cat.Diagram.Coequaliser.html" class="Module">Cat.Diagram.Coequaliser</a>
+<a id="45" class="Keyword">open</a> <a id="50" class="Keyword">import</a> <a id="57" href="Cat.Diagram.Pullback.html" class="Module">Cat.Diagram.Pullback</a>
+<a id="78" class="Keyword">open</a> <a id="83" class="Keyword">import</a> <a id="90" href="Cat.Diagram.Initial.html" class="Module">Cat.Diagram.Initial</a>
+<a id="110" class="Keyword">open</a> <a id="115" class="Keyword">import</a> <a id="122" href="Cat.Prelude.html" class="Module">Cat.Prelude</a>
+
+<a id="135" class="Keyword">import</a> <a id="142" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a>
+
+<a id="157" class="Keyword">module</a> <a id="164" href="Cat.Diagram.Coequaliser.RegularEpi.html" class="Module">Cat.Diagram.Coequaliser.RegularEpi</a> <a id="199" class="Symbol">{</a><a id="200" href="Cat.Diagram.Coequaliser.RegularEpi.html#200" class="Bound">o</a> <a id="202" href="Cat.Diagram.Coequaliser.RegularEpi.html#202" class="Bound">ℓ</a><a id="203" class="Symbol">}</a> <a id="205" class="Symbol">(</a><a id="206" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="208" class="Symbol">:</a> <a id="210" href="Cat.Base.html#704" data-type="(o h : Level) → Type (lsuc o ⊔ lsuc h)" class="Record">Precategory</a> <a id="222" href="Cat.Diagram.Coequaliser.RegularEpi.html#200" class="Bound">o</a> <a id="224" href="Cat.Diagram.Coequaliser.RegularEpi.html#202" class="Bound">ℓ</a><a id="225" class="Symbol">)</a> <a id="227" class="Keyword">where</a>
+</pre>
+<!--
+<pre class="Agda"><a id="251" class="Keyword">open</a> <a id="256" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a> <a id="270" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a>
+<a id="272" class="Keyword">private</a> <a id="280" class="Keyword">variable</a> <a id="289" href="Cat.Diagram.Coequaliser.RegularEpi.html#289" class="Generalizable">a</a> <a id="291" href="Cat.Diagram.Coequaliser.RegularEpi.html#291" class="Generalizable">b</a> <a id="293" class="Symbol">:</a> <a id="295" href="Cat.Base.html#1419" data-type="Precategory o h → Type o" class="Field">Ob</a>
+</pre>-->
+<h1 id="regular-epimorphisms"><a href="#regular-epimorphisms" class="header-link">Regular epimorphisms<span class="header-link-emoji">🔗</span></a></h1>
+<p><a href="Cat.Base.html#opposites">Dually</a> to <a href="Cat.Diagram.Equaliser.RegularMono.html">regular monomorphisms</a>, which behave as <em>embeddings</em>, regular <a href="Cat.Morphism.html#epis">epimorphisms</a> behave like <em>covers</em>: A regular epimorphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>a</mi><mo>↠</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">f : a \epi b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5359em;vertical-align:-0.0135em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">↠</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> expresses <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> as “a union of parts of <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>,</span> possibly glued together.”</p>
+<p>The definition is also precisely dual: A map <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>a</mi><mo>→</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">f : a \to b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> is a <strong>regular epimorphism</strong> if it is the <a href="Cat.Diagram.Coequaliser.html">coequaliser</a> of some pair of arrows <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>⇉</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">R \tto a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8641em;vertical-align:-0.1808em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⇉</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>.</span></p>
+<pre class="Agda"><a id="892" class="Keyword">record</a> <a id="is-regular-epi"></a><a id="899" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-regular-epi</a> <a id="914" class="Symbol">(</a><a id="915" href="Cat.Diagram.Coequaliser.RegularEpi.html#915" class="Bound">f</a> <a id="917" class="Symbol">:</a> <a id="919" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Hom</a> <a id="923" href="Cat.Diagram.Coequaliser.RegularEpi.html#289" class="Generalizable">a</a> <a id="925" href="Cat.Diagram.Coequaliser.RegularEpi.html#291" class="Generalizable">b</a><a id="926" class="Symbol">)</a> <a id="928" class="Symbol">:</a> <a id="930" href="1Lab.Type.html#391" class="Primitive">Type</a> <a id="935" class="Symbol">(</a><a id="936" href="Cat.Diagram.Coequaliser.RegularEpi.html#200" class="Bound">o</a> <a id="938" href="Agda.Primitive.html#810" data-type="Level → Level → Level" class="Primitive Operator">⊔</a> <a id="940" href="Cat.Diagram.Coequaliser.RegularEpi.html#202" class="Bound">ℓ</a><a id="941" class="Symbol">)</a> <a id="943" class="Keyword">where</a>
+  <a id="951" class="Keyword">no-eta-equality</a>
+  <a id="969" class="Keyword">constructor</a> <a id="reg-epi"></a><a id="981" href="Cat.Diagram.Coequaliser.RegularEpi.html#981" data-type="(has-is-coeq : is-coequaliser C arr₁ arr₂ f) → is-regular-epi C f" class="InductiveConstructor">reg-epi</a>
+  <a id="991" class="Keyword">field</a>
+    <a id="1001" class="Symbol">{</a><a id="is-regular-epi.r"></a><a id="1002" href="Cat.Diagram.Coequaliser.RegularEpi.html#1002" data-type="is-regular-epi C f → Ob C" class="Field">r</a><a id="1003" class="Symbol">}</a>           <a id="1015" class="Symbol">:</a> <a id="1017" href="Cat.Base.html#1419" data-type="Precategory o h → Type o" class="Field">Ob</a>
+    <a id="1024" class="Symbol">{</a><a id="is-regular-epi.arr₁"></a><a id="1025" href="Cat.Diagram.Coequaliser.RegularEpi.html#1025" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₁</a><a id="1029" class="Symbol">}</a> <a id="1031" class="Symbol">{</a><a id="is-regular-epi.arr₂"></a><a id="1032" href="Cat.Diagram.Coequaliser.RegularEpi.html#1032" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₂</a><a id="1036" class="Symbol">}</a> <a id="1038" class="Symbol">:</a> <a id="1040" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Hom</a> <a id="1044" href="Cat.Diagram.Coequaliser.RegularEpi.html#1002" data-type="is-regular-epi C f → Ob C" class="Field">r</a> <a id="1046" href="Cat.Diagram.Coequaliser.RegularEpi.html#923" class="Bound">a</a>
+    <a id="is-regular-epi.has-is-coeq"></a><a id="1052" href="Cat.Diagram.Coequaliser.RegularEpi.html#1052" data-type="(r : is-regular-epi C f) → is-coequaliser C (r .arr₁) (r .arr₂) f" class="Field">has-is-coeq</a>   <a id="1066" class="Symbol">:</a> <a id="1068" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Record">is-coequaliser</a> <a id="1083" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="1085" href="Cat.Diagram.Coequaliser.RegularEpi.html#1025" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₁</a> <a id="1090" href="Cat.Diagram.Coequaliser.RegularEpi.html#1032" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₂</a> <a id="1095" href="Cat.Diagram.Coequaliser.RegularEpi.html#915" class="Bound">f</a>
+
+  <a id="1100" class="Keyword">open</a> <a id="1105" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Module">is-coequaliser</a> <a id="1120" href="Cat.Diagram.Coequaliser.RegularEpi.html#1052" data-type="(r : is-regular-epi C f) → is-coequaliser C (r .arr₁) (r .arr₂) f" class="Field">has-is-coeq</a> <a id="1132" class="Keyword">public</a>
+</pre>
+<p>From the definition we can directly conclude that regular epis are in fact epic:</p>
+<pre class="Agda">  <a id="is-regular-epi.is-regular-epi→is-epic"></a><a id="1236" href="Cat.Diagram.Coequaliser.RegularEpi.html#1236" data-type="(r : is-regular-epi C f) → is-epic C f" class="Function">is-regular-epi→is-epic</a> <a id="1259" class="Symbol">:</a> <a id="1261" href="Cat.Morphism.html#1101" data-type="(C : Precategory o h) → Hom C a b → Type (o ⊔ h)" class="Function">is-epic</a> <a id="1269" href="Cat.Diagram.Coequaliser.RegularEpi.html#915" class="Bound">f</a>
+  <a id="1273" href="Cat.Diagram.Coequaliser.RegularEpi.html#1236" data-type="(r : is-regular-epi C f) → is-epic C f" class="Function">is-regular-epi→is-epic</a> <a id="1296" class="Symbol">=</a> <a id="1298" href="Cat.Diagram.Coequaliser.html#1837" data-type="(C : Precategory o ℓ) (coequ : Hom C A E) →
+is-coequaliser C f g coequ → is-epic C coequ" class="Function">is-coequaliser→is-epic</a> <a id="1321" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="1323" class="Symbol">_</a> <a id="1325" href="Cat.Diagram.Coequaliser.RegularEpi.html#1052" data-type="(r : is-regular-epi C f) → is-coequaliser C (r .arr₁) (r .arr₂) f" class="Field">has-is-coeq</a>
+
+<a id="1338" class="Keyword">open</a> <a id="1343" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Module">is-regular-epi</a> <a id="1358" class="Keyword">using</a> <a id="1364" class="Symbol">(</a><a id="1365" href="Cat.Diagram.Coequaliser.RegularEpi.html#1236" data-type="(r : is-regular-epi C f) → is-epic C f" class="Function">is-regular-epi→is-epic</a><a id="1387" class="Symbol">)</a> <a id="1389" class="Keyword">public</a>
+</pre>
+<h2 id="effective-epis"><a href="#effective-epis" class="header-link">Effective epis<span class="header-link-emoji">🔗</span></a></h2>
+<p>Again by duality, we have a pair of canonical choices of maps which <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> may coequalise: Its <em>kernel pair</em>, that is, the <a href="Cat.Diagram.Pullback.html">pullback</a> of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> along itself. An epimorphism which coequalises its kernel pair is called an <strong>effective epi</strong>, and effective epis are immediately seen to be regular epis:</p>
+<pre class="Agda"><a id="1761" class="Keyword">record</a> <a id="is-effective-epi"></a><a id="1768" href="Cat.Diagram.Coequaliser.RegularEpi.html#1768" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-effective-epi</a> <a id="1785" class="Symbol">(</a><a id="1786" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a> <a id="1788" class="Symbol">:</a> <a id="1790" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Hom</a> <a id="1794" href="Cat.Diagram.Coequaliser.RegularEpi.html#289" class="Generalizable">a</a> <a id="1796" href="Cat.Diagram.Coequaliser.RegularEpi.html#291" class="Generalizable">b</a><a id="1797" class="Symbol">)</a> <a id="1799" class="Symbol">:</a> <a id="1801" href="1Lab.Type.html#391" class="Primitive">Type</a> <a id="1806" class="Symbol">(</a><a id="1807" href="Cat.Diagram.Coequaliser.RegularEpi.html#200" class="Bound">o</a> <a id="1809" href="Agda.Primitive.html#810" data-type="Level → Level → Level" class="Primitive Operator">⊔</a> <a id="1811" href="Cat.Diagram.Coequaliser.RegularEpi.html#202" class="Bound">ℓ</a><a id="1812" class="Symbol">)</a> <a id="1814" class="Keyword">where</a>
+  <a id="1822" class="Keyword">no-eta-equality</a>
+  <a id="1840" class="Keyword">field</a>
+    <a id="1850" class="Symbol">{</a><a id="is-effective-epi.kernel"></a><a id="1851" href="Cat.Diagram.Coequaliser.RegularEpi.html#1851" data-type="is-effective-epi C f → Ob C" class="Field">kernel</a><a id="1857" class="Symbol">}</a>       <a id="1865" class="Symbol">:</a> <a id="1867" href="Cat.Base.html#1419" data-type="Precategory o h → Type o" class="Field">Ob</a>
+    <a id="is-effective-epi.p₁"></a><a id="1874" href="Cat.Diagram.Coequaliser.RegularEpi.html#1874" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₁</a> <a id="is-effective-epi.p₂"></a><a id="1877" href="Cat.Diagram.Coequaliser.RegularEpi.html#1877" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₂</a>          <a id="1889" class="Symbol">:</a> <a id="1891" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Hom</a> <a id="1895" href="Cat.Diagram.Coequaliser.RegularEpi.html#1851" data-type="is-effective-epi C f → Ob C" class="Field">kernel</a> <a id="1902" href="Cat.Diagram.Coequaliser.RegularEpi.html#1794" class="Bound">a</a>
+    <a id="is-effective-epi.is-kernel-pair"></a><a id="1908" href="Cat.Diagram.Coequaliser.RegularEpi.html#1908" data-type="(r : is-effective-epi C f) → is-pullback C (r .p₁) f (r .p₂) f" class="Field">is-kernel-pair</a> <a id="1923" class="Symbol">:</a> <a id="1925" href="Cat.Diagram.Pullback.html#622" data-type="(C : Precategory ℓ ℓ′) (p₁ : Hom C P X) (f : Hom C X Z)
+(p₂ : Hom C P Y) (g : Hom C Y Z) →
+Type (ℓ ⊔ ℓ′)" class="Record">is-pullback</a> <a id="1937" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="1939" href="Cat.Diagram.Coequaliser.RegularEpi.html#1874" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₁</a> <a id="1942" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a> <a id="1944" href="Cat.Diagram.Coequaliser.RegularEpi.html#1877" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₂</a> <a id="1947" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a>
+    <a id="is-effective-epi.has-is-coeq"></a><a id="1953" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a>    <a id="1968" class="Symbol">:</a> <a id="1970" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Record">is-coequaliser</a> <a id="1985" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="1987" href="Cat.Diagram.Coequaliser.RegularEpi.html#1874" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₁</a> <a id="1990" href="Cat.Diagram.Coequaliser.RegularEpi.html#1877" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₂</a> <a id="1993" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a>
+
+  <a id="is-effective-epi.is-effective-epi→is-regular-epi"></a><a id="1998" href="Cat.Diagram.Coequaliser.RegularEpi.html#1998" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">is-effective-epi→is-regular-epi</a> <a id="2030" class="Symbol">:</a> <a id="2032" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-regular-epi</a> <a id="2047" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a>
+  <a id="2051" href="Cat.Diagram.Coequaliser.RegularEpi.html#1998" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">is-effective-epi→is-regular-epi</a> <a id="2083" class="Symbol">=</a> <a id="2085" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2088" class="Keyword">where</a>
+    <a id="2098" class="Keyword">open</a> <a id="2103" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Module">is-regular-epi</a> <a id="2118" class="Keyword">hiding</a> <a id="2125" class="Symbol">(</a><a id="2126" href="Cat.Diagram.Coequaliser.RegularEpi.html#1052" data-type="(r : is-regular-epi C f) → is-coequaliser C (r .arr₁) (r .arr₂) f" class="Field">has-is-coeq</a><a id="2137" class="Symbol">)</a>
+    <a id="2143" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2146" class="Symbol">:</a> <a id="2148" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-regular-epi</a> <a id="2163" href="Cat.Diagram.Coequaliser.RegularEpi.html#1786" class="Bound">f</a>
+    <a id="2169" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2172" class="Symbol">.</a><a id="2173" href="Cat.Diagram.Coequaliser.RegularEpi.html#1002" data-type="is-regular-epi C f → Ob C" class="Field">r</a> <a id="2175" class="Symbol">=</a> <a id="2177" class="Symbol">_</a>
+    <a id="2183" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2186" class="Symbol">.</a><a id="2187" href="Cat.Diagram.Coequaliser.RegularEpi.html#1025" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₁</a> <a id="2192" class="Symbol">=</a> <a id="2194" class="Symbol">_</a>
+    <a id="2200" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2203" class="Symbol">.</a><a id="2204" href="Cat.Diagram.Coequaliser.RegularEpi.html#1032" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">arr₂</a> <a id="2209" class="Symbol">=</a> <a id="2211" class="Symbol">_</a>
+    <a id="2217" href="Cat.Diagram.Coequaliser.RegularEpi.html#2143" data-type="(r : is-effective-epi C f) → is-regular-epi C f" class="Function">re</a> <a id="2220" class="Symbol">.</a><a id="2221" href="Cat.Diagram.Coequaliser.RegularEpi.html#1052" data-type="(r : is-regular-epi C f) → is-coequaliser C (r .arr₁) (r .arr₂) f" class="Field">is-regular-epi.has-is-coeq</a> <a id="2248" class="Symbol">=</a> <a id="2250" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a>
+</pre>
+<p>If a regular epimorphism (a coequaliser) has a kernel pair, then it is also the coequaliser of its kernel pair. That is: If the pullback of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mover><mo stretchy="true" minsize="3.0em">→</mo><mpadded width="+0.6em" lspace="0.3em"><mi>f</mi></mpadded></mover><mi>b</mi><mover><mo stretchy="true" minsize="3.0em">←</mo><mpadded width="+0.6em" lspace="0.3em"><mi>f</mi></mpadded></mover><mi>a</mi></mrow><annotation encoding="application/x-tex">a \xto{f} b \xot{f} a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1191em;vertical-align:-0.011em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel x-arrow"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1081em;"><span style="top:-3.322em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight x-arrow-pad"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="svg-align" style="top:-2.689em;"><span class="pstrut" style="height:2.7em;"></span><span class="hide-tail" style="height:0.522em;min-width:1.469em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.522em" viewBox="0 0 400000 522" preserveAspectRatio="xMaxYMin slice"><path d="M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.011em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1191em;vertical-align:-0.011em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel x-arrow"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1081em;"><span style="top:-3.322em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight x-arrow-pad"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="svg-align" style="top:-2.689em;"><span class="pstrut" style="height:2.7em;"></span><span class="hide-tail" style="height:0.522em;min-width:1.469em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.522em" viewBox="0 0 400000 522" preserveAspectRatio="xMinYMin slice"><path d="M400000 241H110l3-3c68.7-52.7 113.7-120
+ 135-202 4-14.7 6-23 6-25 0-7.3-7-11-21-11-8 0-13.2.8-15.5 2.5-2.3 1.7-4.2 5.8
+-5.5 12.5-1.3 4.7-2.7 10.3-4 17-12 48.7-34.8 92-68.5 130S65.3 228.3 18 247
+c-10 4-16 7.7-18 11 0 8.7 6 14.3 18 17 47.3 18.7 87.8 47 121.5 85S196 441.3 208
+ 490c.7 2 1.3 5 2 9s1.2 6.7 1.5 8c.3 1.3 1 3.3 2 6s2.2 4.5 3.5 5.5c1.3 1 3.3
+ 1.8 6 2.5s6 1 10 1c14 0 21-3.7 21-11 0-2-2-10.3-6-25-20-79.3-65-146.7-135-202
+ l-3-3h399890zM100 241v40h399900v-40z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.011em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> exists, then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> is also an effective epimorphism.</p>
+<pre class="Agda"><a id="is-regular-epi→is-effective-epi"></a><a id="2491" href="Cat.Diagram.Coequaliser.RegularEpi.html#2491" data-type="(C : Precategory o ℓ) →
+Pullback C f f → is-regular-epi C f → is-effective-epi C f" class="Function">is-regular-epi→is-effective-epi</a>
+  <a id="2525" class="Symbol">:</a> <a id="2527" class="Symbol">∀</a> <a id="2529" class="Symbol">{</a><a id="2530" href="Cat.Diagram.Coequaliser.RegularEpi.html#2530" class="Bound">a</a> <a id="2532" href="Cat.Diagram.Coequaliser.RegularEpi.html#2532" class="Bound">b</a><a id="2533" class="Symbol">}</a> <a id="2535" class="Symbol">{</a><a id="2536" href="Cat.Diagram.Coequaliser.RegularEpi.html#2536" class="Bound">f</a> <a id="2538" class="Symbol">:</a> <a id="2540" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Field">Hom</a> <a id="2544" href="Cat.Diagram.Coequaliser.RegularEpi.html#2530" class="Bound">a</a> <a id="2546" href="Cat.Diagram.Coequaliser.RegularEpi.html#2532" class="Bound">b</a><a id="2547" class="Symbol">}</a>
+  <a id="2551" class="Symbol">→</a> <a id="2553" href="Cat.Diagram.Pullback.html#2946" data-type="(C : Precategory ℓ ℓ′) (f : Hom C X Z) (g : Hom C Y Z) →
+Type (ℓ ⊔ ℓ′)" class="Record">Pullback</a> <a id="2562" href="Cat.Diagram.Coequaliser.RegularEpi.html#206" class="Bound">C</a> <a id="2564" href="Cat.Diagram.Coequaliser.RegularEpi.html#2536" class="Bound">f</a> <a id="2566" href="Cat.Diagram.Coequaliser.RegularEpi.html#2536" class="Bound">f</a>
+  <a id="2570" class="Symbol">→</a> <a id="2572" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-regular-epi</a> <a id="2587" href="Cat.Diagram.Coequaliser.RegularEpi.html#2536" class="Bound">f</a>
+  <a id="2591" class="Symbol">→</a> <a id="2593" href="Cat.Diagram.Coequaliser.RegularEpi.html#1768" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-effective-epi</a> <a id="2610" href="Cat.Diagram.Coequaliser.RegularEpi.html#2536" class="Bound">f</a>
+<a id="2612" href="Cat.Diagram.Coequaliser.RegularEpi.html#2491" data-type="(C : Precategory o ℓ) →
+Pullback C f f → is-regular-epi C f → is-effective-epi C f" class="Function">is-regular-epi→is-effective-epi</a> <a id="2644" class="Symbol">{</a><a id="2645" class="Argument">f</a> <a id="2647" class="Symbol">=</a> <a id="2649" href="Cat.Diagram.Coequaliser.RegularEpi.html#2649" class="Bound">f</a><a id="2650" class="Symbol">}</a> <a id="2652" href="Cat.Diagram.Coequaliser.RegularEpi.html#2652" class="Bound">kp</a> <a id="2655" href="Cat.Diagram.Coequaliser.RegularEpi.html#2655" class="Bound">reg</a> <a id="2659" class="Symbol">=</a> <a id="2661" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2665" class="Keyword">where</a>
+  <a id="2673" class="Keyword">module</a> <a id="2680" href="Cat.Diagram.Coequaliser.RegularEpi.html#2680" class="Module">reg</a> <a id="2684" class="Symbol">=</a> <a id="2686" href="Cat.Diagram.Coequaliser.RegularEpi.html#899" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Module">is-regular-epi</a> <a id="2701" href="Cat.Diagram.Coequaliser.RegularEpi.html#2655" class="Bound">reg</a>
+  <a id="2707" class="Keyword">module</a> <a id="2714" href="Cat.Diagram.Coequaliser.RegularEpi.html#2714" class="Module">kp</a> <a id="2717" class="Symbol">=</a> <a id="2719" href="Cat.Diagram.Pullback.html#2946" data-type="(C : Precategory ℓ ℓ′) (f : Hom C X Z) (g : Hom C Y Z) →
+Type (ℓ ⊔ ℓ′)" class="Module">Pullback</a> <a id="2728" href="Cat.Diagram.Coequaliser.RegularEpi.html#2652" class="Bound">kp</a>
+
+  <a id="2734" class="Keyword">open</a> <a id="2739" href="Cat.Diagram.Coequaliser.RegularEpi.html#1768" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Module">is-effective-epi</a>
+  <a id="2758" class="Keyword">open</a> <a id="2763" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Module">is-coequaliser</a>
+  <a id="2780" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2784" class="Symbol">:</a> <a id="2786" href="Cat.Diagram.Coequaliser.RegularEpi.html#1768" data-type="(C : Precategory o ℓ) (f : Hom C a b) → Type (o ⊔ ℓ)" class="Record">is-effective-epi</a> <a id="2803" href="Cat.Diagram.Coequaliser.RegularEpi.html#2649" class="Bound">f</a>
+  <a id="2807" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2811" class="Symbol">.</a><a id="2812" href="Cat.Diagram.Coequaliser.RegularEpi.html#1851" data-type="is-effective-epi C f → Ob C" class="Field">kernel</a> <a id="2819" class="Symbol">=</a> <a id="2821" href="Cat.Diagram.Pullback.html#3026" data-type="Pullback C f g → Ob C" class="Function">kp.apex</a>
+  <a id="2831" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2835" class="Symbol">.</a><a id="2836" href="Cat.Diagram.Coequaliser.RegularEpi.html#1874" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₁</a> <a id="2839" class="Symbol">=</a> <a id="2841" href="Cat.Diagram.Pullback.html#3041" data-type="(r : Pullback C f g) → Hom C (r .apex) X" class="Function">kp.p₁</a>
+  <a id="2849" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2853" class="Symbol">.</a><a id="2854" href="Cat.Diagram.Coequaliser.RegularEpi.html#1877" data-type="(r : is-effective-epi C f) → Hom C (r .kernel) a" class="Field">p₂</a> <a id="2857" class="Symbol">=</a> <a id="2859" href="Cat.Diagram.Pullback.html#3061" data-type="(r : Pullback C f g) → Hom C (r .apex) Y" class="Function">kp.p₂</a>
+  <a id="2867" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2871" class="Symbol">.</a><a id="2872" href="Cat.Diagram.Coequaliser.RegularEpi.html#1908" data-type="(r : is-effective-epi C f) → is-pullback C (r .p₁) f (r .p₂) f" class="Field">is-kernel-pair</a> <a id="2887" class="Symbol">=</a> <a id="2889" href="Cat.Diagram.Pullback.html#3081" data-type="(r : Pullback C f g) → is-pullback C (r .p₁) f (r .p₂) g" class="Function">kp.has-is-pb</a>
+  <a id="2904" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2908" class="Symbol">.</a><a id="2909" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a> <a id="2921" class="Symbol">.</a><a id="2922" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Field">coequal</a> <a id="2930" class="Symbol">=</a> <a id="2932" href="Cat.Diagram.Pullback.html#733" data-type="is-pullback C p₁ f p₂ g → (C ∘ f) p₁ ≡ (C ∘ g) p₂" class="Function">kp.square</a>
+  <a id="2944" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="2948" class="Symbol">.</a><a id="2949" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a> <a id="2961" class="Symbol">.</a><a id="2962" href="Cat.Diagram.Coequaliser.html#764" data-type="is-coequaliser C f g coeq → (C ∘ e′) f ≡ (C ∘ e′) g → Hom C E F" class="Field">coequalise</a> <a id="2973" class="Symbol">{</a><a id="2974" class="Argument">F</a> <a id="2976" class="Symbol">=</a> <a id="2978" href="Cat.Diagram.Coequaliser.RegularEpi.html#2978" class="Bound">F</a><a id="2979" class="Symbol">}</a> <a id="2981" class="Symbol">{</a><a id="2982" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a><a id="2984" class="Symbol">}</a> <a id="2986" href="Cat.Diagram.Coequaliser.RegularEpi.html#2986" class="Bound">p</a> <a id="2988" class="Symbol">=</a> <a id="2990" href="Cat.Diagram.Coequaliser.html#764" data-type="is-coequaliser C f g coeq → (C ∘ e′) f ≡ (C ∘ e′) g → Hom C E F" class="Function">reg.coequalise</a> <a id="3005" href="Cat.Diagram.Coequaliser.RegularEpi.html#3017" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f)
+(p : (C ∘ e′) (eff C kp reg .p₁) ≡ (C ∘ e′) (eff C kp reg .p₂)) →
+(C ∘ e′) (arr₁ reg) ≡ (C ∘ e′) (arr₂ reg)" class="Function">q</a> <a id="3007" class="Keyword">where</a>
+    <a id="3017" href="Cat.Diagram.Coequaliser.RegularEpi.html#3017" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f)
+(p : (C ∘ e′) (eff C kp reg .p₁) ≡ (C ∘ e′) (eff C kp reg .p₂)) →
+(C ∘ e′) (arr₁ reg) ≡ (C ∘ e′) (arr₂ reg)" class="Function">q</a> <a id="3019" class="Symbol">:</a> <a id="3021" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3024" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3026" href="Cat.Diagram.Coequaliser.RegularEpi.html#1025" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">reg.arr₁</a> <a id="3035" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3037" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3040" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3042" href="Cat.Diagram.Coequaliser.RegularEpi.html#1032" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">reg.arr₂</a>
+    <a id="3055" href="Cat.Diagram.Coequaliser.RegularEpi.html#3017" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f)
+(p : (C ∘ e′) (eff C kp reg .p₁) ≡ (C ∘ e′) (eff C kp reg .p₂)) →
+(C ∘ e′) (arr₁ reg) ≡ (C ∘ e′) (arr₂ reg)" class="Function">q</a> <a id="3057" class="Symbol">=</a>
+      <a id="3065" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3068" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3070" href="Cat.Diagram.Coequaliser.RegularEpi.html#1025" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">reg.arr₁</a>                               <span class="reasoning-step"><span class="as-written Function"><a id="3109" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3112" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="3115" class="Symbol">(</a><a id="3116" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3119" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘_</a><a id="3121" class="Symbol">)</a> <a id="3123" class="Symbol">(</a><a id="3124" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3128" href="Cat.Diagram.Pullback.html#1618" data-type="(r : is-pullback C p₁ f p₂ g) → (C ∘ p₂) (r .limiting p) ≡ p₂&#39;" class="Function">kp.p₂∘limiting</a><a id="3142" class="Symbol">)</a> <a id="3144" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="3152" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3155" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3157" href="Cat.Diagram.Pullback.html#3061" data-type="(r : Pullback C f g) → Hom C (r .apex) Y" class="Function">kp.p₂</a> <a id="3163" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3165" href="Cat.Diagram.Pullback.html#1452" data-type="is-pullback C p₁ f p₂ g → (C ∘ f) p₁&#39; ≡ (C ∘ g) p₂&#39; → Hom C P′ P" class="Function">kp.limiting</a> <a id="3177" class="Symbol">(</a><a id="3178" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3182" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Function">reg.coequal</a><a id="3193" class="Symbol">)</a>  <span class="reasoning-step"><span class="as-written Function"><a id="3196" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3199" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">pulll</a> <a id="3205" class="Symbol">(</a><a id="3206" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="3210" href="Cat.Diagram.Coequaliser.RegularEpi.html#2986" class="Bound">p</a><a id="3211" class="Symbol">)</a> <a id="3213" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="3221" class="Symbol">(</a><a id="3222" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3225" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3227" href="Cat.Diagram.Pullback.html#3041" data-type="(r : Pullback C f g) → Hom C (r .apex) X" class="Function">kp.p₁</a><a id="3232" class="Symbol">)</a> <a id="3234" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3236" href="Cat.Diagram.Pullback.html#1452" data-type="is-pullback C p₁ f p₂ g → (C ∘ f) p₁&#39; ≡ (C ∘ g) p₂&#39; → Hom C P′ P" class="Function">kp.limiting</a> <a id="3248" class="Symbol">_</a>                <span class="reasoning-step"><span class="as-written Function"><a id="3265" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="3268" href="Cat.Reasoning.html#1678" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ (C ∘ f) a) b ≡ (C ∘ f) c" class="Function">pullr</a> <a id="3274" href="Cat.Diagram.Pullback.html#1552" data-type="(r : is-pullback C p₁ f p₂ g) → (C ∘ p₁) (r .limiting p) ≡ p₁&#39;" class="Function">kp.p₁∘limiting</a> <a id="3289" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="3297" href="Cat.Diagram.Coequaliser.RegularEpi.html#2982" class="Bound">e′</a> <a id="3300" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Field Operator">∘</a> <a id="3302" href="Cat.Diagram.Coequaliser.RegularEpi.html#1032" data-type="(r : is-regular-epi C f) → Hom C (r .r) a" class="Field">reg.arr₂</a>                               <a id="3341" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
+  <a id="3345" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="3349" class="Symbol">.</a><a id="3350" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a> <a id="3362" class="Symbol">.</a><a id="3363" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a> <a id="3373" class="Symbol">=</a> <a id="3375" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Function">reg.universal</a>
+  <a id="3391" href="Cat.Diagram.Coequaliser.RegularEpi.html#2780" data-type="(C : Precategory o ℓ) (kp : Pullback C f f)
+(reg : is-regular-epi C f) →
+is-effective-epi C f" class="Function">eff</a> <a id="3395" class="Symbol">.</a><a id="3396" href="Cat.Diagram.Coequaliser.RegularEpi.html#1953" data-type="(r : is-effective-epi C f) → is-coequaliser C (r .p₁) (r .p₂) f" class="Field">has-is-coeq</a> <a id="3408" class="Symbol">.</a><a id="3409" href="Cat.Diagram.Coequaliser.html#937" data-type="(r : is-coequaliser C f g coeq) →
+e′ ≡ (C ∘ colim) coeq → colim ≡ r .coequalise p" class="Field">unique</a> <a id="3416" class="Symbol">=</a> <a id="3418" href="Cat.Diagram.Coequaliser.html#937" data-type="(r : is-coequaliser C f g coeq) →
+e′ ≡ (C ∘ colim) coeq → colim ≡ r .coequalise p" class="Function">reg.unique</a>
+</pre>
+  </article>
+</div>
+</main>
+</body>
+</html>
