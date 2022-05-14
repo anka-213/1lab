@@ -99,7 +99,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/b7ae7545c5fa75ac1f07e349b657e1c2feb37ac2/src/Cat/Instances/Comma.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/ecbb289303e8c42d263ec968a18025ad0a16ca4f/src/Cat/Instances/Comma.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -277,12 +277,12 @@ is-set (↓Hom F G a b)" class="Function">hl&#39;</a> <a id="3966" class="Keywor
 is-set (↓Hom F G a b)" class="Function">hl&#39;</a> <a id="3989" class="Symbol">:</a> <a id="3991" href="1Lab.HLevel.html#3356" data-type="Type ℓ → Type ℓ" class="Function">is-set</a> <a id="3998" class="Symbol">(</a><a id="3999" href="Cat.Instances.Comma.html#2452" data-type="(F : Functor A C) (G : Functor B₁ C) (a b : ↓Obj F G) →
 Type (ah ⊔ bh ⊔ h)" class="Record">↓Hom</a> <a id="4004" href="Cat.Instances.Comma.html#3956" class="Bound">a</a> <a id="4006" href="Cat.Instances.Comma.html#3958" class="Bound">b</a><a id="4007" class="Symbol">)</a>
     <a id="4013" href="Cat.Instances.Comma.html#3985" data-type="(F : Functor A C) (G : Functor B₁ C) (a b : ↓Obj F G) →
-is-set (↓Hom F G a b)" class="Function">hl&#39;</a> <a id="4017" class="Symbol">=</a> <a id="4019" href="1Lab.HLevel.Retracts.html#3945" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="4030" class="Number">2</a> <a id="4032" class="Symbol">(</a><a id="4033" href="1Lab.Equiv.html#20161" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="4043" href="Cat.Instances.Comma.html#3863" data-type="(F : Functor A C) (G : Functor B₁ C) →
+is-set (↓Hom F G a b)" class="Function">hl&#39;</a> <a id="4017" class="Symbol">=</a> <a id="4019" href="1Lab.HLevel.Retracts.html#4220" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="4030" class="Number">2</a> <a id="4032" class="Symbol">(</a><a id="4033" href="1Lab.Equiv.html#20161" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="4043" href="Cat.Instances.Comma.html#3863" data-type="(F : Functor A C) (G : Functor B₁ C) →
 Iso (↓Hom F G a b)
 (∑ (Hom A (a .x) (x b))
  (λ α →
     ∑ (Hom B₁ (a .y) (y b))
-    (λ β → C ._∘_ (map b) (F₁ F α) ≡ C ._∘_ (F₁ G β) (a .map))))" class="Function">eqv</a> <a id="4047" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="4050" class="Symbol">)</a> <a id="4052" class="Symbol">(</a><a id="4053" href="1Lab.HLevel.Retracts.html#7786" data-type="(n : Nat) ⦃ x : H-Level T n ⦄ → is-hlevel T n" class="Function">hlevel</a> <a id="4060" class="Number">2</a><a id="4061" class="Symbol">)</a>
+    (λ β → C ._∘_ (map b) (F₁ F α) ≡ C ._∘_ (F₁ G β) (a .map))))" class="Function">eqv</a> <a id="4047" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="4050" class="Symbol">)</a> <a id="4052" class="Symbol">(</a><a id="4053" href="1Lab.HLevel.Retracts.html#8061" data-type="(n : Nat) ⦃ x : H-Level T n ⦄ → is-hlevel T n" class="Function">hlevel</a> <a id="4060" class="Number">2</a><a id="4061" class="Symbol">)</a>
 </pre>-->
 <p>Identities and compositions are given componentwise:</p>
 <pre class="Agda">  <a id="4136" href="Cat.Instances.Comma.html#4136" data-type="(F : Functor A C) (G : Functor B₁ C) → ↓Hom F G a a" class="Function">↓id</a> <a id="4140" class="Symbol">:</a> <a id="4142" class="Symbol">∀</a> <a id="4144" class="Symbol">{</a><a id="4145" href="Cat.Instances.Comma.html#4145" class="Bound">a</a><a id="4146" class="Symbol">}</a> <a id="4148" class="Symbol">→</a> <a id="4150" href="Cat.Instances.Comma.html#2452" data-type="(F : Functor A C) (G : Functor B₁ C) (a b : ↓Obj F G) →

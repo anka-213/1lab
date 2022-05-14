@@ -103,7 +103,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/b7ae7545c5fa75ac1f07e349b657e1c2feb37ac2/src/Cat/Displayed/Instances/Slice.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/ecbb289303e8c42d263ec968a18025ad0a16ca4f/src/Cat/Displayed/Instances/Slice.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -220,10 +220,10 @@ is-set (Slice-hom B₁ f px py)" class="Function">Slice-is-set</a> <a id="2659" 
 Type (o ⊔ ℓ)" class="Record">Slice-hom</a> <a id="2679" href="Cat.Displayed.Instances.Slice.html#2595" class="Bound">f</a> <a id="2681" href="Cat.Displayed.Instances.Slice.html#2609" class="Bound">px</a> <a id="2684" href="Cat.Displayed.Instances.Slice.html#2624" class="Bound">py</a><a id="2686" class="Symbol">)</a>
   <a id="2690" href="Cat.Displayed.Instances.Slice.html#2646" data-type="(B₁ : Precategory o ℓ) (f : Hom B₁ x y) (px : Slice B₁ x)
 (py : Slice B₁ y) →
-is-set (Slice-hom B₁ f px py)" class="Function">Slice-is-set</a> <a id="2703" class="Symbol">=</a> <a id="2705" href="1Lab.HLevel.Retracts.html#3945" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="2716" class="Number">2</a> <a id="2718" class="Symbol">(</a><a id="2719" href="1Lab.Equiv.html#20161" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="2729" href="Cat.Displayed.Instances.Slice.html#1430" data-type="(B₁ : Precategory o ℓ) →
+is-set (Slice-hom B₁ f px py)" class="Function">Slice-is-set</a> <a id="2703" class="Symbol">=</a> <a id="2705" href="1Lab.HLevel.Retracts.html#4220" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="2716" class="Number">2</a> <a id="2718" class="Symbol">(</a><a id="2719" href="1Lab.Equiv.html#20161" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="2729" href="Cat.Displayed.Instances.Slice.html#1430" data-type="(B₁ : Precategory o ℓ) →
 Iso (Slice-hom B₁ f px py)
 (∑ (Hom B₁ (px .over) (over py))
- (λ to₁ → (B₁ ∘ f) (px .index) ≡ (B₁ ∘ index py) to₁))" class="Function">eqv</a> <a id="2733" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="2736" class="Symbol">)</a> <a id="2738" class="Symbol">(</a><a id="2739" href="1Lab.HLevel.Retracts.html#7786" data-type="(n : Nat) ⦃ x : H-Level T n ⦄ → is-hlevel T n" class="Function">hlevel</a> <a id="2746" class="Number">2</a><a id="2747" class="Symbol">)</a>
+ (λ to₁ → (B₁ ∘ f) (px .index) ≡ (B₁ ∘ index py) to₁))" class="Function">eqv</a> <a id="2733" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="2736" class="Symbol">)</a> <a id="2738" class="Symbol">(</a><a id="2739" href="1Lab.HLevel.Retracts.html#8061" data-type="(n : Nat) ⦃ x : H-Level T n ⦄ → is-hlevel T n" class="Function">hlevel</a> <a id="2746" class="Number">2</a><a id="2747" class="Symbol">)</a>
     <a id="2753" class="Keyword">where</a> <a id="2759" class="Keyword">open</a> <a id="2764" href="Cat.Base.html#3984" class="Module">HLevel-instance</a>
 </pre>
 <h2 id="pulling-it-all-together"><a href="#pulling-it-all-together" class="header-link">Pulling it all together<span class="header-link-emoji">🔗</span></a></h2>
