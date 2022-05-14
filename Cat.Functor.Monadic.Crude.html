@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Agda,categories,topos" />
+
+  <title>…at.Functor.Monadic.Crude - 1Lab</title>
+
+  <link rel="stylesheet" href="/css/default.css" />
+  <link rel="stylesheet" href="/css/katex.min.css" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="…at.Functor.Monadic.Crude - 1Lab" />
+  <meta name="twitter:image" content="https://1lab.dev/static/cube-128x.png" />
+
+  <meta name="og:title" content="…at.Functor.Monadic.Crude - 1Lab" />
+  <meta name="og:image" content="https://1lab.dev/static/cube-128x.png" />
+  <meta name="og:site-name" content="1Lab" />
+  <meta name="og:type" content="website" />
+
+    <meta name="og:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  
+  <script defer src="/main.js"></script>
+
+  <noscript>
+    <style>
+      body span.reasoning-step .as-written {
+        display: inline;
+      }
+
+      body span.reasoning-step .alternate {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <!-- Google font embeds -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
+</head>
+
+<body class="text-page">
+<main>
+<div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
+
+  <!-- Table of contents (only if the page has a table of contents) -->
+    <aside id="toc">
+    <div id="toc-container" style="min-width: 10em; font-size: 15pt;">
+      <!-- Title for the page -->
+      <h3 class="Agda" style="margin-top: 0; margin-bottom: 0; white-space: pre;">
+                <a class="Module">…at.Functor.Monadic.Crude</a>
+              </h3>
+
+      <!-- Cube logo -->
+      <a id="logo" href="/">
+        <img alt="1Lab" src="/static/cube-72x.png" style="display: block; margin-bottom: 1em; margin: auto;" width="32px" height="32px" />
+      </a>
+
+      <!-- Actual table of contents (separated from the rest by
+      horizontal rules) -->
+      <hr />
+      <ul>
+      <li><a href="#crude-monadicity"><a href="#crude-monadicity" class="header-link">Crude monadicity<span class="header-link-emoji">🔗</span></a></a></li>
+      </ul>
+      <hr />
+
+      <!-- Sidebar controls -->
+      <div style="display: flex; gap: 0.25em; flex-flow: row wrap;">
+        <!-- Sidebar equations control -->
+        <span class="equations" style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-eqns" type="checkbox" class="equations" id="sidebar-eqns">
+          <label for="sidebar-eqns">Equations</label>
+        </span>
+
+        <!-- Sidebar fonts control -->
+        <span style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-font" type="checkbox" id="toggle-fonts">
+          <label for="toggle-fonts">Serif Font</label>
+        </span>
+
+        <!-- Sidebar footnotes control -->
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
+          <label for="sidebar-fns">Inline Footnotes</label>
+        </span>
+      </div>
+
+      <hr />
+
+      <!-- Navbar navigation (lol) -->
+      <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
+              <a href="/">back to index</a> <br />
+              <a href="all-pages.html">view all pages</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/84bc295c3ec8708c35cd9f33701c0970b74f91ea/src/Cat/Functor/Monadic/Crude.lagda.md">link to source</a> <br />
+                <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
+              </div>
+    </div>
+  </aside>
+  
+  <article>
+    <!-- Article navigation (narrow screens only) -->
+    <div class="narrow-only" id="article-nav">
+      <!-- Index return anchor (only if the page is not the index) -->
+            <div id="return">
+        <a href="/">back to index</a>
+      </div>
+      
+      <!-- Navbar equations control -->
+      <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
+        <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
+      </span>
+    </div>
+
+<pre class="Agda"><a id="9" class="Keyword">open</a> <a id="14" class="Keyword">import</a> <a id="21" href="Cat.Functor.Adjoint.Monadic.html" class="Module">Cat.Functor.Adjoint.Monadic</a>
+<a id="49" class="Keyword">open</a> <a id="54" class="Keyword">import</a> <a id="61" href="Cat.Functor.Adjoint.Monad.html" class="Module">Cat.Functor.Adjoint.Monad</a>
+<a id="87" class="Keyword">open</a> <a id="92" class="Keyword">import</a> <a id="99" href="Cat.Functor.Monadic.Beck.html" class="Module">Cat.Functor.Monadic.Beck</a>
+<a id="124" class="Keyword">open</a> <a id="129" class="Keyword">import</a> <a id="136" href="Cat.Functor.Conservative.html" class="Module">Cat.Functor.Conservative</a>
+<a id="161" class="Keyword">open</a> <a id="166" class="Keyword">import</a> <a id="173" href="Cat.Functor.Equivalence.html" class="Module">Cat.Functor.Equivalence</a>
+<a id="197" class="Keyword">open</a> <a id="202" class="Keyword">import</a> <a id="209" href="Cat.Diagram.Coequaliser.html" class="Module">Cat.Diagram.Coequaliser</a>
+<a id="233" class="Keyword">open</a> <a id="238" class="Keyword">import</a> <a id="245" href="Cat.Functor.Adjoint.html" class="Module">Cat.Functor.Adjoint</a>
+<a id="265" class="Keyword">open</a> <a id="270" class="Keyword">import</a> <a id="277" href="Cat.Diagram.Monad.html" class="Module">Cat.Diagram.Monad</a>
+<a id="295" class="Keyword">open</a> <a id="300" class="Keyword">import</a> <a id="307" href="Cat.Prelude.html" class="Module">Cat.Prelude</a>
+
+<a id="320" class="Keyword">import</a> <a id="327" href="Cat.Functor.Reasoning.html" class="Module">Cat.Functor.Reasoning</a> <a id="349" class="Symbol">as</a> <a id="352" class="Module">F-r</a>
+<a id="356" class="Keyword">import</a> <a id="363" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a> <a id="377" class="Symbol">as</a> <a id="380" class="Module">C-r</a>
+
+<a id="385" class="Keyword">module</a>
+  <a id="394" href="Cat.Functor.Monadic.Crude.html" class="Module">Cat.Functor.Monadic.Crude</a>
+  <a id="422" class="Symbol">{</a><a id="423" href="Cat.Functor.Monadic.Crude.html#423" class="Bound">o</a> <a id="425" href="Cat.Functor.Monadic.Crude.html#425" class="Bound">ℓ</a> <a id="427" href="Cat.Functor.Monadic.Crude.html#427" class="Bound">o′</a> <a id="430" href="Cat.Functor.Monadic.Crude.html#430" class="Bound">ℓ′</a><a id="432" class="Symbol">}</a> <a id="434" class="Symbol">{</a><a id="435" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="437" class="Symbol">:</a> <a id="439" href="Cat.Base.html#704" data-type="(o h : Level) → Type (lsuc o ⊔ lsuc h)" class="Record">Precategory</a> <a id="451" href="Cat.Functor.Monadic.Crude.html#423" class="Bound">o</a> <a id="453" href="Cat.Functor.Monadic.Crude.html#425" class="Bound">ℓ</a><a id="454" class="Symbol">}</a> <a id="456" class="Symbol">{</a><a id="457" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a> <a id="459" class="Symbol">:</a> <a id="461" href="Cat.Base.html#704" data-type="(o h : Level) → Type (lsuc o ⊔ lsuc h)" class="Record">Precategory</a> <a id="473" href="Cat.Functor.Monadic.Crude.html#427" class="Bound">o′</a> <a id="476" href="Cat.Functor.Monadic.Crude.html#430" class="Bound">ℓ′</a><a id="478" class="Symbol">}</a>
+  <a id="482" class="Symbol">{</a><a id="483" href="Cat.Functor.Monadic.Crude.html#483" class="Bound">F</a> <a id="485" class="Symbol">:</a> <a id="487" href="Cat.Base.html#7206" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
+Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Record">Functor</a> <a id="495" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="497" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a><a id="498" class="Symbol">}</a> <a id="500" class="Symbol">{</a><a id="501" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a> <a id="503" class="Symbol">:</a> <a id="505" href="Cat.Base.html#7206" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
+Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Record">Functor</a> <a id="513" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a> <a id="515" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a><a id="516" class="Symbol">}</a>
+  <a id="520" class="Symbol">(</a><a id="521" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="525" class="Symbol">:</a> <a id="527" href="Cat.Functor.Monadic.Crude.html#483" class="Bound">F</a> <a id="529" href="Cat.Functor.Adjoint.html#1933" data-type="(L : Functor C D) (R₁ : Functor D C) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Record Operator">⊣</a> <a id="531" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a><a id="532" class="Symbol">)</a>
+  <a id="536" class="Keyword">where</a>
+</pre>
+<!--
+<pre class="Agda"><a id="560" class="Keyword">private</a>
+  <a id="570" class="Keyword">module</a> <a id="F"></a><a id="577" href="Cat.Functor.Monadic.Crude.html#577" class="Module">F</a> <a id="579" class="Symbol">=</a> <a id="581" href="Cat.Functor.Reasoning.html" class="Module">F-r</a> <a id="585" href="Cat.Functor.Monadic.Crude.html#483" class="Bound">F</a>
+  <a id="589" class="Keyword">module</a> <a id="U"></a><a id="596" href="Cat.Functor.Monadic.Crude.html#596" class="Module">U</a> <a id="598" class="Symbol">=</a> <a id="600" href="Cat.Functor.Reasoning.html" class="Module">F-r</a> <a id="604" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a>
+  <a id="608" class="Keyword">module</a> <a id="C"></a><a id="615" href="Cat.Functor.Monadic.Crude.html#615" class="Module">C</a> <a id="617" class="Symbol">=</a> <a id="619" href="Cat.Reasoning.html" class="Module">C-r</a> <a id="623" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a>
+  <a id="627" class="Keyword">module</a> <a id="D"></a><a id="634" href="Cat.Functor.Monadic.Crude.html#634" class="Module">D</a> <a id="636" class="Symbol">=</a> <a id="638" href="Cat.Reasoning.html" class="Module">C-r</a> <a id="642" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a>
+  <a id="646" class="Keyword">module</a> <a id="UF"></a><a id="653" href="Cat.Functor.Monadic.Crude.html#653" class="Module">UF</a> <a id="656" class="Symbol">=</a> <a id="658" href="Cat.Functor.Reasoning.html" class="Module">F-r</a> <a id="662" class="Symbol">(</a><a id="663" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a> <a id="665" href="Cat.Base.html#9697" data-type="Functor D E → Functor C D → Functor C E" class="Function Operator">F∘</a> <a id="668" href="Cat.Functor.Monadic.Crude.html#483" class="Bound">F</a><a id="669" class="Symbol">)</a>
+  <a id="673" class="Keyword">module</a> <a id="T"></a><a id="680" href="Cat.Functor.Monadic.Crude.html#680" class="Module">T</a> <a id="682" class="Symbol">=</a> <a id="684" href="Cat.Diagram.Monad.html#712" data-type="(C : Precategory o h) → Type (o ⊔ h)" class="Module">Monad</a> <a id="690" class="Symbol">(</a><a id="691" href="Cat.Functor.Adjoint.Monad.html#588" data-type="(L⊣R : L ⊣ R₁) → Monad C" class="Function">Adjunction→Monad</a> <a id="708" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a><a id="711" class="Symbol">)</a>
+
+  <a id="T"></a><a id="716" href="Cat.Functor.Monadic.Crude.html#716" data-type="(F⊣U : F ⊣ U) → Monad C" class="Function">T</a> <a id="718" class="Symbol">:</a> <a id="720" href="Cat.Diagram.Monad.html#712" data-type="(C : Precategory o h) → Type (o ⊔ h)" class="Record">Monad</a> <a id="726" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a>
+  <a id="730" href="Cat.Functor.Monadic.Crude.html#716" data-type="(F⊣U : F ⊣ U) → Monad C" class="Function">T</a> <a id="732" class="Symbol">=</a> <a id="734" href="Cat.Functor.Adjoint.Monad.html#588" data-type="(L⊣R : L ⊣ R₁) → Monad C" class="Function">Adjunction→Monad</a> <a id="751" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a>
+  <a id="C^T"></a><a id="757" href="Cat.Functor.Monadic.Crude.html#757" data-type="(F⊣U : F ⊣ U) → Precategory (o ⊔ ℓ) (o ⊔ ℓ)" class="Function">C^T</a> <a id="761" class="Symbol">:</a> <a id="763" href="Cat.Base.html#704" data-type="(o h : Level) → Type (lsuc o ⊔ lsuc h)" class="Record">Precategory</a> <a id="775" class="Symbol">_</a> <a id="777" class="Symbol">_</a>
+  <a id="781" href="Cat.Functor.Monadic.Crude.html#757" data-type="(F⊣U : F ⊣ U) → Precategory (o ⊔ ℓ) (o ⊔ ℓ)" class="Function">C^T</a> <a id="785" class="Symbol">=</a> <a id="787" href="Cat.Diagram.Monad.html#6002" data-type="(C : Precategory o h) (M : Monad C) → Precategory (o ⊔ h) (o ⊔ h)" class="Function">Eilenberg-Moore</a> <a id="803" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="805" href="Cat.Functor.Monadic.Crude.html#716" data-type="(F⊣U : F ⊣ U) → Monad C" class="Function">T</a>
+
+  <a id="810" class="Keyword">module</a> <a id="C^T"></a><a id="817" href="Cat.Functor.Monadic.Crude.html#817" class="Module">C^T</a> <a id="821" class="Symbol">=</a> <a id="823" href="Cat.Reasoning.html" class="Module">C-r</a> <a id="827" href="Cat.Functor.Monadic.Crude.html#757" data-type="(F⊣U : F ⊣ U) → Precategory (o ⊔ ℓ) (o ⊔ ℓ)" class="Function">C^T</a>
+
+<a id="832" class="Keyword">open</a> <a id="837" href="Cat.Functor.Adjoint.html#1933" data-type="(L : Functor C D) (R₁ : Functor D C) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Module Operator">_⊣_</a> <a id="841" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a>
+<a id="845" class="Keyword">open</a> <a id="850" href="Cat.Base.html#12241" data-type="(F G : Functor C D) → Type (o₁ ⊔ h₁ ⊔ h₂)" class="Module Operator">_=&gt;_</a>
+<a id="855" class="Keyword">open</a> <a id="860" href="Cat.Diagram.Monad.html#3646" data-type="(C : Precategory o h) (M : Monad C) (X Y : Algebra C M) →
+Type (o ⊔ h)" class="Module">Algebra-hom</a>
+<a id="872" class="Keyword">open</a> <a id="877" href="Cat.Diagram.Monad.html#1861" data-type="(C : Precategory o h) (M : Monad C) (ob : Ob C) → Type (o ⊔ h)" class="Module">Algebra-on</a>
+</pre>-->
+<h1 id="crude-monadicity"><a href="#crude-monadicity" class="header-link">Crude monadicity<span class="header-link-emoji">🔗</span></a></h1>
+<p>We present a refinement of the conditions laid out in <a href="Cat.Functor.Monadic.Beck.html#becks-coequaliser">Beck’s coequaliser</a> for when an adjunction <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊣</mo><mi>G</mi></mrow><annotation encoding="application/x-tex">F \dashv G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> is <a href="Cat.Functor.Adjoint.Monadic.html">monadic</a>: The <strong>crude monadicity theorem</strong>. The proof we present is adapted from [<span class="citation" data-cites="SIGL"><a href="#ref-SIGL" role="doc-biblioref" title="Sheaves in Geometry and Logic: A First Introduction to Topos Theory">Mac Lane and Moerdijk</a> (<a href="#ref-SIGL" role="doc-biblioref" title="Sheaves in Geometry and Logic: A First Introduction to Topos Theory">1994</a>)</span>, chap. IV; sect. 4], where it is applied to the setting of elementary topoi, but carried out in full generality.</p>
+<p>Recall our setup. We have a <a href="Cat.Functor.Adjoint.html">left adjoint</a> functor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><mi mathvariant="script">C</mi><mo>→</mo><mi mathvariant="script">D</mi></mrow><annotation encoding="application/x-tex">F : \ca{C} \to \ca{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.05834em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> (call its right adjoint <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span>),</span> and we’re interested in characterising exactly when the <a href="Cat.Functor.Adjoint.Monadic.html#Comparison">comparison functor</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>:</mo><mi mathvariant="script">D</mi><mo>→</mo><msup><mi mathvariant="script">C</mi><mrow><mi>U</mi><mi>F</mi></mrow></msup></mrow><annotation encoding="application/x-tex">K : \ca{D} \to \ca{C}^{UF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.05834em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">U</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">F</span></span></span></span></span></span></span></span></span></span></span></span> into the <a href="Cat.Diagram.Monad.html#eilenberg-moore-category">Eilenberg-Moore category</a> of the <a href="Cat.Functor.Adjoint.Monad.html">monad from the adjunction</a> is an equivalence. Our refinement here gives a <em>sufficient</em> condition.</p>
+<p><strong>Theorem</strong> (Crude monadicity). Let the functors <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>,</span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> be as in the paragraph above, and abbreviate the resulting monad by <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>;</span> Denote the comparison functor by <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>.</span></p>
+<ol type="1">
+<li><p>If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">D</mi></mrow><annotation encoding="application/x-tex">\ca{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has <a href="Cat.Functor.Monadic.Beck.html#presented-algebras">Beck’s coequalisers</a> for any <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>-algebra,</span> then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> has a left adjoint <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>⊣</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">K^{-1} \dashv K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>;</span></p></li>
+<li><p>If, in addition, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> preserves coequalisers for any pair which has a common right inverse, then the unit of the adjunction <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span> is a natural isomorphism;</p></li>
+<li><p>If, in addition, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> is <a href="Cat.Functor.Conservative.html">conservative</a>, then the counit of the adjunction <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span> is also a natural isomorphism, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> is an <a href="Cat.Functor.Equivalence.html">equivalence of precategories</a>.</p></li>
+</ol>
+<p><strong>Proof</strong> We already established (1) <a href="Cat.Functor.Monadic.Beck.html#presented-algebras">here</a>.</p>
+<p>Let us show (2). Suppose that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">D</mi></mrow><annotation encoding="application/x-tex">\ca{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has Beck’s coequalisers and that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> preserves coequalisers of pairs of morphisms with a common right inverse (we call these coequalisers <strong>reflexive</strong>):</p>
+<pre class="Agda"><a id="2937" class="Keyword">private</a>
+  <a id="U-preserves-reflexive-coeqs"></a><a id="2947" href="Cat.Functor.Monadic.Crude.html#2947" data-type="(F⊣U : F ⊣ U) → Type (o ⊔ ℓ ⊔ o′ ⊔ ℓ′)" class="Function">U-preserves-reflexive-coeqs</a> <a id="2975" class="Symbol">:</a> <a id="2977" href="1Lab.Type.html#391" class="Primitive">Type</a> <a id="2982" class="Symbol">_</a>
+  <a id="2986" href="Cat.Functor.Monadic.Crude.html#2947" data-type="(F⊣U : F ⊣ U) → Type (o ⊔ ℓ ⊔ o′ ⊔ ℓ′)" class="Function">U-preserves-reflexive-coeqs</a> <a id="3014" class="Symbol">=</a>
+    <a id="3020" class="Symbol">∀</a> <a id="3022" class="Symbol">{</a><a id="3023" href="Cat.Functor.Monadic.Crude.html#3023" class="Bound">A</a> <a id="3025" href="Cat.Functor.Monadic.Crude.html#3025" class="Bound">B</a><a id="3026" class="Symbol">}</a> <a id="3028" class="Symbol">{</a><a id="3029" href="Cat.Functor.Monadic.Crude.html#3029" class="Bound">f</a> <a id="3031" href="Cat.Functor.Monadic.Crude.html#3031" class="Bound">g</a> <a id="3033" class="Symbol">:</a> <a id="3035" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">D.Hom</a> <a id="3041" href="Cat.Functor.Monadic.Crude.html#3023" class="Bound">A</a> <a id="3043" href="Cat.Functor.Monadic.Crude.html#3025" class="Bound">B</a><a id="3044" class="Symbol">}</a> <a id="3046" class="Symbol">(</a><a id="3047" href="Cat.Functor.Monadic.Crude.html#3047" class="Bound">i</a> <a id="3049" class="Symbol">:</a> <a id="3051" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">D.Hom</a> <a id="3057" href="Cat.Functor.Monadic.Crude.html#3025" class="Bound">B</a> <a id="3059" href="Cat.Functor.Monadic.Crude.html#3023" class="Bound">A</a><a id="3060" class="Symbol">)</a>
+    <a id="3066" class="Symbol">→</a> <a id="3068" class="Symbol">(</a><a id="3069" href="Cat.Functor.Monadic.Crude.html#3029" class="Bound">f</a> <a id="3071" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="3075" href="Cat.Functor.Monadic.Crude.html#3047" class="Bound">i</a> <a id="3077" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3079" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">D.id</a><a id="3083" class="Symbol">)</a> <a id="3085" class="Symbol">→</a> <a id="3087" class="Symbol">(</a><a id="3088" href="Cat.Functor.Monadic.Crude.html#3031" class="Bound">g</a> <a id="3090" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="3094" href="Cat.Functor.Monadic.Crude.html#3047" class="Bound">i</a> <a id="3096" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="3098" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">D.id</a><a id="3102" class="Symbol">)</a>
+    <a id="3108" class="Symbol">→</a> <a id="3110" class="Symbol">(</a><a id="3111" href="Cat.Functor.Monadic.Crude.html#3111" class="Bound">coequ</a> <a id="3117" class="Symbol">:</a> <a id="3119" href="Cat.Diagram.Coequaliser.html#1495" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) → Type (o ⊔ ℓ)" class="Record">Coequaliser</a> <a id="3131" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a> <a id="3133" href="Cat.Functor.Monadic.Crude.html#3029" class="Bound">f</a> <a id="3135" href="Cat.Functor.Monadic.Crude.html#3031" class="Bound">g</a><a id="3136" class="Symbol">)</a>
+    <a id="3142" class="Symbol">→</a> <a id="3144" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Record">is-coequaliser</a> <a id="3159" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="3161" class="Symbol">(</a><a id="3162" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="3166" href="Cat.Functor.Monadic.Crude.html#3029" class="Bound">f</a><a id="3167" class="Symbol">)</a> <a id="3169" class="Symbol">(</a><a id="3170" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="3174" href="Cat.Functor.Monadic.Crude.html#3031" class="Bound">g</a><a id="3175" class="Symbol">)</a> <a id="3177" class="Symbol">(</a><a id="3178" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="3182" class="Symbol">(</a><a id="3183" href="Cat.Functor.Monadic.Crude.html#3111" class="Bound">coequ</a> <a id="3189" class="Symbol">.</a><a id="3190" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">Coequaliser.coeq</a><a id="3206" class="Symbol">))</a>
+
+<a id="3210" class="Keyword">module</a> <a id="3217" href="Cat.Functor.Monadic.Crude.html#3217" class="Module">_</a>
+  <a id="3221" class="Symbol">(</a><a id="3222" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="3231" class="Symbol">:</a> <a id="3233" class="Symbol">(</a><a id="3234" href="Cat.Functor.Monadic.Crude.html#3234" class="Bound">M</a> <a id="3236" class="Symbol">:</a> <a id="3238" href="Cat.Diagram.Monad.html#2418" data-type="(C : Precategory o h) → Monad C → Type (o ⊔ h)" class="Function">Algebra</a> <a id="3246" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="3248" href="Cat.Functor.Monadic.Crude.html#716" data-type="(F⊣U : F ⊣ U) → Monad C" class="Function">T</a><a id="3249" class="Symbol">)</a> <a id="3251" class="Symbol">→</a> <a id="3253" href="Cat.Diagram.Coequaliser.html#1495" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) → Type (o ⊔ ℓ)" class="Record">Coequaliser</a> <a id="3265" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a> <a id="3267" class="Symbol">(</a><a id="3268" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="3272" class="Symbol">(</a><a id="3273" href="Cat.Functor.Monadic.Crude.html#3234" class="Bound">M</a> <a id="3275" class="Symbol">.</a><a id="3276" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="3280" class="Symbol">.</a><a id="3281" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a><a id="3282" class="Symbol">))</a> <a id="3285" class="Symbol">(</a><a id="3286" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="3295" class="Symbol">_))</a>
+  <a id="3301" class="Symbol">(</a><a id="3302" href="Cat.Functor.Monadic.Crude.html#3302" class="Bound">U-pres</a> <a id="3309" class="Symbol">:</a> <a id="3311" href="Cat.Functor.Monadic.Crude.html#2947" data-type="(F⊣U : F ⊣ U) → Type (o ⊔ ℓ ⊔ o′ ⊔ ℓ′)" class="Function">U-preserves-reflexive-coeqs</a><a id="3338" class="Symbol">)</a>
+  <a id="3342" class="Keyword">where</a>
+</pre>
+<!--
+<pre class="Agda">  <a id="3368" class="Keyword">open</a> <a id="3373" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Module">is-coequaliser</a>
+  <a id="3390" class="Keyword">open</a> <a id="3395" href="Cat.Diagram.Coequaliser.html#1495" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) → Type (o ⊔ ℓ)" class="Module">Coequaliser</a>
+  <a id="3409" class="Keyword">open</a> <a id="3414" href="Cat.Base.html#7206" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
+Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Module">Functor</a>
+
+  <a id="3425" class="Keyword">private</a>
+    <a id="3437" href="Cat.Functor.Monadic.Crude.html#3437" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+Functor (C^T F⊣U) D" class="Function">K⁻¹</a> <a id="3441" class="Symbol">:</a> <a id="3443" href="Cat.Base.html#7206" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
+Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Record">Functor</a> <a id="3451" href="Cat.Functor.Monadic.Crude.html#757" data-type="(F⊣U : F ⊣ U) → Precategory (o ⊔ ℓ) (o ⊔ ℓ)" class="Function">C^T</a> <a id="3455" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a>
+    <a id="3461" href="Cat.Functor.Monadic.Crude.html#3437" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+Functor (C^T F⊣U) D" class="Function">K⁻¹</a> <a id="3465" class="Symbol">=</a> <a id="3467" href="Cat.Functor.Monadic.Beck.html#7981" data-type="(F⊣G : F ⊣ G)
+(has-coeq
+ : (M : Algebra C (T F⊣G)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣G (F₀ F (M .fst)))) →
+Functor (Eilenberg-Moore C (T F⊣G)) D" class="Function">Comparison⁻¹</a> <a id="3480" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="3484" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a>
+
+    <a id="3498" href="Cat.Functor.Monadic.Crude.html#3498" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+K⁻¹ F⊣U has-coeq U-pres ⊣ Comparison F⊣U" class="Function">K⁻¹⊣K</a> <a id="3504" class="Symbol">:</a> <a id="3506" href="Cat.Functor.Monadic.Crude.html#3437" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+Functor (C^T F⊣U) D" class="Function">K⁻¹</a> <a id="3510" href="Cat.Functor.Adjoint.html#1933" data-type="(L : Functor C D) (R₁ : Functor D C) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Record Operator">⊣</a> <a id="3512" href="Cat.Functor.Adjoint.Monadic.html#1150" data-type="(L⊣R : L ⊣ R₁) → Functor D (Eilenberg-Moore C (L∘R L⊣R))" class="Function">Comparison</a> <a id="3523" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a>
+    <a id="3531" href="Cat.Functor.Monadic.Crude.html#3498" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+K⁻¹ F⊣U has-coeq U-pres ⊣ Comparison F⊣U" class="Function">K⁻¹⊣K</a> <a id="3537" class="Symbol">=</a> <a id="3539" href="Cat.Functor.Monadic.Beck.html#9385" data-type="(F⊣G : F ⊣ G)
+(has-coeq
+ : (M : Algebra C (T F⊣G)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣G (F₀ F (M .fst)))) →
+Comparison⁻¹ F⊣G has-coeq ⊣ Comparison F⊣G" class="Function">Comparison⁻¹⊣Comparison</a> <a id="3563" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="3567" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a>
+
+    <a id="3581" class="Keyword">module</a> <a id="3588" href="Cat.Functor.Monadic.Crude.html#3588" class="Module">adj</a> <a id="3592" class="Symbol">=</a> <a id="3594" href="Cat.Functor.Adjoint.html#1933" data-type="(L : Functor C D) (R₁ : Functor D C) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Module Operator">_⊣_</a> <a id="3598" href="Cat.Functor.Monadic.Crude.html#3498" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+K⁻¹ F⊣U has-coeq U-pres ⊣ Comparison F⊣U" class="Function">K⁻¹⊣K</a>
+</pre>-->
+<pre class="Agda">  <a id="3623" class="Comment">-- N.B.: In the code we abbreviate &quot;preserves reflexive coequalisers&quot;</a>
+  <a id="3695" class="Comment">-- by &quot;prcoeq&quot;.</a>
+  <a id="3713" href="Cat.Functor.Monadic.Crude.html#3713" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-invertible (C^T F⊣U) (η (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">prcoeq→unit-is-iso</a> <a id="3732" class="Symbol">:</a> <a id="3734" class="Symbol">∀</a> <a id="3736" class="Symbol">{</a><a id="3737" href="Cat.Functor.Monadic.Crude.html#3737" class="Bound">o</a><a id="3738" class="Symbol">}</a> <a id="3740" class="Symbol">→</a> <a id="3742" href="Cat.Morphism.html#1930" data-type="(C : Precategory o h) (f : Hom C a b) → Type h" class="Record">C^T.is-invertible</a> <a id="3760" class="Symbol">(</a><a id="3761" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">adj.unit.η</a> <a id="3772" href="Cat.Functor.Monadic.Crude.html#3737" class="Bound">o</a><a id="3773" class="Symbol">)</a>
+  <a id="3777" href="Cat.Functor.Monadic.Crude.html#3713" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-invertible (C^T F⊣U) (η (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">prcoeq→unit-is-iso</a> <a id="3796" class="Symbol">{</a><a id="3797" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a><a id="3798" class="Symbol">}</a> <a id="3800" class="Symbol">=</a> <a id="3802" href="Cat.Morphism.html#3457" data-type="(C : Precategory o h) (g : Hom C b a) →
+(C ∘ f) g ≡ id C → (C ∘ g) f ≡ id C → is-invertible C f" class="Function">C^T.make-invertible</a> <a id="3822" href="Cat.Functor.Monadic.Crude.html#5939" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C^T F⊣U .Hom
+(₀ U (coapex (has-coeq o)) ,
+ alg F⊣U (F₀ (K⁻¹ F⊣U has-coeq U-pres) o))
+o" class="Function">inverse</a>
+    <a id="3834" class="Symbol">(</a><a id="3835" href="Cat.Diagram.Monad.html#4623" data-type="(C : Precategory o h) → morphism F ≡ morphism G → F ≡ G" class="Function">Algebra-hom-path</a> <a id="3852" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="3854" href="Cat.Functor.Monadic.Crude.html#5202" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+(η⁻¹ F⊣U has-coeq U-pres)
+≡ C .id" class="Function">η⁻¹η</a><a id="3858" class="Symbol">)</a> <a id="3860" class="Symbol">(</a><a id="3861" href="Cat.Diagram.Monad.html#4623" data-type="(C : Precategory o h) → morphism F ≡ morphism G → F ≡ G" class="Function">Algebra-hom-path</a> <a id="3878" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="3880" href="Cat.Functor.Monadic.Crude.html#5251" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η⁻¹ F⊣U has-coeq U-pres)
+(η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+≡ C .id" class="Function">ηη⁻¹</a><a id="3884" class="Symbol">)</a> <a id="3886" class="Keyword">where</a>
+</pre>
+<p>The first thing we note is that Beck’s coequaliser is reflexive: The common right inverse is <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>η</mi></mrow><annotation encoding="application/x-tex">F\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span>.</span> It’s straightforward to calculate that this map <em>is</em> a right inverse; let me point out that it follows from the triangle identities for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊣</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">F \dashv U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> and the algebra laws.</p>
+<pre class="Agda">    <a id="4183" class="Keyword">abstract</a>
+      <a id="4198" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="4208" class="Symbol">:</a> <a id="4210" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Record">is-coequaliser</a> <a id="4225" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a>
+        <a id="4235" class="Symbol">(</a><a id="4236" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">UF.₁</a> <a id="4241" class="Symbol">(</a><a id="4242" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="4244" class="Symbol">.</a><a id="4245" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="4249" class="Symbol">.</a><a id="4250" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a><a id="4251" class="Symbol">))</a> <a id="4254" class="Symbol">(</a><a id="4255" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="4259" class="Symbol">(</a><a id="4260" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="4269" class="Symbol">(</a><a id="4270" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="4274" class="Symbol">(</a><a id="4275" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="4277" class="Symbol">.</a><a id="4278" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a><a id="4281" class="Symbol">))))</a>
+        <a id="4294" class="Symbol">(</a><a id="4295" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="4299" class="Symbol">(</a><a id="4300" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="4309" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="4311" class="Symbol">.</a><a id="4312" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="4316" class="Symbol">))</a>
+      <a id="4325" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="4335" class="Symbol">=</a>
+        <a id="4345" href="Cat.Functor.Monadic.Crude.html#3302" class="Bound">U-pres</a> <a id="4352" class="Symbol">(</a><a id="4353" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="4357" class="Symbol">(</a><a id="4358" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="4365" class="Symbol">_))</a> <a id="4369" class="Symbol">(</a><a id="4370" href="Cat.Functor.Reasoning.html#2154" data-type="(F : Functor 𝒞 𝒟) (inv₁ : (F ∘ a) b ≡ id F) →
+(F ∘ F₁ F a) (F₁ F b) ≡ id F" class="Function">F.annihilate</a> <a id="4383" class="Symbol">(</a><a id="4384" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="4386" class="Symbol">.</a><a id="4387" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="4391" class="Symbol">.</a><a id="4392" href="Cat.Diagram.Monad.html#2343" data-type="(r : Algebra-on C M ob) → (C ∘ r .ν) (η M ob) ≡ id C" class="Field">ν-unit</a><a id="4398" class="Symbol">))</a> <a id="4401" href="Cat.Functor.Adjoint.html#2684" data-type="(r : L ⊣ R₁) →
+D ._∘_ (η (r .counit) (F₀ L A)) (F₁ L (r .unit .η A)) ≡ D .id" class="Field">zig</a>
+          <a id="4415" class="Symbol">(</a><a id="4416" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="4425" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a><a id="4426" class="Symbol">)</a>
+</pre>
+<p>It follows, since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> preserves coequalisers, that both rows of the diagram</p>
+<div class="diagram-container">
+<img src="da52adf19328813fd30f3c4cc354cda46a8f86e3.svg" title="commutative diagram" class="diagram quiver" />
+</div>
+<p>are coequalisers, hence there is a unique isomorphism <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>η</mi><mi>o</mi><mrow><mo>−</mo><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">\eta_o^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0611em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> making the diagram commute. This is precisely the inverse to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mi>o</mi></msub></mrow><annotation encoding="application/x-tex">\eta_o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> we’re seeking.</p>
+<pre class="Agda">    <a id="5149" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="5153" class="Symbol">:</a> <a id="5155" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">C.Hom</a> <a id="5161" class="Symbol">(</a><a id="5162" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">U.₀</a> <a id="5166" class="Symbol">(</a><a id="5167" href="Cat.Diagram.Coequaliser.html#1557" data-type="Coequaliser C f g → Ob C" class="Field">coapex</a> <a id="5174" class="Symbol">(</a><a id="5175" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="5184" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a><a id="5185" class="Symbol">)))</a> <a id="5189" class="Symbol">(</a><a id="5190" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="5192" class="Symbol">.</a><a id="5193" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a><a id="5196" class="Symbol">)</a>
+    <a id="5202" href="Cat.Functor.Monadic.Crude.html#5202" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+(η⁻¹ F⊣U has-coeq U-pres)
+≡ C .id" class="Function">η⁻¹η</a> <a id="5207" class="Symbol">:</a> <a id="5209" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">adj.unit.η</a> <a id="5220" class="Symbol">_</a> <a id="5222" class="Symbol">.</a><a id="5223" href="Cat.Diagram.Monad.html#3836" data-type="Algebra-hom C M X Y → Hom C (X .fst) (Y .fst)" class="Field">morphism</a> <a id="5232" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5236" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="5240" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="5242" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">C.id</a>
+    <a id="5251" href="Cat.Functor.Monadic.Crude.html#5251" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η⁻¹ F⊣U has-coeq U-pres)
+(η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+≡ C .id" class="Function">ηη⁻¹</a> <a id="5256" class="Symbol">:</a> <a id="5258" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="5262" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="5266" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">adj.unit.η</a> <a id="5277" class="Symbol">_</a> <a id="5279" class="Symbol">.</a><a id="5280" href="Cat.Diagram.Monad.html#3836" data-type="Algebra-hom C M X Y → Hom C (X .fst) (Y .fst)" class="Field">morphism</a> <a id="5289" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="5291" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">C.id</a>
+
+    <a id="5301" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="5305" class="Symbol">=</a> <a id="5307" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="5317" class="Symbol">.</a><a id="5318" href="Cat.Diagram.Coequaliser.html#764" data-type="is-coequaliser C f g coeq → (C ∘ e′) f ≡ (C ∘ e′) g → Hom C E F" class="Field">coequalise</a> <a id="5329" class="Symbol">{</a><a id="5330" class="Argument">e′</a> <a id="5333" class="Symbol">=</a> <a id="5335" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="5337" class="Symbol">.</a><a id="5338" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="5342" class="Symbol">.</a><a id="5343" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a><a id="5344" class="Symbol">}</a> <a id="5346" class="Symbol">(</a><a id="5347" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="5349" class="Symbol">.</a><a id="5350" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="5354" class="Symbol">.</a><a id="5355" href="Cat.Diagram.Monad.html#2379" data-type="(r : Algebra-on C M ob) →
+(C ∘ r .ν) (M₁ M (r .ν)) ≡ (C ∘ r .ν) (η M ob)" class="Field">ν-mult</a><a id="5361" class="Symbol">)</a>
+
+    <a id="5368" href="Cat.Functor.Monadic.Crude.html#5202" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+(η⁻¹ F⊣U has-coeq U-pres)
+≡ C .id" class="Function">η⁻¹η</a> <a id="5373" class="Symbol">=</a> <a id="5375" href="Cat.Diagram.Coequaliser.html#1087" data-type="is-coequaliser C f g coeq →
+e′ ≡ (C ∘ colim&#39;) coeq → e′ ≡ (C ∘ colim&#39;&#39;) coeq → colim&#39; ≡ colim&#39;&#39;" class="Function">is-coequaliser.unique₂</a> <a id="5398" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a>
+      <a id="5414" class="Symbol">{</a><a id="5415" class="Argument">e′</a> <a id="5418" class="Symbol">=</a> <a id="5420" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="5424" class="Symbol">(</a><a id="5425" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="5434" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="5436" class="Symbol">.</a><a id="5437" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="5441" class="Symbol">)}</a> <a id="5444" class="Symbol">{</a><a id="5445" class="Argument">p</a> <a id="5447" class="Symbol">=</a> <a id="5449" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="5459" class="Symbol">.</a><a id="5460" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Field">coequal</a><a id="5467" class="Symbol">}</a>
+      <a id="5475" class="Symbol">(</a><a id="5476" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="5480" class="Symbol">(</a><a id="5481" href="Cat.Reasoning.html#1678" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ (C ∘ f) a) b ≡ (C ∘ f) c" class="Function">C.pullr</a> <a id="5489" class="Symbol">(</a><a id="5490" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="5500" class="Symbol">.</a><a id="5501" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a><a id="5510" class="Symbol">)</a>
+          <a id="5522" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="5524" href="Cat.Reasoning.html#1678" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ (C ∘ f) a) b ≡ (C ∘ f) c" class="Function">C.pullr</a> <a id="5532" class="Symbol">(</a><a id="5533" href="Cat.Base.html#13369" data-type="(r : F =&gt; G) (x y : C .Ob) (f : C .Hom x y) →
+D ._∘_ (r .η y) (₁ F f) ≡ D ._∘_ (₁ G f) (r .η x)" class="Function">unit.is-natural</a> <a id="5549" class="Symbol">_</a> <a id="5551" class="Symbol">_</a> <a id="5553" class="Symbol">_)</a>
+          <a id="5566" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="5568" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5576" class="Symbol">(</a><a id="5577" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="5587" class="Symbol">.</a><a id="5588" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Field">coequal</a><a id="5595" class="Symbol">)</a>
+          <a id="5607" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="5609" href="Cat.Reasoning.html#2731" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ (C ∘ f) h) i ≡ f" class="Function">C.cancelr</a> <a id="5619" href="Cat.Functor.Adjoint.html#2747" data-type="(r : L ⊣ R₁) →
+C ._∘_ (F₁ R₁ (η (r .counit) B₁)) (r .unit .η (F₀ R₁ B₁)) ≡ C .id" class="Field">zag</a><a id="5622" class="Symbol">))</a>
+      <a id="5631" class="Symbol">(</a><a id="5632" href="Cat.Reasoning.html#1207" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → f ≡ (C ∘ a) f" class="Function">C.introl</a> <a id="5641" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a><a id="5645" class="Symbol">)</a>
+
+    <a id="5652" href="Cat.Functor.Monadic.Crude.html#5251" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η⁻¹ F⊣U has-coeq U-pres)
+(η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+≡ C .id" class="Function">ηη⁻¹</a> <a id="5657" class="Symbol">=</a> <a id="5659" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="5667" class="Symbol">(</a><a id="5668" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="5678" class="Symbol">.</a><a id="5679" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a><a id="5688" class="Symbol">)</a> <a id="5690" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="5692" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="5694" class="Symbol">.</a><a id="5695" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="5699" class="Symbol">.</a><a id="5700" href="Cat.Diagram.Monad.html#2343" data-type="(r : Algebra-on C M ob) → (C ∘ r .ν) (η M ob) ≡ id C" class="Field">ν-unit</a>
+</pre>
+<p>It remains to show that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>η</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\eta^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> is a homomorphism of algebras. This is a calculation reusing the established proof that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>η</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>η</mi><mo>=</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mrow><annotation encoding="application/x-tex">\eta^{-1}\eta = \id{id}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathrm">id</span></span></span></span></span> established using the universal property of coequalisers above.</p>
+<pre class="Agda">    <a id="5939" href="Cat.Functor.Monadic.Crude.html#5939" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C^T F⊣U .Hom
+(₀ U (coapex (has-coeq o)) ,
+ alg F⊣U (F₀ (K⁻¹ F⊣U has-coeq U-pres) o))
+o" class="Function">inverse</a> <a id="5947" class="Symbol">:</a> <a id="5949" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">C^T.Hom</a> <a id="5957" class="Symbol">(</a><a id="5958" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">U.₀</a> <a id="5962" class="Symbol">_</a> <a id="5964" href="Agda.Builtin.Sigma.html#236" data-type="(fst₁ : A) (snd₁ : B₁ fst₁) → ∑ A B₁" class="InductiveConstructor Operator">,</a> <a id="5966" class="Symbol">_)</a> <a id="5969" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a>
+    <a id="5975" href="Cat.Functor.Monadic.Crude.html#5939" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C^T F⊣U .Hom
+(₀ U (coapex (has-coeq o)) ,
+ alg F⊣U (F₀ (K⁻¹ F⊣U has-coeq U-pres) o))
+o" class="Function">inverse</a> <a id="5983" class="Symbol">.</a><a id="5984" href="Cat.Diagram.Monad.html#3836" data-type="Algebra-hom C M X Y → Hom C (X .fst) (Y .fst)" class="Field">morphism</a> <a id="5993" class="Symbol">=</a> <a id="5995" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a>
+    <a id="6003" href="Cat.Functor.Monadic.Crude.html#5939" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C^T F⊣U .Hom
+(₀ U (coapex (has-coeq o)) ,
+ alg F⊣U (F₀ (K⁻¹ F⊣U has-coeq U-pres) o))
+o" class="Function">inverse</a> <a id="6011" class="Symbol">.</a><a id="6012" href="Cat.Diagram.Monad.html#3875" data-type="(r : Algebra-hom C M X Y) →
+(C ∘ r .morphism) (X .snd .ν) ≡
+(C ∘ Y .snd .ν) (M₁ M (r .morphism))" class="Field">commutes</a> <a id="6021" class="Symbol">=</a>
+      <a id="6029" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="6033" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6037" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6041" class="Symbol">(</a><a id="6042" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6051" class="Symbol">_)</a>                                                              <span class="reasoning-step"><span class="as-written Function"><a id="6115" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6118" href="Cat.Reasoning.html#4627" data-type="(C : Precategory o ℓ) → g ≡ h → (C ∘ f) g ≡ (C ∘ f) h" class="Function Operator">C.refl⟩∘⟨</a> <a id="6128" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="6131" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6135" class="Symbol">(</a><a id="6136" href="Cat.Reasoning.html#1250" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → f ≡ (C ∘ f) a" class="Function">D.intror</a> <a id="6145" class="Symbol">(</a><a id="6146" href="Cat.Functor.Reasoning.html#2154" data-type="(F : Functor 𝒞 𝒟) (inv₁ : (F ∘ a) b ≡ id F) →
+(F ∘ F₁ F a) (F₁ F b) ≡ id F" class="Function">F.annihilate</a> <a id="6159" class="Symbol">(</a><a id="6160" href="Cat.Base.html#3857" data-type="(r : Precategory o h) (f : r .Hom y z) (g : r .Hom x y)
+(h : r .Hom w x) →
+r ._∘_ f (r ._∘_ g h) ≡ r ._∘_ (r ._∘_ f g) h" class="Function">C.assoc</a> <a id="6168" class="Symbol">_</a> <a id="6170" class="Symbol">_</a> <a id="6172" class="Symbol">_</a> <a id="6174" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="6176" href="Cat.Functor.Monadic.Crude.html#5202" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C ._∘_ (η (K⁻¹⊣K F⊣U has-coeq U-pres) o .morphism)
+(η⁻¹ F⊣U has-coeq U-pres)
+≡ C .id" class="Function">η⁻¹η</a><a id="6180" class="Symbol">)))</a> <a id="6184" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="6192" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="6196" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6200" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6204" class="Symbol">(</a><a id="6205" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6214" class="Symbol">_</a> <a id="6216" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6220" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="6224" class="Symbol">(</a><a id="6225" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6229" class="Symbol">(</a><a id="6230" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="6239" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="6241" class="Symbol">.</a><a id="6242" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="6246" class="Symbol">))</a> <a id="6249" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6253" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="6257" class="Symbol">(</a><a id="6258" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="6265" class="Symbol">_</a> <a id="6267" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6271" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a><a id="6274" class="Symbol">))</a>  <span class="reasoning-step"><span class="as-written Function"><a id="6278" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6281" href="Cat.Reasoning.html#4627" data-type="(C : Precategory o ℓ) → g ≡ h → (C ∘ f) g ≡ (C ∘ f) h" class="Function Operator">C.refl⟩∘⟨</a> <a id="6291" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="6294" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6298" class="Symbol">(</a><a id="6299" href="Cat.Reasoning.html#2007" data-type="(C : Precategory o ℓ) (p : (C ∘ f) h ≡ (C ∘ g) i) →
+(C ∘ f) ((C ∘ h) b) ≡ (C ∘ g) ((C ∘ i) b)" class="Function">D.extendl</a> <a id="6309" class="Symbol">(</a><a id="6310" href="Cat.Base.html#13369" data-type="(r : F =&gt; G) (x y : C .Ob) (f : C .Hom x y) →
+D ._∘_ (r .η y) (₁ F f) ≡ D ._∘_ (₁ G f) (r .η x)" class="Function">counit.is-natural</a> <a id="6328" class="Symbol">_</a> <a id="6330" class="Symbol">_</a> <a id="6332" class="Symbol">_))</a> <a id="6336" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="6344" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="6348" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6352" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6356" class="Symbol">(</a><a id="6357" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="6366" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="6368" class="Symbol">.</a><a id="6369" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a> <a id="6374" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6378" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6387" class="Symbol">_</a> <a id="6389" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6393" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="6397" class="Symbol">(</a><a id="6398" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="6405" class="Symbol">_</a> <a id="6407" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6411" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a><a id="6414" class="Symbol">))</a>              <span class="reasoning-step"><span class="as-written Function"><a id="6430" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6433" href="Cat.Reasoning.html#4627" data-type="(C : Precategory o ℓ) → g ≡ h → (C ∘ f) g ≡ (C ∘ f) h" class="Function Operator">C.refl⟩∘⟨</a> <a id="6443" href="Cat.Base.html#8383" data-type="(r : Functor C D) (f : C .Hom y z) (g : C .Hom x y) →
+r .F₁ (C ._∘_ f g) ≡ (D ∘ r .F₁ f) (r .F₁ g)" class="Function">U.F-∘</a> <a id="6449" class="Symbol">_</a> <a id="6451" class="Symbol">_</a> <a id="6453" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="6461" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a> <a id="6465" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6469" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6473" class="Symbol">(</a><a id="6474" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="6483" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="6485" class="Symbol">.</a><a id="6486" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="6490" class="Symbol">)</a> <a id="6492" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6496" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6500" class="Symbol">(</a><a id="6501" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6510" class="Symbol">_</a> <a id="6512" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6516" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="6520" class="Symbol">(</a><a id="6521" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="6528" class="Symbol">_</a> <a id="6530" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6534" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a><a id="6537" class="Symbol">))</a>        <span class="reasoning-step"><span class="as-written Function"><a id="6547" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6550" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="6558" class="Symbol">(</a><a id="6559" href="Cat.Functor.Monadic.Crude.html#4198" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-coequaliser C (₁ (U F∘ F) (o .snd .ν))
+(₁ U (ε F⊣U (₀ F (o .fst)))) (₁ U (has-coeq o .coeq))" class="Function">preserved</a> <a id="6569" class="Symbol">.</a><a id="6570" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a><a id="6579" class="Symbol">)</a> <a id="6581" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="6589" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="6591" class="Symbol">.</a><a id="6592" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="6596" class="Symbol">.</a><a id="6597" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="6599" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6603" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6607" class="Symbol">(</a><a id="6608" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6617" class="Symbol">_</a> <a id="6619" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘</a> <a id="6623" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="6627" class="Symbol">(</a><a id="6628" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="6635" class="Symbol">_</a> <a id="6637" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6641" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a><a id="6644" class="Symbol">))</a>                             <span class="reasoning-step"><span class="as-written Function"><a id="6675" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">≡⟨</a> <a id="6678" href="Cat.Reasoning.html#4627" data-type="(C : Precategory o ℓ) → g ≡ h → (C ∘ f) g ≡ (C ∘ f) h" class="Function Operator">C.refl⟩∘⟨</a> <a id="6688" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="6691" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="6695" class="Symbol">(</a><a id="6696" href="1Lab.Path.html#20756" data-type="(f : (x : A) → B₁ x) (p : x ≡ y) →
+PathP (λ i → B₁ (p i)) (f x) (f y)" class="Function">ap</a> <a id="6699" class="Symbol">(</a><a id="6700" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="6709" class="Symbol">_</a> <a id="6711" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">D.∘_</a><a id="6715" class="Symbol">)</a> <a id="6717" class="Symbol">(</a><a id="6718" href="Cat.Base.html#8383" data-type="(r : Functor C D) (f : C .Hom y z) (g : C .Hom x y) →
+r .F₁ (C ._∘_ f g) ≡ (D ∘ r .F₁ f) (r .F₁ g)" class="Function">F.F-∘</a> <a id="6724" class="Symbol">_</a> <a id="6726" class="Symbol">_)</a> <a id="6729" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="6731" href="Cat.Reasoning.html#2621" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ h) ((C ∘ i) f) ≡ f" class="Function">D.cancell</a> <a id="6741" href="Cat.Functor.Adjoint.html#2684" data-type="(r : L ⊣ R₁) →
+D ._∘_ (η (r .counit) (F₀ L A)) (F₁ L (r .unit .η A)) ≡ D .id" class="Field">zig</a><a id="6744" class="Symbol">)</a> <a id="6746" href="1Lab.Path.html#46629" data-type="(x : A) → y ≡ z → x ≡ y → x ≡ z" class="Function">⟩</a></span><span class="alternate Function">≡</span></span>
+      <a id="6754" href="Cat.Functor.Monadic.Crude.html#3797" class="Bound">o</a> <a id="6756" class="Symbol">.</a><a id="6757" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="6761" class="Symbol">.</a><a id="6762" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a> <a id="6764" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="6768" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">UF.₁</a> <a id="6773" href="Cat.Functor.Monadic.Crude.html#5149" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+C .Hom (₀ U (coapex (has-coeq o))) (o .fst)" class="Function">η⁻¹</a>                                                                <a id="6840" href="1Lab.Path.html#46957" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
+</pre>
+<p>For (3), suppose additionally that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> is conservative. Recall that the counit <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span> for the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>⊣</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">K^{-1} \dashv K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> adjunction is defined as the unique dotted map which fits into</p>
+<div class="diagram-container">
+<img src="4ad5c7ecb4290a6deb0273938e40d09b4af12fe1.svg" title="commutative diagram" class="diagram quiver" />
+</div>
+<p>But observe that the diagram</p>
+<div class="diagram-container">
+<img src="0d645afea06cc927ba6ed4e2448857dbddb546ac.svg" title="commutative diagram" class="diagram quiver short-1" />
+</div>
+<p>is <em>also</em> a coequaliser; Hence, since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> preserves the coequaliser <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>U</mi><mi>A</mi><mo>↠</mo><msup><mi>K</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>K</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">FUA \epi K^{-1}KA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6969em;vertical-align:-0.0135em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">↠</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">A</span></span></span></span>,</span> the map <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mi>ε</mi><mo>:</mo><mi>U</mi><msup><mi>K</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>K</mi><mi>A</mi><mo>≅</mo><mi>U</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">U\eps : UK^{-1}KA \cong UA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">A</span></span></span></span>;</span> But by assumption <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> is conservative, so <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\eps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span> is an isomorphism, as desired.</p>
+<pre class="Agda">  <a id="7872" href="Cat.Functor.Monadic.Crude.html#7872" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-conservative U →
+is-invertible D (ε (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">conservative-prcoeq→counit-is-iso</a>
+    <a id="7910" class="Symbol">:</a> <a id="7912" class="Symbol">∀</a> <a id="7914" class="Symbol">{</a><a id="7915" href="Cat.Functor.Monadic.Crude.html#7915" class="Bound">o</a><a id="7916" class="Symbol">}</a> <a id="7918" class="Symbol">→</a> <a id="7920" href="Cat.Functor.Conservative.html#573" data-type="Functor C D → Type (C.o ⊔ C.h ⊔ D.h)" class="Function">is-conservative</a> <a id="7936" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a> <a id="7938" class="Symbol">→</a> <a id="7940" href="Cat.Morphism.html#1930" data-type="(C : Precategory o h) (f : Hom C a b) → Type h" class="Record">D.is-invertible</a> <a id="7956" class="Symbol">(</a><a id="7957" href="Cat.Functor.Adjoint.html#2207" class="Function">adj.counit.ε</a> <a id="7970" href="Cat.Functor.Monadic.Crude.html#7915" class="Bound">o</a><a id="7971" class="Symbol">)</a>
+  <a id="7975" href="Cat.Functor.Monadic.Crude.html#7872" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-conservative U →
+is-invertible D (ε (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">conservative-prcoeq→counit-is-iso</a> <a id="8009" class="Symbol">{</a><a id="8010" href="Cat.Functor.Monadic.Crude.html#8010" class="Bound">o</a><a id="8011" class="Symbol">}</a> <a id="8013" href="Cat.Functor.Monadic.Crude.html#8013" class="Bound">reflect-iso</a> <a id="8025" class="Symbol">=</a> <a id="8027" href="Cat.Functor.Monadic.Crude.html#8013" class="Bound">reflect-iso</a> <a id="8039" href="1Lab.Type.html#2481" data-type="((x : A) → B₁ x) → (x : A) → B₁ x" class="Function Operator">$</a>
+    <a id="8045" href="Cat.Morphism.html#3457" data-type="(C : Precategory o h) (g : Hom C b a) →
+(C ∘ f) g ≡ id C → (C ∘ g) f ≡ id C → is-invertible C f" class="Function">C.make-invertible</a>
+      <a id="8069" class="Symbol">(</a><a id="8070" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="8074" class="Symbol">(</a><a id="8075" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8081" class="Symbol">.</a><a id="8082" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="8086" class="Symbol">)</a> <a id="8088" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">C.∘</a> <a id="8092" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="8099" class="Symbol">_)</a> <a id="8102" class="Symbol">(</a><a id="8103" href="Cat.Functor.Reasoning.html#1281" data-type="(F : Functor 𝒞 𝒟) (ab≡c : (F ∘ a) b ≡ c) →
+(F ∘ F₁ F a) ((F ∘ F₁ F b) f) ≡ (F ∘ F₁ F c) f" class="Function">U.pulll</a> <a id="8111" class="Symbol">(</a><a id="8112" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8118" class="Symbol">.</a><a id="8119" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a><a id="8128" class="Symbol">)</a> <a id="8130" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="8132" href="Cat.Functor.Adjoint.html#2747" data-type="(r : L ⊣ R₁) →
+C ._∘_ (F₁ R₁ (η (r .counit) B₁)) (r .unit .η (F₀ R₁ B₁)) ≡ C .id" class="Field">zag</a><a id="8135" class="Symbol">)</a>
+      <a id="8143" href="Cat.Functor.Monadic.Crude.html#8463" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+(C ∘
+ (C ∘ ₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))
+ (unit F⊣U .η (oalg F⊣U has-coeq U-pres reflect-iso .fst)))
+(F₁ U
+ (has-is-coeq (coequ F⊣U has-coeq U-pres reflect-iso) .coequalise
+  (is-natural F⊣U (F₀ F (F₀ U o)) o (counit F⊣U .η o))))
+≡ id C" class="Function">inversel</a>
+    <a id="8156" class="Keyword">where</a>
+
+    <a id="8167" href="Cat.Functor.Monadic.Crude.html#8167" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Ob (Eilenberg-Moore C (L∘R F⊣U))" class="Function">oalg</a> <a id="8172" class="Symbol">=</a> <a id="8174" href="Cat.Functor.Adjoint.Monadic.html#1150" data-type="(L⊣R : L ⊣ R₁) → Functor D (Eilenberg-Moore C (L∘R L⊣R))" class="Function">Comparison</a> <a id="8185" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="8189" class="Symbol">.</a><a id="8190" href="Cat.Base.html#7996" data-type="Functor C D → C .Ob → Ob D" class="Field">F₀</a> <a id="8193" href="Cat.Functor.Monadic.Crude.html#8010" class="Bound">o</a>
+    <a id="8199" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8205" class="Symbol">=</a> <a id="8207" href="Cat.Functor.Monadic.Crude.html#3222" class="Bound">has-coeq</a> <a id="8216" href="Cat.Functor.Monadic.Crude.html#8167" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Ob (Eilenberg-Moore C (L∘R F⊣U))" class="Function">oalg</a>
+
+    <a id="8226" class="Keyword">abstract</a>
+      <a id="8241" href="Cat.Functor.Monadic.Crude.html#8241" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+is-coequaliser C
+(₁ (U F∘ F) (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(₁ U (ε F⊣U (₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst))))
+(₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))" class="Function">preserved</a> <a id="8251" class="Symbol">:</a> <a id="8253" href="Cat.Diagram.Coequaliser.html#642" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) (coeq : Hom C B₁ E) →
+Type (o ⊔ ℓ)" class="Record">is-coequaliser</a> <a id="8268" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a>
+        <a id="8278" class="Symbol">(</a><a id="8279" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">UF.₁</a> <a id="8284" class="Symbol">(</a><a id="8285" href="Cat.Functor.Monadic.Crude.html#8167" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Ob (Eilenberg-Moore C (L∘R F⊣U))" class="Function">oalg</a> <a id="8290" class="Symbol">.</a><a id="8291" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="8295" class="Symbol">.</a><a id="8296" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a><a id="8297" class="Symbol">))</a> <a id="8300" class="Symbol">(</a><a id="8301" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="8305" class="Symbol">(</a><a id="8306" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="8315" class="Symbol">(</a><a id="8316" href="Cat.Base.html#8727" data-type="(r : Functor C D) → C .Ob → D .Ob" class="Function">F.₀</a> <a id="8320" class="Symbol">(</a><a id="8321" href="Cat.Functor.Monadic.Crude.html#8167" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Ob (Eilenberg-Moore C (L∘R F⊣U))" class="Function">oalg</a> <a id="8326" class="Symbol">.</a><a id="8327" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a><a id="8330" class="Symbol">))))</a>
+        <a id="8343" class="Symbol">(</a><a id="8344" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="8348" class="Symbol">(</a><a id="8349" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8355" class="Symbol">.</a><a id="8356" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="8360" class="Symbol">))</a>
+      <a id="8369" href="Cat.Functor.Monadic.Crude.html#8241" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+is-coequaliser C
+(₁ (U F∘ F) (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(₁ U (ε F⊣U (₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst))))
+(₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))" class="Function">preserved</a> <a id="8379" class="Symbol">=</a>
+        <a id="8389" href="Cat.Functor.Monadic.Crude.html#3302" class="Bound">U-pres</a> <a id="8396" class="Symbol">(</a><a id="8397" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="8401" class="Symbol">(</a><a id="8402" href="Cat.Base.html#12791" data-type="F =&gt; G → (x : C .Ob) → D .Hom (₀ F x) (₀ G x)" class="Function">unit.η</a> <a id="8409" class="Symbol">_))</a> <a id="8413" class="Symbol">(</a><a id="8414" href="Cat.Functor.Reasoning.html#2154" data-type="(F : Functor 𝒞 𝒟) (inv₁ : (F ∘ a) b ≡ id F) →
+(F ∘ F₁ F a) (F₁ F b) ≡ id F" class="Function">F.annihilate</a> <a id="8427" class="Symbol">(</a><a id="8428" href="Cat.Functor.Monadic.Crude.html#8167" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Ob (Eilenberg-Moore C (L∘R F⊣U))" class="Function">oalg</a> <a id="8433" class="Symbol">.</a><a id="8434" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="8438" class="Symbol">.</a><a id="8439" href="Cat.Diagram.Monad.html#2343" data-type="(r : Algebra-on C M ob) → (C ∘ r .ν) (η M ob) ≡ id C" class="Field">ν-unit</a><a id="8445" class="Symbol">))</a> <a id="8448" href="Cat.Functor.Adjoint.html#2684" data-type="(r : L ⊣ R₁) →
+D ._∘_ (η (r .counit) (F₀ L A)) (F₁ L (r .unit .η A)) ≡ D .id" class="Field">zig</a> <a id="8452" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a>
+
+    <a id="8463" href="Cat.Functor.Monadic.Crude.html#8463" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+(C ∘
+ (C ∘ ₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))
+ (unit F⊣U .η (oalg F⊣U has-coeq U-pres reflect-iso .fst)))
+(F₁ U
+ (has-is-coeq (coequ F⊣U has-coeq U-pres reflect-iso) .coequalise
+  (is-natural F⊣U (F₀ F (F₀ U o)) o (counit F⊣U .η o))))
+≡ id C" class="Function">inversel</a> <a id="8472" class="Symbol">=</a>
+      <a id="8480" href="Cat.Diagram.Coequaliser.html#1087" data-type="is-coequaliser C f g coeq →
+e′ ≡ (C ∘ colim&#39;) coeq → e′ ≡ (C ∘ colim&#39;&#39;) coeq → colim&#39; ≡ colim&#39;&#39;" class="Function">is-coequaliser.unique₂</a> <a id="8503" href="Cat.Functor.Monadic.Crude.html#8241" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+is-coequaliser C
+(₁ (U F∘ F) (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(₁ U (ε F⊣U (₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst))))
+(₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))" class="Function">preserved</a>
+        <a id="8521" class="Symbol">{</a><a id="8522" class="Argument">e′</a> <a id="8525" class="Symbol">=</a> <a id="8527" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">U.₁</a> <a id="8531" class="Symbol">(</a><a id="8532" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8538" class="Symbol">.</a><a id="8539" href="Cat.Diagram.Coequaliser.html#1575" data-type="(r : Coequaliser C f g) → Hom C B₁ (r .coapex)" class="Field">coeq</a><a id="8543" class="Symbol">)}</a> <a id="8546" class="Symbol">{</a><a id="8547" class="Argument">p</a> <a id="8549" class="Symbol">=</a> <a id="8551" href="Cat.Functor.Monadic.Crude.html#8241" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+is-coequaliser C
+(₁ (U F∘ F) (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(₁ U (ε F⊣U (₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst))))
+(₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))" class="Function">preserved</a> <a id="8561" class="Symbol">.</a><a id="8562" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Field">coequal</a><a id="8569" class="Symbol">}</a>
+        <a id="8579" class="Symbol">(</a><a id="8580" href="1Lab.Path.html#10558" data-type="x ≡ y → y ≡ x" class="Function">sym</a> <a id="8584" class="Symbol">(</a><a id="8585" href="Cat.Reasoning.html#1678" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ (C ∘ f) a) b ≡ (C ∘ f) c" class="Function">C.pullr</a> <a id="8593" class="Symbol">(</a><a id="8594" href="Cat.Functor.Reasoning.html#1206" data-type="(F : Functor 𝒞 𝒟) (ab≡c : (F ∘ a) b ≡ c) →
+(F ∘ F₁ F a) (F₁ F b) ≡ F₁ F c" class="Function">U.collapse</a> <a id="8605" class="Symbol">(</a><a id="8606" href="Cat.Functor.Monadic.Crude.html#8199" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+Coequaliser D (₁ F (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(ε F⊣U (F₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst)))" class="Function">coequ</a> <a id="8612" class="Symbol">.</a><a id="8613" href="Cat.Diagram.Coequaliser.html#834" data-type="(r : is-coequaliser C f g coeq) → (C ∘ r .coequalise p) coeq ≡ e′" class="Field">universal</a><a id="8622" class="Symbol">))</a>
+            <a id="8637" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="8639" href="Cat.Reasoning.html#1678" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ (C ∘ f) a) b ≡ (C ∘ f) c" class="Function">C.pullr</a> <a id="8647" class="Symbol">(</a><a id="8648" href="Cat.Base.html#13369" data-type="(r : F =&gt; G) (x y : C .Ob) (f : C .Hom x y) →
+D ._∘_ (r .η y) (₁ F f) ≡ D ._∘_ (₁ G f) (r .η x)" class="Function">unit.is-natural</a> <a id="8664" class="Symbol">_</a> <a id="8666" class="Symbol">_</a> <a id="8668" class="Symbol">_)</a>
+            <a id="8683" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="8685" href="Cat.Reasoning.html#1548" data-type="(C : Precategory o ℓ) (ab≡c : (C ∘ a) b ≡ c) →
+(C ∘ a) ((C ∘ b) f) ≡ (C ∘ c) f" class="Function">C.pulll</a> <a id="8693" class="Symbol">(</a><a id="8694" href="Cat.Functor.Monadic.Crude.html#8241" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U)
+(reflect-iso : is-conservative U) →
+is-coequaliser C
+(₁ (U F∘ F) (oalg F⊣U has-coeq U-pres reflect-iso .snd .ν))
+(₁ U (ε F⊣U (₀ F (oalg F⊣U has-coeq U-pres reflect-iso .fst))))
+(₁ U (coequ F⊣U has-coeq U-pres reflect-iso .coeq))" class="Function">preserved</a> <a id="8704" class="Symbol">.</a><a id="8705" href="Cat.Diagram.Coequaliser.html#727" data-type="is-coequaliser C f g coeq → (C ∘ coeq) f ≡ (C ∘ coeq) g" class="Field">coequal</a><a id="8712" class="Symbol">)</a>
+            <a id="8726" href="1Lab.Path.html#39472" data-type="x ≡ y → y ≡ z → x ≡ z" class="Function Operator">∙</a> <a id="8728" href="Cat.Reasoning.html#2731" data-type="(C : Precategory o ℓ) (inv₁ : (C ∘ h) i ≡ id C) →
+(C ∘ (C ∘ f) h) i ≡ f" class="Function">C.cancelr</a> <a id="8738" href="Cat.Functor.Adjoint.html#2747" data-type="(r : L ⊣ R₁) →
+C ._∘_ (F₁ R₁ (η (r .counit) B₁)) (r .unit .η (F₀ R₁ B₁)) ≡ C .id" class="Field">zag</a><a id="8741" class="Symbol">))</a>
+        <a id="8752" class="Symbol">(</a><a id="8753" href="Cat.Reasoning.html#1207" data-type="(C : Precategory o ℓ) (a≡id : a ≡ id C) → f ≡ (C ∘ a) f" class="Function">C.introl</a> <a id="8762" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a><a id="8766" class="Symbol">)</a>
+</pre>
+<p>Packaging it all up, we get the claimed theorem: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">D</mi></mrow><annotation encoding="application/x-tex">\ca{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has Beck’s coequalisers, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> is a conservative functor which preserves reflexive coequalisers, then the adjunction <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊣</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">F \dashv U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span> is monadic.</p>
+<pre class="Agda"><a id="crude-monadicity"></a><a id="8987" href="Cat.Functor.Monadic.Crude.html#8987" data-type="(F⊣U : F ⊣ U) →
+((M : Algebra C (T F⊣U)) →
+ Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst)))) →
+U-preserves-reflexive-coeqs F⊣U →
+is-conservative U → is-monadic F⊣U" class="Function">crude-monadicity</a>
+  <a id="9006" class="Symbol">:</a> <a id="9008" class="Symbol">(</a><a id="9009" href="Cat.Functor.Monadic.Crude.html#9009" class="Bound">has-coeq</a> <a id="9018" class="Symbol">:</a> <a id="9020" class="Symbol">(</a><a id="9021" href="Cat.Functor.Monadic.Crude.html#9021" class="Bound">M</a> <a id="9023" class="Symbol">:</a> <a id="9025" href="Cat.Diagram.Monad.html#2418" data-type="(C : Precategory o h) → Monad C → Type (o ⊔ h)" class="Function">Algebra</a> <a id="9033" href="Cat.Functor.Monadic.Crude.html#435" class="Bound">C</a> <a id="9035" href="Cat.Functor.Monadic.Crude.html#716" data-type="(F⊣U : F ⊣ U) → Monad C" class="Function">T</a><a id="9036" class="Symbol">)</a> <a id="9038" class="Symbol">→</a> <a id="9040" href="Cat.Diagram.Coequaliser.html#1495" data-type="(C : Precategory o ℓ) (f g : Hom C A B₁) → Type (o ⊔ ℓ)" class="Record">Coequaliser</a> <a id="9052" href="Cat.Functor.Monadic.Crude.html#457" class="Bound">D</a> <a id="9054" class="Symbol">(</a><a id="9055" href="Cat.Base.html#8808" data-type="(r : Functor C D) → C .Hom x y → D .Hom (F₀ r x) (F₀ r y)" class="Function">F.₁</a> <a id="9059" class="Symbol">(</a><a id="9060" href="Cat.Functor.Monadic.Crude.html#9021" class="Bound">M</a> <a id="9062" class="Symbol">.</a><a id="9063" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a> <a id="9067" class="Symbol">.</a><a id="9068" href="Cat.Diagram.Monad.html#1963" data-type="Algebra-on C M ob → Hom C (M₀ M ob) ob" class="Field">ν</a><a id="9069" class="Symbol">))</a> <a id="9072" class="Symbol">(</a><a id="9073" href="Cat.Functor.Adjoint.html#2207" class="Function">counit.ε</a> <a id="9082" class="Symbol">_))</a>
+    <a id="9090" class="Symbol">(</a><a id="9091" href="Cat.Functor.Monadic.Crude.html#9091" class="Bound">U-pres</a> <a id="9098" class="Symbol">:</a> <a id="9100" href="Cat.Functor.Monadic.Crude.html#2947" data-type="(F⊣U : F ⊣ U) → Type (o ⊔ ℓ ⊔ o′ ⊔ ℓ′)" class="Function">U-preserves-reflexive-coeqs</a><a id="9127" class="Symbol">)</a>
+    <a id="9133" class="Symbol">(</a><a id="9134" href="Cat.Functor.Monadic.Crude.html#9134" class="Bound">U-conservative</a> <a id="9149" class="Symbol">:</a> <a id="9151" href="Cat.Functor.Conservative.html#573" data-type="Functor C D → Type (C.o ⊔ C.h ⊔ D.h)" class="Function">is-conservative</a> <a id="9167" href="Cat.Functor.Monadic.Crude.html#501" class="Bound">U</a><a id="9168" class="Symbol">)</a>
+  <a id="9172" class="Symbol">→</a> <a id="9174" href="Cat.Functor.Adjoint.Monadic.html#2503" data-type="(L⊣R : L ⊣ R₁) → Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Function">is-monadic</a> <a id="9185" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a>
+<a id="9189" href="Cat.Functor.Monadic.Crude.html#8987" data-type="(F⊣U : F ⊣ U) →
+((M : Algebra C (T F⊣U)) →
+ Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst)))) →
+U-preserves-reflexive-coeqs F⊣U →
+is-conservative U → is-monadic F⊣U" class="Function">crude-monadicity</a> <a id="9206" href="Cat.Functor.Monadic.Crude.html#9206" class="Bound">coeq</a> <a id="9211" href="Cat.Functor.Monadic.Crude.html#9211" class="Bound">pres</a> <a id="9216" href="Cat.Functor.Monadic.Crude.html#9216" class="Bound">cons</a> <a id="9221" class="Symbol">=</a> <a id="9223" href="Cat.Functor.Monadic.Crude.html#9519" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (F⁻¹ (eqv F⊣U coeq pres cons))" class="Function">eqv′</a> <a id="9228" class="Keyword">where</a>
+  <a id="9236" class="Keyword">open</a> <a id="9241" href="Cat.Functor.Equivalence.html#804" data-type="(F : Functor C D) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Module">is-equivalence</a>
+  <a id="9258" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a> <a id="9262" class="Symbol">:</a> <a id="9264" href="Cat.Functor.Equivalence.html#804" data-type="(F : Functor C D) → Type (C.o ⊔ C.h ⊔ D.o ⊔ D.h)" class="Record">is-equivalence</a> <a id="9279" class="Symbol">(</a><a id="9280" href="Cat.Functor.Monadic.Beck.html#7981" data-type="(F⊣G : F ⊣ G)
+(has-coeq
+ : (M : Algebra C (T F⊣G)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣G (F₀ F (M .fst)))) →
+Functor (Eilenberg-Moore C (T F⊣G)) D" class="Function">Comparison⁻¹</a> <a id="9293" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="9297" href="Cat.Functor.Monadic.Crude.html#9206" class="Bound">coeq</a><a id="9301" class="Symbol">)</a>
+  <a id="9305" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a> <a id="9309" class="Symbol">.</a><a id="9310" href="Cat.Functor.Equivalence.html#1043" data-type="is-equivalence F → Functor D C" class="Field">F⁻¹</a>          <a id="9323" class="Symbol">=</a> <a id="9325" href="Cat.Functor.Adjoint.Monadic.html#1150" data-type="(L⊣R : L ⊣ R₁) → Functor D (Eilenberg-Moore C (L∘R L⊣R))" class="Function">Comparison</a> <a id="9336" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a>
+  <a id="9342" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a> <a id="9346" class="Symbol">.</a><a id="9347" href="Cat.Functor.Equivalence.html#1070" data-type="(r : is-equivalence F) → F ⊣ r .F⁻¹" class="Field">F⊣F⁻¹</a>        <a id="9360" class="Symbol">=</a> <a id="9362" href="Cat.Functor.Monadic.Beck.html#9385" data-type="(F⊣G : F ⊣ G)
+(has-coeq
+ : (M : Algebra C (T F⊣G)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣G (F₀ F (M .fst)))) →
+Comparison⁻¹ F⊣G has-coeq ⊣ Comparison F⊣G" class="Function">Comparison⁻¹⊣Comparison</a> <a id="9386" href="Cat.Functor.Monadic.Crude.html#521" class="Bound">F⊣U</a> <a id="9390" href="Cat.Functor.Monadic.Crude.html#9206" class="Bound">coeq</a>
+  <a id="9397" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a> <a id="9401" class="Symbol">.</a><a id="9402" href="Cat.Functor.Equivalence.html#1127" data-type="(r : is-equivalence F) (x : C .Ob) →
+is-invertible C (η (r .F⊣F⁻¹) x)" class="Field">unit-iso</a> <a id="9411" class="Symbol">_</a>   <a id="9415" class="Symbol">=</a> <a id="9417" href="Cat.Functor.Monadic.Crude.html#3713" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-invertible (C^T F⊣U) (η (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">prcoeq→unit-is-iso</a> <a id="9436" href="Cat.Functor.Monadic.Crude.html#9206" class="Bound">coeq</a> <a id="9441" href="Cat.Functor.Monadic.Crude.html#9211" class="Bound">pres</a>
+  <a id="9448" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a> <a id="9452" class="Symbol">.</a><a id="9453" href="Cat.Functor.Equivalence.html#1177" data-type="(r : is-equivalence F) (x : D .Ob) →
+is-invertible D (ε (r .F⊣F⁻¹) x)" class="Field">counit-iso</a> <a id="9464" class="Symbol">_</a> <a id="9466" class="Symbol">=</a> <a id="9468" href="Cat.Functor.Monadic.Crude.html#7872" data-type="(F⊣U : F ⊣ U)
+(has-coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(U-pres : U-preserves-reflexive-coeqs F⊣U) →
+is-conservative U →
+is-invertible D (ε (K⁻¹⊣K F⊣U has-coeq U-pres) o)" class="Function">conservative-prcoeq→counit-is-iso</a> <a id="9502" href="Cat.Functor.Monadic.Crude.html#9206" class="Bound">coeq</a> <a id="9507" href="Cat.Functor.Monadic.Crude.html#9211" class="Bound">pres</a> <a id="9512" href="Cat.Functor.Monadic.Crude.html#9216" class="Bound">cons</a>
+  <a id="9519" href="Cat.Functor.Monadic.Crude.html#9519" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (F⁻¹ (eqv F⊣U coeq pres cons))" class="Function">eqv′</a> <a id="9524" class="Symbol">=</a> <a id="9526" href="Cat.Functor.Equivalence.html#3093" data-type="(r : is-equivalence F) → is-equivalence (F⁻¹ r)" class="Function">inverse-equivalence</a> <a id="9546" href="Cat.Functor.Monadic.Crude.html#9258" data-type="(F⊣U : F ⊣ U)
+(coeq
+ : (M : Algebra C (T F⊣U)) →
+   Coequaliser D (₁ F (M .snd .ν)) (ε F⊣U (F₀ F (M .fst))))
+(pres : U-preserves-reflexive-coeqs F⊣U)
+(cons : is-conservative U) →
+is-equivalence (Comparison⁻¹ F⊣U coeq)" class="Function">eqv</a>
+</pre>
+<hr />
+<section id="refs" role="doc-bibliography">
+<h2>References</h2>
+<ul>
+<li id="ref-SIGL" role="doc-biblioentry">Mac Lane, Saunders, and Ieke Moerdijk. 1994. <em>Sheaves in <span>Geometry</span> and <span>Logic</span>: <span>A</span> <span>First</span> <span>Introduction</span> to <span>Topos</span> <span>Theory</span></em>. Universitext. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-1-4612-0927-0">https://doi.org/10.1007/978-1-4612-0927-0</a>.</li>
+</ul>
+</section>
+  </article>
+</div>
+</main>
+</body>
+</html>
