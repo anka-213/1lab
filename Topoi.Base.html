@@ -107,7 +107,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/6225bd7019cc7c0e3b5e878e8075dc566dd6238a/src/Topoi/Base.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/73279ca1a23507068cb1f818d5dd1f160c30cac8/src/Topoi/Base.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Naïm Favier</div> <br />
               </div>
     </div>
@@ -480,7 +480,7 @@ M100 620v40h399900v-40z M0 241v40h399900v-40zM0 241v40h399900v-40z"></path></svg
 
   <a id="15539" href="Topoi.Base.html#15539" data-type="(T : Topos κ 𝓣) → Monad (PSh κ (site T))" class="Function">Sheafify</a> <a id="15548" class="Symbol">:</a> <a id="15550" href="Cat.Diagram.Monad.html#712" data-type="(C : Precategory o h) → Type (o ⊔ h)" class="Record">Monad</a> <a id="15556" class="Symbol">(</a><a id="15557" href="Cat.Instances.Functor.html#11822" data-type="(κ : Level) →
 Precategory o ℓ → Precategory (κ ⊔ o ⊔ ℓ ⊔ lsuc κ) (o ⊔ ℓ ⊔ κ)" class="Function">PSh</a> <a id="15561" href="Topoi.Base.html#15474" class="Bound">κ</a> <a id="15563" href="Topoi.Base.html#3667" data-type="Topos κ 𝓣 → Precategory κ κ" class="Field">site</a><a id="15567" class="Symbol">)</a>
-  <a id="15571" href="Topoi.Base.html#15539" data-type="(T : Topos κ 𝓣) → Monad (PSh κ (site T))" class="Function">Sheafify</a> <a id="15580" class="Symbol">=</a> <a id="15582" href="Cat.Functor.Adjoint.Monad.html#580" data-type="(L⊣R : L ⊣ R₁) → Monad C" class="Function">Adjunction→Monad</a> <a id="15599" href="Topoi.Base.html#3813" data-type="(r : Topos κ 𝓣) → r .L ⊣ r .ι" class="Field">L⊣ι</a>
+  <a id="15571" href="Topoi.Base.html#15539" data-type="(T : Topos κ 𝓣) → Monad (PSh κ (site T))" class="Function">Sheafify</a> <a id="15580" class="Symbol">=</a> <a id="15582" href="Cat.Functor.Adjoint.Monad.html#588" data-type="(L⊣R : L ⊣ R₁) → Monad C" class="Function">Adjunction→Monad</a> <a id="15599" href="Topoi.Base.html#3813" data-type="(r : Topos κ 𝓣) → r .L ⊣ r .ι" class="Field">L⊣ι</a>
 
   <a id="15606" href="Topoi.Base.html#15606" data-type="(T : Topos κ 𝓣) → is-monadic (L⊣ι T)" class="Function">Sheafify-monadic</a> <a id="15623" class="Symbol">:</a> <a id="15625" href="Cat.Functor.Adjoint.Monadic.html#2503" data-type="(L⊣R : L ⊣ R₁) → Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Function">is-monadic</a> <a id="15636" href="Topoi.Base.html#3813" data-type="(r : Topos κ 𝓣) → r .L ⊣ r .ι" class="Field">L⊣ι</a>
   <a id="15642" href="Topoi.Base.html#15606" data-type="(T : Topos κ 𝓣) → is-monadic (L⊣ι T)" class="Function">Sheafify-monadic</a> <a id="15659" class="Symbol">=</a> <a id="15661" href="Cat.Functor.Adjoint.Reflective.html#3934" data-type="(adj : F ⊣ G) → is-reflective adj → is-monadic adj" class="Function">is-reflective→is-monadic</a> <a id="15686" href="Topoi.Base.html#3813" data-type="(r : Topos κ 𝓣) → r .L ⊣ r .ι" class="Field">L⊣ι</a> <a id="15690" href="Topoi.Base.html#3726" data-type="(r : Topos κ 𝓣) → is-fully-faithful (r .ι)" class="Field">has-ff</a>
