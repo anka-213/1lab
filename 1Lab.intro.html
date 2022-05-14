@@ -115,7 +115,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/f865e4a2fac06060e3020f91f029545f6de42d38/src/1Lab/intro.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/a9dca389a91cb6607e2cb2fdb7d0186596f9cb1a/src/1Lab/intro.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao, Jonathan Coates, Julius Marozas, Lautaro Garavano and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -567,27 +567,27 @@ A \xrightarrow{\~r} A^\bb{I} \xrightarrow{(d0,d1)} \to A \times A
 <p>While the text above was meant to serve as a linearly-structured introduction to the field of homotopy type theory, the rest of the 1Lab is not organised like this. It’s meant to be an <em>explorable</em> presentation of HoTT, where concepts can be accessed in any order, and everything is hyperlinked together. However, we can highlight the following modules as being the “spine” of the development, since everything depends on them, and they’re roughly linearly ordered.\<br />
 </p>
 <h2 id="paths-in-detail"><a href="#paths-in-detail" class="header-link">Paths, in detail<span class="header-link-emoji">🔗</span></a></h2>
-<pre class="Agda"><a id="67801" class="Keyword">open</a> <a id="67806" class="Keyword">import</a> <a id="67813" href="1Lab.Path.html" class="Module">1Lab.Path</a>
+<pre class="Agda"><a id="67800" class="Keyword">open</a> <a id="67805" class="Keyword">import</a> <a id="67812" href="1Lab.Path.html" class="Module">1Lab.Path</a>
 </pre>
 <p>The module <span class="Agda"><a href="1Lab.Path.html" class="Module">1Lab.Path</a></span> develops the theory of path types, filling in the details that were missing in <em><a href="#interlude-just-enough-about-paths">Interlude - Basics of paths</a></em> above. In particular, the Path module talks about the structure of the <strong>interval type</strong> <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">I</mi></mrow><annotation encoding="application/x-tex">\bb{I}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">I</span></span></span></span>,</span> the definition of <strong>dependent paths</strong>, <strong>squares</strong>, and the symmetry involution on paths. It then introduce the <strong>transport</strong> operation, turns a path between types into an equivalence of types.</p>
 <p>It also exposits about the structure of types as Kan complices; In particular, the Path module defines and talks about <strong>partial elements</strong>, which generalise the notion of “horn of a simplex” to any shape of partial cube; Then, it defines <strong>extensibility</strong>, which exhibits a partial element as being a subshape of some specific cube, and the <strong>composition and filling</strong> operations, which express that extensibility is preserved along paths. Finally, it introduces the <strong>Cartesian coercion</strong> operation, which generalises transport.</p>
 <p>To reiterate, paths are <em>the most important idea in cubical type theory</em>, so you should definitely read through this module!</p>
 <h2 id="equivalences"><a href="#equivalences" class="header-link">Equivalences<span class="header-link-emoji">🔗</span></a></h2>
 <p>The idea of subsingleton type, mentioned in passing in the discussion about universes and expanded upon in the section on dependent products, generalises to give the notion of <strong>h-level</strong>, which measures how much interesting homotopical information a type has. A h-level that comes up very often is the level of <strong>sets</strong>, since these are the types where equality behaves like a logical proposition. Due to their importance, we provide a module defining equivalent characterisations of sets.</p>
-<pre class="Agda"><a id="69474" class="Keyword">open</a> <a id="69479" class="Keyword">import</a> <a id="69486" href="1Lab.HLevel.html" class="Module">1Lab.HLevel</a>
-<a id="69498" class="Keyword">open</a> <a id="69503" class="Keyword">import</a> <a id="69510" href="1Lab.HLevel.Sets.html" class="Module">1Lab.HLevel.Sets</a>
+<pre class="Agda"><a id="69473" class="Keyword">open</a> <a id="69478" class="Keyword">import</a> <a id="69485" href="1Lab.HLevel.html" class="Module">1Lab.HLevel</a>
+<a id="69497" class="Keyword">open</a> <a id="69502" class="Keyword">import</a> <a id="69509" href="1Lab.HLevel.Sets.html" class="Module">1Lab.HLevel.Sets</a>
 </pre>
 <p>Contractible types can be used to give a definition of equivalence that is well-behaved in the context of higher category theory, but it is not the only coherent notion. We also have half-adjoint equivalences and bi-invertible maps. Finally, we have a module that explains why these definitions are needed in place of the simpler notion of “isomorphism.”</p>
-<pre class="Agda"><a id="69896" class="Keyword">open</a> <a id="69901" class="Keyword">import</a> <a id="69908" href="1Lab.Equiv.html" class="Module">1Lab.Equiv</a>
-<a id="69919" class="Keyword">open</a> <a id="69924" class="Keyword">import</a> <a id="69931" href="1Lab.Equiv.Biinv.html" class="Module">1Lab.Equiv.Biinv</a>
-<a id="69948" class="Keyword">open</a> <a id="69953" class="Keyword">import</a> <a id="69960" href="1Lab.Equiv.HalfAdjoint.html" class="Module">1Lab.Equiv.HalfAdjoint</a>
-<a id="69983" class="Keyword">open</a> <a id="69988" class="Keyword">import</a> <a id="69995" href="1Lab.Counterexamples.IsIso.html" class="Module">1Lab.Counterexamples.IsIso</a>
+<pre class="Agda"><a id="69895" class="Keyword">open</a> <a id="69900" class="Keyword">import</a> <a id="69907" href="1Lab.Equiv.html" class="Module">1Lab.Equiv</a>
+<a id="69918" class="Keyword">open</a> <a id="69923" class="Keyword">import</a> <a id="69930" href="1Lab.Equiv.Biinv.html" class="Module">1Lab.Equiv.Biinv</a>
+<a id="69947" class="Keyword">open</a> <a id="69952" class="Keyword">import</a> <a id="69959" href="1Lab.Equiv.HalfAdjoint.html" class="Module">1Lab.Equiv.HalfAdjoint</a>
+<a id="69982" class="Keyword">open</a> <a id="69987" class="Keyword">import</a> <a id="69994" href="1Lab.Counterexamples.IsIso.html" class="Module">1Lab.Counterexamples.IsIso</a>
 </pre>
 <h2 id="univalence"><a href="#univalence" class="header-link">Univalence<span class="header-link-emoji">🔗</span></a></h2>
-<pre class="Agda"><a id="70050" class="Keyword">open</a> <a id="70055" class="Keyword">import</a> <a id="70062" href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a>
+<pre class="Agda"><a id="70049" class="Keyword">open</a> <a id="70054" class="Keyword">import</a> <a id="70061" href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a>
 </pre>
 <p>The module <span class="Agda"><a href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a></span> defines and explains the <strong>Glue</strong> type former, which serves as the Kan structure of the universe. It then concretises this idea by describing how Glue can be used to turn any equivalence into a path between types, which leads to a proof of the <strong>univalence principle</strong>. After, we prove that the type of equivalences satisfies the same induction principle as the type of paths, and that universes are object classifiers.</p>
-<pre class="Agda"><a id="70548" class="Keyword">open</a> <a id="70553" class="Keyword">import</a> <a id="70560" href="1Lab.Univalence.SIP.html" class="Module">1Lab.Univalence.SIP</a>
+<pre class="Agda"><a id="70547" class="Keyword">open</a> <a id="70552" class="Keyword">import</a> <a id="70559" href="1Lab.Univalence.SIP.html" class="Module">1Lab.Univalence.SIP</a>
 </pre>
 <p>While univalence guarantees that equivalence <em>of types</em> is equivalent to paths <em>in types</em>, it does not say anything about types-with-structure, like groups or posets. Fortunately, univalence implies the <strong>structure identity principle</strong>, which characterises the paths in spaces of “structured types” as being homomorphic equivalence.</p>
 <section class="footnotes" role="doc-endnotes">
