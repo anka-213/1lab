@@ -84,7 +84,7 @@ a.search-result {
       font-size: 0.7em;
       color: #1e293b;
       font-style: italic; }
-  a.search-result .search-type {
+  a.search-result .search-type, a.search-result .search-desc {
     font-size: 0.65em; }
   a.search-result .search-match {
     text-decoration: 2px #0054F4 underline; }
