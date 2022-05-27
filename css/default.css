@@ -18,7 +18,8 @@
   --search-selected: #e2e8f0;
   --details-summary: #b2ebf2;
   --details-open:    #80deea;
-  --depgraph-edge: #eee; }
+  --depgraph-edge: #eee;
+  --blockquote-bg: #d8b4fe; }
 
 .diagram-dark {
   display: none !important; }
@@ -42,7 +43,8 @@
     --search-selected: #474e5e;
     --details-summary: #5b21b6;
     --details-open:    #4c1d95;
-    --depgraph-edge: #474e5e; }
+    --depgraph-edge: #474e5e;
+    --blockquote-bg: #475569; }
   div.warning {
     --shadow: #7f1d1d
   ; }
@@ -187,7 +189,8 @@ article a[href].unfolded-footnote:hover {
   --search-selected: #e2e8f0;
   --details-summary: #b2ebf2;
   --details-open:    #80deea;
-  --depgraph-edge: #eee; }
+  --depgraph-edge: #eee;
+  --blockquote-bg: #d8b4fe; }
 
 .diagram-dark {
   display: none !important; }
@@ -211,7 +214,8 @@ article a[href].unfolded-footnote:hover {
     --search-selected: #474e5e;
     --details-summary: #5b21b6;
     --details-open:    #4c1d95;
-    --depgraph-edge: #474e5e; }
+    --depgraph-edge: #474e5e;
+    --blockquote-bg: #475569; }
   div.warning {
     --shadow: #7f1d1d
   ; }
@@ -633,7 +637,7 @@ blockquote, details.blockquote {
   margin-bottom: 1em;
   box-shadow: 2px 2px 6px var(--shadow);
   border-radius: 10px;
-  background-color: #f3e8ff;
+  background-color: var(--blockquote-bg);
   margin-left: 0;
   margin-right: 0; }
   blockquote h2, details.blockquote h2 {
