@@ -514,7 +514,7 @@ body {
     padding-left: 0.5em; }
 
 main {
-  max-width: 100ch;
+  max-width: 85ch;
   width: 100%;
   margin: 0px auto 0px auto;
   flex: 1 0 auto;
@@ -713,7 +713,7 @@ table {
             main div#post-toc-container aside#toc div#toc-container ul a:hover {
               text-decoration: underline; }
       main div#post-toc-container article {
-        max-width: 100ch;
+        max-width: 85ch;
         margin-top: -100px;
         margin: auto; }
     main div.columns {
