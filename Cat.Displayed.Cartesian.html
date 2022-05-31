@@ -64,7 +64,9 @@
       horizontal rules) -->
       <hr />
       <ul>
-      <li><a href="#cartesian-morphisms-and-fibrations"><a href="#cartesian-morphisms-and-fibrations" class="header-link">Cartesian Morphisms and Fibrations<span class="header-link-emoji">🔗</span></a></a></li>
+      <li><a href="#cartesian-morphisms-and-fibrations"><a href="#cartesian-morphisms-and-fibrations" class="header-link">Cartesian
+      Morphisms and
+      Fibrations<span class="header-link-emoji">🔗</span></a></a></li>
       </ul>
       <hr />
 
@@ -99,7 +101,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/41d2cefee0a39e91f63f2b2de00c251085ea65d0/src/Cat/Displayed/Cartesian.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/be23f8d53e26da10818128e044872e1fa85caa2f/src/Cat/Displayed/Cartesian.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -137,7 +139,9 @@ Type (o ⊔ ℓ ⊔ lsuc o′ ⊔ lsuc ℓ′)" class="Record">Displayed</a> <a 
 <a id="182" class="Keyword">open</a> <a id="187" href="Cat.Displayed.Base.html#686" data-type="(B₁ : Precategory o ℓ) (o′ ℓ′ : Level) →
 Type (o ⊔ ℓ ⊔ lsuc o′ ⊔ lsuc ℓ′)" class="Module">Displayed</a> <a id="197" href="Cat.Displayed.Cartesian.html#133" class="Bound">E</a>
 </pre>
-<h1 id="cartesian-morphisms-and-fibrations"><a href="#cartesian-morphisms-and-fibrations" class="header-link">Cartesian Morphisms and Fibrations<span class="header-link-emoji">🔗</span></a></h1>
+<h1 id="cartesian-morphisms-and-fibrations"><a href="#cartesian-morphisms-and-fibrations" class="header-link">Cartesian
+Morphisms and
+Fibrations<span class="header-link-emoji">🔗</span></a></h1>
 <pre class="Agda"><a id="250" class="Keyword">record</a> <a id="Cartesian"></a><a id="257" href="Cat.Displayed.Cartesian.html#257" data-type="(E : Displayed B₁ o′ ℓ′) (f : B₁ .Hom a b) (f′ : Hom[ E ] f x y) →
 Type (o ⊔ ℓ ⊔ o′ ⊔ ℓ′)" class="Record">Cartesian</a> <a id="267" class="Symbol">{</a><a id="268" href="Cat.Displayed.Cartesian.html#268" class="Bound">a</a> <a id="270" href="Cat.Displayed.Cartesian.html#270" class="Bound">b</a> <a id="272" href="Cat.Displayed.Cartesian.html#272" class="Bound">x</a> <a id="274" href="Cat.Displayed.Cartesian.html#274" class="Bound">y</a><a id="275" class="Symbol">}</a> <a id="277" class="Symbol">(</a><a id="278" href="Cat.Displayed.Cartesian.html#278" class="Bound">f</a> <a id="280" class="Symbol">:</a> <a id="282" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">Hom</a> <a id="286" href="Cat.Displayed.Cartesian.html#268" class="Bound">a</a> <a id="288" href="Cat.Displayed.Cartesian.html#270" class="Bound">b</a><a id="289" class="Symbol">)</a>
                  <a id="308" class="Symbol">(</a><a id="309" href="Cat.Displayed.Cartesian.html#309" class="Bound">f′</a> <a id="312" class="Symbol">:</a> <a id="314" href="Cat.Displayed.Base.html#1668" data-type="(r : Displayed B₁ o′ ℓ′) →
@@ -158,7 +162,7 @@ B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operat
 B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operator">]</a> <a id="527" href="Cat.Displayed.Cartesian.html#488" class="Bound">u′</a> <a id="530" href="Cat.Displayed.Cartesian.html#274" class="Bound">y</a><a id="531" class="Symbol">)</a>
                 <a id="549" class="Symbol">→</a> <a id="551" href="Cat.Displayed.Cartesian.html#309" class="Bound">f′</a> <a id="554" href="Cat.Displayed.Base.html#2265" data-type="(r : Displayed B₁ o′ ℓ′) →
 r .Hom[_] f y z → r .Hom[_] g x y → r .Hom[_] (B₁ ._∘_ f g) x z" class="Field Operator">∘′</a> <a id="557" href="Cat.Displayed.Cartesian.html#389" data-type="Cartesian E f f′ →
-(m : B₁ .Hom u a) → Hom[ E ] (B₁ ._∘_ f m) u′ y → Hom[ E ] m u′ x" class="Field">universal</a> <a id="567" href="Cat.Displayed.Cartesian.html#493" class="Bound">m</a> <a id="569" href="Cat.Displayed.Cartesian.html#509" class="Bound">h′</a> <a id="572" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="574" href="Cat.Displayed.Cartesian.html#509" class="Bound">h′</a>
+(m : B₁ .Hom u a) → Hom[ E ] (B₁ ._∘_ f m) u′ y → Hom[ E ] m u′ x" class="Field">universal</a> <a id="567" href="Cat.Displayed.Cartesian.html#493" class="Bound">m</a> <a id="569" href="Cat.Displayed.Cartesian.html#509" class="Bound">h′</a> <a id="572" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="574" href="Cat.Displayed.Cartesian.html#509" class="Bound">h′</a>
     <a id="Cartesian.unique"></a><a id="581" href="Cat.Displayed.Cartesian.html#581" data-type="(r : Cartesian E f f′) (m′ : Hom[ E ] m u′ x) →
 (E ∘′ f′) m′ ≡ h′ → m′ ≡ r .universal m h′" class="Field">unique</a>    <a id="591" class="Symbol">:</a> <a id="593" class="Symbol">∀</a> <a id="595" class="Symbol">{</a><a id="596" href="Cat.Displayed.Cartesian.html#596" class="Bound">u</a> <a id="598" href="Cat.Displayed.Cartesian.html#598" class="Bound">u′</a><a id="600" class="Symbol">}</a> <a id="602" class="Symbol">{</a><a id="603" href="Cat.Displayed.Cartesian.html#603" class="Bound">m</a> <a id="605" class="Symbol">:</a> <a id="607" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">Hom</a> <a id="611" href="Cat.Displayed.Cartesian.html#596" class="Bound">u</a> <a id="613" href="Cat.Displayed.Cartesian.html#268" class="Bound">a</a><a id="614" class="Symbol">}</a> <a id="616" class="Symbol">→</a> <a id="618" class="Symbol">{</a><a id="619" href="Cat.Displayed.Cartesian.html#619" class="Bound">h′</a> <a id="622" class="Symbol">:</a> <a id="624" href="Cat.Displayed.Base.html#1668" data-type="(r : Displayed B₁ o′ ℓ′) →
 B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operator">Hom[</a> <a id="629" href="Cat.Displayed.Cartesian.html#278" class="Bound">f</a> <a id="631" href="Cat.Base.html#3006" data-type="(r : Precategory o h) → r .Hom y z → r .Hom x y → r .Hom x z" class="Function Operator">∘</a> <a id="633" href="Cat.Displayed.Cartesian.html#603" class="Bound">m</a> <a id="635" href="Cat.Displayed.Base.html#1668" data-type="(r : Displayed B₁ o′ ℓ′) →
@@ -166,7 +170,7 @@ B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operat
                 <a id="659" class="Symbol">→</a> <a id="661" class="Symbol">(</a><a id="662" href="Cat.Displayed.Cartesian.html#662" class="Bound">m′</a> <a id="665" class="Symbol">:</a> <a id="667" href="Cat.Displayed.Base.html#1668" data-type="(r : Displayed B₁ o′ ℓ′) →
 B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operator">Hom[</a> <a id="672" href="Cat.Displayed.Cartesian.html#603" class="Bound">m</a> <a id="674" href="Cat.Displayed.Base.html#1668" data-type="(r : Displayed B₁ o′ ℓ′) →
 B₁ .Hom x y → r .Ob[_] x → r .Ob[_] y → Type ℓ′" class="Field Operator">]</a> <a id="676" href="Cat.Displayed.Cartesian.html#598" class="Bound">u′</a> <a id="679" href="Cat.Displayed.Cartesian.html#272" class="Bound">x</a><a id="680" class="Symbol">)</a> <a id="682" class="Symbol">→</a> <a id="684" href="Cat.Displayed.Cartesian.html#309" class="Bound">f′</a> <a id="687" href="Cat.Displayed.Base.html#2265" data-type="(r : Displayed B₁ o′ ℓ′) →
-r .Hom[_] f y z → r .Hom[_] g x y → r .Hom[_] (B₁ ._∘_ f g) x z" class="Field Operator">∘′</a> <a id="690" href="Cat.Displayed.Cartesian.html#662" class="Bound">m′</a> <a id="693" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="695" href="Cat.Displayed.Cartesian.html#619" class="Bound">h′</a> <a id="698" class="Symbol">→</a> <a id="700" href="Cat.Displayed.Cartesian.html#662" class="Bound">m′</a> <a id="703" href="Agda.Builtin.Cubical.Path.html#381" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="705" href="Cat.Displayed.Cartesian.html#389" data-type="Cartesian E f f′ →
+r .Hom[_] f y z → r .Hom[_] g x y → r .Hom[_] (B₁ ._∘_ f g) x z" class="Field Operator">∘′</a> <a id="690" href="Cat.Displayed.Cartesian.html#662" class="Bound">m′</a> <a id="693" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="695" href="Cat.Displayed.Cartesian.html#619" class="Bound">h′</a> <a id="698" class="Symbol">→</a> <a id="700" href="Cat.Displayed.Cartesian.html#662" class="Bound">m′</a> <a id="703" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="705" href="Cat.Displayed.Cartesian.html#389" data-type="Cartesian E f f′ →
 (m : B₁ .Hom u a) → Hom[ E ] (B₁ ._∘_ f m) u′ y → Hom[ E ] m u′ x" class="Field">universal</a> <a id="715" href="Cat.Displayed.Cartesian.html#603" class="Bound">m</a> <a id="717" href="Cat.Displayed.Cartesian.html#619" class="Bound">h′</a>
 </pre>
 <pre class="Agda"><a id="733" class="Keyword">record</a> <a id="Cartesian-lift"></a><a id="740" href="Cat.Displayed.Cartesian.html#740" data-type="(E : Displayed B₁ o′ ℓ′) (f : B₁ .Hom x y) (y′ : Ob[ E ] y) →
