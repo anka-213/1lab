@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Agda,categories,topos" />
+
+  <title>…at.Bi.Diagram.Adjunction - 1Lab</title>
+
+  <link rel="stylesheet" href="/css/default.css" />
+  <link rel="stylesheet" href="/css/katex.min.css" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="…at.Bi.Diagram.Adjunction - 1Lab" />
+  <meta name="twitter:image" content="https://1lab.dev/static/cube-128x.png" />
+
+  <meta name="og:title" content="…at.Bi.Diagram.Adjunction - 1Lab" />
+  <meta name="og:image" content="https://1lab.dev/static/cube-128x.png" />
+  <meta name="og:site-name" content="1Lab" />
+  <meta name="og:type" content="website" />
+
+    <meta name="og:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="twitter:description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  <meta name="description" content="A formalised, explorable online resource for Homotopy Type Theory." />
+  
+  <script defer src="/main.js"></script>
+
+  <noscript>
+    <style>
+      body span.reasoning-step .as-written {
+        display: inline;
+      }
+
+      body span.reasoning-step .alternate {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <!-- Google font embeds -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet">
+</head>
+
+<body class="text-page">
+<main>
+<div id="post-toc-container" style="padding-left: 1em; padding-right: 1em;">
+
+  <!-- Table of contents (only if the page has a table of contents) -->
+    <aside id="toc">
+    <div id="toc-container" style="min-width: 10em; font-size: 15pt;">
+      <!-- Title for the page -->
+      <h3 class="Agda" style="margin-top: 0; margin-bottom: 0; white-space: pre;">
+                <a class="Module">…at.Bi.Diagram.Adjunction</a>
+              </h3>
+
+      <!-- Cube logo -->
+      <a id="logo" href="/">
+        <img alt="1Lab" src="/static/cube-72x.png" style="display: block; margin-bottom: 1em; margin: auto;" width="32px" height="32px" />
+      </a>
+
+      <!-- Actual table of contents (separated from the rest by
+      horizontal rules) -->
+      <hr />
+      <ul>
+      <li><a href="#adjunctions-in-a-bicategory"><a href="#adjunctions-in-a-bicategory" class="header-link">Adjunctions
+      in a
+      bicategory<span class="header-link-emoji">🔗</span></a></a></li>
+      </ul>
+      <hr />
+
+      <!-- Sidebar controls -->
+      <div style="display: flex; gap: 0.25em; flex-flow: row wrap;">
+        <!-- Sidebar equations control -->
+        <span class="equations" style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-eqns" type="checkbox" class="equations" id="sidebar-eqns">
+          <label for="sidebar-eqns">Equations</label>
+        </span>
+
+        <!-- Sidebar fonts control -->
+        <span style="display: flex; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-font" type="checkbox" id="toggle-fonts">
+          <label for="toggle-fonts">Serif Font</label>
+        </span>
+
+        <!-- Sidebar footnotes control -->
+        <span class="inline-footnotes" style="display: none; align-items: center; gap: 0.25em; flex-wrap: nowrap;">
+          <input name="sidebar-fns" type="checkbox" class="inline-footnotes" id="sidebar-fns">
+          <label for="sidebar-fns">Inline Footnotes</label>
+        </span>
+      </div>
+
+      <hr />
+
+      <!-- Navbar navigation (lol) -->
+      <div id="return" style="white-space: nowrap;">
+        <div class="search-form search-form-proxy" role="form">
+          <input id="search-box-proxy" type_="text" placeholder="Search..." autocomplete="off" tabindex="0"></input>
+        </div>
+
+              <a href="/">back to index</a> <br />
+              <a href="all-pages.html">view all pages</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/651d9f7c128ad4c2a2b4e2918a1a859c66fe8670/src/Cat/Bi/Diagram/Adjunction.lagda.md">link to source</a> <br />
+                <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
+              </div>
+    </div>
+  </aside>
+  
+  <article>
+    <!-- Article navigation (narrow screens only) -->
+    <div class="narrow-only" id="article-nav">
+      <!-- Index return anchor (only if the page is not the index) -->
+            <div id="return">
+        <a href="/">back to index</a>
+      </div>
+      
+      <!-- Navbar equations control -->
+      <span class="equations" style="display: flex; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-eqns" type="checkbox" class="equations" id="navbar-eqns">
+        <label for="navbar-eqns">Equations</label>
+      </span>
+
+      <!-- Navbar footnotes control -->
+      <span class="inline-footnotes" style="display: none; gap: 0.25em; flex-wrap: nowrap;">
+        <input name="navbar-fns" type="checkbox" class="inline-footnotes" id="navbar-fns">
+        <label for="navbar-fns">Inline Footnotes</label>
+      </span>
+    </div>
+
+<pre class="Agda"><a id="9" class="Keyword">open</a> <a id="14" class="Keyword">import</a> <a id="21" href="Cat.Bi.Base.html" class="Module">Cat.Bi.Base</a>
+<a id="33" class="Keyword">open</a> <a id="38" class="Keyword">import</a> <a id="45" href="Cat.Prelude.html" class="Module">Cat.Prelude</a>
+
+<a id="58" class="Keyword">import</a> <a id="65" href="Cat.Diagram.Monad.html" class="Module">Cat.Diagram.Monad</a> <a id="83" class="Symbol">as</a> <a id="86" class="Module">Cat</a>
+<a id="90" class="Keyword">import</a> <a id="97" href="Cat.Reasoning.html" class="Module">Cat.Reasoning</a> <a id="111" class="Symbol">as</a> <a id="114" class="Module">Cr</a>
+
+<a id="118" class="Keyword">module</a> <a id="125" href="Cat.Bi.Diagram.Adjunction.html" class="Module">Cat.Bi.Diagram.Adjunction</a>  <a id="152" class="Keyword">where</a>
+</pre>
+<!--
+<pre class="Agda"><a id="176" class="Keyword">open</a> <a id="181" href="Cat.Base.html#12241" data-type="(F G : Functor C D) → Type (o₁ ⊔ h₁ ⊔ h₂)" class="Module Operator">_=&gt;_</a>
+
+<a id="187" class="Keyword">module</a> <a id="194" href="Cat.Bi.Diagram.Adjunction.html#194" class="Module">_</a> <a id="196" class="Symbol">{</a><a id="197" href="Cat.Bi.Diagram.Adjunction.html#197" class="Bound">o</a> <a id="199" href="Cat.Bi.Diagram.Adjunction.html#199" class="Bound">ℓ</a> <a id="201" href="Cat.Bi.Diagram.Adjunction.html#201" class="Bound">ℓ′</a><a id="203" class="Symbol">}</a> <a id="205" class="Symbol">(</a><a id="206" href="Cat.Bi.Diagram.Adjunction.html#206" class="Bound">B</a> <a id="208" class="Symbol">:</a> <a id="210" href="Cat.Bi.Base.html#3018" data-type="(o ℓ ℓ′ : Level) → Type (lsuc o ⊔ lsuc ℓ ⊔ lsuc ℓ′)" class="Record">Prebicategory</a> <a id="224" href="Cat.Bi.Diagram.Adjunction.html#197" class="Bound">o</a> <a id="226" href="Cat.Bi.Diagram.Adjunction.html#199" class="Bound">ℓ</a> <a id="228" href="Cat.Bi.Diagram.Adjunction.html#201" class="Bound">ℓ′</a><a id="230" class="Symbol">)</a> <a id="232" class="Keyword">where</a>
+  <a id="240" class="Keyword">private</a> <a id="248" class="Keyword">module</a> <a id="255" href="Cat.Bi.Diagram.Adjunction.html#255" class="Module">B</a> <a id="257" class="Symbol">=</a> <a id="259" href="Cat.Bi.Base.html#3018" data-type="(o ℓ ℓ′ : Level) → Type (lsuc o ⊔ lsuc ℓ ⊔ lsuc ℓ′)" class="Module">Prebicategory</a> <a id="273" href="Cat.Bi.Diagram.Adjunction.html#206" class="Bound">B</a>
+</pre>-->
+<h1 id="adjunctions-in-a-bicategory"><a href="#adjunctions-in-a-bicategory" class="header-link">Adjunctions
+in a bicategory<span class="header-link-emoji">🔗</span></a></h1>
+<p>Let
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">B</mi></mrow><annotation encoding="application/x-tex">\bf{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">B</span></span></span></span>
+be a bicategory,
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>:</mo><mi mathvariant="bold">B</mi></mrow><annotation encoding="application/x-tex">A, B : \bf{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">B</span></span></span></span>
+be objects, and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">f : A \to B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>
+and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>B</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">g : B \to A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>
+be 1-cells. Generalising the situation where
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>
+and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>
+are functors, we say they are <strong>adjoints</strong> if there exist
+2-cells
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>:</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mo>→</mo><mi>g</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\eta : \id{id} \to gf</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathrm">id</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>
+and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>:</mo><mi>f</mi><mi>g</mi><mo>→</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mrow><annotation encoding="application/x-tex">\eps : fg \to \id{id}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathrm">id</span></span></span></span></span>
+(the <strong>unit</strong> and <strong>counit</strong> respectively),
+satisfying the equations</p>
+<div class="mathpar">
+<div class="diagram-container">
+<img src="light-68285b484336bb437d24fb7efa68cb0b2b705230.svg" title="commutative diagram" class="diagram diagram-light quiver" />
+<img src="dark-68285b484336bb437d24fb7efa68cb0b2b705230.svg" title="commutative diagram" class="diagram diagram-dark quiver" />
+</div>
+<p>and</p>
+<div class="diagram-container">
+<img src="light-46326b2de65f80f20ffd2054d57cca5e3b56d06a.svg" title="commutative diagram" class="diagram diagram-light quiver" />
+<img src="dark-46326b2de65f80f20ffd2054d57cca5e3b56d06a.svg" title="commutative diagram" class="diagram diagram-dark quiver" />
+</div>
+</div>
+<p>called the <strong>triangle identities</strong> (because of their
+shape) or <strong>zigzag identities</strong> (because it sounds
+cool).</p>
+<pre class="Agda">  <a id="1401" class="Keyword">record</a> <a id="1408" href="Cat.Bi.Diagram.Adjunction.html#1408" data-type="(B₁ : Prebicategory o ℓ ℓ′) (f : (B₁ ↦ a) b) (g : (B₁ ↦ b) a) →
+Type ℓ′" class="Record Operator">_⊣_</a> <a id="1412" class="Symbol">{</a><a id="1413" href="Cat.Bi.Diagram.Adjunction.html#1413" class="Bound">a</a> <a id="1415" href="Cat.Bi.Diagram.Adjunction.html#1415" class="Bound">b</a> <a id="1417" class="Symbol">:</a> <a id="1419" href="Cat.Bi.Base.html#3102" data-type="Prebicategory o ℓ ℓ′ → Type o" class="Field">B.Ob</a><a id="1423" class="Symbol">}</a> <a id="1425" class="Symbol">(</a><a id="1426" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1428" class="Symbol">:</a> <a id="1430" href="Cat.Bi.Diagram.Adjunction.html#1413" class="Bound">a</a> <a id="1432" href="Cat.Bi.Base.html#4752" data-type="(r : Prebicategory o ℓ ℓ′) → Ob r → Ob r → Type ℓ" class="Function Operator">B.↦</a> <a id="1436" href="Cat.Bi.Diagram.Adjunction.html#1415" class="Bound">b</a><a id="1437" class="Symbol">)</a> <a id="1439" class="Symbol">(</a><a id="1440" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1442" class="Symbol">:</a> <a id="1444" href="Cat.Bi.Diagram.Adjunction.html#1415" class="Bound">b</a> <a id="1446" href="Cat.Bi.Base.html#4752" data-type="(r : Prebicategory o ℓ ℓ′) → Ob r → Ob r → Type ℓ" class="Function Operator">B.↦</a> <a id="1450" href="Cat.Bi.Diagram.Adjunction.html#1413" class="Bound">a</a><a id="1451" class="Symbol">)</a> <a id="1453" class="Symbol">:</a> <a id="1455" href="1Lab.Type.html#391" class="Primitive">Type</a> <a id="1460" href="Cat.Bi.Diagram.Adjunction.html#201" class="Bound">ℓ′</a> <a id="1463" class="Keyword">where</a>
+    <a id="1473" class="Keyword">field</a>
+      <a id="1485" href="Cat.Bi.Diagram.Adjunction.html#1485" data-type="(B₁ ⊣ f) g → (B₁ ⇒ id B₁) ((B₁ ∘ g) f)" class="Field">η</a> <a id="1487" class="Symbol">:</a> <a id="1489" href="Cat.Bi.Base.html#3610" data-type="(r : Prebicategory o ℓ ℓ′) → Ob (r .Hom A A)" class="Field">B.id</a> <a id="1494" href="Cat.Bi.Base.html#4813" data-type="(r : Prebicategory o ℓ ℓ′) → (r ↦ A) B₁ → (r ↦ A) B₁ → Type ℓ′" class="Function Operator">B.⇒</a> <a id="1498" class="Symbol">(</a><a id="1499" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1501" href="Cat.Bi.Base.html#4910" data-type="(r : Prebicategory o ℓ ℓ′) → (r ↦ B₁) C → (r ↦ A) B₁ → (r ↦ A) C" class="Function Operator">B.∘</a> <a id="1505" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a><a id="1506" class="Symbol">)</a>
+      <a id="1514" href="Cat.Bi.Diagram.Adjunction.html#1514" data-type="(B₁ ⊣ f) g → (B₁ ⇒ (B₁ ∘ f) g) (id B₁)" class="Field">ε</a> <a id="1516" class="Symbol">:</a> <a id="1518" class="Symbol">(</a><a id="1519" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1521" href="Cat.Bi.Base.html#4910" data-type="(r : Prebicategory o ℓ ℓ′) → (r ↦ B₁) C → (r ↦ A) B₁ → (r ↦ A) C" class="Function Operator">B.∘</a> <a id="1525" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a><a id="1526" class="Symbol">)</a> <a id="1528" href="Cat.Bi.Base.html#4813" data-type="(r : Prebicategory o ℓ ℓ′) → (r ↦ A) B₁ → (r ↦ A) B₁ → Type ℓ′" class="Function Operator">B.⇒</a> <a id="1532" href="Cat.Bi.Base.html#3610" data-type="(r : Prebicategory o ℓ ℓ′) → Ob (r .Hom A A)" class="Field">B.id</a>
+
+      <a id="1544" href="Cat.Bi.Diagram.Adjunction.html#1544" data-type="(r : (B₁ ⊣ f) g) →
+id B₁ ≡
+(B₁ ⊗ λ← B₁ f)
+((B₁ ⊗ (B₁ ◀ r .ε) f)
+ ((B₁ ⊗ α← B₁ f g f) ((B₁ ⊗ (B₁ ▶ f) (r .η)) (ρ→ B₁ f))))" class="Field">zig</a> <a id="1548" class="Symbol">:</a> <a id="1550" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">B.Hom.id</a> <a id="1559" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="1561" href="Cat.Bi.Base.html#6658" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ A) B₁) → (r ⇒ (r ∘ id r) f) f" class="Function">B.λ←</a> <a id="1566" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1568" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1572" class="Symbol">(</a><a id="1573" href="Cat.Bi.Diagram.Adjunction.html#1514" data-type="(B₁ ⊣ f) g → (B₁ ⇒ (B₁ ∘ f) g) (id B₁)" class="Field">ε</a> <a id="1575" href="Cat.Bi.Base.html#5517" data-type="(r : Prebicategory o ℓ ℓ′) →
+(r ⇒ a) b → (f : (r ↦ A) B₁) → (r ⇒ (r ∘ a) f) ((r ∘ b) f)" class="Function Operator">B.◀</a> <a id="1579" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a><a id="1580" class="Symbol">)</a> <a id="1582" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1586" href="Cat.Bi.Base.html#7085" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ C) D) (g : (r ↦ B₁) C)
+(h : (r ↦ A) B₁) →
+(r ⇒ (r ∘ f) ((r ∘ g) h)) ((r ∘ (r ∘ f) g) h)" class="Function">B.α←</a> <a id="1591" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1593" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1595" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1597" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1601" class="Symbol">(</a><a id="1602" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1604" href="Cat.Bi.Base.html#5359" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ B₁) C) →
+(r ⇒ a) b → (r ⇒ (r ∘ f) a) ((r ∘ f) b)" class="Function Operator">B.▶</a> <a id="1608" class="Field">η</a><a id="1609" class="Symbol">)</a> <a id="1611" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1615" href="Cat.Bi.Base.html#6875" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ A) B₁) →
+(r ⇒ f) ((r ∘ f) (id r))" class="Function">B.ρ→</a> <a id="1620" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a>
+      <a id="1628" href="Cat.Bi.Diagram.Adjunction.html#1628" data-type="(r : (B₁ ⊣ f) g) →
+id B₁ ≡
+(B₁ ⊗ ρ← B₁ g)
+((B₁ ⊗ (B₁ ▶ g) (r .ε))
+ ((B₁ ⊗ α→ B₁ g f g) ((B₁ ⊗ (B₁ ◀ r .η) g) (λ→ B₁ g))))" class="Field">zag</a> <a id="1632" class="Symbol">:</a> <a id="1634" href="Cat.Base.html#2976" data-type="(r : Precategory o h) → r .Hom x x" class="Function">B.Hom.id</a> <a id="1643" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="1645" href="Cat.Bi.Base.html#6802" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ A) B₁) →
+(r ⇒ (r ∘ f) (id r)) f" class="Function">B.ρ←</a> <a id="1650" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1652" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1656" class="Symbol">(</a><a id="1657" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1659" href="Cat.Bi.Base.html#5359" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ B₁) C) →
+(r ⇒ a) b → (r ⇒ (r ∘ f) a) ((r ∘ f) b)" class="Function Operator">B.▶</a> <a id="1663" href="Cat.Bi.Diagram.Adjunction.html#1514" data-type="(B₁ ⊣ f) g → (B₁ ⇒ (B₁ ∘ f) g) (id B₁)" class="Field">ε</a><a id="1664" class="Symbol">)</a> <a id="1666" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1670" href="Cat.Bi.Base.html#6946" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ C) D) (g : (r ↦ B₁) C)
+(h : (r ↦ A) B₁) →
+(r ⇒ (r ∘ (r ∘ f) g) h) ((r ∘ f) ((r ∘ g) h))" class="Function">B.α→</a> <a id="1675" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1677" href="Cat.Bi.Diagram.Adjunction.html#1426" class="Bound">f</a> <a id="1679" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a> <a id="1681" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1685" class="Symbol">(</a><a id="1686" class="Field">η</a> <a id="1688" href="Cat.Bi.Base.html#5517" data-type="(r : Prebicategory o ℓ ℓ′) →
+(r ⇒ a) b → (f : (r ↦ A) B₁) → (r ⇒ (r ∘ a) f) ((r ∘ b) f)" class="Function Operator">B.◀</a> <a id="1692" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a><a id="1693" class="Symbol">)</a> <a id="1695" href="Cat.Bi.Base.html#5032" data-type="(r : Prebicategory o ℓ ℓ′) → (r ⇒ g) h → (r ⇒ f) g → (r ⇒ f) h" class="Function Operator">B.⊗</a> <a id="1699" href="Cat.Bi.Base.html#6731" data-type="(r : Prebicategory o ℓ ℓ′) (f : (r ↦ A) B₁) →
+(r ⇒ f) ((r ∘ id r) f)" class="Function">B.λ→</a> <a id="1704" href="Cat.Bi.Diagram.Adjunction.html#1440" class="Bound">g</a>
+</pre>
+<p>Working in a fully weak bicategory means the triangle identities,
+rather than simply expressing a compatibility relation between
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span>
+and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\eps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>
+as is the case for adjoint functors, instead exhibit a complicated
+compatibility relation between
+<span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span></span></span></span>,</span>
+<span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\eps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>,</span>
+and the structural isomorphisms (the unitors and associator) of the
+ambient bicategory.</p>
+<p>We have taken pains to draw the triangle identities as triangles, but
+counting the morphisms involved you’ll find that they really want to be
+commutative pentagons instead (which we draw in this website as
+commutative altars):</p>
+<div class="diagram-container">
+<img src="light-52995389a7e530ce1cb000de5daff7e48e03af9b.svg" title="commutative diagram" class="diagram diagram-light quiver" />
+<img src="dark-52995389a7e530ce1cb000de5daff7e48e03af9b.svg" title="commutative diagram" class="diagram diagram-dark quiver" />
+</div>
+  </article>
+</div>
+</main>
+</body>
+<style>.equations { display: none !important; }</style></html>
