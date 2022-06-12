@@ -124,7 +124,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/651d9f7c128ad4c2a2b4e2918a1a859c66fe8670/src/1Lab/intro.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/bc3d169a3fa15f30160966c53f8335592dd0187c/src/1Lab/intro.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao, Jonathan Coates, Julius Marozas, Lautaro Garavano and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -168,14 +168,14 @@ can be read without any prior mathematical knowledge.</p>
 hyperlinked to their definitions, which are embedded in articles that
 describe the concepts involved. For instance, in the code block below,
 you can click the symbol
-<span class="Agda"><a href="Agda.Builtin.Cubical.Path.html#388" class="Function Operator">≡</a></span>
+<span class="Agda"><a href="Agda.Builtin.Cubical.Path.html#272" class="Function Operator">≡</a></span>
 to be taken to the page on path types.</p>
-<pre class="Agda"><a id="913" href="1Lab.intro.html#913" class="Function">_</a> <a id="915" class="Symbol">:</a> <a id="917" class="Number">2</a> <a id="919" href="Agda.Builtin.Nat.html#325" data-type="Nat → Nat → Nat" class="Primitive Operator">+</a> <a id="921" class="Number">2</a> <a id="923" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="925" class="Number">4</a>
+<pre class="Agda"><a id="913" href="1Lab.intro.html#913" class="Function">_</a> <a id="915" class="Symbol">:</a> <a id="917" class="Number">2</a> <a id="919" href="Agda.Builtin.Nat.html#310" data-type="Nat → Nat → Nat" class="Primitive Operator">+</a> <a id="921" class="Number">2</a> <a id="923" href="Agda.Builtin.Cubical.Path.html#272" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="925" class="Number">4</a>
 <a id="927" class="Symbol">_</a> <a id="929" class="Symbol">=</a> <a id="931" href="1Lab.Path.html#3593" data-type="x ≡ x" class="Function">refl</a>
 </pre>
 <p>For some operations, we use the built-in Agda definitions, which do
 not have explanations attached. This is the case for the
-<span class="Agda"><a href="Agda.Builtin.Nat.html#325" class="Primitive Operator">+</a></span>
+<span class="Agda"><a href="Agda.Builtin.Nat.html#310" class="Primitive Operator">+</a></span>
 operation above. However, in any case, those definitions are either
 built-ins (in which case only the type matters), or defined as
 functions, in which case the implementation is visible. The most
@@ -622,8 +622,8 @@ are definitionally the same:</p>
 <!--
 <pre class="Agda"><a id="15674" class="Keyword">module</a> <a id="15681" href="1Lab.intro.html#15681" class="Module">_</a> <a id="15683" class="Keyword">where</a> <a id="15689" class="Keyword">private</a>
 </pre>-->
-<pre class="Agda">  <a id="15715" href="1Lab.intro.html#15715" class="Function">f</a> <a id="15717" class="Symbol">:</a> <a id="15719" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a> <a id="15723" class="Symbol">→</a> <a id="15725" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a>
-  <a id="15731" href="1Lab.intro.html#15715" class="Function">f</a> <a id="15733" href="1Lab.intro.html#15733" class="Bound">x</a> <a id="15735" class="Symbol">=</a> <a id="15737" href="1Lab.intro.html#15733" class="Bound">x</a> <a id="15739" href="Agda.Builtin.Nat.html#528" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="15741" class="Number">3</a>
+<pre class="Agda">  <a id="15715" href="1Lab.intro.html#15715" class="Function">f</a> <a id="15717" class="Symbol">:</a> <a id="15719" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a> <a id="15723" class="Symbol">→</a> <a id="15725" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a>
+  <a id="15731" href="1Lab.intro.html#15715" class="Function">f</a> <a id="15733" href="1Lab.intro.html#15733" class="Bound">x</a> <a id="15735" class="Symbol">=</a> <a id="15737" href="1Lab.intro.html#15733" class="Bound">x</a> <a id="15739" href="Agda.Builtin.Nat.html#513" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="15741" class="Number">3</a>
   <a id="15745" class="Comment">-- Function definition</a>
   <a id="15770" class="Comment">-- with a &quot;rule&quot;.</a>
 </pre>
@@ -632,8 +632,8 @@ are definitionally the same:</p>
 <!--
 <pre class="Agda"><a id="15825" class="Keyword">module</a> <a id="15832" href="1Lab.intro.html#15832" class="Module">_</a> <a id="15834" class="Keyword">where</a> <a id="15840" class="Keyword">private</a>
 </pre>-->
-<pre class="Agda">  <a id="15866" href="1Lab.intro.html#15866" class="Function">g</a> <a id="15868" class="Symbol">:</a> <a id="15870" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a> <a id="15874" class="Symbol">→</a> <a id="15876" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a>
-  <a id="15882" href="1Lab.intro.html#15866" class="Function">g</a> <a id="15884" class="Symbol">=</a> <a id="15886" class="Symbol">λ</a> <a id="15888" href="1Lab.intro.html#15888" class="Bound">x</a> <a id="15890" class="Symbol">→</a> <a id="15892" href="1Lab.intro.html#15888" class="Bound">x</a> <a id="15894" href="Agda.Builtin.Nat.html#528" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="15896" class="Number">3</a>
+<pre class="Agda">  <a id="15866" href="1Lab.intro.html#15866" class="Function">g</a> <a id="15868" class="Symbol">:</a> <a id="15870" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a> <a id="15874" class="Symbol">→</a> <a id="15876" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a>
+  <a id="15882" href="1Lab.intro.html#15866" class="Function">g</a> <a id="15884" class="Symbol">=</a> <a id="15886" class="Symbol">λ</a> <a id="15888" href="1Lab.intro.html#15888" class="Bound">x</a> <a id="15890" class="Symbol">→</a> <a id="15892" href="1Lab.intro.html#15888" class="Bound">x</a> <a id="15894" href="Agda.Builtin.Nat.html#513" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="15896" class="Number">3</a>
   <a id="15900" class="Comment">-- Function definition</a>
   <a id="15925" class="Comment">-- with λ abstraction</a>
 </pre>
@@ -701,8 +701,8 @@ multiple variables in the left-hand side of a rule, as shown below.</p>
 <!--
 <pre class="Agda"><a id="18329" class="Keyword">module</a> <a id="18336" href="1Lab.intro.html#18336" class="Module">_</a> <a id="18338" class="Keyword">where</a> <a id="18344" class="Keyword">private</a>
 </pre>-->
-<pre class="Agda">  <a id="18370" href="1Lab.intro.html#18370" class="Function">f</a> <a id="18372" class="Symbol">:</a> <a id="18374" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a> <a id="18378" class="Symbol">→</a> <a id="18380" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a> <a id="18384" class="Symbol">→</a> <a id="18386" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a>
-  <a id="18392" href="1Lab.intro.html#18370" class="Function">f</a> <a id="18394" href="1Lab.intro.html#18394" class="Bound">x</a> <a id="18396" href="1Lab.intro.html#18396" class="Bound">y</a> <a id="18398" class="Symbol">=</a> <a id="18400" href="1Lab.intro.html#18394" class="Bound">x</a> <a id="18402" href="Agda.Builtin.Nat.html#325" data-type="Nat → Nat → Nat" class="Primitive Operator">+</a> <a id="18404" class="Number">3</a> <a id="18406" href="Agda.Builtin.Nat.html#528" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="18408" href="1Lab.intro.html#18396" class="Bound">y</a>
+<pre class="Agda">  <a id="18370" href="1Lab.intro.html#18370" class="Function">f</a> <a id="18372" class="Symbol">:</a> <a id="18374" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a> <a id="18378" class="Symbol">→</a> <a id="18380" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a> <a id="18384" class="Symbol">→</a> <a id="18386" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a>
+  <a id="18392" href="1Lab.intro.html#18370" class="Function">f</a> <a id="18394" href="1Lab.intro.html#18394" class="Bound">x</a> <a id="18396" href="1Lab.intro.html#18396" class="Bound">y</a> <a id="18398" class="Symbol">=</a> <a id="18400" href="1Lab.intro.html#18394" class="Bound">x</a> <a id="18402" href="Agda.Builtin.Nat.html#310" data-type="Nat → Nat → Nat" class="Primitive Operator">+</a> <a id="18404" class="Number">3</a> <a id="18406" href="Agda.Builtin.Nat.html#513" data-type="Nat → Nat → Nat" class="Primitive Operator">*</a> <a id="18408" href="1Lab.intro.html#18396" class="Bound">y</a>
 </pre>
 <h1 id="universes"><a href="#universes" class="header-link">Universes<span class="header-link-emoji">🔗</span></a></h1>
 <p>Instead of jumping right into the syntactic definition (and
@@ -1195,7 +1195,7 @@ So, in Agda, we have:</p>
 <pre class="Agda"><a id="34305" class="Keyword">module</a> <a id="34312" href="1Lab.intro.html#34312" class="Module">_</a> <a id="34314" class="Keyword">where</a> <a id="34320" class="Keyword">private</a>
 </pre>-->
 <pre class="Agda">  <a id="34347" href="1Lab.intro.html#34347" class="Function">_</a> <a id="34349" class="Symbol">:</a> <a id="34351" href="1Lab.Type.html#391" class="Primitive">Type</a>
-  <a id="34358" class="Symbol">_</a> <a id="34360" class="Symbol">=</a> <a id="34362" href="Agda.Builtin.Nat.html#192" data-type="Type" class="Datatype">Nat</a>
+  <a id="34358" class="Symbol">_</a> <a id="34360" class="Symbol">=</a> <a id="34362" href="Agda.Builtin.Nat.html#177" data-type="Type" class="Datatype">Nat</a>
 
   <a id="34369" href="1Lab.intro.html#34369" class="Function">_</a> <a id="34371" class="Symbol">:</a> <a id="34373" href="1Lab.Type.html#391" class="Primitive">Type₁</a>
   <a id="34381" class="Symbol">_</a> <a id="34383" class="Symbol">=</a> <a id="34385" href="1Lab.Type.html#391" class="Primitive">Type</a>
@@ -1206,7 +1206,7 @@ universes are <em>cumulative</em>. Instead, we have an explicit
 <span class="Agda"><a href="1Lab.Type.html#2016" class="Record">Lift</a></span>ing
 construction that lets us treat types as being in higher universes:</p>
 <pre class="Agda">  <a id="34679" href="1Lab.intro.html#34679" class="Function">_</a> <a id="34681" class="Symbol">:</a> <a id="34683" href="1Lab.Type.html#391" class="Primitive">Type₂</a>
-  <a id="34691" class="Symbol">_</a> <a id="34693" class="Symbol">=</a> <a id="34695" href="1Lab.Type.html#2016" data-type="(ℓ : Level) (A : Type a) → Type (a ⊔ ℓ)" class="Record">Lift</a> <a id="34700" class="Symbol">(</a><a id="34701" href="Agda.Primitive.html#780" data-type="Level → Level" class="Primitive">lsuc</a> <a id="34706" class="Symbol">(</a><a id="34707" href="Agda.Primitive.html#780" data-type="Level → Level" class="Primitive">lsuc</a> <a id="34712" href="Agda.Primitive.html#764" data-type="Level" class="Primitive">lzero</a><a id="34717" class="Symbol">))</a> <a id="34720" href="1Lab.Type.html#391" class="Primitive">Type</a>
+  <a id="34691" class="Symbol">_</a> <a id="34693" class="Symbol">=</a> <a id="34695" href="1Lab.Type.html#2016" data-type="(ℓ : Level) (A : Type a) → Type (a ⊔ ℓ)" class="Record">Lift</a> <a id="34700" class="Symbol">(</a><a id="34701" href="Agda.Primitive.html#765" data-type="Level → Level" class="Primitive">lsuc</a> <a id="34706" class="Symbol">(</a><a id="34707" href="Agda.Primitive.html#765" data-type="Level → Level" class="Primitive">lsuc</a> <a id="34712" href="Agda.Primitive.html#749" data-type="Level" class="Primitive">lzero</a><a id="34717" class="Symbol">))</a> <a id="34720" href="1Lab.Type.html#391" class="Primitive">Type</a>
 </pre>
 <p>To avoid having
 <span class="Agda"><a href="1Lab.Type.html#2016" class="Record">Lift</a></span>
@@ -1315,9 +1315,9 @@ and
 where we’re using
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span>
 to stand for a variable of
-<span class="Agda"><a href="Agda.Primitive.html#597" class="Postulate">Level</a></span>
+<span class="Agda"><a href="Agda.Primitive.html#582" class="Postulate">Level</a></span>
 type. The
-<span class="Agda"><a href="Agda.Primitive.html#597" class="Postulate">Level</a></span>
+<span class="Agda"><a href="Agda.Primitive.html#582" class="Postulate">Level</a></span>
 is a built-in type which contains a constant representing
 <span style="white-space: nowrap;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>,</span>
 is closed under taking successors, and is closed under taking binary
@@ -1402,7 +1402,7 @@ Our shorthand for the traditional notion is a “<strong><a href="Cat.Instances.
 category.</p>
 <!--
 <pre class="Agda"><a id="40823" href="1Lab.intro.html#40823" class="Function">_</a> <a id="40825" class="Symbol">:</a> <a id="40827" href="1Lab.Type.html#391" class="Primitive">Type</a>
-<a id="40832" class="Symbol">_</a> <a id="40834" class="Symbol">=</a> <a id="40836" href="Agda.Primitive.html#597" data-type="Type" class="Postulate">Level</a>
+<a id="40832" class="Symbol">_</a> <a id="40834" class="Symbol">=</a> <a id="40836" href="Agda.Primitive.html#582" data-type="Type" class="Postulate">Level</a>
 </pre>-->
 <p>Our policy is to keep the use of universes “as precise as possible”:
 Definitions are polymorphic over as many levels as they can possibly be,
@@ -1939,7 +1939,7 @@ as below:</p>
 <pre class="Agda"><a id="60211" class="Keyword">module</a> <a id="60218" href="1Lab.intro.html#60218" class="Module">_</a> <a id="60220" class="Symbol">{</a><a id="60221" href="1Lab.intro.html#60221" class="Bound">A</a> <a id="60223" href="1Lab.intro.html#60223" class="Bound">B</a> <a id="60225" class="Symbol">:</a> <a id="60227" href="1Lab.Type.html#391" class="Primitive">Type</a><a id="60231" class="Symbol">}</a> <a id="60233" class="Keyword">where</a> <a id="60239" class="Keyword">private</a>
 </pre>-->
 <pre class="Agda">  <a id="60262" href="1Lab.intro.html#60262" class="Function">fibre</a> <a id="60268" class="Symbol">:</a> <a id="60270" class="Symbol">(</a><a id="60271" href="1Lab.intro.html#60221" class="Bound">A</a> <a id="60273" class="Symbol">→</a> <a id="60275" href="1Lab.intro.html#60223" class="Bound">B</a><a id="60276" class="Symbol">)</a> <a id="60278" class="Symbol">→</a> <a id="60280" href="1Lab.intro.html#60223" class="Bound">B</a> <a id="60282" class="Symbol">→</a> <a id="60284" href="1Lab.Type.html#391" class="Primitive">Type</a>
-  <a id="60291" href="1Lab.intro.html#60262" class="Function">fibre</a> <a id="60297" href="1Lab.intro.html#60297" class="Bound">f</a> <a id="60299" href="1Lab.intro.html#60299" class="Bound">y</a> <a id="60301" class="Symbol">=</a> <a id="60303" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">Σ[</a> <a id="60306" href="1Lab.intro.html#60306" class="Bound">x</a> <a id="60308" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">∈</a> <a id="60310" href="1Lab.intro.html#60221" class="Bound">A</a> <a id="60312" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">]</a> <a id="60314" class="Symbol">(</a><a id="60315" href="1Lab.intro.html#60297" class="Bound">f</a> <a id="60317" href="1Lab.intro.html#60306" class="Bound">x</a> <a id="60319" href="Agda.Builtin.Cubical.Path.html#388" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="60321" href="1Lab.intro.html#60299" class="Bound">y</a><a id="60322" class="Symbol">)</a>
+  <a id="60291" href="1Lab.intro.html#60262" class="Function">fibre</a> <a id="60297" href="1Lab.intro.html#60297" class="Bound">f</a> <a id="60299" href="1Lab.intro.html#60299" class="Bound">y</a> <a id="60301" class="Symbol">=</a> <a id="60303" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">Σ[</a> <a id="60306" href="1Lab.intro.html#60306" class="Bound">x</a> <a id="60308" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">∈</a> <a id="60310" href="1Lab.intro.html#60221" class="Bound">A</a> <a id="60312" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">]</a> <a id="60314" class="Symbol">(</a><a id="60315" href="1Lab.intro.html#60297" class="Bound">f</a> <a id="60317" href="1Lab.intro.html#60306" class="Bound">x</a> <a id="60319" href="Agda.Builtin.Cubical.Path.html#272" data-type="A → A → Type ℓ" class="Function Operator">≡</a> <a id="60321" href="1Lab.intro.html#60299" class="Bound">y</a><a id="60322" class="Symbol">)</a>
 </pre>
 <h1 id="dependent-products"><a href="#dependent-products" class="header-link">Dependent
 products<span class="header-link-emoji">🔗</span></a></h1>
@@ -2087,11 +2087,11 @@ write out the types of the first and second projection maps:</p>
 <pre class="Agda"><a id="64100" class="Keyword">module</a> <a id="64107" href="1Lab.intro.html#64107" class="Module">_</a> <a id="64109" class="Keyword">where</a> <a id="64115" class="Keyword">private</a>
 </pre>-->
 <pre class="Agda">  <a id="64142" href="1Lab.intro.html#64142" class="Function">project-first</a> <a id="64156" class="Symbol">:</a> <a id="64158" class="Symbol">(</a><a id="64159" href="1Lab.intro.html#64159" class="Bound">A</a> <a id="64161" class="Symbol">:</a> <a id="64163" href="1Lab.Type.html#391" class="Primitive">Type</a><a id="64167" class="Symbol">)</a> <a id="64169" class="Symbol">(</a><a id="64170" href="1Lab.intro.html#64170" class="Bound">B</a> <a id="64172" class="Symbol">:</a> <a id="64174" href="1Lab.intro.html#64159" class="Bound">A</a> <a id="64176" class="Symbol">→</a> <a id="64178" href="1Lab.Type.html#391" class="Primitive">Type</a><a id="64182" class="Symbol">)</a> <a id="64184" class="Symbol">→</a> <a id="64186" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">Σ</a> <a id="64188" href="1Lab.intro.html#64170" class="Bound">B</a> <a id="64190" class="Symbol">→</a> <a id="64192" href="1Lab.intro.html#64159" class="Bound">A</a>
-  <a id="64196" href="1Lab.intro.html#64142" class="Function">project-first</a> <a id="64210" href="1Lab.intro.html#64210" class="Bound">A</a> <a id="64212" href="1Lab.intro.html#64212" class="Bound">B</a> <a id="64214" href="1Lab.intro.html#64214" class="Bound">x</a> <a id="64216" class="Symbol">=</a> <a id="64218" href="1Lab.intro.html#64214" class="Bound">x</a> <a id="64220" class="Symbol">.</a><a id="64221" href="Agda.Builtin.Sigma.html#252" data-type="∑ A B₁ → A" class="Field">fst</a>
+  <a id="64196" href="1Lab.intro.html#64142" class="Function">project-first</a> <a id="64210" href="1Lab.intro.html#64210" class="Bound">A</a> <a id="64212" href="1Lab.intro.html#64212" class="Bound">B</a> <a id="64214" href="1Lab.intro.html#64214" class="Bound">x</a> <a id="64216" class="Symbol">=</a> <a id="64218" href="1Lab.intro.html#64214" class="Bound">x</a> <a id="64220" class="Symbol">.</a><a id="64221" href="Agda.Builtin.Sigma.html#225" data-type="∑ A B₁ → A" class="Field">fst</a>
 
   <a id="64228" href="1Lab.intro.html#64228" class="Function">project-second</a> <a id="64243" class="Symbol">:</a> <a id="64245" class="Symbol">(</a><a id="64246" href="1Lab.intro.html#64246" class="Bound">A</a> <a id="64248" class="Symbol">:</a> <a id="64250" href="1Lab.Type.html#391" class="Primitive">Type</a><a id="64254" class="Symbol">)</a> <a id="64256" class="Symbol">(</a><a id="64257" href="1Lab.intro.html#64257" class="Bound">B</a> <a id="64259" class="Symbol">:</a> <a id="64261" href="1Lab.intro.html#64246" class="Bound">A</a> <a id="64263" class="Symbol">→</a> <a id="64265" href="1Lab.Type.html#391" class="Primitive">Type</a><a id="64269" class="Symbol">)</a>
                  <a id="64288" class="Symbol">→</a> <a id="64290" class="Symbol">(</a><a id="64291" href="1Lab.intro.html#64291" class="Bound">p</a> <a id="64293" class="Symbol">:</a> <a id="64295" href="1Lab.Type.html#1573" data-type="(B₁ : A → Type b) → Type (a ⊔ b)" class="Function">Σ</a> <a id="64297" href="1Lab.intro.html#64257" class="Bound">B</a><a id="64298" class="Symbol">)</a> <a id="64300" class="Symbol">→</a> <a id="64302" href="1Lab.intro.html#64257" class="Bound">B</a> <a id="64304" class="Symbol">(</a><a id="64305" href="1Lab.intro.html#64142" class="Function">project-first</a> <a id="64319" href="1Lab.intro.html#64246" class="Bound">A</a> <a id="64321" href="1Lab.intro.html#64257" class="Bound">B</a> <a id="64323" href="1Lab.intro.html#64291" class="Bound">p</a><a id="64324" class="Symbol">)</a>
-  <a id="64328" href="1Lab.intro.html#64228" class="Function">project-second</a> <a id="64343" href="1Lab.intro.html#64343" class="Bound">A</a> <a id="64345" href="1Lab.intro.html#64345" class="Bound">B</a> <a id="64347" href="1Lab.intro.html#64347" class="Bound">x</a> <a id="64349" class="Symbol">=</a> <a id="64351" href="1Lab.intro.html#64347" class="Bound">x</a> <a id="64353" class="Symbol">.</a><a id="64354" href="Agda.Builtin.Sigma.html#264" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a>
+  <a id="64328" href="1Lab.intro.html#64228" class="Function">project-second</a> <a id="64343" href="1Lab.intro.html#64343" class="Bound">A</a> <a id="64345" href="1Lab.intro.html#64345" class="Bound">B</a> <a id="64347" href="1Lab.intro.html#64347" class="Bound">x</a> <a id="64349" class="Symbol">=</a> <a id="64351" href="1Lab.intro.html#64347" class="Bound">x</a> <a id="64353" class="Symbol">.</a><a id="64354" href="Agda.Builtin.Sigma.html#237" data-type="(r : ∑ A B₁) → B₁ (fst r)" class="Field">snd</a>
 </pre>
 <p>In the logical interpretation, the dependent product type implements
 the universal quantifier
