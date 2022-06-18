@@ -124,8 +124,8 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/0af92a12556d0d0102bdeabe42d05bd5d1ccb605/src/1Lab/intro.lagda.md">link to source</a> <br />
-                <hr /> <div class="author-list">Written by Amélia Liao, Jonathan Coates, Julius Marozas, Lautaro Garavano and Reed Mullanix</div> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/70c7c2583790a0ce190d3222e6affc0b07a470b8/src/1Lab/intro.lagda.md">link to source</a> <br />
+                <hr /> <div class="author-list">Written by Amélia Liao, Jonathan Coates, Julius Marozas, Lautaro Garavano, Reed Mullanix and kzvi</div> <br />
               </div>
     </div>
   </aside>
@@ -2216,11 +2216,10 @@ is not organised like this. It’s meant to be an <em>explorable</em>
 presentation of HoTT, where concepts can be accessed in any order, and
 everything is hyperlinked together. However, we can highlight the
 following modules as being the “spine” of the development, since
-everything depends on them, and they’re roughly linearly ordered.\<br />
-</p>
+everything depends on them, and they’re roughly linearly ordered.</p>
 <h2 id="paths-in-detail"><a href="#paths-in-detail" class="header-link">Paths,
 in detail<span class="header-link-emoji">🔗</span></a></h2>
-<pre class="Agda"><a id="67835" class="Keyword">open</a> <a id="67840" class="Keyword">import</a> <a id="67847" href="1Lab.Path.html" class="Module">1Lab.Path</a>
+<pre class="Agda"><a id="67832" class="Keyword">open</a> <a id="67837" class="Keyword">import</a> <a id="67844" href="1Lab.Path.html" class="Module">1Lab.Path</a>
 </pre>
 <p>The module
 <span class="Agda"><a href="1Lab.Path.html" class="Module">1Lab.Path</a></span>
@@ -2253,8 +2252,8 @@ h-level that comes up very often is the level of <strong>sets</strong>,
 since these are the types where equality behaves like a logical
 proposition. Due to their importance, we provide a module defining
 equivalent characterisations of sets.</p>
-<pre class="Agda"><a id="69508" class="Keyword">open</a> <a id="69513" class="Keyword">import</a> <a id="69520" href="1Lab.HLevel.html" class="Module">1Lab.HLevel</a>
-<a id="69532" class="Keyword">open</a> <a id="69537" class="Keyword">import</a> <a id="69544" href="1Lab.HLevel.Sets.html" class="Module">1Lab.HLevel.Sets</a>
+<pre class="Agda"><a id="69505" class="Keyword">open</a> <a id="69510" class="Keyword">import</a> <a id="69517" href="1Lab.HLevel.html" class="Module">1Lab.HLevel</a>
+<a id="69529" class="Keyword">open</a> <a id="69534" class="Keyword">import</a> <a id="69541" href="1Lab.HLevel.Sets.html" class="Module">1Lab.HLevel.Sets</a>
 </pre>
 <p>Contractible types can be used to give a definition of equivalence
 that is well-behaved in the context of higher category theory, but it is
@@ -2262,13 +2261,13 @@ not the only coherent notion. We also have half-adjoint equivalences and
 bi-invertible maps. Finally, we have a module that explains why these
 definitions are needed in place of the simpler notion of
 “isomorphism”.</p>
-<pre class="Agda"><a id="69930" class="Keyword">open</a> <a id="69935" class="Keyword">import</a> <a id="69942" href="1Lab.Equiv.html" class="Module">1Lab.Equiv</a>
-<a id="69953" class="Keyword">open</a> <a id="69958" class="Keyword">import</a> <a id="69965" href="1Lab.Equiv.Biinv.html" class="Module">1Lab.Equiv.Biinv</a>
-<a id="69982" class="Keyword">open</a> <a id="69987" class="Keyword">import</a> <a id="69994" href="1Lab.Equiv.HalfAdjoint.html" class="Module">1Lab.Equiv.HalfAdjoint</a>
-<a id="70017" class="Keyword">open</a> <a id="70022" class="Keyword">import</a> <a id="70029" href="1Lab.Counterexamples.IsIso.html" class="Module">1Lab.Counterexamples.IsIso</a>
+<pre class="Agda"><a id="69927" class="Keyword">open</a> <a id="69932" class="Keyword">import</a> <a id="69939" href="1Lab.Equiv.html" class="Module">1Lab.Equiv</a>
+<a id="69950" class="Keyword">open</a> <a id="69955" class="Keyword">import</a> <a id="69962" href="1Lab.Equiv.Biinv.html" class="Module">1Lab.Equiv.Biinv</a>
+<a id="69979" class="Keyword">open</a> <a id="69984" class="Keyword">import</a> <a id="69991" href="1Lab.Equiv.HalfAdjoint.html" class="Module">1Lab.Equiv.HalfAdjoint</a>
+<a id="70014" class="Keyword">open</a> <a id="70019" class="Keyword">import</a> <a id="70026" href="1Lab.Counterexamples.IsIso.html" class="Module">1Lab.Counterexamples.IsIso</a>
 </pre>
 <h2 id="univalence"><a href="#univalence" class="header-link">Univalence<span class="header-link-emoji">🔗</span></a></h2>
-<pre class="Agda"><a id="70084" class="Keyword">open</a> <a id="70089" class="Keyword">import</a> <a id="70096" href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a>
+<pre class="Agda"><a id="70081" class="Keyword">open</a> <a id="70086" class="Keyword">import</a> <a id="70093" href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a>
 </pre>
 <p>The module
 <span class="Agda"><a href="1Lab.Univalence.html" class="Module">1Lab.Univalence</a></span>
@@ -2279,7 +2278,7 @@ between types, which leads to a proof of the <strong>univalence
 principle</strong>. After, we prove that the type of equivalences
 satisfies the same induction principle as the type of paths, and that
 universes are object classifiers.</p>
-<pre class="Agda"><a id="70582" class="Keyword">open</a> <a id="70587" class="Keyword">import</a> <a id="70594" href="1Lab.Univalence.SIP.html" class="Module">1Lab.Univalence.SIP</a>
+<pre class="Agda"><a id="70579" class="Keyword">open</a> <a id="70584" class="Keyword">import</a> <a id="70591" href="1Lab.Univalence.SIP.html" class="Module">1Lab.Univalence.SIP</a>
 </pre>
 <p>While univalence guarantees that equivalence <em>of types</em> is
 equivalent to paths <em>in types</em>, it does not say anything about
