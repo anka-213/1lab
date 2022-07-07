@@ -102,7 +102,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/9c09892c9e14936c5fbde5f5054b7659c8f9d758/src/Algebra/Lattice.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/0d571ec681fb956d655605c0431bce370eea6c77/src/Algebra/Lattice.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -144,7 +144,7 @@
 <pre class="Agda"><a id="226" class="Keyword">private</a> <a id="234" class="Keyword">variable</a>
   <a id="245" href="Algebra.Lattice.html#245" class="Generalizable">ℓ</a> <a id="247" class="Symbol">:</a> <a id="249" href="Agda.Primitive.html#582" data-type="Type" class="Postulate">Level</a>
   <a id="257" href="Algebra.Lattice.html#257" class="Generalizable">A</a> <a id="259" class="Symbol">:</a> <a id="261" href="1Lab.Type.html#391" class="Primitive">Type</a> <a id="266" href="Algebra.Lattice.html#245" class="Generalizable">ℓ</a>
-<a id="268" class="Keyword">open</a> <a id="273" href="Cat.Base.html#7206" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
+<a id="268" class="Keyword">open</a> <a id="273" href="Cat.Base.html#7198" data-type="(C : Precategory o₁ h₁) (D : Precategory o₂ h₂) →
 Type (o₁ ⊔ h₁ ⊔ o₂ ⊔ h₂)" class="Module">Functor</a>
 </pre>-->
 <h1 id="lattices"><a href="#lattices" class="header-link">Lattices<span class="header-link-emoji">🔗</span></a></h1>
@@ -335,7 +335,7 @@ induces <em>joins</em> on the poset. By the absorption laws, these
 constructions give rise to the same poset; We start by defining a
 <span class="Agda"><a href="Cat.Thin.html#8369" class="Function">monotone map</a></span>
 (that is, a
-<span class="Agda"><a href="Cat.Base.html#7206" class="Module">Functor</a></span>)
+<span class="Agda"><a href="Cat.Base.html#7198" class="Module">Functor</a></span>)
 between the two possibilities:</p>
 <pre class="Agda"><a id="covariant-order-map"></a><a id="4936" href="Algebra.Lattice.html#4936" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
@@ -358,10 +358,10 @@ Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
                    <a id="5329" class="Symbol">(</a><a id="5330" href="Algebra.Semilattice.html#5063" data-type="is-semilattice ∨ → Poset (level-of A) (level-of A)" class="Function">Semilattice-on→Join-on</a> <a id="5353" class="Symbol">(</a><a id="5354" href="Algebra.Lattice.html#2349" data-type="(r : Lattice-on A) → is-semilattice (_L∨_ r)" class="Function">Lattice-on→is-join-semi</a> <a id="5378" href="Algebra.Lattice.html#5142" class="Bound">l</a><a id="5379" class="Symbol">))</a>
   <a id="5384" href="Algebra.Lattice.html#5240" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
-(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5386" class="Symbol">.</a><a id="5387" href="Cat.Base.html#7996" data-type="Functor C D → C .Ob → Ob D" class="Field">F₀</a> <a id="5390" class="Symbol">=</a> <a id="5392" href="1Lab.Type.html#2424" data-type="A → A" class="Function">id</a>
+(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5386" class="Symbol">.</a><a id="5387" href="Cat.Base.html#7988" data-type="Functor C D → C .Ob → Ob D" class="Field">F₀</a> <a id="5390" class="Symbol">=</a> <a id="5392" href="1Lab.Type.html#2424" data-type="A → A" class="Function">id</a>
   <a id="5397" href="Algebra.Lattice.html#5240" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
-(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5399" class="Symbol">.</a><a id="5400" href="Cat.Base.html#8017" data-type="(r : Functor C D) → C .Hom x y → Hom D (r .F₀ x) (r .F₀ y)" class="Field">F₁</a> <a id="5403" class="Symbol">{</a><a id="5404" href="Algebra.Lattice.html#5404" class="Bound">x</a><a id="5405" class="Symbol">}</a> <a id="5407" class="Symbol">{</a><a id="5408" href="Algebra.Lattice.html#5408" class="Bound">y</a><a id="5409" class="Symbol">}</a> <a id="5411" href="Algebra.Lattice.html#5411" class="Bound">p</a> <a id="5413" class="Symbol">=</a> <a id="5415" href="Algebra.Lattice.html#5436" data-type="(l : Lattice-on A)
+(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5399" class="Symbol">.</a><a id="5400" href="Cat.Base.html#8009" data-type="(r : Functor C D) → C .Hom x y → Hom D (r .F₀ x) (r .F₀ y)" class="Field">F₁</a> <a id="5403" class="Symbol">{</a><a id="5404" href="Algebra.Lattice.html#5404" class="Bound">x</a><a id="5405" class="Symbol">}</a> <a id="5407" class="Symbol">{</a><a id="5408" href="Algebra.Lattice.html#5408" class="Bound">y</a><a id="5409" class="Symbol">}</a> <a id="5411" href="Algebra.Lattice.html#5411" class="Bound">p</a> <a id="5413" class="Symbol">=</a> <a id="5415" href="Algebra.Lattice.html#5436" data-type="(l : Lattice-on A)
 (p
  : Semilattice-on→Meet-on (Lattice-on→is-meet-semi l) .underlying
    .Hom x y) →
@@ -387,10 +387,10 @@ PathP (λ i → C (p i) (q i)) (f x α) (f y β)" class="Function">ap₂</a> <a 
       <a id="5645" href="Algebra.Lattice.html#5404" class="Bound">x</a> <a id="5647" href="Algebra.Lattice.html#2115" data-type="Lattice-on A → A → A → A" class="Field Operator">L∨</a> <a id="5650" href="Algebra.Lattice.html#5408" class="Bound">y</a>        <a id="5659" href="1Lab.Path.html#46945" data-type="(x : A) → x ≡ x" class="Function Operator">∎</a>
   <a id="5663" href="Algebra.Lattice.html#5240" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
-(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5665" class="Symbol">.</a><a id="5666" href="Cat.Base.html#8343" data-type="(r : Functor C D) → r .F₁ (C .id) ≡ id D" class="Field">F-id</a> <a id="5671" class="Symbol">=</a> <a id="5673" href="Algebra.Magma.html#1656" data-type="is-magma {ℓ} {A} _⋆₁_ → is-set {ℓ} A" class="Function">has-is-set</a> <a id="5684" class="Symbol">_</a> <a id="5686" class="Symbol">_</a> <a id="5688" class="Symbol">_</a> <a id="5690" class="Symbol">_</a>
+(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5665" class="Symbol">.</a><a id="5666" href="Cat.Base.html#8335" data-type="(r : Functor C D) → r .F₁ (C .id) ≡ id D" class="Field">F-id</a> <a id="5671" class="Symbol">=</a> <a id="5673" href="Algebra.Magma.html#1656" data-type="is-magma {ℓ} {A} _⋆₁_ → is-set {ℓ} A" class="Function">has-is-set</a> <a id="5684" class="Symbol">_</a> <a id="5686" class="Symbol">_</a> <a id="5688" class="Symbol">_</a> <a id="5690" class="Symbol">_</a>
   <a id="5694" href="Algebra.Lattice.html#5240" data-type="(l : Lattice-on A) →
 Monotone-map (Semilattice-on→Meet-on (Lattice-on→is-meet-semi l))
-(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5696" class="Symbol">.</a><a id="5697" href="Cat.Base.html#8383" data-type="(r : Functor C D) (f : C .Hom y z) (g : C .Hom x y) →
+(Semilattice-on→Join-on (Lattice-on→is-join-semi l))" class="Function">F</a> <a id="5696" class="Symbol">.</a><a id="5697" href="Cat.Base.html#8375" data-type="(r : Functor C D) (f : C .Hom y z) (g : C .Hom x y) →
 r .F₁ (C ._∘_ f g) ≡ (D ∘ r .F₁ f) (r .F₁ g)" class="Field">F-∘</a> <a id="5701" class="Symbol">_</a> <a id="5703" class="Symbol">_</a> <a id="5705" class="Symbol">=</a> <a id="5707" href="Algebra.Magma.html#1656" data-type="is-magma {ℓ} {A} _⋆₁_ → is-set {ℓ} A" class="Function">has-is-set</a> <a id="5718" class="Symbol">_</a> <a id="5720" class="Symbol">_</a> <a id="5722" class="Symbol">_</a> <a id="5724" class="Symbol">_</a>
 </pre>
 <p>We now show that this functor is an equivalence: It is fully faithful
