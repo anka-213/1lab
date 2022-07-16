@@ -90,6 +90,14 @@
       categories<span class="header-link-emoji">🔗</span></a></a></li>
       <li><a href="#displayed-categories"><a href="#displayed-categories" class="header-link">Displayed
       categories<span class="header-link-emoji">🔗</span></a></a></li>
+      <li><a href="#bicategories"><a href="#bicategories" class="header-link">Bicategories<span class="header-link-emoji">🔗</span></a></a>
+      <ul>
+      <li><a href="#diagrams-in-bicategories"><a href="#diagrams-in-bicategories" class="header-link">Diagrams
+      in
+      bicategories<span class="header-link-emoji">🔗</span></a></a></li>
+      </ul></li>
+      <li><a href="#homological-algebra"><a href="#homological-algebra" class="header-link">Homological
+      algebra<span class="header-link-emoji">🔗</span></a></a></li>
       </ul></li>
       <li><a href="#topos-theory"><a href="#topos-theory" class="header-link">Topos
       theory<span class="header-link-emoji">🔗</span></a></a></li>
@@ -127,7 +135,7 @@
         </div>
 
                     <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/704956a7ffb07e5a5193134a2f74949f3338d39f/src/index.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/dad48825521bbde86ec397eb9a37485534ed3d5a/src/index.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao, Jonathan Coates and uni</div> <br />
               </div>
     </div>
@@ -404,9 +412,14 @@ subcategories, and adjoint functors.</p>
 <a id="13793" class="Keyword">open</a> <a id="13798" class="Keyword">import</a> <a id="13805" href="Cat.Functor.Adjoint.Continuous.html" class="Module">Cat.Functor.Adjoint.Continuous</a> <a id="13836" class="Comment">-- Right adjoints preserve limits</a>
 <a id="13870" class="Keyword">open</a> <a id="13875" class="Keyword">import</a> <a id="13882" href="Cat.Functor.Adjoint.Reflective.html" class="Module">Cat.Functor.Adjoint.Reflective</a> <a id="13913" class="Comment">-- Reflective subcategories</a>
 </pre>
+<p>Monadicity theorems:</p>
+<pre class="Agda"><a id="13976" class="Keyword">open</a> <a id="13981" class="Keyword">import</a> <a id="13988" href="Cat.Functor.Monadic.Beck.html" class="Module">Cat.Functor.Monadic.Beck</a>  <a id="14014" class="Comment">-- Beck&#39;s coequalisers</a>
+<a id="14037" class="Keyword">open</a> <a id="14042" class="Keyword">import</a> <a id="14049" href="Cat.Functor.Monadic.Crude.html" class="Module">Cat.Functor.Monadic.Crude</a> <a id="14075" class="Comment">-- The crude monadicity theorem</a>
+</pre>
 <p>About Kan extensions:</p>
-<pre class="Agda"><a id="13977" class="Keyword">open</a> <a id="13982" class="Keyword">import</a> <a id="13989" href="Cat.Functor.Kan.html" class="Module">Cat.Functor.Kan</a> <a id="14005" class="Comment">-- Kan extensions</a>
-<a id="14023" class="Keyword">open</a> <a id="14028" class="Keyword">import</a> <a id="14035" href="Cat.Functor.Kan.Nerve.html" class="Module">Cat.Functor.Kan.Nerve</a> <a id="14057" class="Comment">-- The nerve/realisation adjunction (Lan along よ)</a>
+<pre class="Agda"><a id="14143" class="Keyword">open</a> <a id="14148" class="Keyword">import</a> <a id="14155" href="Cat.Functor.Kan.html" class="Module">Cat.Functor.Kan</a>       <a id="14177" class="Comment">-- Left Kan extensions</a>
+<a id="14200" class="Keyword">open</a> <a id="14205" class="Keyword">import</a> <a id="14212" href="Cat.Functor.Kan.Right.html" class="Module">Cat.Functor.Kan.Right</a> <a id="14234" class="Comment">-- Right Kan extensions</a>
+<a id="14258" class="Keyword">open</a> <a id="14263" class="Keyword">import</a> <a id="14270" href="Cat.Functor.Kan.Nerve.html" class="Module">Cat.Functor.Kan.Nerve</a> <a id="14292" class="Comment">-- The nerve/realisation adjunction</a>
 </pre>
 <h2 id="univalent-categories"><a href="#univalent-categories" class="header-link">Univalent
 categories<span class="header-link-emoji">🔗</span></a></h2>
@@ -415,56 +428,56 @@ categories<span class="header-link-emoji">🔗</span></a></h2>
 isomorphic objects are indistinguishable, i.e. the categories which
 satisfy a version of the univalence axiom. Sometimes we also refer to
 these as “univalent categories” to make the distinction clear.</p>
-<pre class="Agda"><a id="14480" class="Keyword">open</a> <a id="14485" class="Keyword">import</a> <a id="14492" href="Cat.Univalent.html" class="Module">Cat.Univalent</a>      <a id="14511" class="Comment">-- Basic properties of categories</a>
-<a id="14545" class="Keyword">open</a> <a id="14550" class="Keyword">import</a> <a id="14557" href="Cat.Univalent.Rezk.html" class="Module">Cat.Univalent.Rezk</a> <a id="14576" class="Comment">-- Free category on a precategory</a>
-<a id="14610" class="Keyword">open</a> <a id="14615" class="Keyword">import</a> <a id="14622" href="Cat.Univalent.Instances.Algebra.html" class="Module">Cat.Univalent.Instances.Algebra</a>
-  <a id="14656" class="Comment">-- Eilenberg-Moore categories preserve univalence</a>
+<pre class="Agda"><a id="14701" class="Keyword">open</a> <a id="14706" class="Keyword">import</a> <a id="14713" href="Cat.Univalent.html" class="Module">Cat.Univalent</a>      <a id="14732" class="Comment">-- Basic properties of categories</a>
+<a id="14766" class="Keyword">open</a> <a id="14771" class="Keyword">import</a> <a id="14778" href="Cat.Univalent.Rezk.html" class="Module">Cat.Univalent.Rezk</a> <a id="14797" class="Comment">-- Free category on a precategory</a>
+<a id="14831" class="Keyword">open</a> <a id="14836" class="Keyword">import</a> <a id="14843" href="Cat.Univalent.Instances.Algebra.html" class="Module">Cat.Univalent.Instances.Algebra</a>
+  <a id="14877" class="Comment">-- Eilenberg-Moore categories preserve univalence</a>
 </pre>
 <h2 id="category-instances"><a href="#category-instances" class="header-link">Category
 instances<span class="header-link-emoji">🔗</span></a></h2>
 <p>Here’s where we actually build some categories and prove that they
 have desirable properties.</p>
-<pre class="Agda"><a id="14837" class="Comment">-- Comma categories:</a>
-<a id="14858" class="Keyword">open</a> <a id="14863" class="Keyword">import</a> <a id="14870" href="Cat.Instances.Comma.html" class="Module">Cat.Instances.Comma</a>
-<a id="14890" class="Keyword">open</a> <a id="14895" class="Keyword">import</a> <a id="14902" href="Cat.Instances.Comma.Univalent.html" class="Module">Cat.Instances.Comma.Univalent</a>
+<pre class="Agda"><a id="15058" class="Comment">-- Comma categories:</a>
+<a id="15079" class="Keyword">open</a> <a id="15084" class="Keyword">import</a> <a id="15091" href="Cat.Instances.Comma.html" class="Module">Cat.Instances.Comma</a>
+<a id="15111" class="Keyword">open</a> <a id="15116" class="Keyword">import</a> <a id="15123" href="Cat.Instances.Comma.Univalent.html" class="Module">Cat.Instances.Comma.Univalent</a>
 
-<a id="14933" class="Keyword">open</a> <a id="14938" class="Keyword">import</a> <a id="14945" href="Cat.Instances.Delooping.html" class="Module">Cat.Instances.Delooping</a> <a id="14969" class="Comment">-- Delooping a monoid to give a category</a>
-<a id="15010" class="Keyword">open</a> <a id="15015" class="Keyword">import</a> <a id="15022" href="Cat.Instances.Discrete.html" class="Module">Cat.Instances.Discrete</a> <a id="15045" class="Comment">-- Discrete categories</a>
-<a id="15068" class="Keyword">open</a> <a id="15073" class="Keyword">import</a> <a id="15080" href="Cat.Instances.Elements.html" class="Module">Cat.Instances.Elements</a> <a id="15103" class="Comment">-- Category of elements of a presheaf</a>
+<a id="15154" class="Keyword">open</a> <a id="15159" class="Keyword">import</a> <a id="15166" href="Cat.Instances.Delooping.html" class="Module">Cat.Instances.Delooping</a> <a id="15190" class="Comment">-- Delooping a monoid to give a category</a>
+<a id="15231" class="Keyword">open</a> <a id="15236" class="Keyword">import</a> <a id="15243" href="Cat.Instances.Discrete.html" class="Module">Cat.Instances.Discrete</a> <a id="15266" class="Comment">-- Discrete categories</a>
+<a id="15289" class="Keyword">open</a> <a id="15294" class="Keyword">import</a> <a id="15301" href="Cat.Instances.Elements.html" class="Module">Cat.Instances.Elements</a> <a id="15324" class="Comment">-- Category of elements of a presheaf</a>
 
-<a id="15142" class="Comment">-- Functor categories:</a>
-<a id="15165" class="Keyword">open</a> <a id="15170" class="Keyword">import</a> <a id="15177" href="Cat.Instances.Functor.html" class="Module">Cat.Instances.Functor</a>
-<a id="15199" class="Keyword">open</a> <a id="15204" class="Keyword">import</a> <a id="15211" href="Cat.Instances.Functor.Limits.html" class="Module">Cat.Instances.Functor.Limits</a> <a id="15240" class="Comment">-- Co/limits in functor categories</a>
-<a id="15275" class="Keyword">open</a> <a id="15280" class="Keyword">import</a> <a id="15287" href="Cat.Instances.Functor.Duality.html" class="Module">Cat.Instances.Functor.Duality</a> <a id="15317" class="Comment">-- 2-cell duality in Cat</a>
+<a id="15363" class="Comment">-- Functor categories:</a>
+<a id="15386" class="Keyword">open</a> <a id="15391" class="Keyword">import</a> <a id="15398" href="Cat.Instances.Functor.html" class="Module">Cat.Instances.Functor</a>
+<a id="15420" class="Keyword">open</a> <a id="15425" class="Keyword">import</a> <a id="15432" href="Cat.Instances.Functor.Limits.html" class="Module">Cat.Instances.Functor.Limits</a> <a id="15461" class="Comment">-- Co/limits in functor categories</a>
+<a id="15496" class="Keyword">open</a> <a id="15501" class="Keyword">import</a> <a id="15508" href="Cat.Instances.Functor.Duality.html" class="Module">Cat.Instances.Functor.Duality</a> <a id="15538" class="Comment">-- 2-cell duality in Cat</a>
 
-<a id="15343" class="Comment">-- Completion of a category under splitting idempotents</a>
-<a id="15399" class="Keyword">open</a> <a id="15404" class="Keyword">import</a> <a id="15411" href="Cat.Instances.Karoubi.html" class="Module">Cat.Instances.Karoubi</a>
+<a id="15564" class="Comment">-- Completion of a category under splitting idempotents</a>
+<a id="15620" class="Keyword">open</a> <a id="15625" class="Keyword">import</a> <a id="15632" href="Cat.Instances.Karoubi.html" class="Module">Cat.Instances.Karoubi</a>
 
-<a id="15434" class="Keyword">open</a> <a id="15439" class="Keyword">import</a> <a id="15446" href="Cat.Instances.Lift.html" class="Module">Cat.Instances.Lift</a> <a id="15465" class="Comment">-- Lifting a category to higher universes</a>
-<a id="15507" class="Keyword">open</a> <a id="15512" class="Keyword">import</a> <a id="15519" href="Cat.Instances.Product.html" class="Module">Cat.Instances.Product</a> <a id="15541" class="Comment">-- Product categories</a>
+<a id="15655" class="Keyword">open</a> <a id="15660" class="Keyword">import</a> <a id="15667" href="Cat.Instances.Lift.html" class="Module">Cat.Instances.Lift</a> <a id="15686" class="Comment">-- Lifting a category to higher universes</a>
+<a id="15728" class="Keyword">open</a> <a id="15733" class="Keyword">import</a> <a id="15740" href="Cat.Instances.Product.html" class="Module">Cat.Instances.Product</a> <a id="15762" class="Comment">-- Product categories</a>
 
-<a id="15564" class="Comment">-- The category of sets</a>
-<a id="15588" class="Keyword">open</a> <a id="15593" class="Keyword">import</a> <a id="15600" href="Cat.Instances.Sets.html" class="Module">Cat.Instances.Sets</a> <a id="15619" class="Comment">-- is univalent</a>
-<a id="15635" class="Keyword">open</a> <a id="15640" class="Keyword">import</a> <a id="15647" href="Cat.Instances.Sets.Complete.html" class="Module">Cat.Instances.Sets.Complete</a> <a id="15675" class="Comment">-- is complete</a>
-<a id="15690" class="Keyword">open</a> <a id="15695" class="Keyword">import</a> <a id="15702" href="Cat.Instances.Sets.Cocomplete.html" class="Module">Cat.Instances.Sets.Cocomplete</a> <a id="15732" class="Comment">-- is cocomplete, with disjoint coproducts</a>
-<a id="15775" class="Keyword">open</a> <a id="15780" class="Keyword">import</a> <a id="15787" href="Cat.Instances.Sets.Congruences.html" class="Module">Cat.Instances.Sets.Congruences</a> <a id="15818" class="Comment">-- has effective congruences</a>
-<a id="15847" class="Keyword">open</a> <a id="15852" class="Keyword">import</a> <a id="15859" href="Cat.Instances.Sets.CartesianClosed.html" class="Module">Cat.Instances.Sets.CartesianClosed</a> <a id="15894" class="Comment">-- and is locally cartesian closed</a>
+<a id="15785" class="Comment">-- The category of sets</a>
+<a id="15809" class="Keyword">open</a> <a id="15814" class="Keyword">import</a> <a id="15821" href="Cat.Instances.Sets.html" class="Module">Cat.Instances.Sets</a> <a id="15840" class="Comment">-- is univalent</a>
+<a id="15856" class="Keyword">open</a> <a id="15861" class="Keyword">import</a> <a id="15868" href="Cat.Instances.Sets.Complete.html" class="Module">Cat.Instances.Sets.Complete</a> <a id="15896" class="Comment">-- is complete</a>
+<a id="15911" class="Keyword">open</a> <a id="15916" class="Keyword">import</a> <a id="15923" href="Cat.Instances.Sets.Cocomplete.html" class="Module">Cat.Instances.Sets.Cocomplete</a> <a id="15953" class="Comment">-- is cocomplete, with disjoint coproducts</a>
+<a id="15996" class="Keyword">open</a> <a id="16001" class="Keyword">import</a> <a id="16008" href="Cat.Instances.Sets.Congruences.html" class="Module">Cat.Instances.Sets.Congruences</a> <a id="16039" class="Comment">-- has effective congruences</a>
+<a id="16068" class="Keyword">open</a> <a id="16073" class="Keyword">import</a> <a id="16080" href="Cat.Instances.Sets.CartesianClosed.html" class="Module">Cat.Instances.Sets.CartesianClosed</a> <a id="16115" class="Comment">-- and is locally cartesian closed</a>
 
-<a id="15930" class="Comment">-- Diagram shapes:</a>
-<a id="15949" class="Keyword">open</a> <a id="15954" class="Keyword">import</a> <a id="15961" href="Cat.Instances.Shape.Join.html" class="Module">Cat.Instances.Shape.Join</a>
-<a id="15986" class="Keyword">open</a> <a id="15991" class="Keyword">import</a> <a id="15998" href="Cat.Instances.Shape.Cospan.html" class="Module">Cat.Instances.Shape.Cospan</a>
-<a id="16025" class="Keyword">open</a> <a id="16030" class="Keyword">import</a> <a id="16037" href="Cat.Instances.Shape.Interval.html" class="Module">Cat.Instances.Shape.Interval</a>
-<a id="16066" class="Keyword">open</a> <a id="16071" class="Keyword">import</a> <a id="16078" href="Cat.Instances.Shape.Parallel.html" class="Module">Cat.Instances.Shape.Parallel</a>
-<a id="16107" class="Keyword">open</a> <a id="16112" class="Keyword">import</a> <a id="16119" href="Cat.Instances.Shape.Terminal.html" class="Module">Cat.Instances.Shape.Terminal</a>
+<a id="16151" class="Comment">-- Diagram shapes:</a>
+<a id="16170" class="Keyword">open</a> <a id="16175" class="Keyword">import</a> <a id="16182" href="Cat.Instances.Shape.Join.html" class="Module">Cat.Instances.Shape.Join</a>
+<a id="16207" class="Keyword">open</a> <a id="16212" class="Keyword">import</a> <a id="16219" href="Cat.Instances.Shape.Cospan.html" class="Module">Cat.Instances.Shape.Cospan</a>
+<a id="16246" class="Keyword">open</a> <a id="16251" class="Keyword">import</a> <a id="16258" href="Cat.Instances.Shape.Interval.html" class="Module">Cat.Instances.Shape.Interval</a>
+<a id="16287" class="Keyword">open</a> <a id="16292" class="Keyword">import</a> <a id="16299" href="Cat.Instances.Shape.Parallel.html" class="Module">Cat.Instances.Shape.Parallel</a>
+<a id="16328" class="Keyword">open</a> <a id="16333" class="Keyword">import</a> <a id="16340" href="Cat.Instances.Shape.Terminal.html" class="Module">Cat.Instances.Shape.Terminal</a>
 
-<a id="16149" class="Comment">-- Slice categories:</a>
-<a id="16170" class="Keyword">open</a> <a id="16175" class="Keyword">import</a> <a id="16182" href="Cat.Instances.Slice.html" class="Module">Cat.Instances.Slice</a>
-<a id="16202" class="Keyword">open</a> <a id="16207" class="Keyword">import</a> <a id="16214" href="Cat.Instances.Slice.Presheaf.html" class="Module">Cat.Instances.Slice.Presheaf</a> <a id="16243" class="Comment">-- PSh(C)/X ≅ PSh(∫ X)</a>
+<a id="16370" class="Comment">-- Slice categories:</a>
+<a id="16391" class="Keyword">open</a> <a id="16396" class="Keyword">import</a> <a id="16403" href="Cat.Instances.Slice.html" class="Module">Cat.Instances.Slice</a>
+<a id="16423" class="Keyword">open</a> <a id="16428" class="Keyword">import</a> <a id="16435" href="Cat.Instances.Slice.Presheaf.html" class="Module">Cat.Instances.Slice.Presheaf</a> <a id="16464" class="Comment">-- PSh(C)/X ≅ PSh(∫ X)</a>
 
-<a id="16267" class="Comment">-- Strict categories</a>
-<a id="16288" class="Keyword">open</a> <a id="16293" class="Keyword">import</a> <a id="16300" href="Cat.Instances.StrictCat.html" class="Module">Cat.Instances.StrictCat</a>
-<a id="16324" class="Keyword">open</a> <a id="16329" class="Keyword">import</a> <a id="16336" href="Cat.Instances.StrictCat.Cohesive.html" class="Module">Cat.Instances.StrictCat.Cohesive</a>
-  <a id="16371" class="Comment">-- ^ Strict category structure is a sort of &quot;spatial&quot; structure on a category</a>
+<a id="16488" class="Comment">-- Strict categories</a>
+<a id="16509" class="Keyword">open</a> <a id="16514" class="Keyword">import</a> <a id="16521" href="Cat.Instances.StrictCat.html" class="Module">Cat.Instances.StrictCat</a>
+<a id="16545" class="Keyword">open</a> <a id="16550" class="Keyword">import</a> <a id="16557" href="Cat.Instances.StrictCat.Cohesive.html" class="Module">Cat.Instances.StrictCat.Cohesive</a>
+  <a id="16592" class="Comment">-- ^ Strict category structure is a sort of &quot;spatial&quot; structure on a category</a>
 </pre>
 <h2 id="thin-categories"><a href="#thin-categories" class="header-link">Thin
 categories<span class="header-link-emoji">🔗</span></a></h2>
@@ -473,29 +486,62 @@ i.e. sets equipped with a transitive and reflexive relation — so we call
 them “prosets”. When this relation is antisymmetric, we additionally
 have a <em>univalent</em> thin strict category — so we call these
 “posets”.</p>
-<pre class="Agda"><a id="16761" class="Keyword">open</a> <a id="16766" class="Keyword">import</a> <a id="16773" href="Cat.Thin.html" class="Module">Cat.Thin</a>            <a id="16793" class="Comment">-- Basics of thin categories</a>
-<a id="16822" class="Keyword">open</a> <a id="16827" class="Keyword">import</a> <a id="16834" href="Cat.Thin.Limits.html" class="Module">Cat.Thin.Limits</a>     <a id="16854" class="Comment">-- Limits in thin categories</a>
-<a id="16883" class="Keyword">open</a> <a id="16888" class="Keyword">import</a> <a id="16895" href="Cat.Thin.Completion.html" class="Module">Cat.Thin.Completion</a> <a id="16915" class="Comment">-- Free poset on a proset</a>
+<pre class="Agda"><a id="16982" class="Keyword">open</a> <a id="16987" class="Keyword">import</a> <a id="16994" href="Cat.Thin.html" class="Module">Cat.Thin</a>            <a id="17014" class="Comment">-- Basics of thin categories</a>
+<a id="17043" class="Keyword">open</a> <a id="17048" class="Keyword">import</a> <a id="17055" href="Cat.Thin.Limits.html" class="Module">Cat.Thin.Limits</a>     <a id="17075" class="Comment">-- Limits in thin categories</a>
+<a id="17104" class="Keyword">open</a> <a id="17109" class="Keyword">import</a> <a id="17116" href="Cat.Thin.Completion.html" class="Module">Cat.Thin.Completion</a> <a id="17136" class="Comment">-- Free poset on a proset</a>
 </pre>
 <h2 id="displayed-categories"><a href="#displayed-categories" class="header-link">Displayed
 categories<span class="header-link-emoji">🔗</span></a></h2>
 <p>We also have a work-in-progress formalisation of <a href="https://www.jonmsterling.com/math/lectures/categorical-foundations.html">Foundations
 of Relative Category Theory</a>, in which the core idea is thinking of
 “categories over categories”.</p>
-<pre class="Agda"><a id="17227" class="Keyword">open</a> <a id="17232" class="Keyword">import</a> <a id="17239" href="Cat.Displayed.Base.html" class="Module">Cat.Displayed.Base</a>             <a id="17270" class="Comment">-- Displayed categories</a>
-<a id="17294" class="Keyword">open</a> <a id="17299" class="Keyword">import</a> <a id="17306" href="Cat.Displayed.Total.html" class="Module">Cat.Displayed.Total</a>            <a id="17337" class="Comment">-- Total category of a displayed category</a>
-<a id="17379" class="Keyword">open</a> <a id="17384" class="Keyword">import</a> <a id="17391" href="Cat.Displayed.Cartesian.html" class="Module">Cat.Displayed.Cartesian</a>        <a id="17422" class="Comment">-- Cartesian lifts, cartesian fibrations</a>
-<a id="17463" class="Keyword">open</a> <a id="17468" class="Keyword">import</a> <a id="17475" href="Cat.Displayed.Instances.Family.html" class="Module">Cat.Displayed.Instances.Family</a> <a id="17506" class="Comment">-- Family fibration</a>
-<a id="17526" class="Keyword">open</a> <a id="17531" class="Keyword">import</a> <a id="17538" href="Cat.Displayed.Instances.Slice.html" class="Module">Cat.Displayed.Instances.Slice</a>  <a id="17569" class="Comment">-- Canonical self-indexing</a>
+<pre class="Agda"><a id="17448" class="Keyword">open</a> <a id="17453" class="Keyword">import</a> <a id="17460" href="Cat.Displayed.Base.html" class="Module">Cat.Displayed.Base</a>       <a id="17485" class="Comment">-- Displayed categories</a>
+<a id="17509" class="Keyword">open</a> <a id="17514" class="Keyword">import</a> <a id="17521" href="Cat.Displayed.Total.html" class="Module">Cat.Displayed.Total</a>      <a id="17546" class="Comment">-- Total category of a displayed category</a>
+<a id="17588" class="Keyword">open</a> <a id="17593" class="Keyword">import</a> <a id="17600" href="Cat.Displayed.Fibre.html" class="Module">Cat.Displayed.Fibre</a>      <a id="17625" class="Comment">-- Fibre categories of a displayed category</a>
+<a id="17669" class="Keyword">open</a> <a id="17674" class="Keyword">import</a> <a id="17681" href="Cat.Displayed.Cartesian.html" class="Module">Cat.Displayed.Cartesian</a>  <a id="17706" class="Comment">-- Cartesian lifts, cartesian fibrations</a>
+<a id="17747" class="Keyword">open</a> <a id="17752" class="Keyword">import</a> <a id="17759" href="Cat.Displayed.Univalence.html" class="Module">Cat.Displayed.Univalence</a> <a id="17784" class="Comment">-- Univalence for displayed categories</a>
+
+<a id="17824" class="Keyword">open</a> <a id="17829" class="Keyword">import</a> <a id="17836" href="Cat.Displayed.Reasoning.html" class="Module">Cat.Displayed.Reasoning</a>
+  <a id="17862" class="Comment">-- Reasoning combinators for displayed categories</a>
+
+<a id="17913" class="Keyword">open</a> <a id="17918" class="Keyword">import</a> <a id="17925" href="Cat.Displayed.Instances.Slice.html" class="Module">Cat.Displayed.Instances.Slice</a>    <a id="17958" class="Comment">-- Canonical self-indexing</a>
+<a id="17985" class="Keyword">open</a> <a id="17990" class="Keyword">import</a> <a id="17997" href="Cat.Displayed.Instances.Family.html" class="Module">Cat.Displayed.Instances.Family</a>   <a id="18030" class="Comment">-- Family fibration</a>
+<a id="18050" class="Keyword">open</a> <a id="18055" class="Keyword">import</a> <a id="18062" href="Cat.Displayed.Instances.Pullback.html" class="Module">Cat.Displayed.Instances.Pullback</a>
+  <a id="18097" class="Comment">-- Pullback of a displayed category by a functor</a>
+</pre>
+<h2 id="bicategories"><a href="#bicategories" class="header-link">Bicategories<span class="header-link-emoji">🔗</span></a></h2>
+<p>The modules under <code>Cat.Bi</code> are very much
+work-in-progress.</p>
+<pre class="Agda"><a id="18236" class="Keyword">open</a> <a id="18241" class="Keyword">import</a> <a id="18248" href="Cat.Bi.Base.html" class="Module">Cat.Bi.Base</a>
+  <a id="18262" class="Comment">-- Prebicategories, lax functors, pseudofunctors, lax transformations,</a>
+  <a id="18335" class="Comment">-- pseudonatural transformations, modifications, and the bicategory of</a>
+  <a id="18408" class="Comment">-- categories.</a>
+<a id="18423" class="Keyword">open</a> <a id="18428" class="Keyword">import</a> <a id="18435" href="Cat.Bi.Instances.Spans.html" class="Module">Cat.Bi.Instances.Spans</a>
+  <a id="18460" class="Comment">-- The prebicategory of spans in a precategory with pullbacks</a>
+<a id="18522" class="Keyword">open</a> <a id="18527" class="Keyword">import</a> <a id="18534" href="Cat.Bi.Instances.Discrete.html" class="Module">Cat.Bi.Instances.Discrete</a>
+  <a id="18562" class="Comment">-- The locally discrete prebicategory associated to a precategory</a>
+</pre>
+<h3 id="diagrams-in-bicategories"><a href="#diagrams-in-bicategories" class="header-link">Diagrams
+in bicategories<span class="header-link-emoji">🔗</span></a></h3>
+<pre class="Agda"><a id="18671" class="Keyword">open</a> <a id="18676" class="Keyword">import</a> <a id="18683" href="Cat.Bi.Diagram.Monad.html" class="Module">Cat.Bi.Diagram.Monad</a>
+<a id="18704" class="Keyword">open</a> <a id="18709" class="Keyword">import</a> <a id="18716" href="Cat.Bi.Diagram.Adjunction.html" class="Module">Cat.Bi.Diagram.Adjunction</a>
+</pre>
+<h2 id="homological-algebra"><a href="#homological-algebra" class="header-link">Homological
+algebra<span class="header-link-emoji">🔗</span></a></h2>
+<p>The theory of abelian categories.</p>
+<pre class="Agda"><a id="18814" class="Keyword">open</a> <a id="18819" class="Keyword">import</a> <a id="18826" href="Cat.Abelian.Base.html" class="Module">Cat.Abelian.Base</a>
+<a id="18843" class="Keyword">open</a> <a id="18848" class="Keyword">import</a> <a id="18855" href="Cat.Abelian.Images.html" class="Module">Cat.Abelian.Images</a>
+<a id="18874" class="Keyword">open</a> <a id="18879" class="Keyword">import</a> <a id="18886" href="Cat.Abelian.Limits.html" class="Module">Cat.Abelian.Limits</a>
+<a id="18905" class="Keyword">open</a> <a id="18910" class="Keyword">import</a> <a id="18917" href="Cat.Abelian.Functors.html" class="Module">Cat.Abelian.Functors</a>
 </pre>
 <h1 id="topos-theory"><a href="#topos-theory" class="header-link">Topos
 theory<span class="header-link-emoji">🔗</span></a></h1>
 <p>Grothendieck topos theory developed constructively and
 predicatively.</p>
-<pre class="Agda"><a id="17696" class="Keyword">open</a> <a id="17701" class="Keyword">import</a> <a id="17708" href="Topoi.Base.html" class="Module">Topoi.Base</a>       <a id="17725" class="Comment">-- Topoi, properties of topoi, geometric morphisms</a>
-<a id="17776" class="Keyword">open</a> <a id="17781" class="Keyword">import</a> <a id="17788" href="Topoi.Reasoning.html" class="Module">Topoi.Reasoning</a>  <a id="17805" class="Comment">-- Exactness properties of topoi (cont&#39;d), reasoning</a>
-<a id="17858" class="Keyword">open</a> <a id="17863" class="Keyword">import</a> <a id="17870" href="Topoi.Classifying.Diaconescu.html" class="Module">Topoi.Classifying.Diaconescu</a>
-<a id="17899" class="Comment">-- ^ Presheaf topoi classify flat functors on their site</a>
+<pre class="Agda"><a id="19038" class="Keyword">open</a> <a id="19043" class="Keyword">import</a> <a id="19050" href="Topoi.Base.html" class="Module">Topoi.Base</a>       <a id="19067" class="Comment">-- Topoi, properties of topoi, geometric morphisms</a>
+<a id="19118" class="Keyword">open</a> <a id="19123" class="Keyword">import</a> <a id="19130" href="Topoi.Reasoning.html" class="Module">Topoi.Reasoning</a>  <a id="19147" class="Comment">-- Exactness properties of topoi (cont&#39;d), reasoning</a>
+<a id="19200" class="Keyword">open</a> <a id="19205" class="Keyword">import</a> <a id="19212" href="Topoi.Classifying.Diaconescu.html" class="Module">Topoi.Classifying.Diaconescu</a>
+<a id="19241" class="Comment">-- ^ Presheaf topoi classify flat functors on their site</a>
 </pre>
 <h1 id="algebra"><a href="#algebra" class="header-link">Algebra<span class="header-link-emoji">🔗</span></a></h1>
 <p>In the <code>Algebra</code> namespace, the theory of universal
@@ -503,23 +549,36 @@ algebra is developed from a univalent perspective. Specifically, every
 definition of an algebraic structure comes with an associated proof that
 it is univalent — concretely, identification of groups is group
 isomorphism (for instance).</p>
-<pre class="Agda"><a id="18271" class="Keyword">open</a> <a id="18276" class="Keyword">import</a> <a id="18283" href="Algebra.Magma.html" class="Module">Algebra.Magma</a>                      <a id="18318" class="Comment">-- Binary operations</a>
-<a id="18339" class="Keyword">open</a> <a id="18344" class="Keyword">import</a> <a id="18351" href="Algebra.Magma.Unital.html" class="Module">Algebra.Magma.Unital</a>               <a id="18386" class="Comment">-- Operations with two-sided units</a>
-<a id="18421" class="Keyword">open</a> <a id="18426" class="Keyword">import</a> <a id="18433" href="Algebra.Magma.Unital.EckmannHilton.html" class="Module">Algebra.Magma.Unital.EckmannHilton</a> <a id="18468" class="Comment">-- The Eckmann-Hilton argument</a>
+<pre class="Agda"><a id="19613" class="Keyword">open</a> <a id="19618" class="Keyword">import</a> <a id="19625" href="Algebra.Magma.html" class="Module">Algebra.Magma</a>                      <a id="19660" class="Comment">-- Binary operations</a>
+<a id="19681" class="Keyword">open</a> <a id="19686" class="Keyword">import</a> <a id="19693" href="Algebra.Magma.Unital.html" class="Module">Algebra.Magma.Unital</a>               <a id="19728" class="Comment">-- Operations with two-sided units</a>
+<a id="19763" class="Keyword">open</a> <a id="19768" class="Keyword">import</a> <a id="19775" href="Algebra.Magma.Unital.EckmannHilton.html" class="Module">Algebra.Magma.Unital.EckmannHilton</a> <a id="19810" class="Comment">-- The Eckmann-Hilton argument</a>
 
-<a id="18500" class="Keyword">open</a> <a id="18505" class="Keyword">import</a> <a id="18512" href="Algebra.Semigroup.html" class="Module">Algebra.Semigroup</a>   <a id="18532" class="Comment">-- Semigroups (associative magmas)</a>
-<a id="18567" class="Keyword">open</a> <a id="18572" class="Keyword">import</a> <a id="18579" href="Algebra.Monoid.html" class="Module">Algebra.Monoid</a>      <a id="18599" class="Comment">-- Monoids as unital semigroups</a>
+<a id="19842" class="Keyword">open</a> <a id="19847" class="Keyword">import</a> <a id="19854" href="Algebra.Semigroup.html" class="Module">Algebra.Semigroup</a>   <a id="19874" class="Comment">-- Semigroups (associative magmas)</a>
 
-<a id="18632" class="Keyword">open</a> <a id="18637" class="Keyword">import</a> <a id="18644" href="Algebra.Group.html" class="Module">Algebra.Group</a>                      <a id="18679" class="Comment">-- Groups as monoids with inverses</a>
-<a id="18714" class="Keyword">open</a> <a id="18719" class="Keyword">import</a> <a id="18726" href="Algebra.Group.Free.html" class="Module">Algebra.Group.Free</a>                 <a id="18761" class="Comment">-- Free groups</a>
-<a id="18776" class="Keyword">open</a> <a id="18781" class="Keyword">import</a> <a id="18788" href="Algebra.Group.Cayley.html" class="Module">Algebra.Group.Cayley</a>               <a id="18823" class="Comment">-- Cayley&#39;s theorem</a>
-<a id="18843" class="Keyword">open</a> <a id="18848" class="Keyword">import</a> <a id="18855" href="Algebra.Group.Cat.Base.html" class="Module">Algebra.Group.Cat.Base</a>             <a id="18890" class="Comment">-- Category of groups</a>
-<a id="18912" class="Keyword">open</a> <a id="18917" class="Keyword">import</a> <a id="18924" href="Algebra.Group.Cat.FinitelyComplete.html" class="Module">Algebra.Group.Cat.FinitelyComplete</a> <a id="18959" class="Comment">-- Finite limits in Groups</a>
-<a id="18986" class="Keyword">open</a> <a id="18991" class="Keyword">import</a> <a id="18998" href="Algebra.Group.Homotopy.html" class="Module">Algebra.Group.Homotopy</a>             <a id="19033" class="Comment">-- Homotopy groups</a>
-<a id="19052" class="Keyword">open</a> <a id="19057" class="Keyword">import</a> <a id="19064" href="Algebra.Group.Subgroup.html" class="Module">Algebra.Group.Subgroup</a>             <a id="19099" class="Comment">-- Subgroups, images and kernels</a>
+<a id="19910" class="Keyword">open</a> <a id="19915" class="Keyword">import</a> <a id="19922" href="Algebra.Monoid.html" class="Module">Algebra.Monoid</a>          <a id="19946" class="Comment">-- Monoids as unital semigroups</a>
+<a id="19978" class="Keyword">open</a> <a id="19983" class="Keyword">import</a> <a id="19990" href="Algebra.Monoid.Category.html" class="Module">Algebra.Monoid.Category</a> <a id="20014" class="Comment">-- The category of monoids</a>
 
-<a id="19133" class="Keyword">open</a> <a id="19138" class="Keyword">import</a> <a id="19145" href="Algebra.Group.Ab.html" class="Module">Algebra.Group.Ab</a> <a id="19162" class="Comment">-- Abelian groups, and the category Ab</a>
-<a id="19201" class="Keyword">open</a> <a id="19206" class="Keyword">import</a> <a id="19213" href="Algebra.Group.Ab.Free.html" class="Module">Algebra.Group.Ab.Free</a> <a id="19235" class="Comment">-- The free abelian group on a group</a>
+<a id="20042" class="Keyword">open</a> <a id="20047" class="Keyword">import</a> <a id="20054" href="Algebra.Lattice.html" class="Module">Algebra.Lattice</a>     <a id="20074" class="Comment">-- Lattices</a>
+<a id="20086" class="Keyword">open</a> <a id="20091" class="Keyword">import</a> <a id="20098" href="Algebra.Semilattice.html" class="Module">Algebra.Semilattice</a> <a id="20118" class="Comment">-- Semilattices</a>
+
+<a id="20135" class="Keyword">open</a> <a id="20140" class="Keyword">import</a> <a id="20147" href="Algebra.Ring.html" class="Module">Algebra.Ring</a> <a id="20160" class="Comment">-- Rings</a>
+
+<a id="20170" class="Keyword">open</a> <a id="20175" class="Keyword">import</a> <a id="20182" href="Algebra.Group.html" class="Module">Algebra.Group</a>                      <a id="20217" class="Comment">-- Groups as monoids with inverses</a>
+<a id="20252" class="Keyword">open</a> <a id="20257" class="Keyword">import</a> <a id="20264" href="Algebra.Group.Free.html" class="Module">Algebra.Group.Free</a>                 <a id="20299" class="Comment">-- Free groups</a>
+<a id="20314" class="Keyword">open</a> <a id="20319" class="Keyword">import</a> <a id="20326" href="Algebra.Group.Action.html" class="Module">Algebra.Group.Action</a>               <a id="20361" class="Comment">-- Group actions</a>
+<a id="20378" class="Keyword">open</a> <a id="20383" class="Keyword">import</a> <a id="20390" href="Algebra.Group.Cayley.html" class="Module">Algebra.Group.Cayley</a>               <a id="20425" class="Comment">-- Cayley&#39;s theorem</a>
+<a id="20445" class="Keyword">open</a> <a id="20450" class="Keyword">import</a> <a id="20457" href="Algebra.Group.Cat.Base.html" class="Module">Algebra.Group.Cat.Base</a>             <a id="20492" class="Comment">-- The category of groups</a>
+<a id="20518" class="Keyword">open</a> <a id="20523" class="Keyword">import</a> <a id="20530" href="Algebra.Group.Cat.Monadic.html" class="Module">Algebra.Group.Cat.Monadic</a>          <a id="20565" class="Comment">-- ... is monadic over Sets</a>
+<a id="20593" class="Keyword">open</a> <a id="20598" class="Keyword">import</a> <a id="20605" href="Algebra.Group.Cat.FinitelyComplete.html" class="Module">Algebra.Group.Cat.FinitelyComplete</a> <a id="20640" class="Comment">-- Finite limits in Groups</a>
+<a id="20667" class="Keyword">open</a> <a id="20672" class="Keyword">import</a> <a id="20679" href="Algebra.Group.Subgroup.html" class="Module">Algebra.Group.Subgroup</a>             <a id="20714" class="Comment">-- Subgroups, images and kernels</a>
+
+<a id="20748" class="Keyword">open</a> <a id="20753" class="Keyword">import</a> <a id="20760" href="Algebra.Group.Homotopy.html" class="Module">Algebra.Group.Homotopy</a> <a id="20783" class="Comment">-- Homotopy groups</a>
+<a id="20802" class="Keyword">open</a> <a id="20807" class="Keyword">import</a> <a id="20814" href="Algebra.Group.Homotopy.BAut.html" class="Module">Algebra.Group.Homotopy.BAut</a>
+  <a id="20844" class="Comment">-- Delooping groupoids of automorphism groups</a>
+
+<a id="20891" class="Keyword">open</a> <a id="20896" class="Keyword">import</a> <a id="20903" href="Algebra.Group.Ab.html" class="Module">Algebra.Group.Ab</a>      <a id="20925" class="Comment">-- Abelian groups, and the category Ab</a>
+<a id="20964" class="Keyword">open</a> <a id="20969" class="Keyword">import</a> <a id="20976" href="Algebra.Group.Ab.Sum.html" class="Module">Algebra.Group.Ab.Sum</a>  <a id="20998" class="Comment">-- Direct sum abelian groups</a>
+<a id="21027" class="Keyword">open</a> <a id="21032" class="Keyword">import</a> <a id="21039" href="Algebra.Group.Ab.Free.html" class="Module">Algebra.Group.Ab.Free</a> <a id="21061" class="Comment">-- The free abelian group on a group</a>
 </pre>
   </article>
 </div>
