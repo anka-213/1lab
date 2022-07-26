@@ -101,7 +101,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/5705685951a13e03eb66d1841fcf3b3de8c3ed50/src/Cat/Instances/Comma/Univalent.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/9066452bff2fcfb530a1aebb81d8958b4364ede6/src/Cat/Instances/Comma/Univalent.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao</div> <br />
               </div>
     </div>
@@ -264,7 +264,7 @@ are equal (we say “equal” rather than “identified” because Hom-sets are
 sets). This follows by standard abstract nonsense: in particular,
 functors between univalent categories respect isomorphisms in a strong
 sense
-(<span class="Agda"><a href="Cat.Functor.Base.html#5618" class="Function">F-map-path</a></span>).</p>
+(<span class="Agda"><a href="Cat.Functor.Base.html#5579" class="Function">F-map-path</a></span>).</p>
 <p>This lets us reduce statements about
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>
 and
@@ -339,20 +339,20 @@ PathP
    X .Hom (₀ F (objs F G xuniv yuniv zuniv ob ob′ isom i₁ .x))
    (₀ G (objs F G xuniv yuniv zuniv ob ob′ isom i₁ .y)))
 (ob .map) (ob′ .map)" class="Function">lemma′</a> <a id="2832" class="Symbol">=</a> <a id="2834" href="1Lab.Path.html#11776" data-type="A ≡ B₁ → A → B₁" class="Function">transport</a>
-      <a id="2850" class="Symbol">(λ</a> <a id="2853" href="Cat.Instances.Comma.Univalent.html#2853" class="Bound">i</a> <a id="2855" class="Symbol">→</a> <a id="2857" href="Agda.Primitive.Cubical.html#2013" class="Postulate">PathP</a> <a id="2863" class="Symbol">(λ</a> <a id="2866" href="Cat.Instances.Comma.Univalent.html#2866" class="Bound">j</a> <a id="2868" class="Symbol">→</a> <a id="2870" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">X.Hom</a> <a id="2876" class="Symbol">(</a><a id="2877" href="Cat.Functor.Base.html#5618" data-type="(F : Functor C D) (i : (C ≅ x) y) (ccat : is-category C)
+      <a id="2850" class="Symbol">(λ</a> <a id="2853" href="Cat.Instances.Comma.Univalent.html#2853" class="Bound">i</a> <a id="2855" class="Symbol">→</a> <a id="2857" href="Agda.Primitive.Cubical.html#2013" class="Postulate">PathP</a> <a id="2863" class="Symbol">(λ</a> <a id="2866" href="Cat.Instances.Comma.Univalent.html#2866" class="Bound">j</a> <a id="2868" class="Symbol">→</a> <a id="2870" href="Cat.Base.html#1436" data-type="(r : Precategory o h) → r .Ob → r .Ob → Type h" class="Function">X.Hom</a> <a id="2876" class="Symbol">(</a><a id="2877" href="Cat.Functor.Base.html#5579" data-type="(F : Functor C D) (i : (C ≅ x) y) (ccat : is-category C)
 (dcat : is-category D) →
 ap (F₀ F) (iso→path C ccat i) ≡ iso→path D dcat (F-map-iso F i)" class="Function">F-map-path</a> <a id="2888" href="Cat.Instances.Comma.Univalent.html#318" class="Bound">F</a> <a id="2890" href="Cat.Instances.Comma.Univalent.html#1534" data-type="(F : Functor Y X) (G : Functor Z X) (xuniv : is-category X)
 (yuniv : is-category Y) (zuniv : is-category Z)
 (ob ob′ : Ob (F ↓ G)) (isom : ((F ↓ G) ≅ ob) ob′) →
 (Y ≅ ob .x) (ob′ .x)" class="Function">x-is-x</a> <a id="2897" href="Cat.Instances.Comma.Univalent.html#382" class="Bound">yuniv</a> <a id="2903" href="Cat.Instances.Comma.Univalent.html#356" class="Bound">xuniv</a> <a id="2909" class="Symbol">(</a><a id="2910" href="1Lab.Path.html#2261" class="Primitive Operator">~</a> <a id="2912" href="Cat.Instances.Comma.Univalent.html#2853" class="Bound">i</a><a id="2913" class="Symbol">)</a> <a id="2915" href="Cat.Instances.Comma.Univalent.html#2866" class="Bound">j</a><a id="2916" class="Symbol">)</a>
-                                <a id="2950" class="Symbol">(</a><a id="2951" href="Cat.Functor.Base.html#5618" data-type="(F : Functor C D) (i : (C ≅ x) y) (ccat : is-category C)
+                                <a id="2950" class="Symbol">(</a><a id="2951" href="Cat.Functor.Base.html#5579" data-type="(F : Functor C D) (i : (C ≅ x) y) (ccat : is-category C)
 (dcat : is-category D) →
 ap (F₀ F) (iso→path C ccat i) ≡ iso→path D dcat (F-map-iso F i)" class="Function">F-map-path</a> <a id="2962" href="Cat.Instances.Comma.Univalent.html#336" class="Bound">G</a> <a id="2964" href="Cat.Instances.Comma.Univalent.html#1562" data-type="(F : Functor Y X) (G : Functor Z X) (xuniv : is-category X)
 (yuniv : is-category Y) (zuniv : is-category Z)
 (ob ob′ : Ob (F ↓ G)) (isom : ((F ↓ G) ≅ ob) ob′) →
 (Z ≅ ob .y) (ob′ .y)" class="Function">y-is-y</a> <a id="2971" href="Cat.Instances.Comma.Univalent.html#408" class="Bound">zuniv</a> <a id="2977" href="Cat.Instances.Comma.Univalent.html#356" class="Bound">xuniv</a> <a id="2983" class="Symbol">(</a><a id="2984" href="1Lab.Path.html#2261" class="Primitive Operator">~</a> <a id="2986" href="Cat.Instances.Comma.Univalent.html#2853" class="Bound">i</a><a id="2987" class="Symbol">)</a> <a id="2989" href="Cat.Instances.Comma.Univalent.html#2866" class="Bound">j</a><a id="2990" class="Symbol">))</a>
                    <a id="3012" class="Symbol">(</a><a id="3013" href="Cat.Instances.Comma.Univalent.html#1453" class="Bound">ob</a> <a id="3016" class="Symbol">.</a><a id="3017" href="Cat.Instances.Comma.html#1832" data-type="(r : ↓Obj F G) → Hom C (F₀ F (r .x)) (F₀ G (r .y))" class="Field">map</a><a id="3020" class="Symbol">)</a> <a id="3022" class="Symbol">(</a><a id="3023" href="Cat.Instances.Comma.Univalent.html#1464" class="Bound">ob′</a> <a id="3027" class="Symbol">.</a><a id="3028" href="Cat.Instances.Comma.html#1832" data-type="(r : ↓Obj F G) → Hom C (F₀ F (r .x)) (F₀ G (r .y))" class="Field">map</a><a id="3031" class="Symbol">))</a> <a id="3034" href="1Lab.Type.html#2481" data-type="((x : A) → B₁ x) → (x : A) → B₁ x" class="Function Operator">$</a>
-      <a id="3042" href="Cat.Univalent.html#6917" data-type="(C : Precategory o h) (isc : is-category C) →
+      <a id="3042" href="Cat.Univalent.html#6909" data-type="(C : Precategory o h) (isc : is-category C) →
 (C ∘ q .to) ((C ∘ h) (p .from)) ≡ h&#39; →
 PathP (λ i → Hom C (iso→path C isc p i) (iso→path C isc q i)) h h&#39;" class="Function">Hom-pathp-iso</a> <a id="3056" href="Cat.Instances.Comma.Univalent.html#244" class="Bound">X</a> <a id="3058" href="Cat.Instances.Comma.Univalent.html#356" class="Bound">xuniv</a> <a id="3064" href="1Lab.Type.html#2481" data-type="((x : A) → B₁ x) → (x : A) → B₁ x" class="Function Operator">$</a>
         <a id="3074" href="Cat.Reasoning.html#1581" data-type="(C : Precategory o ℓ) →
@@ -391,10 +391,10 @@ PathP (λ i → (C ≅ p i) (q i)) f g" class="Function">F↓G.≅-pathp</a> <a 
     <a id="3452" class="Symbol">(</a><a id="3453" href="Cat.Instances.Comma.html#2828" data-type="(F : Functor A C) (G : Functor B₁ C) →
 PathP (λ z → Hom A (p z .x) (x (q z))) (f .α) (g .α) →
 PathP (λ z → Hom B₁ (p z .y) (y (q z))) (f .β) (g .β) →
-PathP (λ i → ↓Hom F G (p i) (q i)) f g" class="Function">↓Hom-pathp</a> <a id="3464" class="Symbol">_</a> <a id="3466" class="Symbol">_</a> <a id="3468" class="Symbol">(</a><a id="3469" href="Cat.Univalent.html#6622" data-type="(C : Precategory o h) (isc : is-category C) →
+PathP (λ i → ↓Hom F G (p i) (q i)) f g" class="Function">↓Hom-pathp</a> <a id="3464" class="Symbol">_</a> <a id="3466" class="Symbol">_</a> <a id="3468" class="Symbol">(</a><a id="3469" href="Cat.Univalent.html#6615" data-type="(C : Precategory o h) (isc : is-category C) →
 (C ∘ q .to) h ≡ h&#39; →
 PathP (λ i → Hom C A (iso→path C isc q i)) h h&#39;" class="Function">Hom-pathp-reflr-iso</a> <a id="3489" href="Cat.Instances.Comma.Univalent.html#268" class="Bound">Y</a> <a id="3491" href="Cat.Instances.Comma.Univalent.html#382" class="Bound">yuniv</a> <a id="3497" class="Symbol">(</a><a id="3498" href="Cat.Base.html#3437" data-type="(r : Precategory o h) (f : r .Hom x y) → r ._∘_ f (r .id) ≡ f" class="Function">Y.idr</a> <a id="3504" class="Symbol">_))</a>
-                    <a id="3528" class="Symbol">(</a><a id="3529" href="Cat.Univalent.html#6622" data-type="(C : Precategory o h) (isc : is-category C) →
+                    <a id="3528" class="Symbol">(</a><a id="3529" href="Cat.Univalent.html#6615" data-type="(C : Precategory o h) (isc : is-category C) →
 (C ∘ q .to) h ≡ h&#39; →
 PathP (λ i → Hom C A (iso→path C isc q i)) h h&#39;" class="Function">Hom-pathp-reflr-iso</a> <a id="3549" href="Cat.Instances.Comma.Univalent.html#292" class="Bound">Z</a> <a id="3551" href="Cat.Instances.Comma.Univalent.html#408" class="Bound">zuniv</a> <a id="3557" class="Symbol">(</a><a id="3558" href="Cat.Base.html#3437" data-type="(r : Precategory o h) (f : r .Hom x y) → r ._∘_ f (r .id) ≡ f" class="Function">Z.idr</a> <a id="3564" class="Symbol">_)))</a>
 </pre>

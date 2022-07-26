@@ -101,7 +101,7 @@
 
               <a href="/">back to index</a> <br />
               <a href="all-pages.html">view all pages</a> <br />
-        <a href="https://github.com/plt-amy/cubical-1lab/blob/5705685951a13e03eb66d1841fcf3b3de8c3ed50/src/Cat/Displayed/Total.lagda.md">link to source</a> <br />
+        <a href="https://github.com/plt-amy/cubical-1lab/blob/9066452bff2fcfb530a1aebb81d8958b4364ede6/src/Cat/Displayed/Total.lagda.md">link to source</a> <br />
                 <hr /> <div class="author-list">Written by Amélia Liao and Reed Mullanix</div> <br />
               </div>
     </div>
@@ -187,10 +187,10 @@ bundled morphisms form an hset, and another characterizing the paths
 between morphisms.</p>
 <pre class="Agda"><a id="total-hom-is-set"></a><a id="1673" href="Cat.Displayed.Total.html#1673" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) → is-set (Total-hom E X Y)" class="Function">total-hom-is-set</a> <a id="1690" class="Symbol">:</a> <a id="1692" class="Symbol">∀</a> <a id="1694" class="Symbol">(</a><a id="1695" href="Cat.Displayed.Total.html#1695" class="Bound">X</a> <a id="1697" href="Cat.Displayed.Total.html#1697" class="Bound">Y</a> <a id="1699" class="Symbol">:</a> <a id="1701" href="Cat.Displayed.Total.html#1023" data-type="Displayed B₁ o′ ℓ′ → Type (o ⊔ o′)" class="Function">Total</a><a id="1706" class="Symbol">)</a> <a id="1708" class="Symbol">→</a> <a id="1710" href="1Lab.HLevel.html#3356" data-type="Type ℓ → Type ℓ" class="Function">is-set</a> <a id="1717" class="Symbol">(</a><a id="1718" href="Cat.Displayed.Total.html#1236" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) → Type (ℓ ⊔ ℓ′)" class="Record">Total-hom</a> <a id="1728" href="Cat.Displayed.Total.html#1695" class="Bound">X</a> <a id="1730" href="Cat.Displayed.Total.html#1697" class="Bound">Y</a><a id="1731" class="Symbol">)</a>
 <a id="1733" href="Cat.Displayed.Total.html#1673" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) → is-set (Total-hom E X Y)" class="Function">total-hom-is-set</a> <a id="1750" href="Cat.Displayed.Total.html#1750" class="Bound">X</a> <a id="1752" href="Cat.Displayed.Total.html#1752" class="Bound">Y</a> <a id="1754" class="Symbol">=</a>
-  <a id="1758" href="1Lab.HLevel.Retracts.html#4220" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="1769" class="Number">2</a> <a id="1771" class="Symbol">(</a><a id="1772" href="1Lab.Equiv.html#20161" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="1782" href="Cat.Displayed.Total.html#1451" data-type="(E : Displayed B₁ o′ ℓ′) →
+  <a id="1758" href="1Lab.HLevel.Retracts.html#4220" data-type="(n : Nat) → A ≃ B₁ → is-hlevel A n → is-hlevel B₁ n" class="Function">is-hlevel≃</a> <a id="1769" class="Number">2</a> <a id="1771" class="Symbol">(</a><a id="1772" href="1Lab.Equiv.html#20503" data-type="Iso A B₁ → A ≃ B₁" class="Function">Iso→Equiv</a> <a id="1782" href="Cat.Displayed.Total.html#1451" data-type="(E : Displayed B₁ o′ ℓ′) →
 Iso (Total-hom E X Y)
 (∑ (B₁ .Hom (fst X) (fst Y))
- (λ hom → Hom[ E ] hom (snd X) (snd Y)))" class="Function">eqv</a> <a id="1786" href="1Lab.Equiv.html#21355" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="1789" class="Symbol">)</a> <a id="1791" href="Cat.Displayed.Total.html#1821" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) →
+ (λ hom → Hom[ E ] hom (snd X) (snd Y)))" class="Function">eqv</a> <a id="1786" href="1Lab.Equiv.html#21697" data-type="A ≃ B₁ → B₁ ≃ A" class="Function Operator">e⁻¹</a><a id="1789" class="Symbol">)</a> <a id="1791" href="Cat.Displayed.Total.html#1821" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) →
 is-set (Σ (λ z → E .Hom[_] z (snd X) (snd Y)))" class="Function">Total-hom′-is-set</a>
   <a id="1811" class="Keyword">where</a>
     <a id="1821" href="Cat.Displayed.Total.html#1821" data-type="(E : Displayed B₁ o′ ℓ′) (X Y : Total E) →
